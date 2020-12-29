@@ -64,7 +64,7 @@ fact transitions{
 
 
 
-run{} for exactly 2 Clients , exactly 2 Resources
+run{} for exactly 2 Clients , exactly 4 Resources
 
 
 -------------------------- 
@@ -97,15 +97,22 @@ pred Symmetry{
 
 
 
-fact fairness{
+fact fairness_SimpleAllocator{
 	all c:Clients {
 		 (eventually always (some c.alloc) )implies (always eventually  Return[c,c.alloc])
 		 (always eventually  some Resources) implies some s:Resources | (always eventually Allocate[c,s])
 	}
-	
-
 }
 
+/* The following version states a weaker fairness requirement for the  
+ clients: resources need be returned only if the entire request has  
+ been satisfied.  */                                        
+pred fairness_SimpleAllocator2{
+	all c:Clients {
+		 (eventually always (some c.alloc) )implies (always eventually (no c.unsat and Return[c,c.alloc]))
+		 (always eventually  some Resources) implies some s:Resources | (always eventually Allocate[c,s])
+	}
+}
 
 
 //check { no (Clients.unsat + Clients.alloc)  implies (no Clients.unsat and no Clients.alloc) }
