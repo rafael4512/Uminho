@@ -1,0 +1,16 @@
+---------- Aluguer - Início ---------------------
+Deve contactar as 5 mais próximas disponiveis e ver a que quer mais? Competição no início?
+
+OU
+
+O AU deve chegar à estação "instantaneamente"?
+Deve haver uma cena tipo reservar a bicicleta enquanto o AU não responde? Deve haver uma mensagem para informar que aceita e quer ver a disponibilidade? Ou deve reservar e o AI envia mensagem, se rejeita incrementa o contador?
+
+
+---------- Aluguer - Fim ---------------------
+As AE's vão mandando "preço" e o AI guarda-os, e quando o AU requisitar para parar, dá os "preços" das AE na sua APE ou contacta as AE's para dar os "preços"?
+
+Se o AU demorar muito a decidir e a AE ficar cheia, então o AI manda nova proposta de "fim de aluguer"
+
+
+

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha" edgetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+   <set name="$s" type="Resources"/>
+</node>
+
+<node shape="Hexagon" color="Gray">
+   <type name="Clients"/>
+</node>
+
+<node showlabel="no" style="Solid" shape="Inv Trapezoid" color="Green">
+   <set name="this/Available" type="Resources"/>
+</node>
+
+<node style="Dotted" shape="Inv Trapezoid" color="Red">
+   <type name="Resources"/>
+</node>
+
+</view>
+
+</alloy>

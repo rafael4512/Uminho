@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha" edgetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="allocate"/>
+   <type name="Int"/>
+   <type name="request"/>
+   <type name="return"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+   <set name="$c" type="Clients"/>
+   <set name="$s&apos;" type="Resources"/>
+</node>
+
+<node hideunconnected="no" style="Bold" shape="Hexagon" color="White">
+   <type name="Allocator"/>
+</node>
+
+<node shape="Ellipse" color="Blue">
+   <type name="Network"/>
+</node>
+
+<node showlabel="no">
+   <set name="$s" type="Resources"/>
+</node>
+
+<node showlabel="no" style="Solid" color="Gray">
+   <set name="$toSchedule" type="Clients"/>
+</node>
+
+<node showlabel="no" style="Solid" shape="Inv Trapezoid" color="Green">
+   <set name="this/Available" type="Resources"/>
+</node>
+
+<node style="Bold" shape="Dbl Octagon" color="Yellow">
+   <type name="Queue"/>
+</node>
+
+<node style="Solid" shape="Hexagon" color="Gray">
+   <type name="Clients"/>
+</node>
+
+<node style="Solid" shape="Inv Trapezoid" color="Red">
+   <type name="Resources"/>
+</node>
+
+<node visible="no">
+   <type name="Type"/>
+</node>
+
+<edge color="Black" style="Solid" layout="no">
+   <relation name="alloc"> <type name="Allocator"/> <type name="Clients"/> <type name="Resources"/> </relation>
+   <relation name="unsat"> <type name="Allocator"/> <type name="Clients"/> <type name="Resources"/> </relation>
+</edge>
+
+<edge layout="yes">
+   <relation name="holding"> <type name="Clients"/> <type name="Resources"/> </relation>
+   <relation name="requests"> <type name="Clients"/> <type name="Resources"/> </relation>
+</edge>
+
+<edge style="inherit" visible="yes" layout="yes" attribute="no" constraint="yes">
+   <relation name="sched"> <type name="Queue"/> <type name="seq/Int"/> <type name="Clients"/> </relation>
+</edge>
+
+</view>
+
+</alloy>

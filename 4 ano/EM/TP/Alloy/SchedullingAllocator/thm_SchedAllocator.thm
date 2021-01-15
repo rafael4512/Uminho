@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha" edgetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+</node>
+
+<node shape="Hexagon" color="Gray">
+   <type name="Clients"/>
+</node>
+
+<node showlabel="no">
+   <set name="$s" type="Resources"/>
+</node>
+
+<node showlabel="no" color="Blue">
+   <set name="$allAlloc" type="Clients"/>
+</node>
+
+<node showlabel="no" style="Solid" color="Gray">
+   <set name="$toSchedule" type="Clients"/>
+</node>
+
+<node showlabel="no" style="Solid" shape="Inv Trapezoid" color="Green">
+   <set name="this/Available" type="Resources"/>
+</node>
+
+<node style="Bold" shape="Dbl Octagon" color="Yellow">
+   <type name="Queue"/>
+</node>
+
+<node style="Solid" shape="Inv Trapezoid" color="Red">
+   <type name="Resources"/>
+</node>
+
+<node visible="yes" showlabel="no" color="White">
+   <set name="$UnscheduledClients" type="Clients"/>
+</node>
+
+<edge layout="yes">
+   <relation name="unsat"> <type name="Clients"/> <type name="Resources"/> </relation>
+</edge>
+
+<edge style="inherit" visible="yes" layout="yes" attribute="no" constraint="yes">
+   <relation name="sched"> <type name="Queue"/> <type name="seq/Int"/> <type name="Clients"/> </relation>
+</edge>
+
+<edge visible="yes" layout="no">
+   <relation name="alloc"> <type name="Clients"/> <type name="Resources"/> </relation>
+</edge>
+
+</view>
+
+</alloy>

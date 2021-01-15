@@ -1,0 +1,70 @@
+
+sig Musica {
+	autor : some Artista
+}
+
+abstract  sig Entidade {}
+
+sig Artista extends Entidade {}
+
+var sig Utilizador {
+	var escuta   : lone Musica,
+	var reproduz: lone Album 
+}
+
+sig Album {
+	autor   : some Artista,
+	musicas : set Musica,
+	ordem   : Musica -> lone Musica
+}
+
+
+
+fact  inv1 {
+	all m:Musica | some a:Album |   m in a.musicas => some (m.autor &  a.autor)
+	all u:Utilizador | (one u.escuta  and  one u.reproduz ) => u.escuta in u.reproduz.musicas
+--A ordem de um álbum apenas considera músicas que pertencem ao álbum.
+      all a:Album | Musica.(a.ordem) in a.musicas and (a.ordem).Musica in a.musicas
+-- A ordem das músicas de um álbum não contém ciclos.
+	all a:Album | all m : Musica | m not in m.^(a.ordem)
+}
+
+
+
+pred criar{
+	--efect
+	some u :Utilizador'{
+		u not in Utilizador
+		u.escuta=none
+		u.reproduz=none
+	}
+	--maintain
+	reproduz'=reproduz
+	escuta'=escuta
+}
+
+
+--que caso um utilizador esteja a reproduzir um álbum, passa para música seguinte do álbum; caso contrário, para de escutar música.
+pred seguinte[u:Utilizador]{
+	 one u.reproduz => one (u.escuta).((u.reproduz).ordem) =>u.escuta' = (u.escuta).((u.reproduz).ordem)
+	
+	
+	
+	
+
+
+}
+
+pred Nop{
+	Utilizador'=Utilizador
+	reproduz'=reproduz
+	escuta'=escuta
+}
+
+fact transitions {
+
+	always (Nop or criar)
+
+}
+
+--run { } for exactly 2 Entidade, exactly 4 Musica, exactly 2 Album

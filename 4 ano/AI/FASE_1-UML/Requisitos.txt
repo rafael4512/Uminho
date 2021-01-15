@@ -1,0 +1,5 @@
+-Conheçam os principais conceitos da computação baseada em Agentes;
+-Identifiquem e caracterizem diferentes áreas de aplicação;
+-Concebam uma arquitetura distribuída baseada em agentes para um dado problema;
+-Desenvolver soluções, nas mais diversas áreas de aplicação, usando uma metodologia de resolução de
+problemas orientada ao agente.
