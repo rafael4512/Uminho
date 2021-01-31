@@ -1,0 +1,498 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Voluntario</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Voluntario (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Voluntario</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (42/ 42)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (204/ 204)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.io.Serializable;
+<i>2</i>&nbsp;import java.time.LocalDate;
+<i>3</i>&nbsp;import java.time.LocalDateTime;
+<i>4</i>&nbsp;import java.util.*;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class Voluntario extends UtilizadorSistema implements Serializable {
+<i>7</i>&nbsp;    private boolean disponivel;
+<i>8</i>&nbsp;    private boolean transporteMedico;
+<i>9</i>&nbsp;    private int velocidade;
+<i>10</i>&nbsp;    private int minutosDeEspera;
+<i>11</i>&nbsp;    private LocalDate horaDeRegisto;
+<i>12</i>&nbsp;    private double raio_acao;
+<i>13</i>&nbsp;    private double classificacao;
+<i>14</i>&nbsp;    private int avaliacoes;
+<i>15</i>&nbsp;    private List&lt;Encomenda&gt; historico;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    /** Construtores de classe Construtor de classe por omissão. */
+<b class="fc"><i>18</i>&nbsp;    public Voluntario(){</b>
+<b class="fc"><i>19</i>&nbsp;        this.disponivel = false;</b>
+<b class="fc"><i>20</i>&nbsp;        this.horaDeRegisto = LocalDate.now();</b>
+<b class="fc"><i>21</i>&nbsp;        this.raio_acao = 0;</b>
+<b class="fc"><i>22</i>&nbsp;        this.classificacao = 0;</b>
+<b class="fc"><i>23</i>&nbsp;        this.avaliacoes = 0;</b>
+<b class="fc"><i>24</i>&nbsp;        this.historico = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>25</i>&nbsp;        this.transporteMedico = false;</b>
+<b class="fc"><i>26</i>&nbsp;        this.velocidade = 0;</b>
+<b class="fc"><i>27</i>&nbsp;        this.minutosDeEspera = 0;</b>
+<b class="fc"><i>28</i>&nbsp;    }</b>
+<i>29</i>&nbsp;    /** Construtor de classe por clone. */
+<i>30</i>&nbsp;    public Voluntario(Voluntario a){
+<b class="fc"><i>31</i>&nbsp;        super(a);</b>
+<b class="fc"><i>32</i>&nbsp;        this.disponivel = a.getDisponibilidade();</b>
+<b class="fc"><i>33</i>&nbsp;        this.horaDeRegisto = a.getInicio_transporte();</b>
+<b class="fc"><i>34</i>&nbsp;        this.raio_acao = a.getRaio_acao();</b>
+<b class="fc"><i>35</i>&nbsp;        this.classificacao = a.getClassificacao();</b>
+<b class="fc"><i>36</i>&nbsp;        this.avaliacoes = a.getAvaliacoes();</b>
+<b class="fc"><i>37</i>&nbsp;        setHistorico(a.getHistorico());</b>
+<b class="fc"><i>38</i>&nbsp;        this.transporteMedico = a.aceitoTransporteMedicamentos();</b>
+<b class="fc"><i>39</i>&nbsp;        this.minutosDeEspera = a.getMinutosDeEspera();</b>
+<b class="fc"><i>40</i>&nbsp;        this.velocidade = a.getVelocidade();</b>
+<b class="fc"><i>41</i>&nbsp;    }</b>
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    /** Construtor parametrizado. */
+<i>44</i>&nbsp;    public Voluntario(String email, String password, String a, String b, boolean c, double d, double e, LocalDate f, double g, List&lt;Encomenda&gt; h, double classificacao,
+<i>45</i>&nbsp;                      int avaliacoes, boolean transporteMedico, int velocidade, int minutosDeEspera){
+<b class="fc"><i>46</i>&nbsp;        super(email, password, &quot;Voluntario&quot;, b, a, d, e);</b>
+<b class="fc"><i>47</i>&nbsp;        this.disponivel = c;</b>
+<b class="fc"><i>48</i>&nbsp;        this.horaDeRegisto = f;</b>
+<b class="fc"><i>49</i>&nbsp;        this.raio_acao = g;</b>
+<b class="fc"><i>50</i>&nbsp;        this.classificacao = classificacao;</b>
+<b class="fc"><i>51</i>&nbsp;        this.avaliacoes = avaliacoes;</b>
+<b class="fc"><i>52</i>&nbsp;        setHistorico(h);</b>
+<b class="fc"><i>53</i>&nbsp;        this.transporteMedico = transporteMedico;</b>
+<b class="fc"><i>54</i>&nbsp;        this.velocidade = velocidade;</b>
+<b class="fc"><i>55</i>&nbsp;        this.minutosDeEspera = minutosDeEspera;</b>
+<b class="fc"><i>56</i>&nbsp;    }</b>
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    public int getVelocidade() {
+<b class="fc"><i>59</i>&nbsp;        return velocidade;</b>
+<i>60</i>&nbsp;    }
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    public int getMinutosDeEspera() {
+<b class="fc"><i>63</i>&nbsp;        return minutosDeEspera;</b>
+<i>64</i>&nbsp;    }
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;    public boolean aceitoTransporteMedicamentos(){
+<b class="fc"><i>67</i>&nbsp;        return this.transporteMedico;</b>
+<i>68</i>&nbsp;    }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;    public void aceitaMedicamentos(boolean state){
+<b class="fc"><i>71</i>&nbsp;        this.transporteMedico = state;</b>
+<b class="fc"><i>72</i>&nbsp;    }</b>
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;    /** Métodos de obtenção de variáveis. */
+<i>75</i>&nbsp;    public String getNome(){
+<b class="fc"><i>76</i>&nbsp;      return super.getNome();</b>
+<i>77</i>&nbsp;    }
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    public double getClassificacao() {
+<b class="fc"><i>80</i>&nbsp;        return classificacao;</b>
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;    public String getCodigo(){
+<b class="fc"><i>83</i>&nbsp;      return super.getCodigo();</b>
+<i>84</i>&nbsp;    }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    public boolean getDisponibilidade(){
+<b class="fc"><i>87</i>&nbsp;        return this.disponivel;</b>
+<i>88</i>&nbsp;    }
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;    public double getLatitude(){
+<b class="fc"><i>91</i>&nbsp;        return super.getLatitude();</b>
+<i>92</i>&nbsp;    }
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;    public double getLongitude(){
+<b class="fc"><i>95</i>&nbsp;        return super.getLongitude();</b>
+<i>96</i>&nbsp;    }
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;    public double getRaio_acao(){
+<b class="fc"><i>99</i>&nbsp;        return this.raio_acao;</b>
+<i>100</i>&nbsp;    }
+<i>101</i>&nbsp;
+<i>102</i>&nbsp;    public LocalDate getInicio_transporte(){
+<b class="fc"><i>103</i>&nbsp;        return this.horaDeRegisto;</b>
+<i>104</i>&nbsp;    }
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;    public int getAvaliacoes() {
+<b class="fc"><i>107</i>&nbsp;        return this.avaliacoes;</b>
+<i>108</i>&nbsp;    }
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;    public List&lt;Encomenda&gt; getHistorico(){
+<b class="fc"><i>111</i>&nbsp;        List&lt;Encomenda&gt; res = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>112</i>&nbsp;        for(Encomenda s: this.historico) {</b>
+<b class="fc"><i>113</i>&nbsp;			res.add(s.clone());</b>
+<b class="fc"><i>114</i>&nbsp;		}</b>
+<b class="fc"><i>115</i>&nbsp;        return res;</b>
+<i>116</i>&nbsp;    }
+<i>117</i>&nbsp;
+<i>118</i>&nbsp;    public void setMinutosDeEspera(int minutosDeEspera) {
+<b class="fc"><i>119</i>&nbsp;        this.minutosDeEspera = minutosDeEspera;</b>
+<b class="fc"><i>120</i>&nbsp;    }</b>
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;    public void setVelocidade(int velocidade) {
+<b class="fc"><i>123</i>&nbsp;        this.velocidade = velocidade;</b>
+<b class="fc"><i>124</i>&nbsp;    }</b>
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;    public void setAvaliacoes(int avaliacoes) {
+<b class="fc"><i>127</i>&nbsp;        this.avaliacoes = avaliacoes;</b>
+<b class="fc"><i>128</i>&nbsp;    }</b>
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;    public void setClassificacao(double classificacao) {
+<b class="fc"><i>131</i>&nbsp;        this.classificacao = classificacao;</b>
+<b class="fc"><i>132</i>&nbsp;    }</b>
+<i>133</i>&nbsp;
+<i>134</i>&nbsp;    public void setDisponibilidade(boolean a){
+<b class="fc"><i>135</i>&nbsp;        this.disponivel = a;</b>
+<b class="fc"><i>136</i>&nbsp;    }</b>
+<i>137</i>&nbsp;
+<i>138</i>&nbsp;    public void setInicio_Transporte(LocalDate a){
+<b class="fc"><i>139</i>&nbsp;        this.horaDeRegisto = a;</b>
+<b class="fc"><i>140</i>&nbsp;    }</b>
+<i>141</i>&nbsp;
+<i>142</i>&nbsp;    public void setRaio_acao(double a){
+<b class="fc"><i>143</i>&nbsp;        this.raio_acao = a;</b>
+<b class="fc"><i>144</i>&nbsp;    }</b>
+<i>145</i>&nbsp;
+<i>146</i>&nbsp;    public void setHistorico(List&lt;Encomenda&gt; a){
+<b class="fc"><i>147</i>&nbsp;        this.historico = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>148</i>&nbsp;        for(Encomenda s: a) {</b>
+<b class="fc"><i>149</i>&nbsp;			this.historico.add(s.clone());</b>
+<b class="fc"><i>150</i>&nbsp;		}</b>
+<b class="fc"><i>151</i>&nbsp;    }</b>
+<i>152</i>&nbsp;
+<i>153</i>&nbsp;    /** Método de clonar um objeto. */
+<i>154</i>&nbsp;    public Voluntario clone(){
+<b class="fc"><i>155</i>&nbsp;        return new Voluntario(this);</b>
+<i>156</i>&nbsp;    }
+<i>157</i>&nbsp;
+<i>158</i>&nbsp;    /** Public equals. */
+<i>159</i>&nbsp;    public boolean equals(Object o){
+<b class="fc"><i>160</i>&nbsp;        if (o == this) {</b>
+<b class="fc"><i>161</i>&nbsp;			return true;</b>
+<i>162</i>&nbsp;		}
+<b class="fc"><i>163</i>&nbsp;        if (o == null || getClass() != o.getClass()) {</b>
+<b class="fc"><i>164</i>&nbsp;			return false;</b>
+<i>165</i>&nbsp;		}
+<b class="fc"><i>166</i>&nbsp;        Voluntario v = (Voluntario) o;</b>
+<b class="fc"><i>167</i>&nbsp;        return super.equals(o)</b>
+<b class="fc"><i>168</i>&nbsp;        &amp;&amp; this.disponivel ==  v.getDisponibilidade()</b>
+<b class="fc"><i>169</i>&nbsp;        &amp;&amp; this.horaDeRegisto.equals(v.getInicio_transporte())</b>
+<b class="fc"><i>170</i>&nbsp;        &amp;&amp; this.raio_acao == v.getRaio_acao()</b>
+<b class="fc"><i>171</i>&nbsp;        &amp;&amp; this.historico.equals(v.getHistorico());</b>
+<i>172</i>&nbsp;    }
+<i>173</i>&nbsp;
+<i>174</i>&nbsp;    public String toString(){
+<b class="fc"><i>175</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>176</i>&nbsp;        sb.append(super.toString());</b>
+<b class="fc"><i>177</i>&nbsp;        sb.append(&quot;Nome: &quot;);</b>
+<b class="fc"><i>178</i>&nbsp;        sb.append(getNome()).append(&quot;\n&quot;);</b>
+<b class="fc"><i>179</i>&nbsp;        sb.append(&quot;Código de voluntário: &quot;);</b>
+<b class="fc"><i>180</i>&nbsp;        sb.append(getCodigo()).append(&quot;\n&quot;);</b>
+<b class="fc"><i>181</i>&nbsp;        sb.append(&quot;Disponível: &quot;);</b>
+<b class="fc"><i>182</i>&nbsp;        sb.append(this.disponivel).append(&quot;\n&quot;);</b>
+<b class="fc"><i>183</i>&nbsp;        sb.append(&quot;Latitude: &quot;);</b>
+<b class="fc"><i>184</i>&nbsp;        sb.append(getLatitude()).append(&quot;\n&quot;);</b>
+<b class="fc"><i>185</i>&nbsp;        sb.append(&quot;Longitude: &quot;);</b>
+<b class="fc"><i>186</i>&nbsp;        sb.append(getLongitude()).append(&quot;\n&quot;);</b>
+<b class="fc"><i>187</i>&nbsp;        sb.append(&quot;Hora de registo: &quot;);</b>
+<b class="fc"><i>188</i>&nbsp;        sb.append(this.horaDeRegisto).append(&quot;\n&quot;);</b>
+<b class="fc"><i>189</i>&nbsp;        sb.append(&quot;Raio de ação: &quot;);</b>
+<b class="fc"><i>190</i>&nbsp;        sb.append(this.raio_acao).append(&quot;\n&quot;);</b>
+<b class="fc"><i>191</i>&nbsp;        sb.append(&quot;Registos de encomendas: &quot;);</b>
+<b class="fc"><i>192</i>&nbsp;        sb.append(this.historico);</b>
+<i>193</i>&nbsp;
+<b class="fc"><i>194</i>&nbsp;        return sb.toString();</b>
+<i>195</i>&nbsp;    }
+<i>196</i>&nbsp;
+<i>197</i>&nbsp;    /**
+<i>198</i>&nbsp;     * Método que atualiza a classificação.
+<i>199</i>&nbsp;     * @param classificacao
+<i>200</i>&nbsp;     */
+<i>201</i>&nbsp;    public void updateRate(Double classificacao){
+<b class="fc"><i>202</i>&nbsp;        double total = this.classificacao * this.avaliacoes + classificacao;</b>
+<b class="fc"><i>203</i>&nbsp;        this.avaliacoes++;</b>
+<b class="fc"><i>204</i>&nbsp;        this.classificacao = total / this.avaliacoes;</b>
+<b class="fc"><i>205</i>&nbsp;    }</b>
+<i>206</i>&nbsp;
+<i>207</i>&nbsp;    /**
+<i>208</i>&nbsp;     * Método que adiciona uma encomenda.
+<i>209</i>&nbsp;     * @param e
+<i>210</i>&nbsp;     */
+<i>211</i>&nbsp;    public void addEncomenda (Encomenda e){
+<b class="fc"><i>212</i>&nbsp;        this.historico.add(e.clone());</b>
+<b class="fc"><i>213</i>&nbsp;    }</b>
+<i>214</i>&nbsp;
+<i>215</i>&nbsp;    /**
+<i>216</i>&nbsp;     * Método que remove uma encomenda.
+<i>217</i>&nbsp;     * @param cod
+<i>218</i>&nbsp;     * @return
+<i>219</i>&nbsp;     */
+<i>220</i>&nbsp;    public Encomenda removeEncomenda(String cod){
+<b class="fc"><i>221</i>&nbsp;        for(Encomenda s: this.historico){</b>
+<b class="fc"><i>222</i>&nbsp;            if(cod.equals(s.getCodigo())){</b>
+<b class="fc"><i>223</i>&nbsp;                this.historico.remove(s);</b>
+<b class="fc"><i>224</i>&nbsp;                return s;</b>
+<i>225</i>&nbsp;            }
+<b class="fc"><i>226</i>&nbsp;        }</b>
+<b class="fc"><i>227</i>&nbsp;        return null;</b>
+<i>228</i>&nbsp;    }
+<i>229</i>&nbsp;
+<i>230</i>&nbsp;    /**
+<i>231</i>&nbsp;     * Método que devolve a encomenda com o código cod.
+<i>232</i>&nbsp;     * @param cod
+<i>233</i>&nbsp;     * @return
+<i>234</i>&nbsp;     */
+<i>235</i>&nbsp;    public Encomenda getEncomenda(String cod) throws EncomendaNotFoundException{
+<b class="fc"><i>236</i>&nbsp;        for(Encomenda s: this.historico){</b>
+<b class="fc"><i>237</i>&nbsp;            if(cod.equals(s.getCodigo())) {</b>
+<b class="fc"><i>238</i>&nbsp;				return s;</b>
+<i>239</i>&nbsp;			}
+<b class="fc"><i>240</i>&nbsp;        }</b>
+<b class="fc"><i>241</i>&nbsp;        throw  new EncomendaNotFoundException();</b>
+<i>242</i>&nbsp;    }
+<i>243</i>&nbsp;
+<i>244</i>&nbsp;    /**
+<i>245</i>&nbsp;     * Método que define uma encomenda como entregue.
+<i>246</i>&nbsp;     * @param enc
+<i>247</i>&nbsp;     */
+<i>248</i>&nbsp;    public void updateEncomenda(Encomenda enc){
+<b class="fc"><i>249</i>&nbsp;       List&lt;Encomenda&gt; aux = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>250</i>&nbsp;       enc.setEntregue(true);</b>
+<b class="fc"><i>251</i>&nbsp;       aux.add(enc);</b>
+<b class="fc"><i>252</i>&nbsp;       for(Encomenda e: this.historico){</b>
+<b class="fc"><i>253</i>&nbsp;           if(!e.getCodigo().equals(enc.getCodigo())){</b>
+<b class="fc"><i>254</i>&nbsp;               aux.add(e);</b>
+<i>255</i>&nbsp;           }
+<b class="fc"><i>256</i>&nbsp;       }</b>
+<b class="fc"><i>257</i>&nbsp;       setHistorico(aux);</b>
+<b class="fc"><i>258</i>&nbsp;    }</b>
+<i>259</i>&nbsp;
+<i>260</i>&nbsp;    /**
+<i>261</i>&nbsp;     * Método que define uma encomenda como levantada de uma loja.
+<i>262</i>&nbsp;     * @param enc
+<i>263</i>&nbsp;     */
+<i>264</i>&nbsp;    public void updateEncomendaLoja(Encomenda enc){
+<b class="fc"><i>265</i>&nbsp;        List&lt;Encomenda&gt; aux = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>266</i>&nbsp;        enc.setLevantada(true);</b>
+<b class="fc"><i>267</i>&nbsp;        aux.add(enc);</b>
+<b class="fc"><i>268</i>&nbsp;        for(Encomenda e: this.historico){</b>
+<b class="fc"><i>269</i>&nbsp;            if(!e.getCodigo().equals(enc.getCodigo())){</b>
+<b class="fc"><i>270</i>&nbsp;                aux.add(e);</b>
+<i>271</i>&nbsp;            }
+<b class="fc"><i>272</i>&nbsp;        }</b>
+<b class="fc"><i>273</i>&nbsp;        setHistorico(aux);</b>
+<b class="fc"><i>274</i>&nbsp;    }</b>
+<i>275</i>&nbsp;
+<i>276</i>&nbsp;    /**
+<i>277</i>&nbsp;     * Método que define uma encomenda como estando preparada.
+<i>278</i>&nbsp;     * @param enc
+<i>279</i>&nbsp;     */
+<i>280</i>&nbsp;    public void updateEncomendaPreparada(Encomenda enc){
+<b class="fc"><i>281</i>&nbsp;        List&lt;Encomenda&gt; aux = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>282</i>&nbsp;        enc.setPreparada(true);</b>
+<b class="fc"><i>283</i>&nbsp;        aux.add(enc);</b>
+<b class="fc"><i>284</i>&nbsp;        for(Encomenda e: this.historico){</b>
+<b class="fc"><i>285</i>&nbsp;            if(!e.getCodigo().equals(enc.getCodigo())){</b>
+<b class="fc"><i>286</i>&nbsp;                aux.add(e);</b>
+<i>287</i>&nbsp;            }
+<b class="fc"><i>288</i>&nbsp;        }</b>
+<b class="fc"><i>289</i>&nbsp;        setHistorico(aux);</b>
+<b class="fc"><i>290</i>&nbsp;    }</b>
+<i>291</i>&nbsp;
+<i>292</i>&nbsp;    /**
+<i>293</i>&nbsp;     * Método que devolve as encomendas ainda não entregues, mas já levantas da loja.
+<i>294</i>&nbsp;     * @return
+<i>295</i>&nbsp;     */
+<i>296</i>&nbsp;    public String getNaoEntregue(){
+<b class="fc"><i>297</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>298</i>&nbsp;        int count = 0;</b>
+<b class="fc"><i>299</i>&nbsp;        for(Encomenda s: this.historico){</b>
+<b class="fc"><i>300</i>&nbsp;            if(!s.isEntregue() &amp;&amp; s.isLevantada()){</b>
+<b class="fc"><i>301</i>&nbsp;                sb.append(s);</b>
+<b class="fc"><i>302</i>&nbsp;                count++;</b>
+<i>303</i>&nbsp;            }
+<b class="fc"><i>304</i>&nbsp;        }</b>
+<b class="fc"><i>305</i>&nbsp;        if(count == 0) {</b>
+<b class="fc"><i>306</i>&nbsp;			sb.append(&quot;0&quot;);</b>
+<i>307</i>&nbsp;		}
+<b class="fc"><i>308</i>&nbsp;        return sb.toString();</b>
+<i>309</i>&nbsp;    }
+<i>310</i>&nbsp;
+<i>311</i>&nbsp;    /**
+<i>312</i>&nbsp;     * Método que devolve as encomendas prepradas e prontas a serem levantas.
+<i>313</i>&nbsp;     * @return
+<i>314</i>&nbsp;     */
+<i>315</i>&nbsp;    public String getPreparadas(){
+<b class="fc"><i>316</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>317</i>&nbsp;        int count = 0;</b>
+<b class="fc"><i>318</i>&nbsp;        for(Encomenda s: this.historico){</b>
+<b class="fc"><i>319</i>&nbsp;            if(!s.isEntregue() &amp;&amp; !s.isLevantada() &amp;&amp; s.isPreparada()){</b>
+<b class="fc"><i>320</i>&nbsp;                sb.append(s);</b>
+<b class="fc"><i>321</i>&nbsp;                count++;</b>
+<i>322</i>&nbsp;            }
+<b class="fc"><i>323</i>&nbsp;        }</b>
+<b class="fc"><i>324</i>&nbsp;        if(count == 0) {</b>
+<b class="fc"><i>325</i>&nbsp;			sb.append(&quot;0&quot;);</b>
+<i>326</i>&nbsp;		}
+<b class="fc"><i>327</i>&nbsp;        return sb.toString();</b>
+<i>328</i>&nbsp;    }
+<i>329</i>&nbsp;
+<i>330</i>&nbsp;    /**
+<i>331</i>&nbsp;     * Método que verifica se uma encomenda existe num voluntário.
+<i>332</i>&nbsp;     * @param enc
+<i>333</i>&nbsp;     * @return
+<i>334</i>&nbsp;     */
+<i>335</i>&nbsp;
+<i>336</i>&nbsp;    public boolean existe(String enc){
+<b class="fc"><i>337</i>&nbsp;        for(Encomenda e: this.historico){</b>
+<b class="fc"><i>338</i>&nbsp;            if(e.getCodigo().equals(enc)) {</b>
+<b class="fc"><i>339</i>&nbsp;				return true;</b>
+<i>340</i>&nbsp;			}
+<b class="fc"><i>341</i>&nbsp;        }</b>
+<b class="fc"><i>342</i>&nbsp;        return false;</b>
+<i>343</i>&nbsp;    }
+<i>344</i>&nbsp;
+<i>345</i>&nbsp;    /**
+<i>346</i>&nbsp;     * Método que devolve o número de encomendas efetuadas pelo voluntário entre 2 datas.
+<i>347</i>&nbsp;     * @param d1
+<i>348</i>&nbsp;     * @param d2
+<i>349</i>&nbsp;     * @return
+<i>350</i>&nbsp;     */
+<i>351</i>&nbsp;    public String getInfoEncomendas(LocalDateTime d1, LocalDateTime d2){
+<b class="fc"><i>352</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>353</i>&nbsp;        int count = 0;</b>
+<b class="fc"><i>354</i>&nbsp;        Set&lt;String&gt; lojas = new TreeSet&lt;&gt;();</b>
+<b class="fc"><i>355</i>&nbsp;        for(Encomenda e: this.historico){</b>
+<b class="fc"><i>356</i>&nbsp;            LocalDateTime date = e.getData();</b>
+<b class="fc"><i>357</i>&nbsp;            if(date.compareTo(d1) &gt;= 0 &amp;&amp; date.compareTo(d2) &lt;= 0){</b>
+<b class="fc"><i>358</i>&nbsp;                lojas.add(e.getCodigo_loja());</b>
+<b class="fc"><i>359</i>&nbsp;                count++;</b>
+<i>360</i>&nbsp;            }
+<b class="fc"><i>361</i>&nbsp;        }</b>
+<b class="fc"><i>362</i>&nbsp;        String s1 = d1.getDayOfMonth() + &quot;/&quot; + d1.getMonthValue() + &quot;/&quot; + d1.getYear();</b>
+<b class="fc"><i>363</i>&nbsp;        String s2 = d2.getDayOfMonth() + &quot;/&quot; + d2.getMonthValue() + &quot;/&quot; + d2.getYear();</b>
+<i>364</i>&nbsp;
+<b class="fc"><i>365</i>&nbsp;        sb.append(&quot;Entre as datas &quot;).append(s1).append(&quot; e &quot;).append(s2).append(&quot; foram realizadas &quot;).append(count).append(&quot; encomendas pelo voluntário &quot;)</b>
+<b class="fc"><i>366</i>&nbsp;				.append(getNome()).append(&quot;\n&quot;);</b>
+<b class="fc"><i>367</i>&nbsp;        sb.append(&quot;Efetuou encomendas em &quot;).append(lojas.size()).append(&quot; lojas&quot;);</b>
+<b class="fc"><i>368</i>&nbsp;        return sb.toString();</b>
+<i>369</i>&nbsp;    }
+<i>370</i>&nbsp;
+<i>371</i>&nbsp;    /**
+<i>372</i>&nbsp;     * Retorna o número de encomendas por entregar.
+<i>373</i>&nbsp;     * @return
+<i>374</i>&nbsp;     */
+<i>375</i>&nbsp;
+<i>376</i>&nbsp;    public int porEntregar(){
+<b class="fc"><i>377</i>&nbsp;        int i = 0;</b>
+<b class="fc"><i>378</i>&nbsp;        for(Encomenda e: this.historico){</b>
+<b class="fc"><i>379</i>&nbsp;            if(e.isLevantada() &amp;&amp; !e.isEntregue()) {</b>
+<b class="fc"><i>380</i>&nbsp;				i++;</b>
+<i>381</i>&nbsp;			}
+<b class="fc"><i>382</i>&nbsp;        }</b>
+<b class="fc"><i>383</i>&nbsp;        return i;</b>
+<i>384</i>&nbsp;    }
+<i>385</i>&nbsp;
+<i>386</i>&nbsp;    /**
+<i>387</i>&nbsp;     * Retorna o número de encomendas por levantar.
+<i>388</i>&nbsp;     * @return
+<i>389</i>&nbsp;     */
+<i>390</i>&nbsp;    public int porLevantar(){
+<b class="fc"><i>391</i>&nbsp;        int i = 0;</b>
+<b class="fc"><i>392</i>&nbsp;        for(Encomenda e: this.historico){</b>
+<b class="fc"><i>393</i>&nbsp;            if(!e.isLevantada() &amp;&amp; e.isPreparada()) {</b>
+<b class="fc"><i>394</i>&nbsp;				i++;</b>
+<i>395</i>&nbsp;			}
+<b class="fc"><i>396</i>&nbsp;        }</b>
+<b class="fc"><i>397</i>&nbsp;        return i;</b>
+<i>398</i>&nbsp;    }
+<i>399</i>&nbsp;
+<i>400</i>&nbsp;    /**
+<i>401</i>&nbsp;     * Método que preve alguns atrasos, por causa das condições atmosféricas, e retorna, em minutos, o tempo perdido;.
+<i>402</i>&nbsp;     * @return
+<i>403</i>&nbsp;     */
+<i>404</i>&nbsp;    int calculaAtrasos(){
+<b class="fc"><i>405</i>&nbsp;        Random random = new Random();</b>
+<b class="fc"><i>406</i>&nbsp;        int clima = random.nextInt(100);</b>
+<b class="fc"><i>407</i>&nbsp;        if(clima &lt;= 75){</b>
+<b class="fc"><i>408</i>&nbsp;            return 0;</b>
+<i>409</i>&nbsp;        }
+<b class="fc"><i>410</i>&nbsp;        else if(clima &gt; 75 &amp;&amp; clima &lt;= 94){</b>
+<b class="fc"><i>411</i>&nbsp;            return 30;</b>
+<i>412</i>&nbsp;        }
+<b class="fc"><i>413</i>&nbsp;        return 60;</b>
+<i>414</i>&nbsp;    }
+<i>415</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:35</div>
+</div>
+</body>
+</html>

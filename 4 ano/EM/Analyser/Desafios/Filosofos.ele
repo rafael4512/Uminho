@@ -1,0 +1,95 @@
+// Modelo do jantar dos filósofos
+
+// As "coisas" à volta da mesa
+abstract sig Coisa {
+	prox : one Coisa
+}
+
+sig Filosofo extends Coisa {
+	// Garfos que cada filósofo tem na mão
+	var garfos : set Garfo
+}
+
+sig Garfo extends Coisa {}
+
+fact Mesa {
+	// A mesa é redonda, ou seja, as coisas formam um anel
+	all c : Coisa | Coisa in c.^prox
+	// Os garfos e os filósofos estão intercalados
+	all c : Coisa | c in Filosofo iff c.prox in Garfo
+}
+
+// Especifique os seguintes eventos
+
+// Um filosofo pode comer se já tiver os dois garfos junto a si
+// e pousa os garfos depois
+pred come [f : Filosofo] {
+	--pre condicao
+	#f.garfos =2
+	(prox.f+f.prox) in  f.garfos
+	
+	--efect
+	-- no f.garfos' and all f1:Filosofo-f | f1.garfos'=f1.garfos
+ 	garfos' = garfos - f->Garfo
+}
+
+// Um filósofo pode pegar num dos garfos que estejam
+// pousados junto a si
+pred pega [f : Filosofo] {
+	some a:Filosofo | no a.garfos' 
+
+	some x : (f.prox + prox.f) - Filosofo.garfos | garfos' = garfos + f->x
+/*	
+	no (f.prox  & Filosofo.garfos) and  f.garfos'=  f.garfos +f.prox  or no (prox.f  & Filosofo.garfos) and  f.garfos'= f.garfos + prox.f	
+	all f1:Filosofo-f | f1.garfos'=f1.garfos
+*/
+}
+
+// Para além de comer ou pegar em garfos os filósofos podem pensar
+pred pensa [f : Filosofo] {
+	garfos' = garfos
+}
+
+fact Comportamento {
+	// No inicio os garfos estão todos pousados
+	no garfos
+	// Depois os filósfos só podem comer, pegar ou pensar
+	always (some f : Filosofo | come[f] or pega[f] or pensa[f])
+}
+
+// Especifique as seguintes propriedades
+
+assert GarfosNaMao {
+	// O mesmo garfo nunca pode estar na mão de dois filósofos
+	--always (all g:Garfo | lone garfos:>g )
+	always (all g:Garfo | lone garfos.g )
+}
+check GarfosNaMao for 6
+
+assert SempreQuePegaCome {
+	// Qualquer filósofo que pega num garfo vai conseguir comer
+	//all f : Filosofo | always (pega[f] implies eventually come[f])
+	always (some f:Filosofo| some f.garfos implies eventually #f.garfos =0)
+}
+check SempreQuePegaCome for 6
+
+
+pred comeEnabled [f : Filosofo] {
+	(f.prox + prox.f) in f.garfos
+}
+
+pred pegaEnabled [f : Filosofo] {
+	some (f.prox + prox.f) - Filosofo.garfos
+}
+
+assert SemBloqueio {
+	// O sistema não pode bloquear numa situação em só é possível pensar
+	//always(some a:Filosofo | no a.garfos' )
+	always (some f : Filosofo | comeEnabled[f] or pegaEnabled[f])
+}
+check SemBloqueio for 6
+
+// Especifique um cenário com 4 filósofos onde todos conseguem comer
+run Exemplo {
+all f : Filosofo | eventually come[f]
+}for exactly 3 Filosofo , exactly 3 Garfo

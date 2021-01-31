@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+Input
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: Input: 0.7978921260045354</ul>
+<ul>
+<li>32.0 fitness evaluations, 0 generations, null statements, 13 tests.
+<li>Covered null/null branches, <li>Covered null/null methods, <li>Covered 170/196 total goals
+</ul>
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content">
+<div id="post">
+<h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Input input0 = new Input();
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;;Vo&quot;);
+<span class="nocode"><a name="2">  2: </a></span>String string0 = Input.lerString();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;;Vo&quot;, string0);
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;3&quot;);
+<span class="nocode"><a name="2">  2: </a></span>int int0 = Input.lerInt();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(3, int0);
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;3&quot;);
+<span class="nocode"><a name="2">  2: </a></span>double double0 = Input.lerDouble();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(3.0, double0, 0.01);
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;9 FlKyHOOHm&quot;);
+<span class="nocode"><a name="2">  2: </a></span>float float0 = Input.lerFloat();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(9.0F, float0, 0.01F);
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;9&quot;);
+<span class="nocode"><a name="2">  2: </a></span>short short0 = Input.lerShort();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals((short)9, short0);
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Input.lerString();
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;&quot;);
+<span class="nocode"><a name="2">  2: </a></span>String string0 = Input.lerString();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;&quot;, string0);
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;.9&quot;);
+<span class="nocode"><a name="2">  2: </a></span>Input.lerBoolean();
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;$1MSj_e_;pZz=&quot;);
+<span class="nocode"><a name="2">  2: </a></span>Input.lerDouble();
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;Inteiro Invalido&quot;);
+<span class="nocode"><a name="2">  2: </a></span>Input.lerFloat();
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;BC\&quot;F+V&quot;);
+<span class="nocode"><a name="2">  2: </a></span>Input.lerInt();
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>SystemInUtil.addInputLine(&quot;[&quot;);
+<span class="nocode"><a name="2">  2: </a></span>Input.lerShort();
+</pre>
+</div><div id="post">
+<h2 class=title id=source>Source Code</h2>
+<div class=source>
+<p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>/**
+<span class="nocode"><a name="2">  2: </a></span> * Classe que abstrai a utiliza&ccedil;&atilde;o da classe Scanner, escondendo todos os
+<span class="nocode"><a name="3">  3: </a></span> * problemas relacionados com excep&ccedil;&otilde;es, e que oferece m&eacute;todos simples e
+<span class="nocode"><a name="4">  4: </a></span> * robustos para a leitura de valores de tipos simples e String.
+<span class="nocode"><a name="5">  5: </a></span> *
+<span class="nocode"><a name="6">  6: </a></span> * &Eacute; uma classe de servi&ccedil;os, como Math e outras de Java, pelo que devem ser
+<span class="nocode"><a name="7">  7: </a></span> * usados os m&eacute;todos de classe implementados.
+<span class="nocode"><a name="8">  8: </a></span> *
+<span class="nocode"><a name="9">  9: </a></span> * Utiliz&aacute;vel em BlueJ, NetBeans, CodeBlocks ou Eclipse.
+<span class="nocode"><a name="10"> 10: </a></span> *
+<span class="nocode"><a name="11"> 11: </a></span> * Utiliza&ccedil;&atilde;o t&iacute;pica:  int x = Input.lerInt();
+<span class="nocode"><a name="12"> 12: </a></span> *                     String nome = Input.lerString();
+<span class="nocode"><a name="13"> 13: </a></span> *
+<span class="nocode"><a name="14"> 14: </a></span> * @author F. M&aacute;rio Martins
+<span class="nocode"><a name="15"> 15: </a></span> * @version 1.0 (6/2006)
+<span class="nocode"><a name="16"> 16: </a></span> */
+<span class="nocode"><a name="17"> 17: </a></span>import static java.lang.System.out;
+<span class="nocode"><a name="18"> 18: </a></span>import static java.lang.System.in;
+<span class="nocode"><a name="19"> 19: </a></span>
+<span class="nocode"><a name="20"> 20: </a></span>import java.io.Serializable;
+<span class="nocode"><a name="21"> 21: </a></span>import java.util.Scanner;
+<span class="nocode"><a name="22"> 22: </a></span>import java.util.InputMismatchException;
+<span class="nocode"><a name="23"> 23: </a></span>
+<span class="nocode"><a name="24"> 24: </a></span>public class Input implements Serializable {
+<span class="nocode"><a name="25"> 25: </a></span>    /** M&eacute;todos de Classe. */
+<span class="nocode"><a name="26"> 26: </a></span>
+<span class="nocode"><a name="27"> 27: </a></span>    public static String lerString() {
+<span class="nocode"><a name="28"> 28: </a></span>        Scanner input = new Scanner(in);
+<span class="nocode"><a name="29"> 29: </a></span>        boolean ok = false;
+<span class="nocode"><a name="30"> 30: </a></span>        String txt = &quot;&quot;;
+<span class="nocode"><a name="31"> 31: </a></span>        while(!ok) {
+<span class="nocode"><a name="32"> 32: </a></span>            try {
+<span class="nocode"><a name="33"> 33: </a></span>                txt = input.nextLine();
+<span class="nocode"><a name="34"> 34: </a></span>                ok = true;
+<span class="nocode"><a name="35"> 35: </a></span>            }
+<span class="nocode"><a name="36"> 36: </a></span>            catch(InputMismatchException e)
+<span class="nocode"><a name="37"> 37: </a></span>            { out.println(&quot;Texto Invalido&quot;);
+<span class="nocode"><a name="38"> 38: </a></span>                out.print(&quot;Novo valor: &quot;);
+<span class="nocode"><a name="39"> 39: </a></span>                input.nextLine();
+<span class="nocode"><a name="40"> 40: </a></span>            }
+<span class="nocode"><a name="41"> 41: </a></span>        }
+<span class="nocode"><a name="42"> 42: </a></span>        //input.close();
+<span class="nocode"><a name="43"> 43: </a></span>        return txt;
+<span class="nocode"><a name="44"> 44: </a></span>    }
+<span class="nocode"><a name="45"> 45: </a></span>
+<span class="nocode"><a name="46"> 46: </a></span>    public static int lerInt() {
+<span class="nocode"><a name="47"> 47: </a></span>        Scanner input = new Scanner(in);
+<span class="nocode"><a name="48"> 48: </a></span>        boolean ok = false;
+<span class="nocode"><a name="49"> 49: </a></span>        int i = 0;
+<span class="nocode"><a name="50"> 50: </a></span>        while(!ok) {
+<span class="nocode"><a name="51"> 51: </a></span>            try {
+<span class="nocode"><a name="52"> 52: </a></span>                i = input.nextInt();
+<span class="nocode"><a name="53"> 53: </a></span>                ok = true;
+<span class="nocode"><a name="54"> 54: </a></span>            }
+<span class="nocode"><a name="55"> 55: </a></span>            catch(InputMismatchException e)
+<span class="nocode"><a name="56"> 56: </a></span>            { out.println(&quot;Inteiro Invalido&quot;);
+<span class="nocode"><a name="57"> 57: </a></span>                out.print(&quot;Novo valor: &quot;);
+<span class="nocode"><a name="58"> 58: </a></span>                input.nextLine();
+<span class="nocode"><a name="59"> 59: </a></span>            }
+<span class="nocode"><a name="60"> 60: </a></span>        }
+<span class="nocode"><a name="61"> 61: </a></span>        //input.close();
+<span class="nocode"><a name="62"> 62: </a></span>        return i;
+<span class="nocode"><a name="63"> 63: </a></span>    }
+<span class="nocode"><a name="64"> 64: </a></span>
+<span class="nocode"><a name="65"> 65: </a></span>    public static double lerDouble() {
+<span class="nocode"><a name="66"> 66: </a></span>        Scanner input = new Scanner(in);
+<span class="nocode"><a name="67"> 67: </a></span>        boolean ok = false;
+<span class="nocode"><a name="68"> 68: </a></span>        double d = 0.0;
+<span class="nocode"><a name="69"> 69: </a></span>        while(!ok) {
+<span class="nocode"><a name="70"> 70: </a></span>            try {
+<span class="nocode"><a name="71"> 71: </a></span>                d = input.nextDouble();
+<span class="nocode"><a name="72"> 72: </a></span>                ok = true;
+<span class="nocode"><a name="73"> 73: </a></span>            }
+<span class="nocode"><a name="74"> 74: </a></span>            catch(InputMismatchException e)
+<span class="nocode"><a name="75"> 75: </a></span>            { out.println(&quot;Valor real Invalido&quot;);
+<span class="nocode"><a name="76"> 76: </a></span>                out.print(&quot;Novo valor: &quot;);
+<span class="nocode"><a name="77"> 77: </a></span>                input.nextLine();
+<span class="nocode"><a name="78"> 78: </a></span>            }
+<span class="nocode"><a name="79"> 79: </a></span>        }
+<span class="nocode"><a name="80"> 80: </a></span>        //input.close();
+<span class="nocode"><a name="81"> 81: </a></span>        return d;
+<span class="nocode"><a name="82"> 82: </a></span>    }
+<span class="nocode"><a name="83"> 83: </a></span>
+<span class="nocode"><a name="84"> 84: </a></span>    public static float lerFloat() {
+<span class="nocode"><a name="85"> 85: </a></span>        Scanner input = new Scanner(in);
+<span class="nocode"><a name="86"> 86: </a></span>        boolean ok = false;
+<span class="nocode"><a name="87"> 87: </a></span>        float f = 0.0f;
+<span class="nocode"><a name="88"> 88: </a></span>        while(!ok) {
+<span class="nocode"><a name="89"> 89: </a></span>            try {
+<span class="nocode"><a name="90"> 90: </a></span>                f = input.nextFloat();
+<span class="nocode"><a name="91"> 91: </a></span>                ok = true;
+<span class="nocode"><a name="92"> 92: </a></span>            }
+<span class="nocode"><a name="93"> 93: </a></span>            catch(InputMismatchException e)
+<span class="nocode"><a name="94"> 94: </a></span>            { out.println(&quot;Valor real Invalido&quot;);
+<span class="nocode"><a name="95"> 95: </a></span>                out.print(&quot;Novo valor: &quot;);
+<span class="nocode"><a name="96"> 96: </a></span>                input.nextLine();
+<span class="nocode"><a name="97"> 97: </a></span>            }
+<span class="nocode"><a name="98"> 98: </a></span>        }
+<span class="nocode"><a name="99"> 99: </a></span>        //input.close();
+<span class="nocode"><a name="100">100: </a></span>        return f;
+<span class="nocode"><a name="101">101: </a></span>    }
+<span class="nocode"><a name="102">102: </a></span>
+<span class="nocode"><a name="103">103: </a></span>    public static boolean lerBoolean() {
+<span class="nocode"><a name="104">104: </a></span>        Scanner input = new Scanner(in);
+<span class="nocode"><a name="105">105: </a></span>        boolean ok = false;
+<span class="nocode"><a name="106">106: </a></span>        boolean b = false;
+<span class="nocode"><a name="107">107: </a></span>        while(!ok) {
+<span class="nocode"><a name="108">108: </a></span>            try {
+<span class="nocode"><a name="109">109: </a></span>                b = input.nextBoolean();
+<span class="nocode"><a name="110">110: </a></span>                ok = true;
+<span class="nocode"><a name="111">111: </a></span>            }
+<span class="nocode"><a name="112">112: </a></span>            catch(InputMismatchException e)
+<span class="nocode"><a name="113">113: </a></span>            { out.println(&quot;Booleano Invalido&quot;);
+<span class="nocode"><a name="114">114: </a></span>                out.print(&quot;Novo valor: &quot;);
+<span class="nocode"><a name="115">115: </a></span>                input.nextLine();
+<span class="nocode"><a name="116">116: </a></span>            }
+<span class="nocode"><a name="117">117: </a></span>        }
+<span class="nocode"><a name="118">118: </a></span>        //input.close();
+<span class="nocode"><a name="119">119: </a></span>        return b;
+<span class="nocode"><a name="120">120: </a></span>    }
+<span class="nocode"><a name="121">121: </a></span>
+<span class="nocode"><a name="122">122: </a></span>    public static short lerShort() {
+<span class="nocode"><a name="123">123: </a></span>        Scanner input = new Scanner(in);
+<span class="nocode"><a name="124">124: </a></span>        boolean ok = false;
+<span class="nocode"><a name="125">125: </a></span>        short s = 0;
+<span class="nocode"><a name="126">126: </a></span>        while(!ok) {
+<span class="nocode"><a name="127">127: </a></span>            try {
+<span class="nocode"><a name="128">128: </a></span>                s = input.nextShort();
+<span class="nocode"><a name="129">129: </a></span>                ok = true;
+<span class="nocode"><a name="130">130: </a></span>            }
+<span class="nocode"><a name="131">131: </a></span>            catch(InputMismatchException e)
+<span class="nocode"><a name="132">132: </a></span>            { out.println(&quot;Short Invalido&quot;);
+<span class="nocode"><a name="133">133: </a></span>                out.print(&quot;Novo valor: &quot;);
+<span class="nocode"><a name="134">134: </a></span>                input.nextLine();
+<span class="nocode"><a name="135">135: </a></span>            }
+<span class="nocode"><a name="136">136: </a></span>        }
+<span class="nocode"><a name="137">137: </a></span>        //input.close();
+<span class="nocode"><a name="138">138: </a></span>        return s;
+<span class="nocode"><a name="139">139: </a></span>    }
+<span class="nocode"><a name="140">140: </a></span>}
+</pre>
+</p>
+</div>
+<div id="post">
+<h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>TARGET_CLASS: Input
+<li>criterion: LINE;BRANCH;EXCEPTION;WEAKMUTATION;OUTPUT;METHOD;METHODNOEXCEPTION;CBRANCH
+<li>Coverage: 0.7978921260045354
+<li>Total_Goals: 196
+<li>Covered_Goals: 170
+</ul></div>
+</div>
+<p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

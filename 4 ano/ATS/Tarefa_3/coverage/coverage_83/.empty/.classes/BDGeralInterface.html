@@ -1,0 +1,81 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BDGeralInterface</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BDGeralInterface (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">BDGeralInterface</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.io.FileNotFoundException;
+<i>2</i>&nbsp;import java.io.IOException;
+<i>3</i>&nbsp;import java.util.Set;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public interface BDGeralInterface {
+<i>6</i>&nbsp;    BDLojas getLojas();
+<i>7</i>&nbsp;    EncomendasAceites getEncomendasAceites();
+<i>8</i>&nbsp;    BDTransportes getTransportes();
+<i>9</i>&nbsp;    BDUtilizador getUtilizadores();
+<i>10</i>&nbsp;    BDVoluntarios getVoluntarios();
+<i>11</i>&nbsp;    BDProdutos getProdutos();
+<i>12</i>&nbsp;    void setEncomendasAceites(EncomendasAceites encomendasAceites);
+<i>13</i>&nbsp;    void addVoluntario(Voluntario v);
+<i>14</i>&nbsp;    void addVoluntarioDisponivel(Voluntario v);
+<i>15</i>&nbsp;    void addUser(Utilizador u);
+<i>16</i>&nbsp;    void addTransporte(EmpresaTransportes t);
+<i>17</i>&nbsp;    void addLoja(Loja l);
+<i>18</i>&nbsp;    void addProduto(LinhaEncomenda p);
+<i>19</i>&nbsp;    void updateLoja(Encomenda e, Loja j);
+<i>20</i>&nbsp;    void updateLoja2(Encomenda e ,Loja j);
+<i>21</i>&nbsp;    void updateUser(Encomenda e, Utilizador j);
+<i>22</i>&nbsp;    void updateVoluntario(Double classificacao, Voluntario v);
+<i>23</i>&nbsp;    void updateVoluntario2(Voluntario v);
+<i>24</i>&nbsp;    void updateAceites(String cod);
+<i>25</i>&nbsp;    void updateTransportes(Double classificacao, EmpresaTransportes e);
+<i>26</i>&nbsp;    void updateTransportes2(EmpresaTransportes e);
+<i>27</i>&nbsp;    Utilizador loginUser(String email, String password) throws UserNotFoundException;
+<i>28</i>&nbsp;    Voluntario loginVoluntario(String email, String password) throws VoluntarioNotFoundException;
+<i>29</i>&nbsp;    Loja loginLoja(String email, String password) throws LojaNotFoundException;
+<i>30</i>&nbsp;    EmpresaTransportes loginEmpresa(String email, String password) throws TransporteNotFoundException;
+<i>31</i>&nbsp;    void gravarFicheiro(String filename) throws IOException, FileNotFoundException, IOException;
+<i>32</i>&nbsp;    BDGeral lerFicheiro(String filename) throws IOException, ClassNotFoundException;
+<i>33</i>&nbsp;    Set&lt;Pair&gt; top10Encomendas();
+<i>34</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:35</div>
+</div>
+</body>
+</html>

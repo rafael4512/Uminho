@@ -1,0 +1,68 @@
+/* 
+Complete o seguinte modelo de uma colónia de camaleões onde o número de 
+camaleões é fixo mas onde a cor de cada camaleão pode mudar de acordo com
+as seguintes regras: 
+- As cores possíveis são Verde, Azul e Amarelo
+- Se 2 camaleões de cores diferentes se encontram mudam ambos para a terceira cor
+- As cores só se alteram na situação acima 
+*/
+
+
+sig Camaleao {
+	var cor: one Cor
+}
+
+abstract sig Cor{}
+one sig Verde, Azul, Amarelo extends Cor {}
+
+pred nop {
+	cor'=cor
+}
+
+pred encontro[x,y : Camaleao] {
+	x.cor != y.cor
+	some (x.cor' & y.cor')
+	all c: Camaleao - (x+y) | c.cor'=c.cor
+	//or
+	//no x.cor & y.cor
+	//let new = Cor-(x+y).cor |cor' = cor ++ (x->new) ++ (y->new)
+}
+
+fact Comportamento {
+	always (nop or some x,y : Camaleao | encontro[x,y])
+}
+
+// Especifique as seguintes propriedades desta colónia
+
+assert Estabilidade {
+	// Se os camaleoes ficarem todos da mesma cor, as cores nunca mais mudam
+	//some Camaleao implies some c:Cor |    always one (Camaleao.cor & c)  since eventually one (Camaleao.cor & c)
+	always (one Camaleao.cor implies always cor' = cor)
+
+}
+
+
+check Estabilidade for 5
+
+
+assert NaoConvergencia {
+	// Se inicialmente há um camaleao verde e nenhum azul então não é possível
+	// que a colónia fique toda amarela
+--	always ( (one Camaleao.cor :> Verde) and (no Camaleao.cor :> Azul) ) implies always not (Camaleao.cor in Amarelo)
+	one cor.Verde and no cor.Azul implies always (Camaleao not in cor.Amarelo)
+
+}
+
+check NaoConvergencia for 10
+
+// Especifique um cenário onde existe um camaleao que não para de mudar de cor
+// tomando recorrentemente todas as cores possíveis
+/*
+run Exemplo {
+		some c:Camaleao | (always eventually    c.cor = Azul and always eventually    c.cor = Amarelo and always eventually    c.cor = Verde )
+} for exactly 5 Camaleao
+*/
+
+run Exemplo {
+	some c : Camaleao | all x : Cor | always eventually c.cor = x
+}for exactly 5 Camaleao

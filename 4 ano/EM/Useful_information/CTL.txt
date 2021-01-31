@@ -1,0 +1,16 @@
+CTL-----
+
+F=eventually
+G=Always.
+
+AF -Em todos os caminhos da arvore, evetualmente qq coisa
+
+EF- EM um caminho da arvore , evetualmente qq coisa
+
+AG -Em todos os caminhos da arvore, always qq coisa
+
+EG- EM um caminho da arvore , always qq coisa
+
+
+
+AU - Em todos os caminhos da arvore, Until qq coisa

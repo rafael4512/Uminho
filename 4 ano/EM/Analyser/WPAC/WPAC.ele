@@ -1,0 +1,64 @@
+sig Worker {}
+var sig Prepared in Worker{}
+var sig Committed in Prepared{}
+var sig Aborted in Worker{}
+
+
+fact init {no Prepared and no Aborted}
+
+fact transitions {
+	always (nop or some w: Worker | finish[w] or commit[w] or abort[w] )
+}
+
+pred nop{
+	Prepared'=Prepared
+	Committed'=Committed
+	Aborted'=Aborted
+}
+
+pred finish[w:Worker]{
+	w not in Prepared
+	w not in Aborted
+	Prepared'=Prepared +w
+	Committed'=Committed
+	Aborted'=Aborted
+}
+
+
+pred abort[w:Worker]{
+	w not in Aborted 
+	w in Prepared implies some Aborted --or no Aborted)--> Com esta condição do não , com 1 worker caso entrasse em Prepared podia Abortar)
+		Prepared'=Prepared - w
+		Committed'=Committed
+		Aborted'=Aborted +w
+
+}
+
+pred commit[w:Worker]{
+	 Worker in Prepared
+		Prepared'=Prepared 
+		Committed'=Committed + w
+		Aborted'=Aborted
+}
+
+
+
+
+run {some Worker} for 5 
+
+assert Consistency{
+--
+	always ( no Committed or no Aborted)
+}
+
+assert Stability{
+--Once committed a worker stays committed (same for aborted)
+	all w: Worker{
+		always (w in Committed implies always w in Committed)
+		always (w in Aborted implies always w in Aborted)		
+	}
+}
+
+
+
+check{}

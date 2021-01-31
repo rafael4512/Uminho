@@ -1,0 +1,28 @@
+sig Artigo {
+	oferta : Pessoa -> Valor
+}
+sig Valor {}
+sig Pessoa {
+	leiloes : set Artigo
+}
+
+pred inv1 {
+	// O mesmo artigo não pode ser leiloado por duas pessoas diferentes
+	all disj p1,p2:Pessoa | no(p1.leiloes &p2.leiloes)
+}
+
+
+pred inv2 {
+	// Uma pessoa não pode fazer ofertas em artigos que está a leiloar
+	
+  all p:Pessoa |all a:Artigo |   some p.(a.oferta) implies no (p.leiloes & a)  
+}
+
+
+pred inv3 {
+	// Não pode haver duas ofertas de igual valor para o mesmo artigo
+  
+	all a :Artigo|all disj p1,p2:Pessoa | no (p1.(a.oferta) & p2.(a.oferta) ) 
+  	
+  
+}

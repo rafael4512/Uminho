@@ -1,0 +1,102 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DistanceCalculator</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DistanceCalculator (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DistanceCalculator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.util.*;
+<i>2</i>&nbsp;import java.lang.*;
+<i>3</i>&nbsp;import java.io.*;
+<i>4</i>&nbsp;
+<b class="fc"><i>5</i>&nbsp;class DistanceCalculator</b>
+<i>6</i>&nbsp;{
+<i>7</i>&nbsp;    /**
+<i>8</i>&nbsp;     * Método que calcula a distãncia entre 2 pontos.
+<i>9</i>&nbsp;     * @param lat1
+<i>10</i>&nbsp;     * @param lat2
+<i>11</i>&nbsp;     * @param lon1
+<i>12</i>&nbsp;     * @param lon2
+<i>13</i>&nbsp;     * @return
+<i>14</i>&nbsp;     */
+<i>15</i>&nbsp;    public static double distance(double lat1, double lat2, double lon1, double lon2)
+<i>16</i>&nbsp;    {
+<b class="fc"><i>17</i>&nbsp;        return Math.sqrt((lon2 - lon1) * (lon2 - lon1) + (lat2 - lat1) * (lat2 - lat1));</b>
+<i>18</i>&nbsp;    }
+<i>19</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:35</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+EncomendasAceites
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: EncomendasAceites: 0.8894230769230769</ul>
+<ul>
+<li>8.0 fitness evaluations, 0 generations, null statements, 12 tests.
+<li>Covered null/null branches, <li>Covered null/null methods, <li>Covered 91/93 total goals
+</ul>
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content">
+<div id="post">
+<h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites((List&lt;String&gt;) null);
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>EncomendasAceites encomendasAceites1 = encomendasAceites0.clone();
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(encomendasAceites1.equals((Object)encomendasAceites0));
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = encomendasAceites0.toString();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;C\u00F3digos de encomendas aceites: \n\n&quot;, string0);
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = encomendasAceites0.equals((Object) null);
+<span class="nocode"><a name="3">  3: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = encomendasAceites0.equals(&quot;C\u00F3digos de encomendas aceites: \n\n&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = encomendasAceites0.equals(encomendasAceites0);
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>EncomendasAceites encomendasAceites1 = new EncomendasAceites(encomendasAceites0);
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = encomendasAceites1.equals(encomendasAceites0);
+<span class="nocode"><a name="4">  4: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>List&lt;String&gt; list0 = encomendasAceites0.getAceites();
+<span class="nocode"><a name="3">  3: </a></span>encomendasAceites0.setAceites(list0);
+<span class="nocode"><a name="4">  4: </a></span>assertTrue(list0.isEmpty());
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites((EncomendasAceites) null);
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>encomendasAceites0.setAceites((List&lt;String&gt;) null);
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>encomendasAceites0.updateAceites(&quot;lA&quot;);
+<span class="nocode"><a name="3">  3: </a></span>List&lt;String&gt; list0 = encomendasAceites0.getAceites();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(1, list0.size());
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>EncomendasAceites encomendasAceites0 = new EncomendasAceites();
+<span class="nocode"><a name="2">  2: </a></span>List&lt;String&gt; list0 = encomendasAceites0.getAceites();
+<span class="nocode"><a name="3">  3: </a></span>EncomendasAceites encomendasAceites1 = new EncomendasAceites(list0);
+<span class="nocode"><a name="4">  4: </a></span>assertTrue(encomendasAceites1.equals((Object)encomendasAceites0));
+</pre>
+</div><div id="post">
+<h2 class=title id=source>Source Code</h2>
+<div class=source>
+<p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>import java.io.Serializable;
+<span class="nocode"><a name="2">  2: </a></span>import java.util.ArrayList;
+<span class="nocode"><a name="3">  3: </a></span>import java.util.List;
+<span class="nocode"><a name="4">  4: </a></span>import java.util.stream.Collectors;
+<span class="nocode"><a name="5">  5: </a></span>
+<span class="nocode"><a name="6">  6: </a></span>public class EncomendasAceites implements Serializable {
+<span class="nocode"><a name="7">  7: </a></span>    private List&lt;String&gt; aceites;
+<span class="nocode"><a name="8">  8: </a></span>
+<span class="nocode"><a name="9">  9: </a></span>    /** Construtores. */
+<span class="nocode"><a name="10"> 10: </a></span>    public EncomendasAceites(){
+<span class="nocode"><a name="11"> 11: </a></span>        this.aceites = new ArrayList&lt;&gt;();
+<span class="nocode"><a name="12"> 12: </a></span>    }
+<span class="nocode"><a name="13"> 13: </a></span>
+<span class="nocode"><a name="14"> 14: </a></span>    public EncomendasAceites(List&lt;String&gt; encomendas){
+<span class="nocode"><a name="15"> 15: </a></span>        setAceites(encomendas);
+<span class="nocode"><a name="16"> 16: </a></span>    }
+<span class="nocode"><a name="17"> 17: </a></span>
+<span class="nocode"><a name="18"> 18: </a></span>    public EncomendasAceites(EncomendasAceites ea){
+<span class="nocode"><a name="19"> 19: </a></span>        setAceites(ea.getAceites());
+<span class="nocode"><a name="20"> 20: </a></span>    }
+<span class="nocode"><a name="21"> 21: </a></span>
+<span class="nocode"><a name="22"> 22: </a></span>    /** Getters. */
+<span class="nocode"><a name="23"> 23: </a></span>    public List&lt;String&gt; getAceites(){
+<span class="nocode"><a name="24"> 24: </a></span>        return this.aceites.stream().collect(Collectors.toList());
+<span class="nocode"><a name="25"> 25: </a></span>    }
+<span class="nocode"><a name="26"> 26: </a></span>
+<span class="nocode"><a name="27"> 27: </a></span>    /** Setters. */
+<span class="nocode"><a name="28"> 28: </a></span>    public void setAceites(List&lt;String&gt; aceites){
+<span class="nocode"><a name="29"> 29: </a></span>        this.aceites = new ArrayList&lt;&gt;();
+<span class="nocode"><a name="30"> 30: </a></span>        this.aceites.addAll(aceites);
+<span class="nocode"><a name="31"> 31: </a></span>    }
+<span class="nocode"><a name="32"> 32: </a></span>
+<span class="nocode"><a name="33"> 33: </a></span>    /** Clone. */
+<span class="nocode"><a name="34"> 34: </a></span>    public EncomendasAceites clone(){
+<span class="nocode"><a name="35"> 35: </a></span>      return new EncomendasAceites(this);
+<span class="nocode"><a name="36"> 36: </a></span>    }
+<span class="nocode"><a name="37"> 37: </a></span>
+<span class="nocode"><a name="38"> 38: </a></span>    /** Equals. */
+<span class="nocode"><a name="39"> 39: </a></span>    public boolean equals(Object o){
+<span class="nocode"><a name="40"> 40: </a></span>      if (o == null || getClass() != o.getClass()) {
+<span class="nocode"><a name="41"> 41: </a></span>		return false;
+<span class="nocode"><a name="42"> 42: </a></span>	}
+<span class="nocode"><a name="43"> 43: </a></span>      if (this == o) {
+<span class="nocode"><a name="44"> 44: </a></span>		return true;
+<span class="nocode"><a name="45"> 45: </a></span>	}
+<span class="nocode"><a name="46"> 46: </a></span>      EncomendasAceites ea = (EncomendasAceites) o;
+<span class="nocode"><a name="47"> 47: </a></span>      return this.aceites.equals(ea.getAceites());
+<span class="nocode"><a name="48"> 48: </a></span>    }
+<span class="nocode"><a name="49"> 49: </a></span>
+<span class="nocode"><a name="50"> 50: </a></span>    public String toString(){
+<span class="nocode"><a name="51"> 51: </a></span>      StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="52"> 52: </a></span>      sb.append(&quot;C&oacute;digos de encomendas aceites: &quot; + &quot;\n&quot;);
+<span class="nocode"><a name="53"> 53: </a></span>      this.aceites.forEach(s -&gt; sb.append(s).append(&quot;\n&quot;));
+<span class="nocode"><a name="54"> 54: </a></span>      sb.append(&quot;\n&quot;);
+<span class="nocode"><a name="55"> 55: </a></span>
+<span class="nocode"><a name="56"> 56: </a></span>      return sb.toString();
+<span class="nocode"><a name="57"> 57: </a></span>    }
+<span class="nocode"><a name="58"> 58: </a></span>
+<span class="nocode"><a name="59"> 59: </a></span>    /**
+<span class="nocode"><a name="60"> 60: </a></span>     * M&eacute;todo que adiciona uma nova encomenda aceite.
+<span class="nocode"><a name="61"> 61: </a></span>     * @param cod
+<span class="nocode"><a name="62"> 62: </a></span>     */
+<span class="nocode"><a name="63"> 63: </a></span>    public void updateAceites(String cod){
+<span class="nocode"><a name="64"> 64: </a></span>        this.aceites.add(cod);
+<span class="nocode"><a name="65"> 65: </a></span>    }
+<span class="nocode"><a name="66"> 66: </a></span>}
+</pre>
+</p>
+</div>
+<div id="post">
+<h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>TARGET_CLASS: EncomendasAceites
+<li>criterion: LINE;BRANCH;EXCEPTION;WEAKMUTATION;OUTPUT;METHOD;METHODNOEXCEPTION;CBRANCH
+<li>Coverage: 0.8894230769230769
+<li>Total_Goals: 93
+<li>Covered_Goals: 91
+</ul></div>
+</div>
+<p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

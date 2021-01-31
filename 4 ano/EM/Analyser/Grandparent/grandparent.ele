@@ -1,0 +1,137 @@
+var abstract sig Person {
+	var parents : set Person,
+	var spouse : lone Person
+}
+
+var sig Man extends Person {}
+var lone sig Adam extends Man {}
+
+var sig Woman extends Person {}
+var lone sig Eve extends Woman {}
+
+// Specify some of the expected invariants
+
+assert Acyclic {
+	// Nobody can be their own ancestor
+	no p:Person| p  in p.^parents
+}
+
+assert Spouses {
+	// Marriage is reciprocal
+	
+	//Verificar: //spouse.~spouse in iden 
+	all disj p1,p2:Person | p1->p2 in spouse implies p2->p1 in spouse
+}
+
+assert Parents {
+	// Everyone except Adam and Eve has one female and one male parent
+	all p:Person - (Adam +Eve) | one( p.parents & Man) and one (p.parents & Woman)
+	//all p:(Person - (Adam + Eve)) | (one p.parents :> Man) and (one p.parents :> Woman)
+}
+
+assert Legal {
+	// Nobody can have an ancestors as spouse
+	all p:Person| no (p.spouse &  p.^parents )
+
+}
+
+// Specify the following events
+
+// Reproduction	--não permite gemeos::pesar como faria?
+pred reproduce [m : Man, w : Woman] {
+	--pre condition: p in Person'  and p not in Person
+	m->w not in ^parents
+	w->m  not in ^parents
+	--efeito:
+	some p:Person' |{ 
+		p not in Person
+		Person'=Person+p
+		//p.parents' = (m +w)
+		--manter o resto inalterado
+		parents' = p->m + p->w +parents
+		spouse' = spouse
+	}
+
+}
+
+// Marriage
+pred marry [x : Person, y : Person] {
+
+-- Pré condition:
+	x!=y
+	no (x.spouse ) and no (y.spouse )
+--efeito
+	spouse'=spouse + (x->y) + (y->x)
+	parents'=parents
+	Person'=Person
+
+}
+
+pred nop {
+	Person' = Person
+	parents' = parents
+	spouse' = spouse
+}
+
+// Specify the initial state
+
+fact init {
+	no spouse
+	no parents
+	no Person -(Adam+Eve)
+}
+
+fact events {
+	always (
+		nop or
+		(some m : Man, w : Woman | reproduce[m,w]) or
+		(some x,y : Person | marry[x,y])
+	)
+}
+
+// Checking the expected invariants
+
+check Acyclic
+check Spouses
+check Parents
+check Legal
+
+// Specify a scenario where Adam and Eve marry and only afterwards have 
+// children and grandchildren
+// Configure the theme to color differently man and woman and layout
+// the geneology as a tree
+
+run Genesis {
+	always one Eve and one Adam
+ 	always (tem_filhosAE)
+	eventually always tem_netos
+}for  5 Person
+
+pred tem_filhosAE{
+ (some  parents.Adam and some  parents.Eve )  implies	 Adam->Eve in spouse  
+
+}
+
+
+pred tem_netos{
+//some p:parents.Adam  | some parents.p   
+ (some  parents.parents.Adam and some  parents.parents.Eve  ) 
+}
+
+-- eventually always   -> apartir de um certo momento vai ser sempre verdade
+-- always  eventually  -> vai aconter um padrão .
+
+
+// Find a scenario where someone ends up being their own "grandparent"
+run OwnGrandparent {
+	 always one Eve and one Adam
+	eventually avo_de_si 
+} for 4 Person
+ 
+
+pred avo_de_si{
+ //(some  parents.Adam and some  parents.Eve )  implies	 Adam->Eve in spouse  
+ some  p:Person-(Adam+ Eve)  | (Adam->p)+ (p->Adam)  in parents   
+}
+
+

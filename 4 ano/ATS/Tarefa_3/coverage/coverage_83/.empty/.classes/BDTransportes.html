@@ -1,0 +1,330 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BDTransportes</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BDTransportes (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BDTransportes</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/ 24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    99.1%
+  </span>
+  <span class="absValue">
+    (113/ 114)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.io.Serializable;
+<i>2</i>&nbsp;import java.util.*;
+<i>3</i>&nbsp;import java.util.stream.Collectors;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public class BDTransportes implements Serializable {
+<i>6</i>&nbsp;    private Map&lt;String, EmpresaTransportes&gt; transportes;
+<i>7</i>&nbsp;    private Set&lt;String&gt; codigos;
+<i>8</i>&nbsp;
+<b class="fc"><i>9</i>&nbsp;    public BDTransportes(){</b>
+<b class="fc"><i>10</i>&nbsp;        this.transportes = new HashMap&lt;&gt;();</b>
+<b class="fc"><i>11</i>&nbsp;        this.codigos = new TreeSet&lt;&gt;();</b>
+<b class="fc"><i>12</i>&nbsp;    }</b>
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;    public BDTransportes(Map&lt;String, EmpresaTransportes&gt; transporte, Set&lt;String&gt; codigos){</b>
+<b class="fc"><i>15</i>&nbsp;        setTransportes(transporte);</b>
+<b class="fc"><i>16</i>&nbsp;        setCodigos(codigos);</b>
+<b class="fc"><i>17</i>&nbsp;    }</b>
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;    public BDTransportes(BDTransportes r){</b>
+<b class="fc"><i>20</i>&nbsp;        setTransportes(r.getTransportes());</b>
+<b class="fc"><i>21</i>&nbsp;        setCodigos(r.getCodigos());</b>
+<b class="fc"><i>22</i>&nbsp;    }</b>
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    public Map&lt;String, EmpresaTransportes&gt; getTransportes() {
+<b class="fc"><i>25</i>&nbsp;        return this.transportes.entrySet().stream().collect(Collectors.toMap(r -&gt; r.getKey(), r -&gt; r.getValue().clone()));</b>
+<i>26</i>&nbsp;    }
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    public Set&lt;String&gt; getCodigos() {
+<b class="fc"><i>29</i>&nbsp;        return this.codigos.stream().collect(Collectors.toSet());</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    public void setCodigos(Set&lt;String&gt; codigos) {
+<b class="fc"><i>33</i>&nbsp;        this.codigos = new TreeSet&lt;&gt;();</b>
+<b class="fc"><i>34</i>&nbsp;        this.codigos.addAll(codigos);</b>
+<b class="fc"><i>35</i>&nbsp;    }</b>
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    public void setTransportes(Map&lt;String, EmpresaTransportes&gt; transportes) {
+<b class="fc"><i>38</i>&nbsp;        this.transportes = new HashMap&lt;&gt;();</b>
+<b class="fc"><i>39</i>&nbsp;        transportes.entrySet().forEach(e -&gt; this.transportes.put(e.getKey(), e.getValue().clone()));</b>
+<b class="fc"><i>40</i>&nbsp;    }</b>
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    public BDTransportes clone(){
+<b class="fc"><i>43</i>&nbsp;        return new BDTransportes(this);</b>
+<i>44</i>&nbsp;    }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    public String toString(){
+<b class="fc"><i>47</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>48</i>&nbsp;        sb.append(&quot;Total de Empresas de transporte: &quot; + &quot;\n&quot;);</b>
+<b class="fc"><i>49</i>&nbsp;        sb.append(this.transportes);</b>
+<i>50</i>&nbsp;
+<b class="fc"><i>51</i>&nbsp;        return sb.toString();</b>
+<i>52</i>&nbsp;    }
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    public boolean equals(Object obj){
+<b class="fc"><i>55</i>&nbsp;        if(obj == this) {</b>
+<b class="fc"><i>56</i>&nbsp;			return true;</b>
+<i>57</i>&nbsp;		}
+<b class="fc"><i>58</i>&nbsp;        if(obj == null || obj.getClass() != getClass()) {</b>
+<b class="fc"><i>59</i>&nbsp;			return false;</b>
+<i>60</i>&nbsp;		}
+<b class="fc"><i>61</i>&nbsp;        BDTransportes r = (BDTransportes) obj;</b>
+<b class="fc"><i>62</i>&nbsp;        return this.transportes.equals(r.getTransportes());</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    /**
+<i>66</i>&nbsp;     * Método que verifica se um dado email já está registado.
+<i>67</i>&nbsp;     * @param email
+<i>68</i>&nbsp;     * @return
+<i>69</i>&nbsp;     */
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    public boolean existeEmail(String email){
+<b class="fc"><i>72</i>&nbsp;        return this.transportes.containsKey(email);</b>
+<i>73</i>&nbsp;    }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;    /**
+<i>76</i>&nbsp;     * Método que verifica se uma empresa de transportes existe.
+<i>77</i>&nbsp;     * @param v
+<i>78</i>&nbsp;     * @return
+<i>79</i>&nbsp;     */
+<i>80</i>&nbsp;    public boolean existe(EmpresaTransportes v){
+<b class="fc"><i>81</i>&nbsp;        return this.transportes.containsKey(v.getEmail());</b>
+<i>82</i>&nbsp;    }
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    /**
+<i>85</i>&nbsp;     * Método que verifica se o código de uma empresa existe.
+<i>86</i>&nbsp;     * @param s
+<i>87</i>&nbsp;     * @return
+<i>88</i>&nbsp;     */
+<i>89</i>&nbsp;    public boolean existeCodigo(String s){
+<b class="fc"><i>90</i>&nbsp;        return this.codigos.contains(s);</b>
+<i>91</i>&nbsp;    }
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    /**
+<i>94</i>&nbsp;     * Método que adiciona uma empresa de transportes.
+<i>95</i>&nbsp;     * @param t
+<i>96</i>&nbsp;     */
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;    public void add(EmpresaTransportes t){
+<b class="fc"><i>99</i>&nbsp;        this.transportes.put(t.getEmail(), t.clone());</b>
+<b class="fc"><i>100</i>&nbsp;        this.codigos.add(t.getCodigo());</b>
+<b class="fc"><i>101</i>&nbsp;    }</b>
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;    /**
+<i>104</i>&nbsp;     * Método que tenta efetuar o login de uma empresa de transportes.
+<i>105</i>&nbsp;     * @param email
+<i>106</i>&nbsp;     * @param password
+<i>107</i>&nbsp;     * @return
+<i>108</i>&nbsp;     */
+<i>109</i>&nbsp;    public EmpresaTransportes tryLogin(String email, String password){
+<b class="fc"><i>110</i>&nbsp;        EmpresaTransportes aux = this.transportes.get(email);</b>
+<b class="fc"><i>111</i>&nbsp;        if(aux == null) {</b>
+<b class="fc"><i>112</i>&nbsp;			System.out.println(&quot;Não existe essa empresa de transportes&quot;);</b>
+<b class="fc"><i>113</i>&nbsp;		} else if(aux.getPassword().equals(password)){</b>
+<b class="fc"><i>114</i>&nbsp;		    System.out.println(&quot;Login feito com sucesso&quot;);</b>
+<i>115</i>&nbsp;		}
+<i>116</i>&nbsp;		else{
+<b class="fc"><i>117</i>&nbsp;		    System.out.println(&quot;Password incorreta&quot;);</b>
+<b class="fc"><i>118</i>&nbsp;		    return null;</b>
+<i>119</i>&nbsp;		}
+<b class="fc"><i>120</i>&nbsp;        return aux;</b>
+<i>121</i>&nbsp;    }
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;    /**
+<i>124</i>&nbsp;     * Método que devolve os transportes a serem impressos, bem como a sua classificação.
+<i>125</i>&nbsp;     * @return
+<i>126</i>&nbsp;     */
+<i>127</i>&nbsp;    public String printTransportes(){
+<b class="fc"><i>128</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>129</i>&nbsp;        for(String s: this.transportes.keySet()){</b>
+<b class="fc"><i>130</i>&nbsp;            sb.append(this.transportes.get(s).clone().getCodigo()).append(&quot; ---&gt; &quot;).append(this.transportes.get(s).clone().getNome()).append(&quot; || RATE --&gt; &quot;).append(this.transportes.get(s).clone().getClassificao()).append(&quot;\n&quot;);</b>
+<b class="fc"><i>131</i>&nbsp;        }</b>
+<b class="fc"><i>132</i>&nbsp;        return sb.toString();</b>
+<i>133</i>&nbsp;    }
+<i>134</i>&nbsp;
+<i>135</i>&nbsp;    /**
+<i>136</i>&nbsp;     * Método que devolve o email de uma empresa, dando lhe o seu código.
+<i>137</i>&nbsp;     * @param cod
+<i>138</i>&nbsp;     * @return
+<i>139</i>&nbsp;     * @throws TransporteNotFoundException
+<i>140</i>&nbsp;     */
+<i>141</i>&nbsp;    public String getEmail(String cod) throws TransporteNotFoundException{
+<b class="fc"><i>142</i>&nbsp;        for(String s: this.transportes.keySet()){</b>
+<b class="fc"><i>143</i>&nbsp;            if(this.transportes.get(s).clone().getCodigo().equals(cod)) {</b>
+<b class="fc"><i>144</i>&nbsp;				return this.transportes.get(s).getEmail();</b>
+<i>145</i>&nbsp;			}
+<b class="fc"><i>146</i>&nbsp;        }</b>
+<b class="fc"><i>147</i>&nbsp;        throw new TransporteNotFoundException();</b>
+<i>148</i>&nbsp;    }
+<i>149</i>&nbsp;
+<i>150</i>&nbsp;    /**
+<i>151</i>&nbsp;     * Método que atualiza a calssificação de uma empresa de transportes.
+<i>152</i>&nbsp;     * @param e
+<i>153</i>&nbsp;     * @param classificao
+<i>154</i>&nbsp;     */
+<i>155</i>&nbsp;    public void updateTransporte(EmpresaTransportes e, double classificao){
+<b class="fc"><i>156</i>&nbsp;        e.updateRate(classificao);</b>
+<b class="fc"><i>157</i>&nbsp;        this.transportes.put(e.getEmail(), e);</b>
+<b class="fc"><i>158</i>&nbsp;    }</b>
+<i>159</i>&nbsp;
+<i>160</i>&nbsp;    /**
+<i>161</i>&nbsp;     * Método que devolve as empresas de transportes disponíveis e o custo de efetuar a entrega da encomenda.
+<i>162</i>&nbsp;     * @param u
+<i>163</i>&nbsp;     * @param j
+<i>164</i>&nbsp;     * @param peso
+<i>165</i>&nbsp;     * @return
+<i>166</i>&nbsp;     */
+<i>167</i>&nbsp;    public String printEmpresas(Utilizador u, Loja j, double peso) {
+<b class="fc"><i>168</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>169</i>&nbsp;        int count = 0;</b>
+<b class="fc"><i>170</i>&nbsp;        for (String s : this.transportes.keySet()) {</b>
+<b class="fc"><i>171</i>&nbsp;            EmpresaTransportes et = this.transportes.get(s).clone();</b>
+<b class="fc"><i>172</i>&nbsp;            Double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());</b>
+<b class="fc"><i>173</i>&nbsp;            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());</b>
+<b class="fc"><i>174</i>&nbsp;            if(dist1 &lt;= et.getRaioDeAcao() &amp;&amp; dist2 &lt;= et.getRaioDeAcao() &amp;&amp; et.isDisponivel()){</b>
+<b class="fc"><i>175</i>&nbsp;                double custo = dist1 * et.getCusto_km() + dist2 *et.getCusto_km() + peso * 0.2;</b>
+<b class="fc"><i>176</i>&nbsp;                sb.append(et.getCodigo()).append(&quot; ---&gt; &quot;).append(et.getNome()).append(&quot; || RATE --&gt; &quot;).append(et.getClassificao()).append(&quot; || CUSTO: &quot;)</b>
+<b class="fc"><i>177</i>&nbsp;						.append(custo).append(&quot;\n&quot;);</b>
+<b class="fc"><i>178</i>&nbsp;                count++;</b>
+<i>179</i>&nbsp;            }
+<b class="fc"><i>180</i>&nbsp;        }</b>
+<b class="fc"><i>181</i>&nbsp;        if(count == 0) {</b>
+<b class="fc"><i>182</i>&nbsp;			sb.append(&quot;0&quot;);</b>
+<i>183</i>&nbsp;		}
+<b class="fc"><i>184</i>&nbsp;        return sb.toString();</b>
+<i>185</i>&nbsp;    }
+<i>186</i>&nbsp;
+<i>187</i>&nbsp;    public String printEmpresasMed(Utilizador u, Loja j, double peso) {
+<b class="fc"><i>188</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>189</i>&nbsp;        int count = 0;</b>
+<b class="fc"><i>190</i>&nbsp;        for (String s : this.transportes.keySet()) {</b>
+<b class="fc"><i>191</i>&nbsp;            EmpresaTransportes et = this.transportes.get(s).clone();</b>
+<b class="fc"><i>192</i>&nbsp;            Double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());</b>
+<b class="fc"><i>193</i>&nbsp;            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());</b>
+<b class="fc"><i>194</i>&nbsp;            if(dist1 &lt;= et.getRaioDeAcao() &amp;&amp; dist2 &lt;= et.getRaioDeAcao() &amp;&amp; et.aceitoTransporteMedicamentos() &amp;&amp; et.isDisponivel()){</b>
+<b class="fc"><i>195</i>&nbsp;                double custo = dist1 * et.getCusto_km() + dist2 *et.getCusto_km() + peso * 0.2;</b>
+<b class="fc"><i>196</i>&nbsp;                sb.append(et.getCodigo()).append(&quot; ---&gt; &quot;).append(et.getNome()).append(&quot; || RATE --&gt; &quot;).append(et.getClassificao()).append(&quot; || CUSTO: &quot;)</b>
+<b class="fc"><i>197</i>&nbsp;						.append(custo).append(&quot;\n&quot;);</b>
+<b class="fc"><i>198</i>&nbsp;                count++;</b>
+<i>199</i>&nbsp;            }
+<b class="fc"><i>200</i>&nbsp;        }</b>
+<b class="fc"><i>201</i>&nbsp;        if(count == 0) {</b>
+<b class="fc"><i>202</i>&nbsp;			sb.append(&quot;0&quot;);</b>
+<i>203</i>&nbsp;		}
+<b class="fc"><i>204</i>&nbsp;        return sb.toString();</b>
+<i>205</i>&nbsp;    }
+<i>206</i>&nbsp;
+<i>207</i>&nbsp;    public void updateTransportes2(EmpresaTransportes et){
+<b class="fc"><i>208</i>&nbsp;        this.transportes.put(et.getEmail(), et);</b>
+<b class="fc"><i>209</i>&nbsp;    }</b>
+<i>210</i>&nbsp;
+<i>211</i>&nbsp;    public List&lt;EmpresaTransportes&gt; transDisponiveis(Loja j, Utilizador u) {
+<b class="fc"><i>212</i>&nbsp;        List&lt;EmpresaTransportes&gt; ret = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>213</i>&nbsp;        for (String s : this.transportes.keySet()) {</b>
+<b class="fc"><i>214</i>&nbsp;            EmpresaTransportes et = this.transportes.get(s).clone();</b>
+<b class="fc"><i>215</i>&nbsp;            Double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());</b>
+<b class="fc"><i>216</i>&nbsp;            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());</b>
+<b class="fc"><i>217</i>&nbsp;            if (dist1 &lt;= et.getRaioDeAcao() &amp;&amp; dist2 &lt;= et.getRaioDeAcao() &amp;&amp; et.isDisponivel()) {</b>
+<b class="fc"><i>218</i>&nbsp;                ret.add(et.clone());</b>
+<i>219</i>&nbsp;            }
+<b class="fc"><i>220</i>&nbsp;        }</b>
+<b class="fc"><i>221</i>&nbsp;        return ret;</b>
+<i>222</i>&nbsp;    }
+<i>223</i>&nbsp;
+<i>224</i>&nbsp;    public List&lt;EmpresaTransportes&gt; transDisponiveisMedParse(Loja j , Utilizador u) {
+<b class="fc"><i>225</i>&nbsp;        List&lt;EmpresaTransportes&gt; ret = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>226</i>&nbsp;        for (String s : this.transportes.keySet()) {</b>
+<b class="fc"><i>227</i>&nbsp;            EmpresaTransportes et = this.transportes.get(s).clone();</b>
+<b class="fc"><i>228</i>&nbsp;            Double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());</b>
+<b class="fc"><i>229</i>&nbsp;            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());</b>
+<b class="fc"><i>230</i>&nbsp;            if (dist1 &lt;= et.getRaioDeAcao() &amp;&amp; dist2 &lt;= et.getRaioDeAcao() &amp;&amp; et.aceitoTransporteMedicamentos() &amp;&amp; et.isDisponivel()){</b>
+<b class="fc"><i>231</i>&nbsp;                ret.add(et.clone());</b>
+<i>232</i>&nbsp;            }
+<b class="fc"><i>233</i>&nbsp;        }</b>
+<b class="fc"><i>234</i>&nbsp;        return ret;</b>
+<i>235</i>&nbsp;    }
+<i>236</i>&nbsp;
+<i>237</i>&nbsp;    public EmpresaTransportes encontraEnc(String enc) throws EncomendaNotFoundException{
+<i>238</i>&nbsp;        EmpresaTransportes aux;
+<b class="fc"><i>239</i>&nbsp;        for(String s: this.transportes.keySet()){</b>
+<b class="fc"><i>240</i>&nbsp;            aux = this.transportes.get(s).clone();</b>
+<b class="fc"><i>241</i>&nbsp;            if(aux.existe(enc)) {</b>
+<b class="nc"><i>242</i>&nbsp;				return aux;</b>
+<i>243</i>&nbsp;			}
+<b class="fc"><i>244</i>&nbsp;        }</b>
+<b class="fc"><i>245</i>&nbsp;        throw new EncomendaNotFoundException();</b>
+<i>246</i>&nbsp;    }
+<i>247</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:35</div>
+</div>
+</body>
+</html>

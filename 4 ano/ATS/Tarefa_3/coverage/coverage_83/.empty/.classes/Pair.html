@@ -1,0 +1,157 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Pair</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Pair (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Pair</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/ 10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (26/ 26)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.io.Serializable;
+<i>2</i>&nbsp;import java.util.Objects;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;public class Pair implements Serializable {
+<i>5</i>&nbsp;    private String fst;
+<i>6</i>&nbsp;    private int snd;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;    /** Construtores para objetos da classe Pair. */
+<b class="fc"><i>9</i>&nbsp;    public Pair(){</b>
+<b class="fc"><i>10</i>&nbsp;        this.fst =  &quot;&quot;;</b>
+<b class="fc"><i>11</i>&nbsp;        this.snd =  0;</b>
+<b class="fc"><i>12</i>&nbsp;    }</b>
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;    public Pair(String fst, int snd){</b>
+<b class="fc"><i>15</i>&nbsp;        this.fst = fst;</b>
+<b class="fc"><i>16</i>&nbsp;        this.snd = snd;</b>
+<b class="fc"><i>17</i>&nbsp;    }</b>
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;    public Pair(Pair a){</b>
+<b class="fc"><i>20</i>&nbsp;        this.fst = a.getFst();</b>
+<b class="fc"><i>21</i>&nbsp;        this.snd = a.getSnd();</b>
+<b class="fc"><i>22</i>&nbsp;    }</b>
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    public String getFst(){
+<b class="fc"><i>25</i>&nbsp;        return fst;</b>
+<i>26</i>&nbsp;    }
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    public void setFst(String fst){
+<b class="fc"><i>29</i>&nbsp;        this.fst = fst;</b>
+<b class="fc"><i>30</i>&nbsp;    }</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    public int getSnd(){
+<b class="fc"><i>33</i>&nbsp;        return snd;</b>
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    public void setSecond(int snd){
+<b class="fc"><i>37</i>&nbsp;        this.snd = snd;</b>
+<b class="fc"><i>38</i>&nbsp;    }</b>
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    /**
+<i>41</i>&nbsp;     * Implementação do método de igualdade entre dois Pair.
+<i>42</i>&nbsp;     *
+<i>43</i>&nbsp;     * @param o Pair que é comparado com o recetor
+<i>44</i>&nbsp;     * @return boolean true ou false
+<i>45</i>&nbsp;     */
+<i>46</i>&nbsp;    public boolean equals(Object o){
+<b class="fc"><i>47</i>&nbsp;        if(o instanceof Pair){</b>
+<b class="fc"><i>48</i>&nbsp;            Pair p = (Pair) o;</b>
+<b class="fc"><i>49</i>&nbsp;            return Objects.equals(this.fst, p.fst) &amp;&amp; Objects.equals(snd, p.snd);</b>
+<i>50</i>&nbsp;        }
+<b class="fc"><i>51</i>&nbsp;        return false;</b>
+<i>52</i>&nbsp;    }
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    /**
+<i>55</i>&nbsp;     * Implementação do método toString para a classe Pair.
+<i>56</i>&nbsp;     *
+<i>57</i>&nbsp;     * @return String com a informação textoal do objeto Pair
+<i>58</i>&nbsp;     */
+<i>59</i>&nbsp;    public String toString(){
+<b class="fc"><i>60</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>61</i>&nbsp;        sb.append(getFst()).append(&quot; ---&gt; &quot;).append(getSnd());</b>
+<i>62</i>&nbsp;
+<b class="fc"><i>63</i>&nbsp;        return sb.toString();</b>
+<i>64</i>&nbsp;    }
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;    /**
+<i>67</i>&nbsp;     * Implementação do método de clonagem de um Pair.
+<i>68</i>&nbsp;     *
+<i>69</i>&nbsp;     * @return Objeto do tipo Pair
+<i>70</i>&nbsp;     */
+<i>71</i>&nbsp;    public Pair clone(){
+<b class="fc"><i>72</i>&nbsp;        return new Pair(this);</b>
+<i>73</i>&nbsp;    }
+<i>74</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:35</div>
+</div>
+</body>
+</html>

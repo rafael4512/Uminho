@@ -1,0 +1,153 @@
+// Algoritmo para formar uma spanning tree numa rede
+
+sig Node {
+	adj : set Node,				// Conjunto de nós vizinhos
+	var rcvd : set Node,			// Nós dos quais já processou mensagens
+	var parent : lone Node,		// O eventual pai do nó na spanning tree
+	var children : set Node,		// Os eventuais filhos do nó na spanning tree
+	var inbox : set Message		// Mensagens na inbox (nunca são apagadas)
+}
+one sig initiator extends Node {}	// O nó que inicia o protocolo
+
+// Tipos de mensagens
+abstract sig Type {}
+one sig Ping, Echo extends Type {}
+
+// Mensagens enviadas
+sig Message {
+	from : one Node,			// Nó que enviou a mensagem
+	type : one Type			// Tipo da mensagem
+}
+
+// Um nó considera-se ready quando já leu e processou mensagens de todos os seus vizinhos. 
+// A execução do protocolo termina quando todos os nós estão ready.
+fun ready : set Node {
+	{ n : Node | n.adj in n.rcvd }
+}
+
+// O grafo definido pela relação adj não tem lacetes.
+fact SemLacetes {
+
+}
+
+// O grafo definido pela relação adj é não orientado.
+fact NaoOrientado {
+
+}
+
+// O grafo definido pela relação adj é ligado.
+fact Ligado {
+
+}
+
+// Inicialmente rcvd, parent e children estão vazias 
+// e o initiator envia um Ping para todos os vizinhos
+
+fact init {
+	no rcvd
+	no parent
+	no children
+	some m:Message{
+		m.from=initiator 
+		m.type=Ping
+		all n:initiator.adj | n.inbox= m
+	}
+}
+
+
+// Um finish pode ocorrer quando um nó está ready, enviando esse nó 
+// uma mensagem do tipo Echo ao seu parent.
+
+pred finish [n : Node] {
+	n in ready
+	some m:Message{
+		m.from=n 
+		m.type=Echo
+		some n.parent => n.parent.inbox'=n.parent.inbox + m 
+	}
+
+	rcvd'=rcvd
+	parent'=parent
+	children'=children
+	all n1:Node-(n.parent) | n1.inbox'=n1.inbox
+	
+}
+
+// Um read pode ocorrer quando um nó tem uma mensagem 
+// ainda não processada na sua inbox. Se o nó não é o initiator
+// e é a primeira mensagem que processa (necessariamente um Ping) 
+// então o nó que enviou a mensagem passa a ser o seu parent
+// na spanning tree e é enviado um Ping a todos os 
+// restantes vizinhos (todos menos o novo parent). 
+// Se a mensagem recebida é um Echo então o nó que enviou 
+// a mensagem é adicionado ao conjunto dos seus children na spanning tree.
+
+pred read [n : Node] {
+	some n.inbox
+	--é um ping
+
+	(n != initiator  and no n.rcvd ) => some m:n.inbox | {
+		m.type=Ping and n.parent = m.from
+		all n1:(n.adj - m.from)| some m:Message | m.from =n and m.type=Ping and  inbox'=inbox +(n1->m) 
+		rcvd'=rcvd + n->m
+		n.children'=n.children
+	}
+	
+	(n != initiator  and some n.rcvd ) => some m:n.inbox | {
+		m.type=Echo
+		n.children'= n.children + m.from
+		inbox'=inbox
+		rcvd'=rcvd + n->m
+	}
+	n=initiator => {
+		inbox'=inbox
+		rcvd'=rcvd 
+		children'=children
+		parent'=parent
+	}
+	
+	all n2:Node -n | n2.parent'=n2.parent
+	all n2:Node -n |n2.children'=n2.children
+ }
+
+pred stutter {
+	rcvd' = rcvd
+	parent' = parent
+	children' = children
+	inbox' = inbox
+}
+
+fact transitions {
+	always (stutter or some n : Node | read[n] or finish[n])
+}
+
+assert Invariante {
+	// O initiatior nunca tem pai.
+	always (initiator.parent =none)
+	// O pai tem sempre que ser um dos vizinhos.
+	always (all n:Node-initiator | n.parent in n.adj  )
+	// Um nó só pode ser filho do seu pai.
+	always (all n:Node - initiator | n in (n.parent).children )
+	// Um nó que esteja ready tem como filhos todos os nós dos quais é pai.
+	always (all n:ready | n.children  = (Node.parent :> n))
+}
+
+assert SpanningTree {
+	// Quando todos os nós estão ready a relação children forma uma 
+	// spanning tree com raiz no initiator.
+	always (Node in ready => Node in initiator.^children)
+
+
+}
+
+-- Mostre como pode gerar um cenário onde uma rede com 4 nós dispostos num 
+ --ciclo executa o protocolo na sua totalidade e forma uma spanning tree.
+
+run {(all n :Node |#n.adj=2)  } for exactly 4 Node,  6 Message
+
+
+
+
+
+
+

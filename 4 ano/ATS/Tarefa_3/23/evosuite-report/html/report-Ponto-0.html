@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+Ponto
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: Ponto: 0.9166666666666667</ul>
+<ul>
+<li>4.0 fitness evaluations, 0 generations, null statements, 20 tests.
+<li>Covered null/null branches, <li>Covered null/null methods, <li>Covered 132/134 total goals
+</ul>
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content">
+<div id="post">
+<h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto1 = new Ponto(ponto0);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0.0F, ponto0.getY(), 0.01F);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto1 = ponto0.clone();
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = ponto0.equals(ponto1);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0F, ponto0.getY(), 0.01F);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+<span class="nocode"><a name="6">  6: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = ponto0.toString();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;(0.0, 0.0)&quot;, string0);
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto1 = new Ponto(184.155F, 3204.789F);
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = ponto0.equals(ponto1);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(184.155F, ponto1.getX(), 0.01F);
+<span class="nocode"><a name="5">  5: </a></span>assertFalse(boolean0);
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(0.0F, ponto0.getY(), 0.01F);
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(3204.789F, ponto1.getY(), 0.01F);
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = ponto0.equals(ponto0);
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(boolean0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0.0F, ponto0.getY(), 0.01F);
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = ponto0.equals((Object) null);
+<span class="nocode"><a name="3">  3: </a></span>assertFalse(boolean0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0F, ponto0.getY(), 0.01F);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>Object object0 = new Object();
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = ponto0.equals(object0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0F, ponto0.getY(), 0.01F);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+<span class="nocode"><a name="6">  6: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto1 = ponto0.clone();
+<span class="nocode"><a name="3">  3: </a></span>ponto0.setY((-2575.9954F));
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = ponto1.equals(ponto0);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals((-2575.9954F), ponto0.getY(), 0.01F);
+<span class="nocode"><a name="6">  6: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-3447.0F), (-3447.0F));
+<span class="nocode"><a name="2">  2: </a></span>float float0 = ponto0.getX();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals((-3447.0F), ponto0.getY(), 0.01F);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals((-3447.0F), float0, 0.01F);
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-3447.0F), (-3447.0F));
+<span class="nocode"><a name="2">  2: </a></span>float float0 = ponto0.getY();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals((-3447.0F), float0, 0.01F);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals((-3447.0F), ponto0.getX(), 0.01F);
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((Ponto) null);
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-3447.0F), (-3447.0F));
+<span class="nocode"><a name="2">  2: </a></span>ponto0.clone();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals((-3447.0F), ponto0.getY(), 0.01F);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals((-3447.0F), ponto0.getX(), 0.01F);
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-3447.0F), (-3447.0F));
+<span class="nocode"><a name="2">  2: </a></span>ponto0.setX(1.0F);
+<span class="nocode"><a name="3">  3: </a></span>ponto0.clone();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(1.0F, ponto0.getX(), 0.01F);
+</pre>
+<h3>Test case 14</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(0.0F, ponto0.getY(), 0.01F);
+<span class="nocode"><a name="3">  3: </a></span>
+<span class="nocode"><a name="4">  4: </a></span>ponto0.setY(1.0F);
+<span class="nocode"><a name="5">  5: </a></span>ponto0.clone();
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+</pre>
+<h3>Test case 15</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>ponto0.setX(1337.0F);
+<span class="nocode"><a name="3">  3: </a></span>float float0 = ponto0.getX();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(1337.0F, float0, 0.01F);
+</pre>
+<h3>Test case 16</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-3447.0F), (-3447.0F));
+<span class="nocode"><a name="2">  2: </a></span>ponto0.setX(0.0F);
+<span class="nocode"><a name="3">  3: </a></span>float float0 = ponto0.getX();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0F, float0, 0.01F);
+</pre>
+<h3>Test case 17</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto(0.0F, 0.0F);
+<span class="nocode"><a name="2">  2: </a></span>ponto0.setY(894.1426F);
+<span class="nocode"><a name="3">  3: </a></span>float float0 = ponto0.getY();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(894.1426F, float0, 0.01F);
+</pre>
+<h3>Test case 18</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>float float0 = ponto0.getY();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0.0F, float0, 0.01F);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+</pre>
+<h3>Test case 19</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto(0.0F, 0.0F);
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto1 = ponto0.clone();
+<span class="nocode"><a name="3">  3: </a></span>ponto0.setX((-3598.0F));
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = ponto1.equals(ponto0);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals((-3598.0F), ponto0.getX(), 0.01F);
+<span class="nocode"><a name="6">  6: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 20</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto1 = new Ponto(0.0F, 1316.8F);
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = ponto0.equals(ponto1);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0F, ponto0.getY(), 0.01F);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(1316.8F, ponto1.getY(), 0.01F);
+<span class="nocode"><a name="7">  7: </a></span>assertFalse(ponto1.equals((Object)ponto0));
+<span class="nocode"><a name="8">  8: </a></span>assertFalse(boolean0);
+<span class="nocode"><a name="9">  9: </a></span>assertEquals(0.0F, ponto1.getX(), 0.01F);
+</pre>
+</div><div id="post">
+<h2 class=title id=source>Source Code</h2>
+<div class=source>
+<p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>import java.io.Serializable;
+<span class="nocode"><a name="2">  2: </a></span>
+<span class="nocode"><a name="3">  3: </a></span>public class Ponto implements Serializable {
+<span class="nocode"><a name="4">  4: </a></span>
+<span class="nocode"><a name="5">  5: </a></span>  /* STARTING functions */
+<span class="nocode"><a name="6">  6: </a></span>
+<span class="nocode"><a name="7">  7: </a></span>  private float x;
+<span class="nocode"><a name="8">  8: </a></span>  private float y;
+<span class="nocode"><a name="9">  9: </a></span>
+<span class="nocode"><a name="10"> 10: </a></span>  public Ponto() {
+<span class="nocode"><a name="11"> 11: </a></span>    this.x = 0;
+<span class="nocode"><a name="12"> 12: </a></span>    this.y = 0;
+<span class="nocode"><a name="13"> 13: </a></span>  }
+<span class="nocode"><a name="14"> 14: </a></span>
+<span class="nocode"><a name="15"> 15: </a></span>  public Ponto(float x, float y) {
+<span class="nocode"><a name="16"> 16: </a></span>    this.x = x;
+<span class="nocode"><a name="17"> 17: </a></span>    this.y = y;
+<span class="nocode"><a name="18"> 18: </a></span>  }
+<span class="nocode"><a name="19"> 19: </a></span>
+<span class="nocode"><a name="20"> 20: </a></span>  public Ponto(Ponto p) {
+<span class="nocode"><a name="21"> 21: </a></span>    this.x = p.getX();
+<span class="nocode"><a name="22"> 22: </a></span>    this.y = p.getY();
+<span class="nocode"><a name="23"> 23: </a></span>  }
+<span class="nocode"><a name="24"> 24: </a></span>
+<span class="nocode"><a name="25"> 25: </a></span>
+<span class="nocode"><a name="26"> 26: </a></span>  /* GET functions */
+<span class="nocode"><a name="27"> 27: </a></span>
+<span class="nocode"><a name="28"> 28: </a></span>  public float getX() {
+<span class="nocode"><a name="29"> 29: </a></span>    return this.x;
+<span class="nocode"><a name="30"> 30: </a></span>  }
+<span class="nocode"><a name="31"> 31: </a></span>
+<span class="nocode"><a name="32"> 32: </a></span>  public float getY() {
+<span class="nocode"><a name="33"> 33: </a></span>    return this.y;
+<span class="nocode"><a name="34"> 34: </a></span>  }
+<span class="nocode"><a name="35"> 35: </a></span>
+<span class="nocode"><a name="36"> 36: </a></span>
+<span class="nocode"><a name="37"> 37: </a></span>  /* SET functions */
+<span class="nocode"><a name="38"> 38: </a></span>
+<span class="nocode"><a name="39"> 39: </a></span>  public void setX(float newX) {
+<span class="nocode"><a name="40"> 40: </a></span>    this.x = newX;
+<span class="nocode"><a name="41"> 41: </a></span>  }
+<span class="nocode"><a name="42"> 42: </a></span>
+<span class="nocode"><a name="43"> 43: </a></span>  public void setY(float newY) {
+<span class="nocode"><a name="44"> 44: </a></span>    this.y = newY;
+<span class="nocode"><a name="45"> 45: </a></span>  }
+<span class="nocode"><a name="46"> 46: </a></span>
+<span class="nocode"><a name="47"> 47: </a></span>
+<span class="nocode"><a name="48"> 48: </a></span>  /* OTHER functions */
+<span class="nocode"><a name="49"> 49: </a></span>
+<span class="nocode"><a name="50"> 50: </a></span>  public Ponto clone() {
+<span class="nocode"><a name="51"> 51: </a></span>    return new Ponto(this);
+<span class="nocode"><a name="52"> 52: </a></span>  }
+<span class="nocode"><a name="53"> 53: </a></span>
+<span class="nocode"><a name="54"> 54: </a></span>  public boolean equals(Object obj) {
+<span class="nocode"><a name="55"> 55: </a></span>    if (obj == this)
+<span class="nocode"><a name="56"> 56: </a></span>      return true;
+<span class="nocode"><a name="57"> 57: </a></span>    if (obj == null || obj.getClass() != this.getClass())
+<span class="nocode"><a name="58"> 58: </a></span>      return false;
+<span class="nocode"><a name="59"> 59: </a></span>
+<span class="nocode"><a name="60"> 60: </a></span>    Ponto p = (Ponto) obj;
+<span class="nocode"><a name="61"> 61: </a></span>
+<span class="nocode"><a name="62"> 62: </a></span>    return p.getX() == this.x &amp;&amp; p.getY() == this.y;
+<span class="nocode"><a name="63"> 63: </a></span>  }
+<span class="nocode"><a name="64"> 64: </a></span>
+<span class="nocode"><a name="65"> 65: </a></span>  public String toString() {
+<span class="nocode"><a name="66"> 66: </a></span>    StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="67"> 67: </a></span>
+<span class="nocode"><a name="68"> 68: </a></span>    sb.append(&quot;(&quot;).append(this.x).append(&quot;, &quot;).append(this.y).append(&quot;)&quot;);
+<span class="nocode"><a name="69"> 69: </a></span>
+<span class="nocode"><a name="70"> 70: </a></span>    return sb.toString();
+<span class="nocode"><a name="71"> 71: </a></span>  }
+<span class="nocode"><a name="72"> 72: </a></span>}
+</pre>
+</p>
+</div>
+<div id="post">
+<h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>TARGET_CLASS: Ponto
+<li>criterion: LINE;BRANCH;EXCEPTION;WEAKMUTATION;OUTPUT;METHOD;METHODNOEXCEPTION;CBRANCH
+<li>Coverage: 0.9166666666666667
+<li>Total_Goals: 134
+<li>Covered_Goals: 132
+</ul></div>
+</div>
+<p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

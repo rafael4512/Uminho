@@ -1,0 +1,223 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Input</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Input (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Input</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.8%
+  </span>
+  <span class="absValue">
+    (67/ 73)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;/**
+<i>2</i>&nbsp; * Classe que abstrai a utilização da classe Scanner, escondendo todos os
+<i>3</i>&nbsp; * problemas relacionados com excepções, e que oferece métodos simples e
+<i>4</i>&nbsp; * robustos para a leitura de valores de tipos simples e String.
+<i>5</i>&nbsp; *
+<i>6</i>&nbsp; * É uma classe de serviços, como Math e outras de Java, pelo que devem ser
+<i>7</i>&nbsp; * usados os métodos de classe implementados.
+<i>8</i>&nbsp; *
+<i>9</i>&nbsp; * Utilizável em BlueJ, NetBeans, CodeBlocks ou Eclipse.
+<i>10</i>&nbsp; *
+<i>11</i>&nbsp; * Utilização típica:  int x = Input.lerInt();
+<i>12</i>&nbsp; *                     String nome = Input.lerString();
+<i>13</i>&nbsp; *
+<i>14</i>&nbsp; * @author F. Mário Martins
+<i>15</i>&nbsp; * @version 1.0 (6/2006)
+<i>16</i>&nbsp; */
+<i>17</i>&nbsp;import static java.lang.System.out;
+<i>18</i>&nbsp;import static java.lang.System.in;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;import java.io.Serializable;
+<i>21</i>&nbsp;import java.util.Scanner;
+<i>22</i>&nbsp;import java.util.InputMismatchException;
+<i>23</i>&nbsp;
+<b class="fc"><i>24</i>&nbsp;public class Input implements Serializable {</b>
+<i>25</i>&nbsp;    /** Métodos de Classe. */
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public static String lerString() {
+<b class="fc"><i>28</i>&nbsp;        Scanner input = new Scanner(in);</b>
+<b class="fc"><i>29</i>&nbsp;        boolean ok = false;</b>
+<b class="fc"><i>30</i>&nbsp;        String txt = &quot;&quot;;</b>
+<b class="fc"><i>31</i>&nbsp;        while(!ok) {</b>
+<i>32</i>&nbsp;            try {
+<b class="fc"><i>33</i>&nbsp;                txt = input.nextLine();</b>
+<b class="fc"><i>34</i>&nbsp;                ok = true;</b>
+<i>35</i>&nbsp;            }
+<b class="nc"><i>36</i>&nbsp;            catch(InputMismatchException e)</b>
+<b class="nc"><i>37</i>&nbsp;            { out.println(&quot;Texto Invalido&quot;);</b>
+<b class="nc"><i>38</i>&nbsp;                out.print(&quot;Novo valor: &quot;);</b>
+<b class="nc"><i>39</i>&nbsp;                input.nextLine();</b>
+<b class="fc"><i>40</i>&nbsp;            }</b>
+<i>41</i>&nbsp;        }
+<i>42</i>&nbsp;        //input.close();
+<b class="fc"><i>43</i>&nbsp;        return txt;</b>
+<i>44</i>&nbsp;    }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    public static int lerInt() {
+<b class="fc"><i>47</i>&nbsp;        Scanner input = new Scanner(in);</b>
+<b class="fc"><i>48</i>&nbsp;        boolean ok = false;</b>
+<b class="fc"><i>49</i>&nbsp;        int i = 0;</b>
+<b class="fc"><i>50</i>&nbsp;        while(!ok) {</b>
+<i>51</i>&nbsp;            try {
+<b class="fc"><i>52</i>&nbsp;                i = input.nextInt();</b>
+<b class="fc"><i>53</i>&nbsp;                ok = true;</b>
+<i>54</i>&nbsp;            }
+<b class="fc"><i>55</i>&nbsp;            catch(InputMismatchException e)</b>
+<b class="fc"><i>56</i>&nbsp;            { out.println(&quot;Inteiro Invalido&quot;);</b>
+<b class="fc"><i>57</i>&nbsp;                out.print(&quot;Novo valor: &quot;);</b>
+<b class="fc"><i>58</i>&nbsp;                input.nextLine();</b>
+<b class="fc"><i>59</i>&nbsp;            }</b>
+<i>60</i>&nbsp;        }
+<i>61</i>&nbsp;        //input.close();
+<b class="fc"><i>62</i>&nbsp;        return i;</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    public static double lerDouble() {
+<b class="fc"><i>66</i>&nbsp;        Scanner input = new Scanner(in);</b>
+<b class="fc"><i>67</i>&nbsp;        boolean ok = false;</b>
+<b class="fc"><i>68</i>&nbsp;        double d = 0.0;</b>
+<b class="fc"><i>69</i>&nbsp;        while(!ok) {</b>
+<i>70</i>&nbsp;            try {
+<b class="fc"><i>71</i>&nbsp;                d = input.nextDouble();</b>
+<b class="fc"><i>72</i>&nbsp;                ok = true;</b>
+<i>73</i>&nbsp;            }
+<b class="fc"><i>74</i>&nbsp;            catch(InputMismatchException e)</b>
+<b class="fc"><i>75</i>&nbsp;            { out.println(&quot;Valor real Invalido&quot;);</b>
+<b class="fc"><i>76</i>&nbsp;                out.print(&quot;Novo valor: &quot;);</b>
+<b class="fc"><i>77</i>&nbsp;                input.nextLine();</b>
+<b class="fc"><i>78</i>&nbsp;            }</b>
+<i>79</i>&nbsp;        }
+<i>80</i>&nbsp;        //input.close();
+<b class="fc"><i>81</i>&nbsp;        return d;</b>
+<i>82</i>&nbsp;    }
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    public static float lerFloat() {
+<b class="fc"><i>85</i>&nbsp;        Scanner input = new Scanner(in);</b>
+<b class="fc"><i>86</i>&nbsp;        boolean ok = false;</b>
+<b class="fc"><i>87</i>&nbsp;        float f = 0.0f;</b>
+<b class="fc"><i>88</i>&nbsp;        while(!ok) {</b>
+<i>89</i>&nbsp;            try {
+<b class="fc"><i>90</i>&nbsp;                f = input.nextFloat();</b>
+<b class="fc"><i>91</i>&nbsp;                ok = true;</b>
+<i>92</i>&nbsp;            }
+<b class="fc"><i>93</i>&nbsp;            catch(InputMismatchException e)</b>
+<b class="fc"><i>94</i>&nbsp;            { out.println(&quot;Valor real Invalido&quot;);</b>
+<b class="fc"><i>95</i>&nbsp;                out.print(&quot;Novo valor: &quot;);</b>
+<b class="fc"><i>96</i>&nbsp;                input.nextLine();</b>
+<b class="fc"><i>97</i>&nbsp;            }</b>
+<i>98</i>&nbsp;        }
+<i>99</i>&nbsp;        //input.close();
+<b class="fc"><i>100</i>&nbsp;        return f;</b>
+<i>101</i>&nbsp;    }
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;    public static boolean lerBoolean() {
+<b class="fc"><i>104</i>&nbsp;        Scanner input = new Scanner(in);</b>
+<b class="fc"><i>105</i>&nbsp;        boolean ok = false;</b>
+<b class="fc"><i>106</i>&nbsp;        boolean b = false;</b>
+<b class="fc"><i>107</i>&nbsp;        while(!ok) {</b>
+<i>108</i>&nbsp;            try {
+<b class="fc"><i>109</i>&nbsp;                b = input.nextBoolean();</b>
+<b class="nc"><i>110</i>&nbsp;                ok = true;</b>
+<i>111</i>&nbsp;            }
+<b class="fc"><i>112</i>&nbsp;            catch(InputMismatchException e)</b>
+<b class="fc"><i>113</i>&nbsp;            { out.println(&quot;Booleano Invalido&quot;);</b>
+<b class="fc"><i>114</i>&nbsp;                out.print(&quot;Novo valor: &quot;);</b>
+<b class="fc"><i>115</i>&nbsp;                input.nextLine();</b>
+<b class="fc"><i>116</i>&nbsp;            }</b>
+<i>117</i>&nbsp;        }
+<i>118</i>&nbsp;        //input.close();
+<b class="nc"><i>119</i>&nbsp;        return b;</b>
+<i>120</i>&nbsp;    }
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;    public static short lerShort() {
+<b class="fc"><i>123</i>&nbsp;        Scanner input = new Scanner(in);</b>
+<b class="fc"><i>124</i>&nbsp;        boolean ok = false;</b>
+<b class="fc"><i>125</i>&nbsp;        short s = 0;</b>
+<b class="fc"><i>126</i>&nbsp;        while(!ok) {</b>
+<i>127</i>&nbsp;            try {
+<b class="fc"><i>128</i>&nbsp;                s = input.nextShort();</b>
+<b class="fc"><i>129</i>&nbsp;                ok = true;</b>
+<i>130</i>&nbsp;            }
+<b class="fc"><i>131</i>&nbsp;            catch(InputMismatchException e)</b>
+<b class="fc"><i>132</i>&nbsp;            { out.println(&quot;Short Invalido&quot;);</b>
+<b class="fc"><i>133</i>&nbsp;                out.print(&quot;Novo valor: &quot;);</b>
+<b class="fc"><i>134</i>&nbsp;                input.nextLine();</b>
+<b class="fc"><i>135</i>&nbsp;            }</b>
+<i>136</i>&nbsp;        }
+<i>137</i>&nbsp;        //input.close();
+<b class="fc"><i>138</i>&nbsp;        return s;</b>
+<i>139</i>&nbsp;    }
+<i>140</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:35</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+Transportadoras
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: Transportadoras: 0.9161581299186341</ul>
+<ul>
+<li>12.0 fitness evaluations, 0 generations, null statements, 29 tests.
+<li>Covered null/null branches, <li>Covered null/null methods, <li>Covered 204/207 total goals
+</ul>
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content">
+<div id="post">
+<h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>Transportadoras transportadoras1 = transportadoras0.clone();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0, transportadoras1.getCapacidade());
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = transportadoras0.toStringCSV();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;Transportadora:,,0.0,0.0,,0.0,0.0&quot;, string0);
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto(1811.138F, 1811.138F);
+<span class="nocode"><a name="2">  2: </a></span>LinkedList&lt;Integer&gt; linkedList0 = new LinkedList&lt;Integer&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="4">  4: </a></span>Map&lt;String, Encomenda&gt; map0 = transportadoras0.getEncomendasGuardadas();
+<span class="nocode"><a name="5">  5: </a></span>Transportadoras transportadoras1 = new Transportadoras(&quot;t.~#)=^&quot;, &quot;t.~#)=^&quot;, &quot;_5P&quot;, ponto0, 1.0, true, true, linkedList0, map0, &quot;&quot;, (-5098.6), 3760);
+<span class="nocode"><a name="6">  6: </a></span>Transportadoras transportadoras2 = transportadoras1.clone();
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="9">  9: </a></span>assertEquals(3760, transportadoras1.getCapacidade());
+<span class="nocode"><a name="10"> 10: </a></span>assertEquals((-5098.6), transportadoras2.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = transportadoras0.toString();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;C\u00F3digo: \nNome: \nGPS: (0.0, 0.0)\nRaio: 0.0\nTransporte medicamentos: false\nNIF: \nPreco por KM: 0.0\nCapacidade : 0\nClassificac\u00E3o: 0.0\nDisponivel: false\n&quot;, string0);
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = transportadoras0.tipoPlataformaEntrega();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;Transportadora&quot;, string0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = transportadoras0.equals((Object) null);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="4">  4: </a></span>assertFalse(boolean0);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = transportadoras0.equals(transportadoras0);
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(boolean0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>Transportadoras transportadoras1 = new Transportadoras();
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = transportadoras1.equals(transportadoras0);
+<span class="nocode"><a name="4">  4: </a></span>assertTrue(boolean0);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0.0, transportadoras1.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(0, transportadoras1.getCapacidade());
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = transportadoras0.equals(&quot;Transportadora:,,0.0,0.0,A!y'O&amp;a(%KabqM&amp;u]v,878.68110981,649.6748521421961&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertFalse(boolean0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>transportadoras0.setCodigo(&quot;, &quot;);
+<span class="nocode"><a name="3">  3: </a></span>Transportadoras transportadoras1 = new Transportadoras();
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = transportadoras0.equals(transportadoras1);
+<span class="nocode"><a name="5">  5: </a></span>assertFalse(boolean0);
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(0, transportadoras1.getCapacidade());
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(0.0, transportadoras1.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>Transportadoras transportadoras1 = new Transportadoras();
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(transportadoras1.equals((Object)transportadoras0));
+<span class="nocode"><a name="4">  4: </a></span>
+<span class="nocode"><a name="5">  5: </a></span>transportadoras1.setNIF(&quot;L)qyhm[wIeWR|7s2{&quot;);
+<span class="nocode"><a name="6">  6: </a></span>boolean boolean0 = transportadoras0.equals(transportadoras1);
+<span class="nocode"><a name="7">  7: </a></span>assertFalse(transportadoras1.equals((Object)transportadoras0));
+<span class="nocode"><a name="8">  8: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>int int0 = transportadoras0.getCapacidade();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, int0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>transportadoras0.getNIF();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 14</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>double double0 = transportadoras0.getPrecoPorKM();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0.0, double0, 0.01);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+</pre>
+<h3>Test case 15</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>Transportadoras transportadoras1 = new Transportadoras(transportadoras0);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, transportadoras1.getCapacidade());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 16</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras((Transportadoras) null);
+</pre>
+<h3>Test case 17</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>Map&lt;String, Encomenda&gt; map0 = transportadoras0.getEncomendasGuardadas();
+<span class="nocode"><a name="3">  3: </a></span>Transportadoras transportadoras1 = new Transportadoras(&quot;((SJ0V&quot;, &quot;((SJ0V&quot;, &quot;((SJ0V&quot;, (Ponto) null, (-1315.6054482800346), true, true, (List&lt;Integer&gt;) null, map0, &quot;((SJ0V&quot;, (-1315.6054482800346), (-1));
+</pre>
+<h3>Test case 18</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-1262.6F), 0.0F);
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Transportadoras transportadoras0 = new Transportadoras(&quot;$O,{M^uE}1.BV &quot;, &quot;Transportadoras&quot;, &quot;$O,{M^uE}1.BV &quot;, ponto0, 0.0F, true, true, (List&lt;Integer&gt;) null, hashMap0, &quot;8(fI/- rCAS0W7_&quot;, (-1262.6F), (-1092906089));
+<span class="nocode"><a name="4">  4: </a></span>transportadoras0.clone();
+</pre>
+<h3>Test case 19</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto0 = new Ponto(0.0F, 266.0F);
+<span class="nocode"><a name="3">  3: </a></span>LinkedList&lt;Integer&gt; linkedList0 = new LinkedList&lt;Integer&gt;();
+<span class="nocode"><a name="4">  4: </a></span>Map&lt;String, Encomenda&gt; map0 = transportadoras0.getEncomendasGuardadas();
+<span class="nocode"><a name="5">  5: </a></span>Transportadoras transportadoras1 = new Transportadoras((String) null, (String) null, (String) null, ponto0, 0.0F, true, true, linkedList0, map0, (String) null, 0.0, (-1453));
+<span class="nocode"><a name="6">  6: </a></span>transportadoras0.equals(transportadoras1);
+</pre>
+<h3>Test case 20</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>transportadoras0.adicionaClassificacao((Integer) null);
+<span class="nocode"><a name="3">  3: </a></span>transportadoras0.toString();
+</pre>
+<h3>Test case 21</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-1911.1085F), (-1805.81F));
+<span class="nocode"><a name="2">  2: </a></span>LinkedList&lt;Integer&gt; linkedList0 = new LinkedList&lt;Integer&gt;();
+<span class="nocode"><a name="3">  3: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="4">  4: </a></span>Transportadoras transportadoras0 = new Transportadoras(&quot;E:,@i&quot;, &quot;&gt;\&quot;jOe&gt;Marurb(H!'&quot;, &quot;~Q&quot;, ponto0, 0.0, true, true, linkedList0, hashMap0, &quot;E:,@i&quot;, (-1490.1279), (-2485));
+<span class="nocode"><a name="5">  5: </a></span>transportadoras0.clone();
+<span class="nocode"><a name="6">  6: </a></span>assertEquals((-2485), transportadoras0.getCapacidade());
+<span class="nocode"><a name="7">  7: </a></span>assertEquals((-1490.1279), transportadoras0.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 22</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>transportadoras0.setCapacidade(563);
+<span class="nocode"><a name="3">  3: </a></span>transportadoras0.clone();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(563, transportadoras0.getCapacidade());
+</pre>
+<h3>Test case 23</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto(1811.138F, 1811.138F);
+<span class="nocode"><a name="2">  2: </a></span>LinkedList&lt;Integer&gt; linkedList0 = new LinkedList&lt;Integer&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="4">  4: </a></span>Map&lt;String, Encomenda&gt; map0 = transportadoras0.getEncomendasGuardadas();
+<span class="nocode"><a name="5">  5: </a></span>Transportadoras transportadoras1 = new Transportadoras(&quot;A!y'O&amp;a(%KabqM&amp;u]v&quot;, &quot;A!*'R&amp;a(%KabNM&amp;u]v&quot;, &quot;A!y'O&amp;a(%KabqM&amp;u]v&quot;, ponto0, (-5098.6), false, true, linkedList0, map0, &quot;A!y'O&amp;a(%KabqM&amp;u]v&quot;, 1.0, (-2034458190));
+<span class="nocode"><a name="6">  6: </a></span>Transportadoras transportadoras2 = transportadoras1.clone();
+<span class="nocode"><a name="7">  7: </a></span>assertEquals((-2034458190), transportadoras1.getCapacidade());
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="9">  9: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="10"> 10: </a></span>assertEquals(1.0, transportadoras2.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 24</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="3">  3: </a></span>List&lt;Integer&gt; list0 = transportadoras0.getClassificacoes();
+<span class="nocode"><a name="4">  4: </a></span>Map&lt;String, Encomenda&gt; map0 = transportadoras0.getEncomendasGuardadas();
+<span class="nocode"><a name="5">  5: </a></span>Transportadoras transportadoras1 = new Transportadoras(&quot;&quot;, &quot;C\u00F3digo: &quot;, &quot;C\u00F3digo: &quot;, ponto0, 1409.431038654551, false, true, list0, map0, &quot;&quot;, (-2771.59836), (-14));
+<span class="nocode"><a name="6">  6: </a></span>int int0 = transportadoras1.getCapacidade();
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="8">  8: </a></span>assertEquals((-2771.59836), transportadoras1.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="9">  9: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="10"> 10: </a></span>assertEquals((-14), int0);
+</pre>
+<h3>Test case 25</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="3">  3: </a></span>
+<span class="nocode"><a name="4">  4: </a></span>transportadoras0.setCapacidade(1);
+<span class="nocode"><a name="5">  5: </a></span>int int0 = transportadoras0.getCapacidade();
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(1, int0);
+</pre>
+<h3>Test case 26</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>transportadoras0.setNIF(&quot;t.~#)=^&quot;);
+<span class="nocode"><a name="3">  3: </a></span>transportadoras0.getNIF();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 27</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="3">  3: </a></span>List&lt;Integer&gt; list0 = transportadoras0.getClassificacoes();
+<span class="nocode"><a name="4">  4: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="5">  5: </a></span>Transportadoras transportadoras1 = new Transportadoras(&quot;&quot;, &quot;&quot;, &quot;&quot;, ponto0, 465.8595, false, false, list0, hashMap0, (String) null, 465.8595, 0);
+<span class="nocode"><a name="6">  6: </a></span>transportadoras1.getNIF();
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(0, transportadoras1.getCapacidade());
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="9">  9: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="10"> 10: </a></span>assertEquals(465.8595, transportadoras1.getPrecoPorKM(), 0.01);
+</pre>
+<h3>Test case 28</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto(1811.138F, 1811.138F);
+<span class="nocode"><a name="2">  2: </a></span>LinkedList&lt;Integer&gt; linkedList0 = new LinkedList&lt;Integer&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="4">  4: </a></span>Map&lt;String, Encomenda&gt; map0 = transportadoras0.getEncomendasGuardadas();
+<span class="nocode"><a name="5">  5: </a></span>Transportadoras transportadoras1 = new Transportadoras(&quot;t.~#)=^&quot;, &quot;t.~#)=^&quot;, &quot;_5P&quot;, ponto0, 1.0, true, true, linkedList0, map0, &quot;&quot;, (-5098.6), 3760);
+<span class="nocode"><a name="6">  6: </a></span>double double0 = transportadoras1.getPrecoPorKM();
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(0.0, transportadoras0.getPrecoPorKM(), 0.01);
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(3760, transportadoras1.getCapacidade());
+<span class="nocode"><a name="9">  9: </a></span>assertEquals(0, transportadoras0.getCapacidade());
+<span class="nocode"><a name="10"> 10: </a></span>assertEquals((-5098.6), double0, 0.01);
+</pre>
+<h3>Test case 29</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Transportadoras transportadoras0 = new Transportadoras();
+<span class="nocode"><a name="2">  2: </a></span>transportadoras0.setPrecoPorKM(3070.067221024578);
+<span class="nocode"><a name="3">  3: </a></span>double double0 = transportadoras0.getPrecoPorKM();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(3070.067221024578, double0, 0.01);
+</pre>
+</div><div id="post">
+<h2 class=title id=source>Source Code</h2>
+<div class=source>
+<p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>import java.util.List;
+<span class="nocode"><a name="2">  2: </a></span>import java.util.Map;
+<span class="nocode"><a name="3">  3: </a></span>
+<span class="nocode"><a name="4">  4: </a></span>public class Transportadoras extends PlataformaEntrega {
+<span class="nocode"><a name="5">  5: </a></span>
+<span class="nocode"><a name="6">  6: </a></span>  /* STARTING functions */
+<span class="nocode"><a name="7">  7: </a></span>
+<span class="nocode"><a name="8">  8: </a></span>  private String NIF;
+<span class="nocode"><a name="9">  9: </a></span>  private double precoPorKM;
+<span class="nocode"><a name="10"> 10: </a></span>  private int capacidade;
+<span class="nocode"><a name="11"> 11: </a></span>
+<span class="nocode"><a name="12"> 12: </a></span>  public Transportadoras() {
+<span class="nocode"><a name="13"> 13: </a></span>    super();
+<span class="nocode"><a name="14"> 14: </a></span>    this.NIF = new String();
+<span class="nocode"><a name="15"> 15: </a></span>    this.precoPorKM = 0;
+<span class="nocode"><a name="16"> 16: </a></span>    this.capacidade = 0;
+<span class="nocode"><a name="17"> 17: </a></span>  }
+<span class="nocode"><a name="18"> 18: </a></span>
+<span class="nocode"><a name="19"> 19: </a></span>  public Transportadoras(String codigo, String password, String nome, Ponto GPS, double raio, boolean transporteMedicamentos, boolean disponivel, List&lt;Integer&gt; classificacoes, Map&lt;String, Encomenda&gt; encomendasGuardadas, String NIF, double precoPorKM, int capacidade) {
+<span class="nocode"><a name="20"> 20: </a></span>    super(codigo, password, nome, GPS, raio, transporteMedicamentos, disponivel, classificacoes, encomendasGuardadas);
+<span class="nocode"><a name="21"> 21: </a></span>    this.NIF = NIF;
+<span class="nocode"><a name="22"> 22: </a></span>    this.precoPorKM = precoPorKM;
+<span class="nocode"><a name="23"> 23: </a></span>    this.capacidade = capacidade;
+<span class="nocode"><a name="24"> 24: </a></span>  }
+<span class="nocode"><a name="25"> 25: </a></span>
+<span class="nocode"><a name="26"> 26: </a></span>  public Transportadoras(Transportadoras t) {
+<span class="nocode"><a name="27"> 27: </a></span>    super(t);
+<span class="nocode"><a name="28"> 28: </a></span>    this.NIF = t.getNIF();
+<span class="nocode"><a name="29"> 29: </a></span>    this.precoPorKM = t.getPrecoPorKM();
+<span class="nocode"><a name="30"> 30: </a></span>    this.capacidade = t.getCapacidade();
+<span class="nocode"><a name="31"> 31: </a></span>  }
+<span class="nocode"><a name="32"> 32: </a></span>
+<span class="nocode"><a name="33"> 33: </a></span>  
+<span class="nocode"><a name="34"> 34: </a></span>  /* GET functions */
+<span class="nocode"><a name="35"> 35: </a></span>
+<span class="nocode"><a name="36"> 36: </a></span>  public String getNIF() {
+<span class="nocode"><a name="37"> 37: </a></span>    return this.NIF;
+<span class="nocode"><a name="38"> 38: </a></span>  }
+<span class="nocode"><a name="39"> 39: </a></span>
+<span class="nocode"><a name="40"> 40: </a></span>  public double getPrecoPorKM() {
+<span class="nocode"><a name="41"> 41: </a></span>    return this.precoPorKM;
+<span class="nocode"><a name="42"> 42: </a></span>  }
+<span class="nocode"><a name="43"> 43: </a></span>
+<span class="nocode"><a name="44"> 44: </a></span>  public int getCapacidade() {
+<span class="nocode"><a name="45"> 45: </a></span>    return this.capacidade;
+<span class="nocode"><a name="46"> 46: </a></span>  }
+<span class="nocode"><a name="47"> 47: </a></span>
+<span class="nocode"><a name="48"> 48: </a></span>
+<span class="nocode"><a name="49"> 49: </a></span>  /* SET functions */
+<span class="nocode"><a name="50"> 50: </a></span>
+<span class="nocode"><a name="51"> 51: </a></span>  public void setNIF(String newNIF) {
+<span class="nocode"><a name="52"> 52: </a></span>    this.NIF = newNIF;
+<span class="nocode"><a name="53"> 53: </a></span>  }
+<span class="nocode"><a name="54"> 54: </a></span>
+<span class="nocode"><a name="55"> 55: </a></span>  public void setPrecoPorKM(double newPrecoPorKM) {
+<span class="nocode"><a name="56"> 56: </a></span>    this.precoPorKM = newPrecoPorKM;
+<span class="nocode"><a name="57"> 57: </a></span>  }
+<span class="nocode"><a name="58"> 58: </a></span>
+<span class="nocode"><a name="59"> 59: </a></span>  public void setCapacidade(int newCapacidade) {
+<span class="nocode"><a name="60"> 60: </a></span>    this.capacidade = newCapacidade;
+<span class="nocode"><a name="61"> 61: </a></span>  }
+<span class="nocode"><a name="62"> 62: </a></span>
+<span class="nocode"><a name="63"> 63: </a></span>
+<span class="nocode"><a name="64"> 64: </a></span>  /* OTHER functions */
+<span class="nocode"><a name="65"> 65: </a></span>
+<span class="nocode"><a name="66"> 66: </a></span>  public Transportadoras clone() {
+<span class="nocode"><a name="67"> 67: </a></span>    return new Transportadoras(this);
+<span class="nocode"><a name="68"> 68: </a></span>  }
+<span class="nocode"><a name="69"> 69: </a></span>
+<span class="nocode"><a name="70"> 70: </a></span>  public boolean equals(Object obj) {
+<span class="nocode"><a name="71"> 71: </a></span>    if (obj == this)
+<span class="nocode"><a name="72"> 72: </a></span>      return true;
+<span class="nocode"><a name="73"> 73: </a></span>    if (obj == null || obj.getClass() != this.getClass())
+<span class="nocode"><a name="74"> 74: </a></span>      return false;
+<span class="nocode"><a name="75"> 75: </a></span>    
+<span class="nocode"><a name="76"> 76: </a></span>    Transportadoras t = (Transportadoras) obj;
+<span class="nocode"><a name="77"> 77: </a></span>
+<span class="nocode"><a name="78"> 78: </a></span>    return super.equals(t) &amp;&amp; t.getNIF().equals(this.NIF);
+<span class="nocode"><a name="79"> 79: </a></span>  }
+<span class="nocode"><a name="80"> 80: </a></span>
+<span class="nocode"><a name="81"> 81: </a></span>  public String toString() {
+<span class="nocode"><a name="82"> 82: </a></span>    StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="83"> 83: </a></span>
+<span class="nocode"><a name="84"> 84: </a></span>    sb.append(super.toString());
+<span class="nocode"><a name="85"> 85: </a></span>    sb.append(&quot;NIF: &quot;).append(this.NIF).append(&quot;\n&quot;);
+<span class="nocode"><a name="86"> 86: </a></span>    sb.append(&quot;Preco por KM: &quot;).append(this.precoPorKM).append(&quot;\n&quot;);
+<span class="nocode"><a name="87"> 87: </a></span>    sb.append(&quot;Capacidade : &quot;).append(this.capacidade).append(&quot;\n&quot;);
+<span class="nocode"><a name="88"> 88: </a></span>    sb.append(&quot;Classificac&atilde;o: &quot;).append(super.mediaClassificacao(super.getClassificacoes())).append(&quot;\n&quot;);
+<span class="nocode"><a name="89"> 89: </a></span>    sb.append(&quot;Disponivel: &quot;).append(super.getDisponivel()).append(&quot;\n&quot;);
+<span class="nocode"><a name="90"> 90: </a></span>
+<span class="nocode"><a name="91"> 91: </a></span>    return sb.toString();
+<span class="nocode"><a name="92"> 92: </a></span>  }
+<span class="nocode"><a name="93"> 93: </a></span>
+<span class="nocode"><a name="94"> 94: </a></span>  public String toStringCSV() {
+<span class="nocode"><a name="95"> 95: </a></span>    StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="96"> 96: </a></span>
+<span class="nocode"><a name="97"> 97: </a></span>    sb.append(&quot;Transportadora:&quot;);
+<span class="nocode"><a name="98"> 98: </a></span>    sb.append(super.getCodigo()).append(&quot;,&quot;);
+<span class="nocode"><a name="99"> 99: </a></span>    sb.append(super.getNome()).append(&quot;,&quot;);
+<span class="nocode"><a name="100">100: </a></span>    sb.append(super.getGPS().getX()).append(&quot;,&quot;);
+<span class="nocode"><a name="101">101: </a></span>    sb.append(super.getGPS().getY()).append(&quot;,&quot;);
+<span class="nocode"><a name="102">102: </a></span>    sb.append(this.NIF).append(&quot;,&quot;);
+<span class="nocode"><a name="103">103: </a></span>    sb.append(super.getRaio()).append(&quot;,&quot;);
+<span class="nocode"><a name="104">104: </a></span>    sb.append(this.precoPorKM);
+<span class="nocode"><a name="105">105: </a></span>
+<span class="nocode"><a name="106">106: </a></span>    return sb.toString();
+<span class="nocode"><a name="107">107: </a></span>  }
+<span class="nocode"><a name="108">108: </a></span>
+<span class="nocode"><a name="109">109: </a></span>
+<span class="nocode"><a name="110">110: </a></span>  /* REQUIRED functions */
+<span class="nocode"><a name="111">111: </a></span>
+<span class="nocode"><a name="112">112: </a></span>  // M&eacute;todo que devolve o tipo espec&iacute;fico de plataforma de entrega
+<span class="nocode"><a name="113">113: </a></span>  public String tipoPlataformaEntrega() {
+<span class="nocode"><a name="114">114: </a></span>    return &quot;Transportadora&quot;;
+<span class="nocode"><a name="115">115: </a></span>  }
+<span class="nocode"><a name="116">116: </a></span>}
+</pre>
+</p>
+</div>
+<div id="post">
+<h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>TARGET_CLASS: Transportadoras
+<li>criterion: LINE;BRANCH;EXCEPTION;WEAKMUTATION;OUTPUT;METHOD;METHODNOEXCEPTION;CBRANCH
+<li>Coverage: 0.9161581299186341
+<li>Total_Goals: 207
+<li>Covered_Goals: 204
+</ul></div>
+</div>
+<p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

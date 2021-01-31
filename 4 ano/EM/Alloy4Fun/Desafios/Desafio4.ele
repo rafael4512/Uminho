@@ -1,0 +1,30 @@
+abstract sig Status {}
+one sig Unissued, Issued, Cancelled extends Status {}
+
+sig Card {
+	var status : one Status
+}
+
+sig Client {
+	var cards : set Card
+}
+
+pred prop1 {
+	// Os clientes nunca podem ter cartões não emitidos
+	 (all c:Client| always no  (c.cards.status & Unissued) )
+
+}
+
+
+pred prop2 {
+	// Todos os cartões emitidos vão inevitavelmente ser cancelados
+	always  (all c:Card | c.status in Issued  implies eventually  some (c.status & Cancelled))
+	
+}
+
+
+pred prop3 {
+	// Um cartão nunca pode pertencer a dois clientes diferentes
+
+  always all disj c1, c2 : Client | all card : c1.cards | always card not in c2.cards
+}

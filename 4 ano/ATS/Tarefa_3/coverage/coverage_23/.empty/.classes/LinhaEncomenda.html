@@ -1,0 +1,193 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: LinhaEncomenda</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: LinhaEncomenda (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LinhaEncomenda</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (49/ 49)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.io.Serializable;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;public class LinhaEncomenda implements Serializable {
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;  /* STARTING functions */
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;  private String codProduto;
+<i>8</i>&nbsp;  private String descricao;
+<i>9</i>&nbsp;  private float quantidade;
+<i>10</i>&nbsp;  private float valorUnitario;
+<i>11</i>&nbsp;
+<b class="fc"><i>12</i>&nbsp;  public LinhaEncomenda() {</b>
+<b class="fc"><i>13</i>&nbsp;    this.codProduto = new String();</b>
+<b class="fc"><i>14</i>&nbsp;    this.descricao = new String();</b>
+<b class="fc"><i>15</i>&nbsp;    this.quantidade = 0;</b>
+<b class="fc"><i>16</i>&nbsp;    this.valorUnitario = 0;</b>
+<b class="fc"><i>17</i>&nbsp;  }</b>
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;  public LinhaEncomenda(String codProduto, String descricao, float quantidade, float valorUnitario) {</b>
+<b class="fc"><i>20</i>&nbsp;    this.codProduto = codProduto;</b>
+<b class="fc"><i>21</i>&nbsp;    this.descricao = descricao;</b>
+<b class="fc"><i>22</i>&nbsp;    this.quantidade = quantidade;</b>
+<b class="fc"><i>23</i>&nbsp;    this.valorUnitario = valorUnitario;</b>
+<b class="fc"><i>24</i>&nbsp;  }</b>
+<i>25</i>&nbsp;
+<b class="fc"><i>26</i>&nbsp;  public LinhaEncomenda(LinhaEncomenda le) {</b>
+<b class="fc"><i>27</i>&nbsp;    this.codProduto = le.getCodProduto();</b>
+<b class="fc"><i>28</i>&nbsp;    this.descricao = le.getDescricao();</b>
+<b class="fc"><i>29</i>&nbsp;    this.quantidade = le.getQuantidade();</b>
+<b class="fc"><i>30</i>&nbsp;    this.valorUnitario = le.getValorUnitario();</b>
+<b class="fc"><i>31</i>&nbsp;  }</b>
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;  /* GET functions */
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;  public String getCodProduto() {
+<b class="fc"><i>37</i>&nbsp;    return this.codProduto;</b>
+<i>38</i>&nbsp;  }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;  public String getDescricao() {
+<b class="fc"><i>41</i>&nbsp;    return this.descricao;</b>
+<i>42</i>&nbsp;  }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;  public float getQuantidade() {
+<b class="fc"><i>45</i>&nbsp;    return this.quantidade;</b>
+<i>46</i>&nbsp;  }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;  public float getValorUnitario() {
+<b class="fc"><i>49</i>&nbsp;    return this.valorUnitario;</b>
+<i>50</i>&nbsp;  }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;  /* SET functions */
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;  public void setCodProduto(String newCodProduto) {
+<b class="fc"><i>56</i>&nbsp;    this.codProduto = newCodProduto;</b>
+<b class="fc"><i>57</i>&nbsp;  }</b>
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;  public void setDescricao(String newDescricao) {
+<b class="fc"><i>60</i>&nbsp;    this.descricao = newDescricao;</b>
+<b class="fc"><i>61</i>&nbsp;  }</b>
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;  public void setQuantidade(float newQuantidade) {
+<b class="fc"><i>64</i>&nbsp;    this.quantidade = newQuantidade;</b>
+<b class="fc"><i>65</i>&nbsp;  }</b>
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;  public void setValorUnitario(float newValorUnitario) {
+<b class="fc"><i>68</i>&nbsp;    this.valorUnitario = newValorUnitario;</b>
+<b class="fc"><i>69</i>&nbsp;  }</b>
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;  
+<i>72</i>&nbsp;  /* OTHER functions */
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;  public LinhaEncomenda clone() {
+<b class="fc"><i>75</i>&nbsp;    return new LinhaEncomenda(this);</b>
+<i>76</i>&nbsp;  }
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;  public boolean equals(Object obj) {
+<b class="fc"><i>79</i>&nbsp;    if (obj == this)</b>
+<b class="fc"><i>80</i>&nbsp;      return true;</b>
+<b class="fc"><i>81</i>&nbsp;    if (obj == null || obj.getClass() != this.getClass())</b>
+<b class="fc"><i>82</i>&nbsp;      return false;</b>
+<i>83</i>&nbsp;
+<b class="fc"><i>84</i>&nbsp;    LinhaEncomenda le = (LinhaEncomenda) obj;</b>
+<i>85</i>&nbsp;
+<b class="fc"><i>86</i>&nbsp;    return le.getCodProduto().equals(this.codProduto);</b>
+<i>87</i>&nbsp;  }
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;  public String toString() {
+<b class="fc"><i>90</i>&nbsp;    StringBuilder sb = new StringBuilder();</b>
+<i>91</i>&nbsp;
+<b class="fc"><i>92</i>&nbsp;    sb.append(&quot;Código: &quot;).append(this.codProduto).append(&quot;\n&quot;);</b>
+<b class="fc"><i>93</i>&nbsp;    sb.append(&quot;Descrição: &quot;).append(this.descricao).append(&quot;\n&quot;);</b>
+<b class="fc"><i>94</i>&nbsp;    sb.append(&quot;Quantidade: &quot;).append(this.quantidade).append(&quot;\n&quot;);</b>
+<b class="fc"><i>95</i>&nbsp;    sb.append(&quot;Valor unitário: &quot;).append(this.valorUnitario).append(&quot;\n&quot;);</b>
+<i>96</i>&nbsp;
+<b class="fc"><i>97</i>&nbsp;    return sb.toString();</b>
+<i>98</i>&nbsp;  }
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;  public String toStringCSV() {
+<b class="fc"><i>101</i>&nbsp;    StringBuilder sb = new StringBuilder();</b>
+<i>102</i>&nbsp;
+<b class="fc"><i>103</i>&nbsp;    sb.append(this.codProduto).append(&quot;,&quot;);</b>
+<b class="fc"><i>104</i>&nbsp;    sb.append(this.descricao).append(&quot;,&quot;);</b>
+<b class="fc"><i>105</i>&nbsp;    sb.append(this.quantidade).append(&quot;,&quot;);</b>
+<b class="fc"><i>106</i>&nbsp;    sb.append(this.valorUnitario).append(&quot;,&quot;);</b>
+<i>107</i>&nbsp;
+<b class="fc"><i>108</i>&nbsp;    return sb.toString();</b>
+<i>109</i>&nbsp;  }
+<i>110</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:26</div>
+</div>
+</body>
+</html>

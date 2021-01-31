@@ -1,0 +1,99 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: cTopPE</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: cTopPE (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">cTopPE</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.util.Comparator;
+<i>2</i>&nbsp;
+<b class="fc"><i>3</i>&nbsp;public class cTopPE implements Comparator&lt;PlataformaEntrega&gt; {</b>
+<i>4</i>&nbsp;  // Comparator que ordena plataformas de entrega de forma crescente de número entregas realizadas
+<i>5</i>&nbsp;  public int compare(PlataformaEntrega pe1, PlataformaEntrega pe2) {
+<b class="fc"><i>6</i>&nbsp;    int c1 = pe1.getEncomendasGuardadas().size();</b>
+<b class="fc"><i>7</i>&nbsp;    int c2 = pe2.getEncomendasGuardadas().size();</b>
+<i>8</i>&nbsp;
+<b class="fc"><i>9</i>&nbsp;    if (c1 &lt; c2)</b>
+<b class="fc"><i>10</i>&nbsp;      return 1;</b>
+<b class="fc"><i>11</i>&nbsp;    if (c1 &gt; c2)</b>
+<b class="fc"><i>12</i>&nbsp;      return -1;</b>
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;    return 0;</b>
+<i>15</i>&nbsp;  }
+<i>16</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:26</div>
+</div>
+</body>
+</html>

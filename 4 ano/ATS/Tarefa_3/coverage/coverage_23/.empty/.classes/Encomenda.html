@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Encomenda</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Encomenda (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Encomenda</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (23/ 23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (82/ 82)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.util.List;
+<i>2</i>&nbsp;import java.util.ArrayList;
+<i>3</i>&nbsp;import java.util.stream.Collectors;
+<i>4</i>&nbsp;import java.io.Serializable;
+<i>5</i>&nbsp;import java.time.LocalDateTime;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public class Encomenda implements Serializable {
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;  /* STARTING functions */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;  private String codEncomenda;
+<i>12</i>&nbsp;  private String codUtilizador;
+<i>13</i>&nbsp;  private String codLoja;
+<i>14</i>&nbsp;  private float peso;
+<i>15</i>&nbsp;  private LocalDateTime data;
+<i>16</i>&nbsp;  private List&lt;LinhaEncomenda&gt; encomendas;
+<i>17</i>&nbsp;
+<b class="fc"><i>18</i>&nbsp;  public Encomenda() {</b>
+<b class="fc"><i>19</i>&nbsp;    this.codEncomenda = new String();</b>
+<b class="fc"><i>20</i>&nbsp;    this.codUtilizador = new String();</b>
+<b class="fc"><i>21</i>&nbsp;    this.codLoja = new String();</b>
+<b class="fc"><i>22</i>&nbsp;    this.peso = 0;</b>
+<b class="fc"><i>23</i>&nbsp;    this.data = LocalDateTime.now();</b>
+<b class="fc"><i>24</i>&nbsp;    this.encomendas = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>25</i>&nbsp;  }</b>
+<i>26</i>&nbsp;
+<b class="fc"><i>27</i>&nbsp;  public Encomenda(String codEncomenda, String codUtilizador, String codLoja, float peso, LocalDateTime data, List&lt;LinhaEncomenda&gt; encomendas) {</b>
+<b class="fc"><i>28</i>&nbsp;    this.codEncomenda = codEncomenda;</b>
+<b class="fc"><i>29</i>&nbsp;    this.codUtilizador = codUtilizador;</b>
+<b class="fc"><i>30</i>&nbsp;    this.codLoja = codLoja;</b>
+<b class="fc"><i>31</i>&nbsp;    this.peso = peso;</b>
+<b class="fc"><i>32</i>&nbsp;    this.data = data;</b>
+<b class="fc"><i>33</i>&nbsp;    this.encomendas = encomendas;</b>
+<b class="fc"><i>34</i>&nbsp;  }</b>
+<i>35</i>&nbsp;
+<b class="fc"><i>36</i>&nbsp;  public Encomenda(Encomenda e) {</b>
+<b class="fc"><i>37</i>&nbsp;    this.codEncomenda = e.getCodEncomenda();</b>
+<b class="fc"><i>38</i>&nbsp;    this.codUtilizador = e.getCodUtilizador();</b>
+<b class="fc"><i>39</i>&nbsp;    this.codLoja = e.getCodLoja();</b>
+<b class="fc"><i>40</i>&nbsp;    this.peso = e.getPeso();</b>
+<b class="fc"><i>41</i>&nbsp;    this.data = e.getData();</b>
+<b class="fc"><i>42</i>&nbsp;    this.encomendas = e.getEncomendas();</b>
+<b class="fc"><i>43</i>&nbsp;  }</b>
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;  /* GET functions */
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;  public String getCodEncomenda() {
+<b class="fc"><i>49</i>&nbsp;    return this.codEncomenda;</b>
+<i>50</i>&nbsp;  }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;  public String getCodUtilizador() {
+<b class="fc"><i>53</i>&nbsp;    return this.codUtilizador;</b>
+<i>54</i>&nbsp;  }
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;  public String getCodLoja() {
+<b class="fc"><i>57</i>&nbsp;    return this.codLoja;</b>
+<i>58</i>&nbsp;  }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;  public float getPeso() {
+<b class="fc"><i>61</i>&nbsp;    return this.peso;</b>
+<i>62</i>&nbsp;  }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;  public LocalDateTime getData() {
+<b class="fc"><i>65</i>&nbsp;    return this.data;</b>
+<i>66</i>&nbsp;  }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;  public List&lt;LinhaEncomenda&gt; getEncomendas() {
+<b class="fc"><i>69</i>&nbsp;    return this.encomendas.stream().map(LinhaEncomenda::clone).collect(Collectors.toList());</b>
+<i>70</i>&nbsp;  }
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;  /* SET functions */
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;  public void setCodEncomenda(String newCodEncomenda) {
+<b class="fc"><i>76</i>&nbsp;    this.codEncomenda = newCodEncomenda;</b>
+<b class="fc"><i>77</i>&nbsp;  }</b>
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;  public void setCodUtilizador(String newCodUtilizador) {
+<b class="fc"><i>80</i>&nbsp;    this.codUtilizador = newCodUtilizador;</b>
+<b class="fc"><i>81</i>&nbsp;  }</b>
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;  public void setCodLoja(String newCodLoja) {
+<b class="fc"><i>84</i>&nbsp;    this.codLoja = newCodLoja;</b>
+<b class="fc"><i>85</i>&nbsp;  }</b>
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;  public void setPeso(float newPeso) {
+<b class="fc"><i>88</i>&nbsp;    this.peso = newPeso;</b>
+<b class="fc"><i>89</i>&nbsp;  }</b>
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;  public void setData(LocalDateTime newData) {
+<b class="fc"><i>92</i>&nbsp;    this.data = newData;</b>
+<b class="fc"><i>93</i>&nbsp;  }</b>
+<i>94</i>&nbsp;
+<i>95</i>&nbsp;  public void setEncomendas(List&lt;LinhaEncomenda&gt; newEncomendas) {
+<b class="fc"><i>96</i>&nbsp;    this.encomendas = newEncomendas.stream().map(LinhaEncomenda::clone).collect(Collectors.toList());</b>
+<b class="fc"><i>97</i>&nbsp;  }</b>
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;  /* OTHER functions */
+<i>101</i>&nbsp;
+<i>102</i>&nbsp;  public Encomenda clone() {
+<b class="fc"><i>103</i>&nbsp;    return new Encomenda(this);</b>
+<i>104</i>&nbsp;  }
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;  public boolean equals(Object obj) {
+<b class="fc"><i>107</i>&nbsp;    if (obj == this)</b>
+<b class="fc"><i>108</i>&nbsp;      return true;</b>
+<b class="fc"><i>109</i>&nbsp;    if (obj == null || obj.getClass() != this.getClass())</b>
+<b class="fc"><i>110</i>&nbsp;      return false;</b>
+<i>111</i>&nbsp;
+<b class="fc"><i>112</i>&nbsp;    Encomenda e = (Encomenda) obj;</b>
+<i>113</i>&nbsp;
+<b class="fc"><i>114</i>&nbsp;    return e.getCodEncomenda().equals(this.codEncomenda);</b>
+<i>115</i>&nbsp;  }
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;  public String toString() {
+<b class="fc"><i>118</i>&nbsp;    StringBuilder sb = new StringBuilder();</b>
+<i>119</i>&nbsp;
+<b class="fc"><i>120</i>&nbsp;    sb.append(&quot;Código da encomenda: &quot;).append(this.codEncomenda).append(&quot;\n&quot;);</b>
+<b class="fc"><i>121</i>&nbsp;    sb.append(&quot;Código da loja: &quot;).append(this.codLoja).append(&quot;\n&quot;);</b>
+<b class="fc"><i>122</i>&nbsp;    sb.append(&quot;Peso total: &quot;).append(this.peso).append(&quot;\n&quot;);</b>
+<b class="fc"><i>123</i>&nbsp;    sb.append(&quot;Data: &quot;).append(this.data).append(&quot;\n&quot;);</b>
+<b class="fc"><i>124</i>&nbsp;    sb.append(&quot;Produtos: &quot;).append(this.encomendas);</b>
+<i>125</i>&nbsp;
+<b class="fc"><i>126</i>&nbsp;    return sb.toString();</b>
+<i>127</i>&nbsp;  }
+<i>128</i>&nbsp;
+<i>129</i>&nbsp;  public String toStringCSV() {
+<b class="fc"><i>130</i>&nbsp;    StringBuilder result = new StringBuilder();</b>
+<b class="fc"><i>131</i>&nbsp;    StringBuilder sb = new StringBuilder();</b>
+<i>132</i>&nbsp;
+<b class="fc"><i>133</i>&nbsp;    sb.append(&quot;Encomenda:&quot;);</b>
+<b class="fc"><i>134</i>&nbsp;    sb.append(this.codEncomenda).append(&quot;,&quot;);</b>
+<b class="fc"><i>135</i>&nbsp;    sb.append(this.codUtilizador).append(&quot;,&quot;);</b>
+<b class="fc"><i>136</i>&nbsp;    sb.append(this.codLoja).append(&quot;,&quot;);</b>
+<b class="fc"><i>137</i>&nbsp;    sb.append(this.peso).append(&quot;,&quot;);</b>
+<i>138</i>&nbsp;    
+<b class="fc"><i>139</i>&nbsp;    for (LinhaEncomenda le: this.encomendas)</b>
+<b class="fc"><i>140</i>&nbsp;      sb.append(le.toStringCSV());</b>
+<i>141</i>&nbsp;
+<b class="fc"><i>142</i>&nbsp;    result.append(sb.substring(0, sb.length() - 1));</b>
+<i>143</i>&nbsp;
+<b class="fc"><i>144</i>&nbsp;    return result.toString();</b>
+<i>145</i>&nbsp;  }
+<i>146</i>&nbsp;
+<i>147</i>&nbsp;
+<i>148</i>&nbsp;  /* REQUIRED functions */
+<i>149</i>&nbsp;
+<i>150</i>&nbsp;  // Método que calcula a quantidade total de produtos numa encomenda
+<i>151</i>&nbsp;  public float quantidadeProdutosTotal() {
+<b class="fc"><i>152</i>&nbsp;    float total = 0;</b>
+<i>153</i>&nbsp;
+<b class="fc"><i>154</i>&nbsp;    for (LinhaEncomenda le: this.encomendas)</b>
+<b class="fc"><i>155</i>&nbsp;      total += le.getQuantidade();</b>
+<i>156</i>&nbsp;
+<b class="fc"><i>157</i>&nbsp;    return total;</b>
+<i>158</i>&nbsp;  }
+<i>159</i>&nbsp;
+<i>160</i>&nbsp;  // Método que calcula a variedade de produtos numa encomenda
+<i>161</i>&nbsp;  public int numeroProdutos() {
+<b class="fc"><i>162</i>&nbsp;    int total = 0;</b>
+<i>163</i>&nbsp;
+<b class="fc"><i>164</i>&nbsp;    for (int i = 0; i &lt; this.encomendas.size(); i++)</b>
+<b class="fc"><i>165</i>&nbsp;      total += 1;</b>
+<i>166</i>&nbsp;
+<b class="fc"><i>167</i>&nbsp;    return total;</b>
+<i>168</i>&nbsp;  }
+<i>169</i>&nbsp;
+<i>170</i>&nbsp;  // Método que calcula o custo total de uma encomenda
+<i>171</i>&nbsp;  public float custoEncomendaTotal() {
+<b class="fc"><i>172</i>&nbsp;    int total = 0;</b>
+<i>173</i>&nbsp;
+<b class="fc"><i>174</i>&nbsp;    for (LinhaEncomenda le: this.encomendas)</b>
+<b class="fc"><i>175</i>&nbsp;      total += (le.getValorUnitario() * le.getQuantidade());</b>
+<i>176</i>&nbsp;
+<b class="fc"><i>177</i>&nbsp;    return total;</b>
+<i>178</i>&nbsp;  }
+<i>179</i>&nbsp;
+<i>180</i>&nbsp;  // Método que calcula o tempo que demora a preparar uma encomenda
+<i>181</i>&nbsp;  public double tempoEncomenda(Encomenda e) {
+<b class="fc"><i>182</i>&nbsp;    double tempoNormal = e.quantidadeProdutosTotal();</b>
+<b class="fc"><i>183</i>&nbsp;    double tempoExtra = 0.03 * e.numeroProdutos() * e.getPeso();</b>
+<i>184</i>&nbsp;
+<b class="fc"><i>185</i>&nbsp;    return (tempoNormal + tempoExtra);</b>
+<i>186</i>&nbsp;  }
+<i>187</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:26</div>
+</div>
+</body>
+</html>

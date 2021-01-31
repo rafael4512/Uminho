@@ -1,0 +1,425 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+BDProdutos
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: BDProdutos: 0.8595238095238096</ul>
+<ul>
+<li>33.0 fitness evaluations, 0 generations, null statements, 32 tests.
+<li>Covered null/null branches, <li>Covered null/null methods, <li>Covered 261/280 total goals
+</ul>
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content">
+<div id="post">
+<h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>BDProdutos bDProdutos1 = bDProdutos0.clone();
+<span class="nocode"><a name="3">  3: </a></span>assertNotSame(bDProdutos0, bDProdutos1);
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = bDProdutos0.toString();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;Total de Produtos: \n{}&quot;, string0);
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda(&quot;Saco de lixo 50l&quot;, &quot;Saco de lixo 50l&quot;, 0.0, (-1738.0074653588629));
+<span class="nocode"><a name="3">  3: </a></span>bDProdutos0.add(linhaEncomenda0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = bDProdutos0.listProdutosMedicos();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;LISTA DE PRODUTOS M\u00C9DICOS\n--&gt; Saco de lixo 50l\n&quot;, string0);
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>BDProdutos bDProdutos1 = new BDProdutos(bDProdutos0);
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = bDProdutos0.equals(bDProdutos1);
+<span class="nocode"><a name="4">  4: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = bDProdutos0.equals(bDProdutos0);
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = bDProdutos0.equals((Object) null);
+<span class="nocode"><a name="3">  3: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda();
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = bDProdutos0.equals(linhaEncomenda0);
+<span class="nocode"><a name="4">  4: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = bDProdutos0.existe(&quot;RH&amp;85k5RMk\&quot;]p'6&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda(&quot;Quantidade: &quot;, &quot;Quantidade: &quot;, (-1736.8673768276803), (-1736.8673768276803));
+<span class="nocode"><a name="3">  3: </a></span>bDProdutos0.add(linhaEncomenda0);
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = bDProdutos0.existe(&quot;Quantidade: &quot;);
+<span class="nocode"><a name="5">  5: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda(&quot;Saco de lixo 30l&quot;, &quot;Saco de lixo 30l&quot;, (-3216.48), (-1170.613875));
+<span class="nocode"><a name="3">  3: </a></span>bDProdutos0.add(linhaEncomenda0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = bDProdutos0.listProdutosNormais();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;LISTA DE PRODUTOS\n&quot;, string0);
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda(&quot;vwRZN:&lt;{mHir0&quot;, &quot;Desinfetante&quot;, (-559.773043104601), (-1.0));
+<span class="nocode"><a name="3">  3: </a></span>bDProdutos0.add(linhaEncomenda0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = bDProdutos0.listProdutosNormais();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;LISTA DE PRODUTOS\n&quot;, string0);
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>HashMap&lt;String, LinhaEncomenda&gt; hashMap0 = new HashMap&lt;String, LinhaEncomenda&gt;();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda();
+<span class="nocode"><a name="3">  3: </a></span>LinkedHashSet&lt;String&gt; linkedHashSet0 = new LinkedHashSet&lt;String&gt;();
+<span class="nocode"><a name="4">  4: </a></span>hashMap0.put(&quot;Alcool&quot;, linhaEncomenda0);
+<span class="nocode"><a name="5">  5: </a></span>BDProdutos bDProdutos0 = new BDProdutos(hashMap0, linkedHashSet0);
+<span class="nocode"><a name="6">  6: </a></span>String string0 = bDProdutos0.listProdutosNormais();
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(&quot;LISTA DE PRODUTOS\n&quot;, string0);
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda(&quot;Saco de lixo 50l&quot;, &quot;Saco de lixo 50l&quot;, 1.036758408592255, (-1738.0074653588629));
+<span class="nocode"><a name="3">  3: </a></span>bDProdutos0.add(linhaEncomenda0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = bDProdutos0.listProdutosNormais();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;LISTA DE PRODUTOS\n&quot;, string0);
+</pre>
+<h3>Test case 14</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>HashMap&lt;String, LinhaEncomenda&gt; hashMap0 = new HashMap&lt;String, LinhaEncomenda&gt;();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda();
+<span class="nocode"><a name="3">  3: </a></span>hashMap0.put(&quot;S\&quot;H'o[5RW9ZS/)@6&quot;, linhaEncomenda0);
+<span class="nocode"><a name="4">  4: </a></span>LinkedHashSet&lt;String&gt; linkedHashSet0 = new LinkedHashSet&lt;String&gt;();
+<span class="nocode"><a name="5">  5: </a></span>BDProdutos bDProdutos0 = new BDProdutos(hashMap0, linkedHashSet0);
+<span class="nocode"><a name="6">  6: </a></span>String string0 = bDProdutos0.listProdutosNormais();
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(&quot;LISTA DE PRODUTOS\n--&gt; S\&quot;H'o[5RW9ZS/)@6\n&quot;, string0);
+</pre>
+<h3>Test case 15</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>bDProdutos0.existeProd(&quot;s+IzAiLF6IBhA2I(;(+&quot;);
+</pre>
+<h3>Test case 16</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda(&quot;Saco de lixo 30l&quot;, &quot;Saco de lixo 30l&quot;, (-2954.05), (-2954.05));
+<span class="nocode"><a name="3">  3: </a></span>bDProdutos0.add(linhaEncomenda0);
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = bDProdutos0.existeProd(&quot;Saco de lixo 30l&quot;);
+<span class="nocode"><a name="5">  5: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 17</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>Set&lt;String&gt; set0 = bDProdutos0.getCodigos();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, set0.size());
+</pre>
+<h3>Test case 18</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, LinhaEncomenda&gt; hashMap0 = new HashMap&lt;String, LinhaEncomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>bDProdutos0.setProdutos(hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>assertTrue(hashMap0.isEmpty());
+</pre>
+<h3>Test case 19</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>Map&lt;String, LinhaEncomenda&gt; map0 = bDProdutos0.getProdutos();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, map0.size());
+</pre>
+<h3>Test case 20</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, LinhaEncomenda&gt; hashMap0 = new HashMap&lt;String, LinhaEncomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda();
+<span class="nocode"><a name="4">  4: </a></span>hashMap0.put(&quot;Desinfetante&quot;, linhaEncomenda0);
+<span class="nocode"><a name="5">  5: </a></span>Map&lt;String, LinhaEncomenda&gt; map0 = bDProdutos0.getProdMedicos(hashMap0);
+<span class="nocode"><a name="6">  6: </a></span>assertFalse(map0.isEmpty());
+</pre>
+<h3>Test case 21</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, LinhaEncomenda&gt; hashMap0 = new HashMap&lt;String, LinhaEncomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda(&quot;`jQaY9iJ#K=&gt;{.i&quot;, &quot;=~ZDE&lt;cQ#3@~#FQEu&quot;, (-344.5785), (-1.0));
+<span class="nocode"><a name="4">  4: </a></span>hashMap0.put(&quot;`jQaY9iJ#K=&gt;{.i&quot;, linhaEncomenda0);
+<span class="nocode"><a name="5">  5: </a></span>Map&lt;String, LinhaEncomenda&gt; map0 = bDProdutos0.getProdMedicos(hashMap0);
+<span class="nocode"><a name="6">  6: </a></span>assertTrue(map0.isEmpty());
+</pre>
+<h3>Test case 22</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, LinhaEncomenda&gt; hashMap0 = new HashMap&lt;String, LinhaEncomenda&gt;(1331, 1331);
+<span class="nocode"><a name="3">  3: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda(&quot;&quot;, &quot;&quot;, 1043.9, 2270.790936);
+<span class="nocode"><a name="4">  4: </a></span>hashMap0.put(&quot;Saco de lixo 50l&quot;, linhaEncomenda0);
+<span class="nocode"><a name="5">  5: </a></span>Map&lt;String, LinhaEncomenda&gt; map0 = bDProdutos0.getProdMedicos(hashMap0);
+<span class="nocode"><a name="6">  6: </a></span>assertFalse(map0.isEmpty());
+</pre>
+<h3>Test case 23</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda();
+<span class="nocode"><a name="3">  3: </a></span>HashMap&lt;String, LinhaEncomenda&gt; hashMap0 = new HashMap&lt;String, LinhaEncomenda&gt;();
+<span class="nocode"><a name="4">  4: </a></span>hashMap0.put(&quot;Alcool&quot;, linhaEncomenda0);
+<span class="nocode"><a name="5">  5: </a></span>Map&lt;String, LinhaEncomenda&gt; map0 = bDProdutos0.getProdMedicos(hashMap0);
+<span class="nocode"><a name="6">  6: </a></span>assertFalse(map0.isEmpty());
+</pre>
+<h3>Test case 24</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda(&quot;Saco de lixo 30l&quot;, &quot;Saco de lixo 30l&quot;, (-3216.48), (-1170.613875));
+<span class="nocode"><a name="3">  3: </a></span>HashMap&lt;String, LinhaEncomenda&gt; hashMap0 = new HashMap&lt;String, LinhaEncomenda&gt;();
+<span class="nocode"><a name="4">  4: </a></span>hashMap0.put(&quot;Saco de lixo 30l&quot;, linhaEncomenda0);
+<span class="nocode"><a name="5">  5: </a></span>Map&lt;String, LinhaEncomenda&gt; map0 = bDProdutos0.getProdMedicos(hashMap0);
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(1, map0.size());
+</pre>
+<h3>Test case 25</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos((BDProdutos) null);
+</pre>
+<h3>Test case 26</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos((Map&lt;String, LinhaEncomenda&gt;) null, (Set&lt;String&gt;) null);
+</pre>
+<h3>Test case 27</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>bDProdutos0.add((LinhaEncomenda) null);
+</pre>
+<h3>Test case 28</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>bDProdutos0.getProdMedicos((Map&lt;String, LinhaEncomenda&gt;) null);
+</pre>
+<h3>Test case 29</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>bDProdutos0.setCodigos((Set&lt;String&gt;) null);
+</pre>
+<h3>Test case 30</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>bDProdutos0.setProdutos((Map&lt;String, LinhaEncomenda&gt;) null);
+</pre>
+<h3>Test case 31</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinkedHashSet&lt;String&gt; linkedHashSet0 = new LinkedHashSet&lt;String&gt;();
+<span class="nocode"><a name="3">  3: </a></span>linkedHashSet0.add(&quot;&quot;);
+<span class="nocode"><a name="4">  4: </a></span>bDProdutos0.setCodigos(linkedHashSet0);
+<span class="nocode"><a name="5">  5: </a></span>Set&lt;String&gt; set0 = bDProdutos0.getCodigos();
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(1, set0.size());
+</pre>
+<h3>Test case 32</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDProdutos bDProdutos0 = new BDProdutos();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = new LinhaEncomenda((String) null, &quot;RH&amp;85k5RMk\&quot;]p'6&quot;, (-3216.48), (-3216.48));
+<span class="nocode"><a name="3">  3: </a></span>bDProdutos0.add(linhaEncomenda0);
+<span class="nocode"><a name="4">  4: </a></span>Map&lt;String, LinhaEncomenda&gt; map0 = bDProdutos0.getProdutos();
+<span class="nocode"><a name="5">  5: </a></span>assertFalse(map0.isEmpty());
+</pre>
+</div><div id="post">
+<h2 class=title id=source>Source Code</h2>
+<div class=source>
+<p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>import java.io.Serializable;
+<span class="nocode"><a name="2">  2: </a></span>import java.util.*;
+<span class="nocode"><a name="3">  3: </a></span>import java.util.stream.Collectors;
+<span class="nocode"><a name="4">  4: </a></span>
+<span class="nocode"><a name="5">  5: </a></span>    public class BDProdutos implements Serializable {
+<span class="nocode"><a name="6">  6: </a></span>        private Map&lt;String, LinhaEncomenda&gt; produtos;
+<span class="nocode"><a name="7">  7: </a></span>        private Set&lt;String&gt; codigos;
+<span class="nocode"><a name="8">  8: </a></span>
+<span class="nocode"><a name="9">  9: </a></span>        public BDProdutos() {
+<span class="nocode"><a name="10"> 10: </a></span>            this.produtos = new TreeMap&lt;&gt;();
+<span class="nocode"><a name="11"> 11: </a></span>            this.codigos = new TreeSet&lt;&gt;();
+<span class="nocode"><a name="12"> 12: </a></span>        }
+<span class="nocode"><a name="13"> 13: </a></span>
+<span class="nocode"><a name="14"> 14: </a></span>        public BDProdutos(Map&lt;String, LinhaEncomenda&gt; produtos, Set&lt;String&gt; codigos) {
+<span class="nocode"><a name="15"> 15: </a></span>            setProdutos(produtos);
+<span class="nocode"><a name="16"> 16: </a></span>            setCodigos(codigos);
+<span class="nocode"><a name="17"> 17: </a></span>        }
+<span class="nocode"><a name="18"> 18: </a></span>
+<span class="nocode"><a name="19"> 19: </a></span>        public BDProdutos(BDProdutos r) {
+<span class="nocode"><a name="20"> 20: </a></span>            setProdutos(r.getProdutos());
+<span class="nocode"><a name="21"> 21: </a></span>            setCodigos(r.getCodigos());
+<span class="nocode"><a name="22"> 22: </a></span>        }
+<span class="nocode"><a name="23"> 23: </a></span>
+<span class="nocode"><a name="24"> 24: </a></span>        public Map&lt;String, LinhaEncomenda&gt; getProdutos() {
+<span class="nocode"><a name="25"> 25: </a></span>            return this.produtos.entrySet().stream().collect(Collectors.toMap(r -&gt; r.getKey(), r -&gt; r.getValue().clone()));
+<span class="nocode"><a name="26"> 26: </a></span>        }
+<span class="nocode"><a name="27"> 27: </a></span>
+<span class="nocode"><a name="28"> 28: </a></span>        public void setProdutos(Map&lt;String, LinhaEncomenda&gt; produtos) {
+<span class="nocode"><a name="29"> 29: </a></span>            this.produtos = new TreeMap&lt;&gt;();
+<span class="nocode"><a name="30"> 30: </a></span>            produtos.entrySet().forEach(e -&gt; this.produtos.put(e.getKey(), e.getValue().clone()));
+<span class="nocode"><a name="31"> 31: </a></span>        }
+<span class="nocode"><a name="32"> 32: </a></span>
+<span class="nocode"><a name="33"> 33: </a></span>        /**
+<span class="nocode"><a name="34"> 34: </a></span>         * M&eacute;todo que devolve um map com os produtos que s&atilde;o considerados como m&eacute;dicos.
+<span class="nocode"><a name="35"> 35: </a></span>         * @param produtos &eacute; o map com todos os produtos
+<span class="nocode"><a name="36"> 36: </a></span>         * @return
+<span class="nocode"><a name="37"> 37: </a></span>         */
+<span class="nocode"><a name="38"> 38: </a></span>        public Map&lt;String, LinhaEncomenda&gt; getProdMedicos(Map&lt;String, LinhaEncomenda&gt; produtos){
+<span class="nocode"><a name="39"> 39: </a></span>            Map&lt;String, LinhaEncomenda&gt; aux = new TreeMap&lt;&gt;();
+<span class="nocode"><a name="40"> 40: </a></span>            for(String s: produtos.keySet()){
+<span class="nocode"><a name="41"> 41: </a></span>                if(&quot;Desinfetante&quot;.equals(s) || &quot;Alcool&quot;.equals(s) || &quot;Saco de lixo 50l&quot;.equals(s) || &quot;Saco de lixo 30l&quot;.equals(s)){
+<span class="nocode"><a name="42"> 42: </a></span>                    aux.put(s, produtos.get(s).clone());
+<span class="nocode"><a name="43"> 43: </a></span>                }
+<span class="nocode"><a name="44"> 44: </a></span>            }
+<span class="nocode"><a name="45"> 45: </a></span>            return aux;
+<span class="nocode"><a name="46"> 46: </a></span>        }
+<span class="nocode"><a name="47"> 47: </a></span>
+<span class="nocode"><a name="48"> 48: </a></span>        public Set&lt;String&gt; getCodigos() {
+<span class="nocode"><a name="49"> 49: </a></span>            return this.codigos.stream().collect(Collectors.toSet());
+<span class="nocode"><a name="50"> 50: </a></span>        }
+<span class="nocode"><a name="51"> 51: </a></span>
+<span class="nocode"><a name="52"> 52: </a></span>        public void setCodigos(Set&lt;String&gt; codigos) {
+<span class="nocode"><a name="53"> 53: </a></span>            this.codigos = new TreeSet&lt;&gt;();
+<span class="nocode"><a name="54"> 54: </a></span>            this.codigos.addAll(codigos);
+<span class="nocode"><a name="55"> 55: </a></span>        }
+<span class="nocode"><a name="56"> 56: </a></span>
+<span class="nocode"><a name="57"> 57: </a></span>        public BDProdutos clone() {
+<span class="nocode"><a name="58"> 58: </a></span>            return new BDProdutos(this);
+<span class="nocode"><a name="59"> 59: </a></span>        }
+<span class="nocode"><a name="60"> 60: </a></span>
+<span class="nocode"><a name="61"> 61: </a></span>        public String toString() {
+<span class="nocode"><a name="62"> 62: </a></span>            StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="63"> 63: </a></span>            sb.append(&quot;Total de Produtos: &quot; + &quot;\n&quot;);
+<span class="nocode"><a name="64"> 64: </a></span>            sb.append(this.produtos);
+<span class="nocode"><a name="65"> 65: </a></span>
+<span class="nocode"><a name="66"> 66: </a></span>            return sb.toString();
+<span class="nocode"><a name="67"> 67: </a></span>        }
+<span class="nocode"><a name="68"> 68: </a></span>
+<span class="nocode"><a name="69"> 69: </a></span>        public boolean equals(Object obj) {
+<span class="nocode"><a name="70"> 70: </a></span>            if (obj == this) {
+<span class="nocode"><a name="71"> 71: </a></span>				return true;
+<span class="nocode"><a name="72"> 72: </a></span>			}
+<span class="nocode"><a name="73"> 73: </a></span>            if (obj == null || obj.getClass() != getClass()) {
+<span class="nocode"><a name="74"> 74: </a></span>				return false;
+<span class="nocode"><a name="75"> 75: </a></span>			}
+<span class="nocode"><a name="76"> 76: </a></span>            BDProdutos r = (BDProdutos) obj;
+<span class="nocode"><a name="77"> 77: </a></span>            return this.produtos.equals(r.getProdutos());
+<span class="nocode"><a name="78"> 78: </a></span>        }
+<span class="nocode"><a name="79"> 79: </a></span>
+<span class="nocode"><a name="80"> 80: </a></span>        /**
+<span class="nocode"><a name="81"> 81: </a></span>         * M&eacute;todo que verifica se um produto existe.
+<span class="nocode"><a name="82"> 82: </a></span>         * @param v &eacute; o produto a ser testado
+<span class="nocode"><a name="83"> 83: </a></span>         * @return
+<span class="nocode"><a name="84"> 84: </a></span>         */
+<span class="nocode"><a name="85"> 85: </a></span>
+<span class="nocode"><a name="86"> 86: </a></span>        public boolean existe(String v) {
+<span class="nocode"><a name="87"> 87: </a></span>            return this.produtos.containsKey(v);
+<span class="nocode"><a name="88"> 88: </a></span>        }
+<span class="nocode"><a name="89"> 89: </a></span>
+<span class="nocode"><a name="90"> 90: </a></span>        /**
+<span class="nocode"><a name="91"> 91: </a></span>         * M&eacute;todo que adiciona um novo produto.
+<span class="nocode"><a name="92"> 92: </a></span>         * @param v
+<span class="nocode"><a name="93"> 93: </a></span>         */
+<span class="nocode"><a name="94"> 94: </a></span>        public void add(LinhaEncomenda v) {
+<span class="nocode"><a name="95"> 95: </a></span>            this.produtos.put(v.getDescricao(), v.clone());
+<span class="nocode"><a name="96"> 96: </a></span>        }
+<span class="nocode"><a name="97"> 97: </a></span>
+<span class="nocode"><a name="98"> 98: </a></span>        /**
+<span class="nocode"><a name="99"> 99: </a></span>         * M&eacute;todo que determina os produtos que n&atilde;o s&atilde;o m&eacute;dicos, que ser&atilde;o depois impressos.
+<span class="nocode"><a name="100">100: </a></span>         * @return
+<span class="nocode"><a name="101">101: </a></span>         */
+<span class="nocode"><a name="102">102: </a></span>        public String listProdutosNormais(){
+<span class="nocode"><a name="103">103: </a></span>            StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="104">104: </a></span>            Map&lt;String, LinhaEncomenda&gt; normais = new HashMap&lt;&gt;();
+<span class="nocode"><a name="105">105: </a></span>            for(String s: this.produtos.keySet()){
+<span class="nocode"><a name="106">106: </a></span>                if(!&quot;Desinfetante&quot;.equals(s) &amp;&amp; !&quot;Alcool&quot;.equals(s) &amp;&amp; !&quot;Saco de lixo 50l&quot;.equals(s) &amp;&amp; !&quot;Saco de lixo 30l&quot;.equals(s)){
+<span class="nocode"><a name="107">107: </a></span>                    normais.put(s, this.produtos.get(s));
+<span class="nocode"><a name="108">108: </a></span>                }
+<span class="nocode"><a name="109">109: </a></span>            }
+<span class="nocode"><a name="110">110: </a></span>            sb.append(&quot;LISTA DE PRODUTOS\n&quot;);
+<span class="nocode"><a name="111">111: </a></span>            for(String s: normais.keySet()){
+<span class="nocode"><a name="112">112: </a></span>                sb.append(&quot;--&gt; &quot;).append(s).append(&quot;\n&quot;);
+<span class="nocode"><a name="113">113: </a></span>            }
+<span class="nocode"><a name="114">114: </a></span>            return sb.toString();
+<span class="nocode"><a name="115">115: </a></span>        }
+<span class="nocode"><a name="116">116: </a></span>
+<span class="nocode"><a name="117">117: </a></span>        /**
+<span class="nocode"><a name="118">118: </a></span>         * M&eacute;todo que devolve os produtos m&eacute;dicos para serem impressos.
+<span class="nocode"><a name="119">119: </a></span>         * @return
+<span class="nocode"><a name="120">120: </a></span>         */
+<span class="nocode"><a name="121">121: </a></span>        public String listProdutosMedicos(){
+<span class="nocode"><a name="122">122: </a></span>            StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="123">123: </a></span>            Map&lt;String, LinhaEncomenda&gt; aux = getProdMedicos(this.produtos);
+<span class="nocode"><a name="124">124: </a></span>            sb.append(&quot;LISTA DE PRODUTOS M&Eacute;DICOS\n&quot;);
+<span class="nocode"><a name="125">125: </a></span>            for(String s: aux.keySet()){
+<span class="nocode"><a name="126">126: </a></span>                sb.append(&quot;--&gt; &quot;).append(s).append(&quot;\n&quot;);
+<span class="nocode"><a name="127">127: </a></span>            }
+<span class="nocode"><a name="128">128: </a></span>            return sb.toString();
+<span class="nocode"><a name="129">129: </a></span>        }
+<span class="nocode"><a name="130">130: </a></span>
+<span class="nocode"><a name="131">131: </a></span>        /**
+<span class="nocode"><a name="132">132: </a></span>         * M&eacute;todo que verifica se um produto existe.
+<span class="nocode"><a name="133">133: </a></span>         * @param cod
+<span class="nocode"><a name="134">134: </a></span>         * @return
+<span class="nocode"><a name="135">135: </a></span>         * @throws ProductNotFoundException
+<span class="nocode"><a name="136">136: </a></span>         */
+<span class="nocode"><a name="137">137: </a></span>        public boolean existeProd(String cod) throws ProductNotFoundException{
+<span class="nocode"><a name="138">138: </a></span>            if(!this.produtos.containsKey(cod)) {
+<span class="nocode"><a name="139">139: </a></span>				throw new ProductNotFoundException();
+<span class="nocode"><a name="140">140: </a></span>			} else {
+<span class="nocode"><a name="141">141: </a></span>				return true;
+<span class="nocode"><a name="142">142: </a></span>			}
+<span class="nocode"><a name="143">143: </a></span>        }
+<span class="nocode"><a name="144">144: </a></span>    }
+</pre>
+</p>
+</div>
+<div id="post">
+<h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>TARGET_CLASS: BDProdutos
+<li>criterion: LINE;BRANCH;EXCEPTION;WEAKMUTATION;OUTPUT;METHOD;METHODNOEXCEPTION;CBRANCH
+<li>Coverage: 0.8595238095238096
+<li>Total_Goals: 280
+<li>Covered_Goals: 261
+</ul></div>
+</div>
+<p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

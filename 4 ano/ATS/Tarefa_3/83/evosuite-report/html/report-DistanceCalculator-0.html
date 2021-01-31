@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+DistanceCalculator
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: DistanceCalculator: 0.9583333333333334</ul>
+<ul>
+<li>1.0 fitness evaluations, 0 generations, null statements, 3 tests.
+<li>Covered null/null branches, <li>Covered null/null methods, <li>Covered 48/49 total goals
+</ul>
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content">
+<div id="post">
+<h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>DistanceCalculator distanceCalculator0 = new DistanceCalculator();
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>double double0 = DistanceCalculator.distance((-152.0), (-152.0), (-152.0), (-152.0));
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(0.0, double0, 0.01);
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>double double0 = DistanceCalculator.distance((-3250.68042295168), 0.0, 0.0, (-3250.68042295168));
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(4597.156341078975, double0, 0.01);
+</pre>
+</div><div id="post">
+<h2 class=title id=source>Source Code</h2>
+<div class=source>
+<p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>import java.util.*;
+<span class="nocode"><a name="2">  2: </a></span>import java.lang.*;
+<span class="nocode"><a name="3">  3: </a></span>import java.io.*;
+<span class="nocode"><a name="4">  4: </a></span>
+<span class="nocode"><a name="5">  5: </a></span>class DistanceCalculator
+<span class="nocode"><a name="6">  6: </a></span>{
+<span class="nocode"><a name="7">  7: </a></span>    /**
+<span class="nocode"><a name="8">  8: </a></span>     * M&eacute;todo que calcula a dist&atilde;ncia entre 2 pontos.
+<span class="nocode"><a name="9">  9: </a></span>     * @param lat1
+<span class="nocode"><a name="10"> 10: </a></span>     * @param lat2
+<span class="nocode"><a name="11"> 11: </a></span>     * @param lon1
+<span class="nocode"><a name="12"> 12: </a></span>     * @param lon2
+<span class="nocode"><a name="13"> 13: </a></span>     * @return
+<span class="nocode"><a name="14"> 14: </a></span>     */
+<span class="nocode"><a name="15"> 15: </a></span>    public static double distance(double lat1, double lat2, double lon1, double lon2)
+<span class="nocode"><a name="16"> 16: </a></span>    {
+<span class="nocode"><a name="17"> 17: </a></span>        return Math.sqrt((lon2 - lon1) * (lon2 - lon1) + (lat2 - lat1) * (lat2 - lat1));
+<span class="nocode"><a name="18"> 18: </a></span>    }
+<span class="nocode"><a name="19"> 19: </a></span>}
+</pre>
+</p>
+</div>
+<div id="post">
+<h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>TARGET_CLASS: DistanceCalculator
+<li>criterion: LINE;BRANCH;EXCEPTION;WEAKMUTATION;OUTPUT;METHOD;METHODNOEXCEPTION;CBRANCH
+<li>Coverage: 0.9583333333333334
+<li>Total_Goals: 49
+<li>Covered_Goals: 48
+</ul></div>
+</div>
+<p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

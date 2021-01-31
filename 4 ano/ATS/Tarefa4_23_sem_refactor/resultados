@@ -1,0 +1,64 @@
+					GRANDE 
+PARSING
+
+0.442648509 segundos
+Energy(joules): dram 0.9580079999996087 cpu 5.584839000000102 package 8.861939000002167
+Power: dram 2.1642634743396565 cpu 12.61687069186559 package 20.02026171967105
+
+###############################################
+
+App com um utilizador a ver lista das suas encomendas (nao tem encomendas)
+
+27.90645194 segundos
+Energy(joules): dram 31.44787599999836 cpu 19.14947499999994 package 127.77880899999582
+Power: dram 1.1269034152966693 cpu 0.6862024252016016 package 4.578826762883559
+
+############################################### 
+
+App com um utilizador a adicionar encomenda e a ver a lista da encomenda
+
+63.262700493 segundos 
+Energy(joules): dram 68.56524600000012 cpu 19.807007 package 255.09777800000302
+Power: dram 1.0838178810843972 cpu 0.3130913926475782 package 4.032356760177026
+
+################################################
+
+Adicionar encomenda e ver a lista
+
+28.973877782 segundos
+Energy(joules): dram 30.76037600000018 cpu 1.1871949999999742 package 106.35669000000053
+Power: dram 1.0616589271012264 cpu 0.040974667213427615 package 3.6707785820120544
+
+
+					PEQUENO
+
+PARSING
+
+0.102756744 segundos
+Energy(joules): dram 0.19427499999801512 cpu 0.9544679999999062 package 1.7086789999957546
+Power: dram 1.8906301663082583 cpu 9.288616618680582 package 16.628387913845874
+
+################################################
+
+App com um utilizador a ver lista das suas encomendas (nao tem encomendas)
+
+30.427121022 segundos
+Energy(joules): dram 32.59149199999956 cpu 3.4460450000000264 package 115.42706299999554
+Power: dram 1.0711329532766058 cpu 0.1132557036043075 package 3.793558480821674
+
+############################################### 
+
+App com um utilizador a adicionar encomenda e a ver a lista da encomenda
+
+57.390651148 segundos
+Energy(joules): dram 61.196594000000914 cpu 4.432251000000065 package 214.53967200000625
+Power: dram 1.0663164256872792 cpu 0.07722949489752433 package 3.7382338012988847
+
+################################################
+
+Adicionar encomenda e ver a lista
+
+23.869868488 segundos
+Energy(joules): dram 25.394043000000238 cpu 1.1405640000000403 package 88.06585699999414
+Power: dram 1.0638534943234597 cpu 0.0477825841635211 package 3.689415257745015
+

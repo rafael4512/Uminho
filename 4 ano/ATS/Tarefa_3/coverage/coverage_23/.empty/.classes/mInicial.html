@@ -1,0 +1,108 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: mInicial</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: mInicial (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">mInicial</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/ 15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;public class mInicial extends mPrincipal {
+<i>2</i>&nbsp;  
+<i>3</i>&nbsp;  public mInicial() {
+<b class="fc"><i>4</i>&nbsp;    super();</b>
+<b class="fc"><i>5</i>&nbsp;  }</b>
+<i>6</i>&nbsp;  
+<i>7</i>&nbsp;  // Método que imprime e lê a opção pretendida no menu inicial 
+<i>8</i>&nbsp;  public void mostrarMenuInicial() {
+<b class="fc"><i>9</i>&nbsp;    System.out.println(&quot;1: Log in&quot;);</b>
+<b class="fc"><i>10</i>&nbsp;    System.out.println(&quot;2: Sign up&quot;);</b>
+<b class="fc"><i>11</i>&nbsp;    System.out.println(&quot;3: Leaderboards&quot;);</b>
+<b class="fc"><i>12</i>&nbsp;    System.out.println(&quot;4: Sair&quot;);</b>
+<b class="fc"><i>13</i>&nbsp;    System.out.println(&quot;\nNunca te esqueças que a tua primeira password é sempre &#39;TrazAqui&#39;!!!&quot;);</b>
+<i>14</i>&nbsp;
+<b class="fc"><i>15</i>&nbsp;    int opcaoAUX = leOpcao();</b>
+<b class="fc"><i>16</i>&nbsp;    if (opcaoAUX == Integer.MAX_VALUE) {</b>
+<b class="fc"><i>17</i>&nbsp;      clearScreen();</b>
+<b class="fc"><i>18</i>&nbsp;      System.out.println(&quot;Introduziu uma opcção inválida. Introduza apenas números.\n\n&quot;);</b>
+<b class="fc"><i>19</i>&nbsp;      System.out.print(&quot;\tTraz Aqui\n\n&quot;);</b>
+<b class="fc"><i>20</i>&nbsp;      mostrarMenuInicial();</b>
+<i>21</i>&nbsp;    }
+<i>22</i>&nbsp;    else
+<b class="fc"><i>23</i>&nbsp;      setOpcao(opcaoAUX);</b>
+<b class="fc"><i>24</i>&nbsp;  }</b>
+<i>25</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:26</div>
+</div>
+</body>
+</html>

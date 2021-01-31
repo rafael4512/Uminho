@@ -1,0 +1,198 @@
+open util/ordering[Id]
+/*
+// Leader election in a ring
+
+open util/ordering[Id]
+
+sig Node {
+	id : one Id,
+	succ : one Node,
+	var inbox : set Id,
+	var outbox : set Id
+}
+
+sig Id {}
+
+fact ring {
+	all i : Id | lone id.i
+	all n : Node | Node in n.^succ
+}
+
+fun elected : set Node {
+	{n : Node | once (n.id in n.inbox)}
+}
+
+pred send [n : Node] {
+	some i : n.outbox {
+		n.outbox' = n.outbox - i
+		n.succ.inbox' = n.succ.inbox + i
+	}
+	all m : Node - n.succ | m.inbox' = m.inbox
+	all m : Node - n | m.outbox' = m.outbox
+}
+
+pred compute [n : Node] {
+	some i : n.inbox {
+		n.inbox' = n.inbox - i
+		n.outbox' = n.outbox + (i - n.id.*(~next))
+	}
+	all m : Node - n | m.inbox' = m.inbox
+	all m : Node - n | m.outbox' = m.outbox
+}
+
+pred skip {
+	inbox' = inbox
+	outbox' = outbox
+}
+
+fact init {
+	no inbox
+	outbox = id
+}
+
+fact transitions {
+	always (skip or some n : Node | send[n] or compute[n])
+}
+
+run {}
+run scenario1 {eventually some elected} for 3 Id, exactly 3 Node, exactly 6 steps
+run scenario2 {eventually some elected} for 4 Id, exactly 4 Node, exactly 8 steps
+
+assert safety {
+	always lone elected
+}
+check safety
+
+
+pred sendEnabled [n : Node] {
+	some n.outbox
+}
+
+pred computeEnabled [n : Node] {
+	some n.inbox
+}
+
+fact fairness {
+	all n : Node {
+		((eventually always sendEnabled[n]) implies (always eventually send[n]))
+		((eventually always computeEnabled[n]) implies (always eventually compute[n]))
+	}
+}
+
+assert liveness {
+	some Node implies eventually some elected
+}
+check liveness
+
+*/
+
+sig Id {}
+sig Node {
+	id: one Id,
+	succ: one Node,
+	var inbox: set Id,
+	var outbox: set Id
+}
+
+
+fact ring {
+	all i : Id |lone id.i 
+	all n : Node | Node in n.^succ //garante que todos os nos são acessiveis apartir de qq um.
+}
+
+
+fun elected : set Node{
+	{n:Node | once (n.id in n.inbox)}
+}
+
+
+pred send[n:Node]{
+	some i :n.outbox{
+		n.outbox' = n.outbox - i
+		n.succ.inbox' = n.succ.inbox + i
+	}
+//garante que todos os outros nos mantenhasm o estado.
+	all m :Node -n.succ | m.inbox' =m.inbox
+	all m :Node -n | m.outbox' = m.outbox
+
+
+     /* \* é tudo igual ao anterior excepto   ...                 @=outbox[n]
+    /\ outbox' = [outbox EXCEPT ![n] = @ \ {i} ]
+    /\ inbox' = [inbox  EXCEPT ![succ(n)] = @ \cup {i} ]
+
+/\ alloc' = [alloc EXCEPT ![c] = @ \cup S]
+all c1:Clients - alloc.s
+
+
+*/
+
+
+/*alternativa pointfree
+	
+	some i :n.outbox{
+		outbox' = outbox - n->i
+		inbox' =  inbox + n.succ->i
+	}
+	
+*/
+}
+
+
+pred compute [n:Node]{
+	some i :n.inbox{
+		n.inbox' = n.inbox - i
+						//só o coloca se for maior. retorna todos os conjuntos de ids menores que ele próprio	
+		n.outbox'	= n.outbox + (i- n.id.*(~next ))
+		//versão mais simples
+		//lte[i,n.id] implies n.outbox'=n.outbox else n.outbox'= n.outbox + i
+	}
+	all m: Node -n | m.inbox' = m.inbox
+	all m :Node -n | m.outbox' = m.outbox
+
+}
+
+//Nada acontece ...Isto é necessario pq não tem nada nas inbox e outbox.
+pred skip {
+	inbox' = inbox
+	outbox' =outbox
+}
+
+
+
+fact init{
+	no inbox
+	outbox=id
+}
+
+fact transitions{
+	always (skip or some n:Node | send[n] or compute[n])
+}
+
+
+
+run{}
+
+
+
+assert safety{
+	always lone elected
+}
+
+check safety for 4 but 15 steps
+
+//força o modelo a fazer alguma coisa.
+assert liveness{
+	eventually some elected
+}
+
+
+check {liveness}
+
+
+
+
+
+
+
+
+

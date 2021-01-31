@@ -1,0 +1,1388 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: TrazAquiController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: TrazAquiController (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TrazAquiController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (8/ 12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    5.4%
+  </span>
+  <span class="absValue">
+    (55/ 1026)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.io.IOException;
+<i>2</i>&nbsp;import java.io.Serializable;
+<i>3</i>&nbsp;import java.text.DateFormat;
+<i>4</i>&nbsp;import java.text.ParseException;
+<i>5</i>&nbsp;import java.text.SimpleDateFormat;
+<i>6</i>&nbsp;import java.time.*;
+<i>7</i>&nbsp;import java.time.format.DateTimeFormatter;
+<i>8</i>&nbsp;import java.util.*;
+<i>9</i>&nbsp;import java.util.concurrent.TimeUnit;
+<i>10</i>&nbsp;
+<b class="fc"><i>11</i>&nbsp;public class TrazAquiController implements Serializable {</b>
+<i>12</i>&nbsp;    private BDGeral bd;
+<i>13</i>&nbsp;    private TrazAquiView view;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    /**
+<i>16</i>&nbsp;     * Método que define a view que o controlador irá conhecer.
+<i>17</i>&nbsp;     * @param view
+<i>18</i>&nbsp;     */
+<i>19</i>&nbsp;
+<b class="fc"><i>20</i>&nbsp;    public void setView(TrazAquiView view){this.view = view;}</b>
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    /**
+<i>23</i>&nbsp;     * Método que define o model, que , neste caso, é a BDGeral, que contém todos os users do sistema.
+<i>24</i>&nbsp;     * @param bd
+<i>25</i>&nbsp;     */
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public void setBd(BDGeral bd){
+<b class="fc"><i>28</i>&nbsp;        this.bd = bd;</b>
+<b class="fc"><i>29</i>&nbsp;    }</b>
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    private static void clearScreen() {
+<b class="fc"><i>32</i>&nbsp;        System.out.print(&quot;\033[H\033[2J&quot;);</b>
+<b class="fc"><i>33</i>&nbsp;        System.out.flush();</b>
+<b class="fc"><i>34</i>&nbsp;    }</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    /**
+<i>37</i>&nbsp;     * Método que define se é para carregar os ficheiros a partir de um ficheiro txt ou de um ficheiro binário.
+<i>38</i>&nbsp;     * @return
+<i>39</i>&nbsp;     * @throws IOException
+<i>40</i>&nbsp;     * @throws ClassNotFoundException
+<i>41</i>&nbsp;     */
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    public BDGeral readFlow() throws IOException, ClassNotFoundException {
+<i>44</i>&nbsp;        int op;
+<b class="fc"><i>45</i>&nbsp;        Input input = new Input();</b>
+<b class="fc"><i>46</i>&nbsp;        clearScreen();</b>
+<b class="fc"><i>47</i>&nbsp;        this.view.loadMenu();</b>
+<i>48</i>&nbsp;        do {
+<b class="fc"><i>49</i>&nbsp;            op = input.lerInt();</b>
+<b class="fc"><i>50</i>&nbsp;            switch (op) {</b>
+<i>51</i>&nbsp;                case 1:
+<b class="fc"><i>52</i>&nbsp;                    Parse ler = new Parse();</b>
+<b class="fc"><i>53</i>&nbsp;                    ler.parse();</b>
+<b class="fc"><i>54</i>&nbsp;                    BDGeral base = new BDGeral(ler.getBaseGeral());</b>
+<b class="fc"><i>55</i>&nbsp;                    System.out.println(&quot;DONE!&quot;);</b>
+<b class="fc"><i>56</i>&nbsp;                    return base;</b>
+<i>57</i>&nbsp;                case 2:
+<b class="fc"><i>58</i>&nbsp;                    System.out.println(&quot;Insira o ficheiro a ler&quot;);</b>
+<b class="fc"><i>59</i>&nbsp;                    String aux = Input.lerString();</b>
+<b class="nc"><i>60</i>&nbsp;                    this.bd = new BDGeral();</b>
+<i>61</i>&nbsp;                    try {
+<b class="nc"><i>62</i>&nbsp;                        BDGeral base2 = this.bd.lerFicheiro(aux);</b>
+<b class="nc"><i>63</i>&nbsp;                        System.out.println(&quot;DONE!&quot;);</b>
+<b class="nc"><i>64</i>&nbsp;                        return base2;</b>
+<b class="nc"><i>65</i>&nbsp;                    } catch (IOException | ClassNotFoundException e){</b>
+<b class="nc"><i>66</i>&nbsp;                        System.out.println(&quot;\nFicheiro inválido\n&quot;);</b>
+<b class="nc"><i>67</i>&nbsp;                        this.view.loadMenu();</b>
+<i>68</i>&nbsp;                    }
+<b class="nc"><i>69</i>&nbsp;                    break;</b>
+<i>70</i>&nbsp;                default:
+<b class="fc"><i>71</i>&nbsp;                    System.out.println(&quot;Opção inválida!&quot;);</b>
+<b class="fc"><i>72</i>&nbsp;                    break;</b>
+<i>73</i>&nbsp;            }
+<i>74</i>&nbsp;        } while (true);
+<i>75</i>&nbsp;    }
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;    /**
+<i>78</i>&nbsp;     * Método que controla a execucção de cada uma das opções do menu inicial.
+<i>79</i>&nbsp;     * @throws IOException
+<i>80</i>&nbsp;     * @throws ClassNotFoundException
+<i>81</i>&nbsp;     * @throws InterruptedException
+<i>82</i>&nbsp;     */
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    public void mainFlow() throws IOException, ClassNotFoundException, InterruptedException{
+<i>85</i>&nbsp;        int op;
+<b class="fc"><i>86</i>&nbsp;        Input input = new Input();</b>
+<b class="fc"><i>87</i>&nbsp;        this.view.printHeader();</b>
+<b class="fc"><i>88</i>&nbsp;        this.view.showMenuInicial();</b>
+<i>89</i>&nbsp;        do{
+<b class="fc"><i>90</i>&nbsp;            op = input.lerInt();</b>
+<b class="fc"><i>91</i>&nbsp;            switch(op){</b>
+<i>92</i>&nbsp;                case 0:
+<b class="fc"><i>93</i>&nbsp;                    break;</b>
+<i>94</i>&nbsp;                case 1:
+<b class="fc"><i>95</i>&nbsp;                    clearScreen();</b>
+<b class="fc"><i>96</i>&nbsp;                    registosFlow();</b>
+<b class="nc"><i>97</i>&nbsp;                    break;</b>
+<i>98</i>&nbsp;                case 2:
+<b class="fc"><i>99</i>&nbsp;                    clearScreen();</b>
+<b class="fc"><i>100</i>&nbsp;                    loginFlow();</b>
+<b class="nc"><i>101</i>&nbsp;                    break;</b>
+<i>102</i>&nbsp;                case 3:
+<b class="fc"><i>103</i>&nbsp;                    clearScreen();</b>
+<b class="fc"><i>104</i>&nbsp;                    System.out.println(&quot;Insira o nome com que quer gravar&quot;);</b>
+<b class="fc"><i>105</i>&nbsp;                    String l = Input.lerString();</b>
+<b class="nc"><i>106</i>&nbsp;                    this.bd.gravarFicheiro(l);</b>
+<b class="nc"><i>107</i>&nbsp;                    System.out.println(&quot;DONE&quot;);</b>
+<b class="nc"><i>108</i>&nbsp;                    System.out.println(&quot;Insira 5 para voltar a imprimir o menu&quot;);</b>
+<b class="nc"><i>109</i>&nbsp;                    break;</b>
+<i>110</i>&nbsp;                case 4:
+<b class="fc"><i>111</i>&nbsp;                    System.out.println(&quot;Insira o ficheiro a ler&quot;);</b>
+<b class="fc"><i>112</i>&nbsp;                    String aux = Input.lerString();</b>
+<b class="nc"><i>113</i>&nbsp;                    this.bd = new BDGeral();</b>
+<i>114</i>&nbsp;                    try {
+<b class="nc"><i>115</i>&nbsp;                        BDGeral base2 = this.bd.lerFicheiro(aux);</b>
+<b class="nc"><i>116</i>&nbsp;                        this.bd = new BDGeral(base2);</b>
+<b class="nc"><i>117</i>&nbsp;                        System.out.println(&quot;DONE!&quot;);</b>
+<b class="nc"><i>118</i>&nbsp;                    } catch (IOException | ClassNotFoundException e){</b>
+<b class="nc"><i>119</i>&nbsp;                        System.out.println(&quot;\nFicheiro inválido\n&quot;);</b>
+<b class="nc"><i>120</i>&nbsp;                        this.view.loadMenu();</b>
+<b class="nc"><i>121</i>&nbsp;                    }</b>
+<b class="nc"><i>122</i>&nbsp;                    System.out.println(&quot;Insira 5 para voltar a imprimir o menu&quot;);</b>
+<b class="nc"><i>123</i>&nbsp;                    break;</b>
+<i>124</i>&nbsp;                case 5:
+<b class="nc"><i>125</i>&nbsp;                    clearScreen();</b>
+<b class="nc"><i>126</i>&nbsp;                    this.view.showMenuInicial();</b>
+<b class="nc"><i>127</i>&nbsp;                    break;</b>
+<i>128</i>&nbsp;                default:
+<b class="fc"><i>129</i>&nbsp;                    System.out.println(&quot;Opção inválida&quot;);</b>
+<i>130</i>&nbsp;            }
+<b class="fc"><i>131</i>&nbsp;        } while (op != 0);</b>
+<b class="fc"><i>132</i>&nbsp;        System.out.println(&quot;\nPRETENDE GRAVAR O ÚLTIMO ESTADO DA APLICAÇÃO?&quot;);</b>
+<b class="fc"><i>133</i>&nbsp;        System.out.println(&quot;NÃO -&gt; 0 || SIM -&gt; 1&quot;);</b>
+<b class="fc"><i>134</i>&nbsp;        op = input.lerInt();</b>
+<b class="nc"><i>135</i>&nbsp;        if(op == 1){</b>
+<b class="nc"><i>136</i>&nbsp;            this.bd.gravarFicheiro(&quot;update&quot;);</b>
+<b class="nc"><i>137</i>&nbsp;            System.out.println(&quot;O estado foi gravado no ficheiro update&quot;);</b>
+<i>138</i>&nbsp;        }
+<b class="nc"><i>139</i>&nbsp;    }</b>
+<i>140</i>&nbsp;
+<i>141</i>&nbsp;    /** Método utilizado para realizar os registos de novos users do sistema. */
+<i>142</i>&nbsp;
+<i>143</i>&nbsp;    private void registosFlow(){
+<i>144</i>&nbsp;        int op;
+<b class="fc"><i>145</i>&nbsp;        Random random = new Random();</b>
+<b class="fc"><i>146</i>&nbsp;        Input input = new Input();</b>
+<b class="fc"><i>147</i>&nbsp;        clearScreen();</b>
+<b class="fc"><i>148</i>&nbsp;        String password = &quot;&quot;, nome = &quot;&quot;, email = &quot;&quot;, local = &quot;&quot;;</b>
+<b class="fc"><i>149</i>&nbsp;        Double latitude = 0.0, longitude = 0.0, raio = 0.0 ,tempo_espera = 0.0, custo = 0.0;</b>
+<b class="fc"><i>150</i>&nbsp;        String codigo = &quot;&quot;;</b>
+<b class="fc"><i>151</i>&nbsp;        int nif = 0, nrMinimo = 0, velocidade = 0;</b>
+<b class="fc"><i>152</i>&nbsp;        boolean medico = false;</b>
+<b class="fc"><i>153</i>&nbsp;        this.view.showMenuRegisto();</b>
+<i>154</i>&nbsp;        do {
+<b class="fc"><i>155</i>&nbsp;            op = input.lerInt();</b>
+<b class="nc"><i>156</i>&nbsp;            switch (op) {</b>
+<i>157</i>&nbsp;                case 0:
+<b class="nc"><i>158</i>&nbsp;                    clearScreen();</b>
+<b class="nc"><i>159</i>&nbsp;                    this.view.showMenuInicial();</b>
+<b class="nc"><i>160</i>&nbsp;                    return;</b>
+<i>161</i>&nbsp;                case 1:
+<i>162</i>&nbsp;                    try {
+<b class="nc"><i>163</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>164</i>&nbsp;                        this.view.headRegistoUser();</b>
+<b class="nc"><i>165</i>&nbsp;                        this.view.preenchimentoObrg();</b>
+<b class="nc"><i>166</i>&nbsp;                        this.view.email();</b>
+<b class="nc"><i>167</i>&nbsp;                        email = input.lerString();</b>
+<b class="nc"><i>168</i>&nbsp;                        while (this.bd.getUtilizadores().existeEmail(email)){</b>
+<b class="nc"><i>169</i>&nbsp;                            System.out.println(&quot;Já existe esse email, selecione um email diferente&quot;);</b>
+<b class="nc"><i>170</i>&nbsp;                            email = input.lerString();</b>
+<i>171</i>&nbsp;                        }
+<b class="nc"><i>172</i>&nbsp;                        this.view.password();</b>
+<b class="nc"><i>173</i>&nbsp;                        password = input.lerString();</b>
+<b class="nc"><i>174</i>&nbsp;                        this.view.nome();</b>
+<b class="nc"><i>175</i>&nbsp;                        nome = input.lerString();</b>
+<b class="nc"><i>176</i>&nbsp;                        this.view.latitude();</b>
+<b class="nc"><i>177</i>&nbsp;                        latitude = input.lerDouble();</b>
+<b class="nc"><i>178</i>&nbsp;                        this.view.longitude();</b>
+<b class="nc"><i>179</i>&nbsp;                        longitude = input.lerDouble();</b>
+<i>180</i>&nbsp;                        do {
+<b class="nc"><i>181</i>&nbsp;							codigo = &quot;u&quot; + random.nextInt(99);</b>
+<b class="nc"><i>182</i>&nbsp;						} while (this.bd.getUtilizadores().existeCodigo(codigo));</b>
+<b class="nc"><i>183</i>&nbsp;                    } catch (InputMismatchException e) {</b>
+<b class="nc"><i>184</i>&nbsp;                        input.lerString();</b>
+<b class="nc"><i>185</i>&nbsp;                        System.out.println(&quot;Input inválido&quot;);</b>
+<b class="nc"><i>186</i>&nbsp;                    }</b>
+<b class="nc"><i>187</i>&nbsp;                    bd.addUser(new Utilizador(email, password, codigo, nome, latitude, longitude, new ArrayList&lt;&gt;()).clone());</b>
+<b class="nc"><i>188</i>&nbsp;                    System.out.println(&quot;REGISTO EFETUADO COM SUCESSO&quot;);</b>
+<b class="nc"><i>189</i>&nbsp;                    System.out.println(&quot;PRIMA 0 PARA VOLTAR AO MENU INICIAL&quot;);</b>
+<b class="nc"><i>190</i>&nbsp;                    break;</b>
+<i>191</i>&nbsp;                case 2:
+<i>192</i>&nbsp;                    try {
+<b class="nc"><i>193</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>194</i>&nbsp;                        this.view.headRegistoVoluntario();</b>
+<b class="nc"><i>195</i>&nbsp;                        this.view.preenchimentoObrg();</b>
+<b class="nc"><i>196</i>&nbsp;                        this.view.email();</b>
+<b class="nc"><i>197</i>&nbsp;                        email = input.lerString();</b>
+<b class="nc"><i>198</i>&nbsp;                        while (this.bd.getVoluntarios().existeEmail(email)){</b>
+<b class="nc"><i>199</i>&nbsp;                            System.out.println(&quot;Já existe esse email, selecione um email diferente&quot;);</b>
+<b class="nc"><i>200</i>&nbsp;                            email = input.lerString();</b>
+<i>201</i>&nbsp;                        }
+<b class="nc"><i>202</i>&nbsp;                        this.view.password();</b>
+<b class="nc"><i>203</i>&nbsp;                        password = input.lerString();</b>
+<b class="nc"><i>204</i>&nbsp;                        this.view.nome();</b>
+<b class="nc"><i>205</i>&nbsp;                        nome = input.lerString();</b>
+<b class="nc"><i>206</i>&nbsp;                        this.view.latitude();</b>
+<b class="nc"><i>207</i>&nbsp;                        latitude = input.lerDouble();</b>
+<b class="nc"><i>208</i>&nbsp;                        this.view.longitude();</b>
+<b class="nc"><i>209</i>&nbsp;                        longitude = input.lerDouble();</b>
+<b class="nc"><i>210</i>&nbsp;                        this.view.raio_acao();</b>
+<b class="nc"><i>211</i>&nbsp;                        raio = input.lerDouble();</b>
+<b class="nc"><i>212</i>&nbsp;                        codigo = &quot;v&quot; + random.nextInt(99);</b>
+<b class="nc"><i>213</i>&nbsp;                        this.view.encomendas_medicas();</b>
+<b class="nc"><i>214</i>&nbsp;                        medico = input.lerBoolean();</b>
+<b class="nc"><i>215</i>&nbsp;                        while (bd.getVoluntarios().existeCodigo(codigo)) {</b>
+<b class="nc"><i>216</i>&nbsp;							codigo = &quot;v&quot; + random.nextInt(99);</b>
+<i>217</i>&nbsp;						}
+<b class="nc"><i>218</i>&nbsp;                        System.out.println(&quot;Insira a velocidade a que se costuma deslocar&quot;);</b>
+<b class="nc"><i>219</i>&nbsp;                        velocidade = input.lerInt();</b>
+<b class="nc"><i>220</i>&nbsp;                    } catch (InputMismatchException e) {</b>
+<b class="nc"><i>221</i>&nbsp;                        input.lerString();</b>
+<b class="nc"><i>222</i>&nbsp;                        System.out.println(&quot;Input inválido&quot;);</b>
+<b class="nc"><i>223</i>&nbsp;                    }</b>
+<b class="nc"><i>224</i>&nbsp;                    bd.addVoluntario(new Voluntario(email, password, nome, codigo, true, latitude, longitude, LocalDate.now(), raio, new ArrayList&lt;&gt;(), 0, 0, medico, 0,0).clone());</b>
+<b class="nc"><i>225</i>&nbsp;                    System.out.println(&quot;REGISTO EFETUADO COM SUCESSO&quot;);</b>
+<b class="nc"><i>226</i>&nbsp;                    System.out.println(&quot;PRIMA 0 PARA VOLTAR AO MENU INICIAL&quot;);</b>
+<b class="nc"><i>227</i>&nbsp;                    break;</b>
+<i>228</i>&nbsp;                case 3:
+<i>229</i>&nbsp;                    try {
+<b class="nc"><i>230</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>231</i>&nbsp;                        this.view.headRegistoLoja();</b>
+<b class="nc"><i>232</i>&nbsp;                        this.view.preenchimentoObrg();</b>
+<b class="nc"><i>233</i>&nbsp;                        this.view.email();</b>
+<b class="nc"><i>234</i>&nbsp;                        email = input.lerString();</b>
+<b class="nc"><i>235</i>&nbsp;                        while (this.bd.getLojas().existeEmail(email)){</b>
+<b class="nc"><i>236</i>&nbsp;                            System.out.println(&quot;Já existe esse email, selecione um email diferente&quot;);</b>
+<b class="nc"><i>237</i>&nbsp;                            email = input.lerString();</b>
+<i>238</i>&nbsp;                        }
+<b class="nc"><i>239</i>&nbsp;                        this.view.password();</b>
+<b class="nc"><i>240</i>&nbsp;                        password = input.lerString();</b>
+<b class="nc"><i>241</i>&nbsp;                        this.view.nome();</b>
+<b class="nc"><i>242</i>&nbsp;                        nome = input.lerString();</b>
+<b class="nc"><i>243</i>&nbsp;                        this.view.latitude();</b>
+<b class="nc"><i>244</i>&nbsp;                        latitude = input.lerDouble();</b>
+<b class="nc"><i>245</i>&nbsp;                        this.view.longitude();</b>
+<b class="nc"><i>246</i>&nbsp;                        longitude = input.lerDouble();</b>
+<b class="nc"><i>247</i>&nbsp;                        this.view.tempo_espera();</b>
+<b class="nc"><i>248</i>&nbsp;                        tempo_espera = input.lerDouble();</b>
+<i>249</i>&nbsp;                        do {
+<b class="nc"><i>250</i>&nbsp;							codigo = &quot;l&quot; + random.nextInt(99);</b>
+<b class="nc"><i>251</i>&nbsp;						} while (bd.getLojas().existeCodigo(codigo));</b>
+<b class="nc"><i>252</i>&nbsp;                    } catch (InputMismatchException e) {</b>
+<b class="nc"><i>253</i>&nbsp;                        input.lerString();</b>
+<b class="nc"><i>254</i>&nbsp;                        System.out.println(&quot;Input inválido&quot;);</b>
+<b class="nc"><i>255</i>&nbsp;                    }</b>
+<b class="nc"><i>256</i>&nbsp;                    bd.addLoja(new Loja(email, password, codigo, nome, tempo_espera, latitude, longitude, new ArrayList&lt;&gt;(), 0).clone());</b>
+<b class="nc"><i>257</i>&nbsp;                    System.out.println(&quot;REGISTO EFETUADO COM SUCESSO&quot;);</b>
+<b class="nc"><i>258</i>&nbsp;                    System.out.println(&quot;PRIMA 0 PARA VOLTAR AO MENU INICIAL&quot;);</b>
+<b class="nc"><i>259</i>&nbsp;                    break;</b>
+<i>260</i>&nbsp;                case 4:
+<i>261</i>&nbsp;                    try {
+<b class="nc"><i>262</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>263</i>&nbsp;                        this.view.headRegistoEmpresa();</b>
+<b class="nc"><i>264</i>&nbsp;                        this.view.preenchimentoObrg();</b>
+<b class="nc"><i>265</i>&nbsp;                        this.view.email();</b>
+<b class="nc"><i>266</i>&nbsp;                        email = input.lerString();</b>
+<b class="nc"><i>267</i>&nbsp;                        while (this.bd.getTransportes().existeEmail(email)){</b>
+<b class="nc"><i>268</i>&nbsp;                            System.out.println(&quot;Já existe esse email, selecione um email diferente&quot;);</b>
+<b class="nc"><i>269</i>&nbsp;                            email = input.lerString();</b>
+<i>270</i>&nbsp;                        }
+<b class="nc"><i>271</i>&nbsp;                        this.view.password();</b>
+<b class="nc"><i>272</i>&nbsp;                        password = input.lerString();</b>
+<b class="nc"><i>273</i>&nbsp;                        this.view.nome();</b>
+<b class="nc"><i>274</i>&nbsp;                        nome = input.lerString();</b>
+<b class="nc"><i>275</i>&nbsp;                        this.view.custo_km();</b>
+<b class="nc"><i>276</i>&nbsp;                        custo = input.lerDouble();</b>
+<b class="nc"><i>277</i>&nbsp;                        this.view.latitude();</b>
+<b class="nc"><i>278</i>&nbsp;                        latitude = input.lerDouble();</b>
+<b class="nc"><i>279</i>&nbsp;                        this.view.longitude();</b>
+<b class="nc"><i>280</i>&nbsp;                        longitude = input.lerDouble();</b>
+<b class="nc"><i>281</i>&nbsp;                        this.view.local();</b>
+<b class="nc"><i>282</i>&nbsp;                        local = input.lerString();</b>
+<b class="nc"><i>283</i>&nbsp;                        this.view.raio_acao();</b>
+<b class="nc"><i>284</i>&nbsp;                        raio = input.lerDouble();</b>
+<b class="nc"><i>285</i>&nbsp;                        this.view.nif();</b>
+<b class="nc"><i>286</i>&nbsp;                        nif = input.lerInt();</b>
+<b class="nc"><i>287</i>&nbsp;                        this.view.encomendas_medicas();</b>
+<b class="nc"><i>288</i>&nbsp;                        medico = input.lerBoolean();</b>
+<b class="nc"><i>289</i>&nbsp;                        System.out.println(&quot;Insira a velocidade a que se costuma deslocar&quot;);</b>
+<b class="nc"><i>290</i>&nbsp;                        velocidade = input.lerInt();</b>
+<i>291</i>&nbsp;                        do {
+<b class="nc"><i>292</i>&nbsp;							codigo = &quot;t&quot; + random.nextInt(99);</b>
+<b class="nc"><i>293</i>&nbsp;						} while (bd.getTransportes().existeCodigo(codigo));</b>
+<i>294</i>&nbsp;                    }
+<b class="nc"><i>295</i>&nbsp;                    catch(InputMismatchException e){</b>
+<b class="nc"><i>296</i>&nbsp;                        input.lerString();</b>
+<b class="nc"><i>297</i>&nbsp;                        System.out.println(&quot;Input inválido&quot;);</b>
+<b class="nc"><i>298</i>&nbsp;                    }</b>
+<b class="nc"><i>299</i>&nbsp;                    bd.addTransporte(new EmpresaTransportes(email, password, codigo, nome, nif,custo,local,latitude,longitude,raio, new ArrayList&lt;&gt;(), medico, 0, 0, false,0 , velocidade).clone());</b>
+<b class="nc"><i>300</i>&nbsp;                    System.out.println(&quot;REGISTO EFETUADO COM SUCESSO&quot;);</b>
+<b class="nc"><i>301</i>&nbsp;                    System.out.println(&quot;PRIMA 0 PARA VOLTAR AO MENU INICIAL&quot;);</b>
+<b class="nc"><i>302</i>&nbsp;                    break;</b>
+<i>303</i>&nbsp;                default:
+<b class="nc"><i>304</i>&nbsp;                    System.out.println(&quot;Opcao inválida&quot;);</b>
+<i>305</i>&nbsp;                    break;
+<i>306</i>&nbsp;            }
+<i>307</i>&nbsp;        }
+<b class="nc"><i>308</i>&nbsp;        while (op != 0);</b>
+<b class="nc"><i>309</i>&nbsp;    }</b>
+<i>310</i>&nbsp;
+<i>311</i>&nbsp;    /**
+<i>312</i>&nbsp;     * Método que controla todas as ações do user, tendo este já efetuado o login no sistema.
+<i>313</i>&nbsp;     * @throws InterruptedException
+<i>314</i>&nbsp;     */
+<i>315</i>&nbsp;
+<i>316</i>&nbsp;    private void loginFlow() throws InterruptedException{
+<i>317</i>&nbsp;        int op;
+<b class="fc"><i>318</i>&nbsp;        Input input = new Input();</b>
+<b class="fc"><i>319</i>&nbsp;        clearScreen();</b>
+<b class="fc"><i>320</i>&nbsp;        this.view.showMenuLogin();</b>
+<i>321</i>&nbsp;        do {
+<b class="fc"><i>322</i>&nbsp;            op = input.lerInt();</b>
+<b class="nc"><i>323</i>&nbsp;            switch (op) {</b>
+<i>324</i>&nbsp;                case 0:
+<b class="nc"><i>325</i>&nbsp;                    clearScreen();</b>
+<b class="nc"><i>326</i>&nbsp;                    this.view.showMenuInicial();</b>
+<b class="nc"><i>327</i>&nbsp;                    return;</b>
+<i>328</i>&nbsp;                case 1:
+<b class="nc"><i>329</i>&nbsp;                    userFlow();</b>
+<b class="nc"><i>330</i>&nbsp;                    break;</b>
+<i>331</i>&nbsp;                case 2:
+<b class="nc"><i>332</i>&nbsp;                    voluntarioFlow();</b>
+<b class="nc"><i>333</i>&nbsp;                    break;</b>
+<i>334</i>&nbsp;                case 3:
+<b class="nc"><i>335</i>&nbsp;                    lojaFlow();</b>
+<b class="nc"><i>336</i>&nbsp;                    break;</b>
+<i>337</i>&nbsp;                case 4:
+<b class="nc"><i>338</i>&nbsp;                    empresaFlow();</b>
+<b class="nc"><i>339</i>&nbsp;                    break;</b>
+<i>340</i>&nbsp;                default:
+<b class="nc"><i>341</i>&nbsp;                    System.out.println(&quot;Opcao inválida&quot;);</b>
+<i>342</i>&nbsp;                    break;
+<i>343</i>&nbsp;            }
+<i>344</i>&nbsp;        }
+<b class="nc"><i>345</i>&nbsp;        while (op != 0);</b>
+<b class="nc"><i>346</i>&nbsp;    }</b>
+<i>347</i>&nbsp;
+<i>348</i>&nbsp;    /**
+<i>349</i>&nbsp;     * Método que controla as opções de um utilizador do tipo Empresa de Trnasportes.
+<i>350</i>&nbsp;     */
+<i>351</i>&nbsp;
+<i>352</i>&nbsp;    private void empresaFlow(){
+<i>353</i>&nbsp;        int op;
+<b class="nc"><i>354</i>&nbsp;        Input input = new Input();</b>
+<b class="nc"><i>355</i>&nbsp;        clearScreen();</b>
+<b class="nc"><i>356</i>&nbsp;        this.view.headLoginEmpresa();</b>
+<b class="nc"><i>357</i>&nbsp;        this.view.email();</b>
+<b class="nc"><i>358</i>&nbsp;        String email = input.lerString();</b>
+<b class="nc"><i>359</i>&nbsp;        this.view.password();</b>
+<b class="nc"><i>360</i>&nbsp;        String password = input.lerString();</b>
+<i>361</i>&nbsp;        try{
+<b class="nc"><i>362</i>&nbsp;            EmpresaTransportes et = bd.loginEmpresa(email, password).clone();</b>
+<b class="nc"><i>363</i>&nbsp;            clearScreen();</b>
+<b class="nc"><i>364</i>&nbsp;            this.view.showMenuTransportes();</b>
+<b class="nc"><i>365</i>&nbsp;            System.out.println(&quot;\n-&gt; Tem &quot; + et.porLevantar() + &quot; encomendas por levantar.&quot;);</b>
+<b class="nc"><i>366</i>&nbsp;            System.out.println(&quot;\n-&gt; Tem &quot; + et.porEntregar() + &quot; encomendas prontas a entregar\n&quot;);</b>
+<b class="nc"><i>367</i>&nbsp;            System.out.print(&quot;\nInsira uma opção --&gt; &quot;);</b>
+<i>368</i>&nbsp;            do{
+<b class="nc"><i>369</i>&nbsp;                op = input.lerInt();</b>
+<b class="nc"><i>370</i>&nbsp;                switch (op){</b>
+<i>371</i>&nbsp;                    case 0:
+<b class="nc"><i>372</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>373</i>&nbsp;                        this.view.showMenuLogin();</b>
+<b class="nc"><i>374</i>&nbsp;                        return;</b>
+<i>375</i>&nbsp;                    case 1:
+<b class="nc"><i>376</i>&nbsp;                        EmpresaTransportes aux = this.bd.getTransportes().getTransportes().get(et.getEmail()).clone();</b>
+<b class="nc"><i>377</i>&nbsp;                        aux.setDisponivel(true);</b>
+<b class="nc"><i>378</i>&nbsp;                        this.bd.addEmpresaDisponivel(aux);</b>
+<b class="nc"><i>379</i>&nbsp;                        System.out.println(&quot;Está disponível para levantar encomendas.&quot;);</b>
+<b class="nc"><i>380</i>&nbsp;                        System.out.println(&quot;Prima 11 para voltar ao menu&quot;);</b>
+<b class="nc"><i>381</i>&nbsp;                        break;</b>
+<i>382</i>&nbsp;                    case 2:
+<b class="nc"><i>383</i>&nbsp;                        EmpresaTransportes aux2 = this.bd.getTransportes().getTransportes().get(et.getEmail()).clone();</b>
+<b class="nc"><i>384</i>&nbsp;                        aux2.setDisponivel(false);</b>
+<b class="nc"><i>385</i>&nbsp;                        this.bd.addEmpresaDisponivel(aux2);</b>
+<b class="nc"><i>386</i>&nbsp;                        System.out.println(&quot;Está indisponível para levantar encomendas.&quot;);</b>
+<b class="nc"><i>387</i>&nbsp;                        System.out.println(&quot;Prima 9 para voltar ao menu&quot;);</b>
+<b class="nc"><i>388</i>&nbsp;                        break;</b>
+<i>389</i>&nbsp;                    case 3:
+<b class="nc"><i>390</i>&nbsp;                        EmpresaTransportes aux3 = this.bd.getTransportes().getTransportes().get(et.getEmail()).clone();</b>
+<b class="nc"><i>391</i>&nbsp;                        aux3.aceitaMedicamentos(true);</b>
+<b class="nc"><i>392</i>&nbsp;                        this.bd.addEmpresaDisponivel(aux3);</b>
+<b class="nc"><i>393</i>&nbsp;                        System.out.println(&quot;Está disponível para transportar encomendas médicas.&quot;);</b>
+<b class="nc"><i>394</i>&nbsp;                        System.out.println(&quot;Prima 11 para voltar ao menu&quot;);</b>
+<i>395</i>&nbsp;                    case 4:
+<b class="nc"><i>396</i>&nbsp;                        EmpresaTransportes aux4 = this.bd.getTransportes().getTransportes().get(et.getEmail()).clone();</b>
+<b class="nc"><i>397</i>&nbsp;                        aux4.aceitaMedicamentos(true);</b>
+<b class="nc"><i>398</i>&nbsp;                        this.bd.addEmpresaDisponivel(aux4);</b>
+<b class="nc"><i>399</i>&nbsp;                        System.out.println(&quot;Está indisponível para transportar encomendas médicas.&quot;);</b>
+<b class="nc"><i>400</i>&nbsp;                        System.out.println(&quot;Prima 11 para voltar ao menu&quot;);</b>
+<i>401</i>&nbsp;                    case 5:
+<b class="nc"><i>402</i>&nbsp;                        System.out.println(et.getRegistos());</b>
+<b class="nc"><i>403</i>&nbsp;                        System.out.println(&quot;Insira o código da encomenda para o qual quer calcular o custo&quot;);</b>
+<b class="nc"><i>404</i>&nbsp;                        String codCust = input.lerString();</b>
+<i>405</i>&nbsp;                        try{
+<b class="nc"><i>406</i>&nbsp;                            Encomenda encomendaCust = this.bd.getTransportes().getTransportes().get(et.getEmail()).getEncomenda(codCust);</b>
+<b class="nc"><i>407</i>&nbsp;                            Loja ljCust = this.bd.getLojas().getLojas().get(this.bd.getLojas().getEmail(encomendaCust.getCodigo_loja())).clone();</b>
+<b class="nc"><i>408</i>&nbsp;                            Utilizador uCust = this.bd.getUtilizadores().getUsers().get(this.bd.getUtilizadores().getEmail(encomendaCust.getCodigo_user())).clone();</b>
+<b class="nc"><i>409</i>&nbsp;                            int distCust1 = (int) DistanceCalculator.distance(et.getLatitude(), ljCust.getLatitude(), et.getLongitude(), ljCust.getLongitude());</b>
+<b class="nc"><i>410</i>&nbsp;                            int distCust2 = (int) DistanceCalculator.distance(uCust .getLatitude(), ljCust.getLatitude(), uCust.getLongitude(), ljCust.getLongitude());</b>
+<b class="nc"><i>411</i>&nbsp;                            int custoTotal = (int) ((distCust1 + distCust2) * et.getCusto_km() + encomendaCust.getPeso() * 0.2);</b>
+<b class="nc"><i>412</i>&nbsp;                            System.out.println(&quot;\nO lucro da encomenda &quot; + codCust + &quot; será de &quot; + custoTotal + &quot; u.m.&quot;);</b>
+<b class="nc"><i>413</i>&nbsp;                        } catch (LojaNotFoundException e) {</b>
+<b class="nc"><i>414</i>&nbsp;                            System.out.println(&quot;Loja inválida&quot;);</b>
+<b class="nc"><i>415</i>&nbsp;                        } catch (EncomendaNotFoundException e) {</b>
+<b class="nc"><i>416</i>&nbsp;                            System.out.println(&quot;Encomenda Inválida&quot;);</b>
+<b class="nc"><i>417</i>&nbsp;                        } catch (UserNotFoundException e){</b>
+<b class="nc"><i>418</i>&nbsp;                        }</b>
+<b class="nc"><i>419</i>&nbsp;                        System.out.println(&quot;Prima 11 para voltar ao menu&quot;);</b>
+<b class="nc"><i>420</i>&nbsp;                        break;</b>
+<i>421</i>&nbsp;                    case 6:
+<b class="nc"><i>422</i>&nbsp;                        EmpresaTransportes et2 = this.bd.getTransportes().getTransportes().get(et.getEmail()).clone();</b>
+<b class="nc"><i>423</i>&nbsp;                        et2.setDisponivel(false);</b>
+<b class="nc"><i>424</i>&nbsp;                        this.bd.addEmpresaDisponivel(et2);</b>
+<b class="nc"><i>425</i>&nbsp;                        String preparadas = this.bd.getTransportes().getTransportes().get(et.getEmail()).getPreparadas();</b>
+<b class="nc"><i>426</i>&nbsp;                        if(&quot;0&quot;.equals(preparadas)) {</b>
+<b class="nc"><i>427</i>&nbsp;							System.out.println(&quot;Ainda não existem encomendas preparadas&quot;);</b>
+<i>428</i>&nbsp;						} else {
+<b class="nc"><i>429</i>&nbsp;                            System.out.println(preparadas);</b>
+<b class="nc"><i>430</i>&nbsp;                            System.out.println(&quot;Indique o código da encomenda que levantou&quot;);</b>
+<b class="nc"><i>431</i>&nbsp;                            String cod = Input.lerString();</b>
+<i>432</i>&nbsp;                            try {
+<b class="nc"><i>433</i>&nbsp;                                Encomenda encomenda = this.bd.getTransportes().getTransportes().get(et.getEmail()).getEncomenda(cod);</b>
+<b class="nc"><i>434</i>&nbsp;                                Loja lj = this.bd.getLojas().getLojas().get(this.bd.getLojas().getEmail(encomenda.getCodigo_loja())).clone();</b>
+<b class="nc"><i>435</i>&nbsp;                                Utilizador u = this.bd.getUtilizadores().getUsers().get(this.bd.getUtilizadores().getEmail(encomenda.getCodigo_user())).clone();</b>
+<b class="nc"><i>436</i>&nbsp;                                int minutos = (int) (lj.getTempo_espera() + lj.getNrPessoasEmFila() * lj.getTempo_espera());</b>
+<b class="nc"><i>437</i>&nbsp;                                et.setMinutosDeEspera(minutos);</b>
+<b class="nc"><i>438</i>&nbsp;                                u.updateEncomendaLoja(encomenda);</b>
+<b class="nc"><i>439</i>&nbsp;                                this.bd.updateUser2(u);</b>
+<b class="nc"><i>440</i>&nbsp;                                Encomenda e = lj.getEnc(cod);</b>
+<b class="nc"><i>441</i>&nbsp;                                this.bd.updateLoja2(e, lj);</b>
+<b class="nc"><i>442</i>&nbsp;                                et.updateEncomendaLoja(encomenda);</b>
+<b class="nc"><i>443</i>&nbsp;                                this.bd.updateTransportes2(et);</b>
+<b class="nc"><i>444</i>&nbsp;                                System.out.println(&quot;Realizado com sucesso&quot;);</b>
+<b class="nc"><i>445</i>&nbsp;                            } catch (LojaNotFoundException e) {</b>
+<b class="nc"><i>446</i>&nbsp;                                System.out.println(&quot;Loja inválida&quot;);</b>
+<b class="nc"><i>447</i>&nbsp;                            } catch (EncomendaNotFoundException e) {</b>
+<b class="nc"><i>448</i>&nbsp;                                System.out.println(&quot;Encomenda Inválida&quot;);</b>
+<b class="nc"><i>449</i>&nbsp;                            } catch (UserNotFoundException e){</b>
+<b class="nc"><i>450</i>&nbsp;                            }</b>
+<i>451</i>&nbsp;                        }
+<b class="nc"><i>452</i>&nbsp;                        System.out.println(&quot;Prima 11 para voltar ao menu&quot;);</b>
+<b class="nc"><i>453</i>&nbsp;                        break;</b>
+<i>454</i>&nbsp;                    case 7:
+<b class="nc"><i>455</i>&nbsp;                        String naoEntregue = this.bd.getTransportes().getTransportes().get(et.getEmail()).getNaoEntregue();</b>
+<b class="nc"><i>456</i>&nbsp;                        if(&quot;0&quot;.equals(naoEntregue)){System.out.println(&quot;Não existem encomendas por entregar&quot;);}</b>
+<b class="nc"><i>457</i>&nbsp;                        else if(&quot;1&quot;.equals(naoEntregue)) {</b>
+<b class="nc"><i>458</i>&nbsp;							System.out.println(&quot;Existem mais de uma encomenda por entregar.\nPrima 8 para realizar todas as entregas&quot;);</b>
+<i>459</i>&nbsp;						} else {
+<b class="nc"><i>460</i>&nbsp;                            System.out.println(naoEntregue);</b>
+<b class="nc"><i>461</i>&nbsp;                            System.out.println(&quot;Indique a encomenda que acabou de ser entregue&quot;);</b>
+<b class="nc"><i>462</i>&nbsp;                            String cod2 = Input.lerString();</b>
+<i>463</i>&nbsp;                            try {
+<b class="nc"><i>464</i>&nbsp;                                Encomenda encomenda2 = this.bd.getTransportes().getTransportes().get(et.getEmail()).getEncomenda(cod2);</b>
+<b class="nc"><i>465</i>&nbsp;                                Loja lj = this.bd.getLojas().getLojas().get(this.bd.getLojas().getEmail(encomenda2.getCodigo_loja())).clone();</b>
+<b class="nc"><i>466</i>&nbsp;                                int totalTime = 0;</b>
+<b class="nc"><i>467</i>&nbsp;                                int distancia1 = (int) DistanceCalculator.distance(et.getLatitude(),lj.getLatitude(), et.getLongitude(), lj.getLongitude());</b>
+<b class="nc"><i>468</i>&nbsp;                                LocalDateTime entrega = LocalDateTime.now();</b>
+<b class="nc"><i>469</i>&nbsp;                                LocalDateTime emissao = encomenda2.getData();</b>
+<b class="nc"><i>470</i>&nbsp;                                Duration duration = Duration.between(entrega, emissao);</b>
+<b class="nc"><i>471</i>&nbsp;                                long diff = Math.abs(duration.toMinutes());</b>
+<b class="nc"><i>472</i>&nbsp;                                et.updateEncomenda(encomenda2);</b>
+<b class="nc"><i>473</i>&nbsp;                                String codUser = encomenda2.getCodigo_user();</b>
+<i>474</i>&nbsp;                                try {
+<b class="nc"><i>475</i>&nbsp;                                    String emailUser = this.bd.getUtilizadores().getEmail(codUser);</b>
+<b class="nc"><i>476</i>&nbsp;                                    Utilizador u = this.bd.getUtilizadores().getUsers().get(emailUser).clone().clone();</b>
+<b class="nc"><i>477</i>&nbsp;                                    int distancia2 = (int) DistanceCalculator.distance(u.getLatitude(),lj.getLatitude(), u.getLongitude(), lj.getLongitude());</b>
+<b class="nc"><i>478</i>&nbsp;                                    totalTime += ((distancia1 + distancia2) * 60) / et.getVelocidade();</b>
+<b class="nc"><i>479</i>&nbsp;                                    totalTime += et.getMinutosDeEspera();</b>
+<b class="nc"><i>480</i>&nbsp;                                    diff += totalTime;</b>
+<b class="nc"><i>481</i>&nbsp;                                    diff += et.calculaAtrasos();</b>
+<b class="nc"><i>482</i>&nbsp;                                    et.setMinutosDeEspera(0);</b>
+<b class="nc"><i>483</i>&nbsp;                                    et.updateEncomenda(encomenda2);</b>
+<b class="nc"><i>484</i>&nbsp;                                    u.updateEncomenda(encomenda2);</b>
+<b class="nc"><i>485</i>&nbsp;                                    this.bd.updateUser2(u);</b>
+<b class="nc"><i>486</i>&nbsp;                                    this.bd.updateTransportes2(et);</b>
+<b class="nc"><i>487</i>&nbsp;                                    System.out.println(&quot;A encomenda &quot; + encomenda2.getCodigo() + &quot; foi entregue ao utilizador &quot; + encomenda2.getCodigo_user());</b>
+<b class="nc"><i>488</i>&nbsp;                                    System.out.println(&quot;Demorou &quot; + diff + &quot; minutos a ser entregue&quot;);</b>
+<b class="nc"><i>489</i>&nbsp;                                    System.out.println(&quot;Prima 11 para voltar ao menu&quot;);</b>
+<b class="nc"><i>490</i>&nbsp;                                } catch (UserNotFoundException e) {</b>
+<b class="nc"><i>491</i>&nbsp;                                    System.out.println(&quot;Utilizador não foi encontrado&quot;);</b>
+<b class="nc"><i>492</i>&nbsp;                                }</b>
+<b class="nc"><i>493</i>&nbsp;                            } catch (EncomendaNotFoundException e){</b>
+<b class="nc"><i>494</i>&nbsp;                                System.out.println(&quot;Código que encomenda inválido&quot;);</b>
+<b class="nc"><i>495</i>&nbsp;                            } catch (LojaNotFoundException e){</b>
+<b class="nc"><i>496</i>&nbsp;                                System.out.println(&quot;Loja inválida&quot;);</b>
+<b class="nc"><i>497</i>&nbsp;                            }</b>
+<i>498</i>&nbsp;                        }
+<b class="nc"><i>499</i>&nbsp;                        break;</b>
+<i>500</i>&nbsp;                    case 8:
+<b class="nc"><i>501</i>&nbsp;                        ArrayList&lt;Encomenda&gt; rota = et.getRota();</b>
+<b class="nc"><i>502</i>&nbsp;                        Encomenda inicial = rota.get(0);</b>
+<b class="nc"><i>503</i>&nbsp;                        int totalTime = 0;</b>
+<b class="nc"><i>504</i>&nbsp;                        int totalKms = 0;</b>
+<b class="nc"><i>505</i>&nbsp;                        if(rota.size() &lt;= 1){</b>
+<b class="nc"><i>506</i>&nbsp;                            System.out.println(&quot;Não existem mais de 1 encomenda levantadas&quot;);</b>
+<i>507</i>&nbsp;                        }
+<i>508</i>&nbsp;                        else {
+<i>509</i>&nbsp;                            try {
+<b class="nc"><i>510</i>&nbsp;                                System.out.println(&quot;Serão entregues todas as encomendas que se encontram levantadas&quot;);</b>
+<b class="nc"><i>511</i>&nbsp;                                Utilizador u = this.bd.getUtilizadores().getUsers().get(this.bd.getUtilizadores().getEmail(inicial.getCodigo_user())).clone();</b>
+<b class="nc"><i>512</i>&nbsp;                                Loja lj = this.bd.getLojas().getLojas().get(this.bd.getLojas().getEmail(inicial.getCodigo_loja())).clone();</b>
+<b class="nc"><i>513</i>&nbsp;                                int distancia1 = (int) DistanceCalculator.distance(et.getLatitude(), lj.getLatitude(), et.getLongitude(), lj.getLongitude());</b>
+<b class="nc"><i>514</i>&nbsp;                                int distancia2 = (int) DistanceCalculator.distance(u.getLatitude(), lj.getLatitude(), u.getLongitude(), lj.getLongitude());</b>
+<b class="nc"><i>515</i>&nbsp;                                int distancia3 = et.distanciaEntreLojas(rota, this.bd);</b>
+<b class="nc"><i>516</i>&nbsp;                                LocalDateTime entrega = LocalDateTime.now();</b>
+<b class="nc"><i>517</i>&nbsp;                                LocalDateTime emissao = inicial.getData();</b>
+<b class="nc"><i>518</i>&nbsp;                                Duration duration = Duration.between(entrega, emissao);</b>
+<b class="nc"><i>519</i>&nbsp;                                long diff = Math.abs(duration.toMinutes());</b>
+<b class="nc"><i>520</i>&nbsp;                                totalTime += ((distancia1 + distancia2 + distancia3) * 60) / et.getVelocidade();</b>
+<b class="nc"><i>521</i>&nbsp;                                int atraso = et.calculaAtrasos();</b>
+<b class="nc"><i>522</i>&nbsp;                                totalTime += et.getMinutosDeEspera();</b>
+<b class="nc"><i>523</i>&nbsp;                                diff += totalTime;</b>
+<b class="nc"><i>524</i>&nbsp;                                diff += atraso;</b>
+<b class="nc"><i>525</i>&nbsp;                                totalKms += distancia1 + distancia2 + distancia3;</b>
+<b class="nc"><i>526</i>&nbsp;                                et.setMinutosDeEspera(0);</b>
+<b class="nc"><i>527</i>&nbsp;                                et.updateEncomenda(inicial);</b>
+<b class="nc"><i>528</i>&nbsp;                                u.updateEncomenda(inicial);</b>
+<b class="nc"><i>529</i>&nbsp;                                this.bd.updateUser2(u);</b>
+<b class="nc"><i>530</i>&nbsp;                                this.bd.updateTransportes2(et);</b>
+<b class="nc"><i>531</i>&nbsp;                                System.out.println(&quot;\nDemorou &quot; + diff + &quot; minutos a ser entregue ao user &quot; + u.getCodigo());</b>
+<b class="nc"><i>532</i>&nbsp;                                System.out.println(&quot;Distância percorrida &quot; + totalKms + &quot; kms&quot;);</b>
+<b class="nc"><i>533</i>&nbsp;                                for (int i = 1; i &lt; rota.size(); i++) {</b>
+<b class="nc"><i>534</i>&nbsp;                                    Encomenda e1 = rota.get(i-1);</b>
+<b class="nc"><i>535</i>&nbsp;                                    Utilizador u1 = this.bd.getUtilizadores().getUsers().get(this.bd.getUtilizadores().getEmail(e1.getCodigo_user())).clone();</b>
+<b class="nc"><i>536</i>&nbsp;                                    Encomenda e2 = rota.get(i);</b>
+<b class="nc"><i>537</i>&nbsp;                                    Utilizador u2 = this.bd.getUtilizadores().getUsers().get(this.bd.getUtilizadores().getEmail(e2.getCodigo_user())).clone();</b>
+<b class="nc"><i>538</i>&nbsp;                                    int distancia = (int) DistanceCalculator.distance(u1.getLatitude(), u2.getLatitude(), u1.getLongitude(), u2.getLongitude());</b>
+<b class="nc"><i>539</i>&nbsp;                                    totalKms += distancia;</b>
+<b class="nc"><i>540</i>&nbsp;                                    totalTime += (distancia * 60) / et.getVelocidade();</b>
+<b class="nc"><i>541</i>&nbsp;                                    totalTime += atraso;</b>
+<b class="nc"><i>542</i>&nbsp;                                    et.updateEncomenda(e2);</b>
+<b class="nc"><i>543</i>&nbsp;                                    u2.updateEncomenda(e2);</b>
+<b class="nc"><i>544</i>&nbsp;                                    this.bd.updateUser2(u2);</b>
+<b class="nc"><i>545</i>&nbsp;                                    this.bd.updateTransportes2(et);</b>
+<b class="nc"><i>546</i>&nbsp;                                    diff += totalTime;</b>
+<b class="nc"><i>547</i>&nbsp;                                    System.out.println(&quot;\nDemorou &quot; + diff + &quot; minutos a ser entregue ao user &quot; + u2.getCodigo());</b>
+<b class="nc"><i>548</i>&nbsp;                                    System.out.println(&quot;Distância percorrida &quot; + totalKms + &quot; kms\n&quot;);</b>
+<i>549</i>&nbsp;                                }
+<b class="nc"><i>550</i>&nbsp;                            } catch (UserNotFoundException e) {</b>
+<b class="nc"><i>551</i>&nbsp;                                System.out.println(&quot;Utilizador inválido&quot;);</b>
+<b class="nc"><i>552</i>&nbsp;                            } catch (LojaNotFoundException e) {</b>
+<b class="nc"><i>553</i>&nbsp;                                System.out.println(&quot;Loja inválida&quot;);</b>
+<b class="nc"><i>554</i>&nbsp;                            }</b>
+<i>555</i>&nbsp;                        }
+<b class="nc"><i>556</i>&nbsp;                        System.out.println(&quot;Prima 11 para voltar ao menu&quot;);</b>
+<b class="nc"><i>557</i>&nbsp;                        break;</b>
+<i>558</i>&nbsp;                    case 9:
+<b class="nc"><i>559</i>&nbsp;                        int size3 = this.bd.getTransportes().getTransportes().get(et.getEmail()).getRegistos().size();</b>
+<b class="nc"><i>560</i>&nbsp;                        if (size3 == 0) {</b>
+<b class="nc"><i>561</i>&nbsp;							System.out.println(&quot;Não tem pedidos de encomendas&quot;);</b>
+<i>562</i>&nbsp;						} else {
+<b class="nc"><i>563</i>&nbsp;                            System.out.println(&quot;Histórico de encomendas: &quot;);</b>
+<b class="nc"><i>564</i>&nbsp;                            System.out.println(this.bd.getTransportes().getTransportes().get(et.getEmail()).getRegistos());</b>
+<i>565</i>&nbsp;                        }
+<b class="nc"><i>566</i>&nbsp;                        System.out.println(&quot;Prima 11 para voltar ao menu&quot;);</b>
+<b class="nc"><i>567</i>&nbsp;                        break;</b>
+<i>568</i>&nbsp;                    case 10:
+<i>569</i>&nbsp;                        try {
+<b class="nc"><i>570</i>&nbsp;                            System.out.println(&quot;Insira o intervalo temporal que pretende analisar (DD/MM/YYYY)&quot;);</b>
+<b class="nc"><i>571</i>&nbsp;                            System.out.println(&quot;Inicio: &quot;);</b>
+<b class="nc"><i>572</i>&nbsp;                            Scanner sc = new Scanner(System.in);</b>
+<b class="nc"><i>573</i>&nbsp;                            String dataRecebida = sc.nextLine();</b>
+<b class="nc"><i>574</i>&nbsp;                            DateFormat df = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</b>
+<b class="nc"><i>575</i>&nbsp;                            Date dateTime1 = df.parse(dataRecebida);</b>
+<b class="nc"><i>576</i>&nbsp;                            System.out.println(&quot;Fim: &quot;);</b>
+<b class="nc"><i>577</i>&nbsp;                            String dataRecebida2 = sc.nextLine();</b>
+<b class="nc"><i>578</i>&nbsp;                            Date dateTime2 = df.parse(dataRecebida2);</b>
+<b class="nc"><i>579</i>&nbsp;                            LocalDateTime d1 = dateTime1.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();</b>
+<b class="nc"><i>580</i>&nbsp;                            LocalDateTime d2 = dateTime2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();</b>
+<b class="nc"><i>581</i>&nbsp;                            System.out.println(et.getFaturacao(d1, d2, this.bd.clone()));</b>
+<b class="nc"><i>582</i>&nbsp;                            System.out.println(&quot;Prima 11 para voltar ao menu&quot;);</b>
+<b class="nc"><i>583</i>&nbsp;                        }  catch (ParseException e){</b>
+<b class="nc"><i>584</i>&nbsp;                            System.out.println(&quot;Data inválida&quot;);</b>
+<b class="nc"><i>585</i>&nbsp;                            System.out.println(&quot;Insira 11 para retroceder&quot;);</b>
+<b class="nc"><i>586</i>&nbsp;                        }</b>
+<b class="nc"><i>587</i>&nbsp;                        break;</b>
+<i>588</i>&nbsp;                    case 11:
+<b class="nc"><i>589</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>590</i>&nbsp;                        this.view.showMenuTransportes();</b>
+<b class="nc"><i>591</i>&nbsp;                        System.out.println(&quot;\n-&gt; Tem &quot; + et.porLevantar() + &quot; encomendas por levantar.&quot;);</b>
+<b class="nc"><i>592</i>&nbsp;                        System.out.println(&quot;\n-&gt; Tem &quot; + et.porEntregar() + &quot; encomendas prontas a entregar\n&quot;);</b>
+<b class="nc"><i>593</i>&nbsp;                        System.out.print(&quot;\nInsira uma opção --&gt; &quot;);</b>
+<b class="nc"><i>594</i>&nbsp;                        break;</b>
+<i>595</i>&nbsp;                    default:
+<b class="nc"><i>596</i>&nbsp;                        System.out.println(&quot;Opção inválida&quot;);</b>
+<i>597</i>&nbsp;                        break;
+<i>598</i>&nbsp;                }
+<b class="nc"><i>599</i>&nbsp;            } while (op != 0);</b>
+<b class="nc"><i>600</i>&nbsp;        } catch (TransporteNotFoundException e){</b>
+<b class="nc"><i>601</i>&nbsp;            clearScreen();</b>
+<b class="nc"><i>602</i>&nbsp;            System.out.println(&quot;Email ou password inválidos\n\n&quot;);</b>
+<b class="nc"><i>603</i>&nbsp;            System.out.println(&quot;Selecione nova opção de login\n&quot;);</b>
+<b class="nc"><i>604</i>&nbsp;            this.view.showMenuLogin();</b>
+<b class="nc"><i>605</i>&nbsp;        }</b>
+<b class="nc"><i>606</i>&nbsp;    }</b>
+<i>607</i>&nbsp;
+<i>608</i>&nbsp;    /** Método que controla as opções de um utilizador do tipo Voluntário. */
+<i>609</i>&nbsp;
+<i>610</i>&nbsp;    private void voluntarioFlow() {
+<i>611</i>&nbsp;        int op;
+<b class="nc"><i>612</i>&nbsp;        Input input = new Input();</b>
+<b class="nc"><i>613</i>&nbsp;        clearScreen();</b>
+<b class="nc"><i>614</i>&nbsp;        this.view.headLoginVoluntario();</b>
+<b class="nc"><i>615</i>&nbsp;        this.view.email();</b>
+<b class="nc"><i>616</i>&nbsp;        String email = input.lerString();</b>
+<b class="nc"><i>617</i>&nbsp;        this.view.password();</b>
+<b class="nc"><i>618</i>&nbsp;        String password = input.lerString();</b>
+<i>619</i>&nbsp;        try {
+<b class="nc"><i>620</i>&nbsp;            Voluntario v = bd.loginVoluntario(email, password).clone();</b>
+<b class="nc"><i>621</i>&nbsp;            clearScreen();</b>
+<b class="nc"><i>622</i>&nbsp;            this.view.showMenuVoluntario();</b>
+<b class="nc"><i>623</i>&nbsp;            System.out.println(&quot;\n-&gt; Tem &quot; + v.porLevantar() + &quot; encomendas por levantar&quot;);</b>
+<b class="nc"><i>624</i>&nbsp;            System.out.println(&quot;\n-&gt; Tem &quot; + v.porEntregar() + &quot; encomendas prontas a entregar\n&quot;);</b>
+<b class="nc"><i>625</i>&nbsp;            System.out.print(&quot;\nInsira uma opção --&gt; &quot;);</b>
+<i>626</i>&nbsp;            do {
+<b class="nc"><i>627</i>&nbsp;                op = input.lerInt();</b>
+<b class="nc"><i>628</i>&nbsp;                switch (op) {</b>
+<i>629</i>&nbsp;                    case 0:
+<b class="nc"><i>630</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>631</i>&nbsp;                        this.view.showMenuLogin();</b>
+<b class="nc"><i>632</i>&nbsp;                        return;</b>
+<i>633</i>&nbsp;                    case 1:
+<b class="nc"><i>634</i>&nbsp;                        Voluntario aux = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).clone();</b>
+<b class="nc"><i>635</i>&nbsp;                        aux.setDisponibilidade(true);</b>
+<b class="nc"><i>636</i>&nbsp;                        this.bd.addVoluntarioDisponivel(aux);</b>
+<b class="nc"><i>637</i>&nbsp;                        System.out.println(&quot;Está disponível para levantar encomendas.&quot;);</b>
+<b class="nc"><i>638</i>&nbsp;                        System.out.println(&quot;Prima 8 para voltar ao menu&quot;);</b>
+<b class="nc"><i>639</i>&nbsp;                        break;</b>
+<i>640</i>&nbsp;                    case 2:
+<b class="nc"><i>641</i>&nbsp;                        Voluntario aux3 = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).clone();</b>
+<b class="nc"><i>642</i>&nbsp;                        aux3.setDisponibilidade(false);</b>
+<b class="nc"><i>643</i>&nbsp;                        this.bd.addVoluntarioDisponivel(aux3);</b>
+<b class="nc"><i>644</i>&nbsp;                        System.out.println(&quot;Está indisponível para levantar encomendas.&quot;);</b>
+<b class="nc"><i>645</i>&nbsp;                        System.out.println(&quot;Prima 8 para voltar ao menu&quot;);</b>
+<b class="nc"><i>646</i>&nbsp;                        break;</b>
+<i>647</i>&nbsp;                    case 3:
+<b class="nc"><i>648</i>&nbsp;                        Voluntario aux4 = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).clone();</b>
+<b class="nc"><i>649</i>&nbsp;                        aux4.aceitaMedicamentos(true);</b>
+<b class="nc"><i>650</i>&nbsp;                        this.bd.addVoluntarioDisponivel(aux4);</b>
+<b class="nc"><i>651</i>&nbsp;                        System.out.println(&quot;Está disponível para transportar encomendas médicas.&quot;);</b>
+<b class="nc"><i>652</i>&nbsp;                        System.out.println(&quot;Prima 8 para voltar ao menu&quot;);</b>
+<b class="nc"><i>653</i>&nbsp;                        break;</b>
+<i>654</i>&nbsp;                    case 4:
+<b class="nc"><i>655</i>&nbsp;                        Voluntario aux5 = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).clone();</b>
+<b class="nc"><i>656</i>&nbsp;                        aux5.aceitaMedicamentos(false);</b>
+<b class="nc"><i>657</i>&nbsp;                        this.bd.addVoluntarioDisponivel(aux5);</b>
+<b class="nc"><i>658</i>&nbsp;                        System.out.println(&quot;Está indisponível para transportar encomendas médicas.&quot;);</b>
+<b class="nc"><i>659</i>&nbsp;                        System.out.println(&quot;Prima 8 para voltar ao menu&quot;);</b>
+<b class="nc"><i>660</i>&nbsp;                        break;</b>
+<i>661</i>&nbsp;                    case 5:
+<b class="nc"><i>662</i>&nbsp;                        int size3 = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).getHistorico().size();</b>
+<b class="nc"><i>663</i>&nbsp;                        if (size3 == 0) {</b>
+<b class="nc"><i>664</i>&nbsp;							System.out.println(&quot;Não tem pedidos de encomendas&quot;);</b>
+<i>665</i>&nbsp;						} else {
+<b class="nc"><i>666</i>&nbsp;                           System.out.println(&quot;Histórico de encomendas: &quot;);</b>
+<b class="nc"><i>667</i>&nbsp;                           System.out.println(this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).getHistorico());</b>
+<i>668</i>&nbsp;                        }
+<b class="nc"><i>669</i>&nbsp;                        System.out.println(&quot;Prima 8 para voltar ao menu&quot;);</b>
+<b class="nc"><i>670</i>&nbsp;                        break;</b>
+<i>671</i>&nbsp;                    case 6:
+<b class="nc"><i>672</i>&nbsp;                        Voluntario aux2 = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).clone();</b>
+<b class="nc"><i>673</i>&nbsp;                        aux2.setDisponibilidade(false);</b>
+<b class="nc"><i>674</i>&nbsp;                        this.bd.addVoluntarioDisponivel(aux2);</b>
+<b class="nc"><i>675</i>&nbsp;                        String preparadas = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).getPreparadas();</b>
+<b class="nc"><i>676</i>&nbsp;                        if(&quot;0&quot;.equals(preparadas)) {</b>
+<b class="nc"><i>677</i>&nbsp;							System.out.println(&quot;Ainda não existem encomendas preparadas&quot;);</b>
+<i>678</i>&nbsp;						} else {
+<b class="nc"><i>679</i>&nbsp;                            System.out.println(preparadas);</b>
+<b class="nc"><i>680</i>&nbsp;                            System.out.println(&quot;Indique o código da encomenda que levantou&quot;);</b>
+<b class="nc"><i>681</i>&nbsp;                            String cod = Input.lerString();</b>
+<i>682</i>&nbsp;                            try {
+<b class="nc"><i>683</i>&nbsp;                                Encomenda encomenda = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).getEncomenda(cod);</b>
+<b class="nc"><i>684</i>&nbsp;                                Utilizador u = this.bd.getUtilizadores().getUsers().get(this.bd.getUtilizadores().getEmail(encomenda.getCodigo_user())).clone();</b>
+<b class="nc"><i>685</i>&nbsp;                                Loja lj = this.bd.getLojas().getLojas().get(this.bd.getLojas().getEmail(encomenda.getCodigo_loja())).clone();</b>
+<b class="nc"><i>686</i>&nbsp;                                Encomenda e = lj.getEnc(cod);</b>
+<b class="nc"><i>687</i>&nbsp;                                int minutos = (int) (lj.getTempo_espera() + lj.getTempo_espera() * lj.getNrPessoasEmFila());</b>
+<b class="nc"><i>688</i>&nbsp;                                this.bd.updateLoja2(e, lj);</b>
+<b class="nc"><i>689</i>&nbsp;                                u.updateEncomendaLoja(encomenda);</b>
+<b class="nc"><i>690</i>&nbsp;                                v.updateEncomendaLoja(encomenda);</b>
+<b class="nc"><i>691</i>&nbsp;                                v.setMinutosDeEspera(minutos);</b>
+<b class="nc"><i>692</i>&nbsp;                                this.bd.updateVoluntario2(v);</b>
+<b class="nc"><i>693</i>&nbsp;                                this.bd.updateUser2(u);</b>
+<b class="nc"><i>694</i>&nbsp;                                System.out.println(&quot;Realizado com sucesso&quot;);</b>
+<b class="nc"><i>695</i>&nbsp;                            } catch (LojaNotFoundException e) {</b>
+<b class="nc"><i>696</i>&nbsp;                                System.out.println(&quot;Loja inválida&quot;);</b>
+<b class="nc"><i>697</i>&nbsp;                                System.out.println(&quot;Prima 8 para voltar ao menu&quot;);</b>
+<b class="nc"><i>698</i>&nbsp;                            } catch (EncomendaNotFoundException e) {</b>
+<b class="nc"><i>699</i>&nbsp;                                System.out.println(&quot;Encomenda Inválida&quot;);</b>
+<b class="nc"><i>700</i>&nbsp;                                System.out.println(&quot;Prima 8 para voltar ao menu&quot;);</b>
+<b class="nc"><i>701</i>&nbsp;                            } catch (UserNotFoundException e){</b>
+<b class="nc"><i>702</i>&nbsp;                            }</b>
+<i>703</i>&nbsp;                        }
+<b class="nc"><i>704</i>&nbsp;                        System.out.println(&quot;Prima 8 para voltar ao menu&quot;);</b>
+<b class="nc"><i>705</i>&nbsp;                        break;</b>
+<i>706</i>&nbsp;                    case 7:
+<b class="nc"><i>707</i>&nbsp;                        String naoEntregue = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).getNaoEntregue();</b>
+<b class="nc"><i>708</i>&nbsp;                        if(&quot;0&quot;.equals(naoEntregue)){System.out.println(&quot;Não existem encomendas por entregar&quot;);}</b>
+<i>709</i>&nbsp;                        else {
+<b class="nc"><i>710</i>&nbsp;                            System.out.println(naoEntregue);</b>
+<b class="nc"><i>711</i>&nbsp;                            System.out.println(&quot;Indique a encomenda que acabou de ser entregue&quot;);</b>
+<b class="nc"><i>712</i>&nbsp;                            String cod2 = Input.lerString();</b>
+<i>713</i>&nbsp;                            try {
+<b class="nc"><i>714</i>&nbsp;                                Encomenda encomenda2 = this.bd.getVoluntarios().getVoluntarios().get(v.getEmail()).getEncomenda(cod2).clone();</b>
+<b class="nc"><i>715</i>&nbsp;                                Loja lj = this.bd.getLojas().getLojas().get(this.bd.getLojas().getEmail(encomenda2.getCodigo_loja())).clone();</b>
+<b class="nc"><i>716</i>&nbsp;                                int totalTime = 0;</b>
+<b class="nc"><i>717</i>&nbsp;                                int distancia1 = (int) DistanceCalculator.distance(v.getLatitude(),lj.getLatitude(), v.getLongitude(), lj.getLongitude());</b>
+<b class="nc"><i>718</i>&nbsp;                                LocalDateTime entrega = LocalDateTime.now();</b>
+<b class="nc"><i>719</i>&nbsp;                                LocalDateTime emissao = encomenda2.getData();</b>
+<b class="nc"><i>720</i>&nbsp;                                Duration duration = Duration.between(entrega, emissao);</b>
+<b class="nc"><i>721</i>&nbsp;                                long diff = Math.abs(duration.toMinutes());</b>
+<b class="nc"><i>722</i>&nbsp;                                v.updateEncomenda(encomenda2);</b>
+<b class="nc"><i>723</i>&nbsp;                                String codUser = encomenda2.getCodigo_user();</b>
+<i>724</i>&nbsp;                                try {
+<b class="nc"><i>725</i>&nbsp;                                    String emailUser = this.bd.getUtilizadores().getEmail(codUser);</b>
+<b class="nc"><i>726</i>&nbsp;                                    Utilizador u = this.bd.getUtilizadores().getUsers().get(emailUser).clone();</b>
+<b class="nc"><i>727</i>&nbsp;                                    int distancia2 = (int) DistanceCalculator.distance(v.getLatitude(),lj.getLatitude(), v.getLongitude(), lj.getLongitude());</b>
+<b class="nc"><i>728</i>&nbsp;                                    totalTime += ((distancia1 + distancia2) * 60) / v.getVelocidade();</b>
+<b class="nc"><i>729</i>&nbsp;                                    totalTime += v.getMinutosDeEspera();</b>
+<b class="nc"><i>730</i>&nbsp;                                    diff += totalTime;</b>
+<b class="nc"><i>731</i>&nbsp;                                    diff += v.calculaAtrasos();</b>
+<b class="nc"><i>732</i>&nbsp;                                    v.setMinutosDeEspera(0);</b>
+<b class="nc"><i>733</i>&nbsp;                                    v.updateEncomenda(encomenda2);</b>
+<b class="nc"><i>734</i>&nbsp;                                    u.updateEncomenda(encomenda2);</b>
+<b class="nc"><i>735</i>&nbsp;                                    this.bd.updateUser2(u);</b>
+<b class="nc"><i>736</i>&nbsp;                                    this.bd.updateVoluntario2(v);</b>
+<b class="nc"><i>737</i>&nbsp;                                    System.out.println(&quot;A encomenda &quot; + encomenda2.getCodigo() + &quot; foi entregue ao utilizador &quot; + encomenda2.getCodigo_user());</b>
+<b class="nc"><i>738</i>&nbsp;                                    System.out.println(&quot;Demorou &quot; + diff + &quot; minutos a ser entregue&quot;);</b>
+<b class="nc"><i>739</i>&nbsp;                                    System.out.println(&quot;Prima 8 para voltar ao menu&quot;);</b>
+<b class="nc"><i>740</i>&nbsp;                                } catch (UserNotFoundException e) {</b>
+<b class="nc"><i>741</i>&nbsp;                                    System.out.println(&quot;Utilizador não foi encontrado&quot;);</b>
+<b class="nc"><i>742</i>&nbsp;                                }</b>
+<b class="nc"><i>743</i>&nbsp;                            } catch (EncomendaNotFoundException e){</b>
+<b class="nc"><i>744</i>&nbsp;                                System.out.println(&quot;Código de encomenda inválido&quot;);</b>
+<b class="nc"><i>745</i>&nbsp;                                System.out.println(&quot;Insira 6 para retroceder&quot;);</b>
+<b class="nc"><i>746</i>&nbsp;                            } catch (LojaNotFoundException E){</b>
+<b class="nc"><i>747</i>&nbsp;                                System.out.println(&quot;Loja inválida&quot;);</b>
+<b class="nc"><i>748</i>&nbsp;                            }</b>
+<i>749</i>&nbsp;                        }
+<b class="nc"><i>750</i>&nbsp;                        break;</b>
+<i>751</i>&nbsp;                    case 8:
+<b class="nc"><i>752</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>753</i>&nbsp;                        this.view.showMenuVoluntario();</b>
+<b class="nc"><i>754</i>&nbsp;                        System.out.println(&quot;\n-&gt; Tem &quot; + v.porLevantar() + &quot; encomendas por levantar&quot;);</b>
+<b class="nc"><i>755</i>&nbsp;                        System.out.println(&quot;\n-&gt; Tem &quot; + v.porEntregar() + &quot; encomendas prontas a entregar\n&quot;);</b>
+<b class="nc"><i>756</i>&nbsp;                        System.out.print(&quot;\nInsira uma opção --&gt; &quot;);</b>
+<b class="nc"><i>757</i>&nbsp;                        break;</b>
+<i>758</i>&nbsp;                    default:
+<b class="nc"><i>759</i>&nbsp;                        System.out.println(&quot;Opção inválida&quot;);</b>
+<i>760</i>&nbsp;                        break;
+<i>761</i>&nbsp;                }
+<b class="nc"><i>762</i>&nbsp;            } while (op != 0);</b>
+<b class="nc"><i>763</i>&nbsp;        } catch (VoluntarioNotFoundException e) {</b>
+<b class="nc"><i>764</i>&nbsp;            clearScreen();</b>
+<b class="nc"><i>765</i>&nbsp;            System.out.println(&quot;Email ou password inválidos\n\n&quot;);</b>
+<b class="nc"><i>766</i>&nbsp;            System.out.println(&quot;Selecione nova opção de login\n&quot;);</b>
+<b class="nc"><i>767</i>&nbsp;            this.view.showMenuLogin();</b>
+<b class="nc"><i>768</i>&nbsp;        }</b>
+<b class="nc"><i>769</i>&nbsp;    }</b>
+<i>770</i>&nbsp;
+<i>771</i>&nbsp;    /** Método que controla as opções de um utilizador do tipo Loja. */
+<i>772</i>&nbsp;
+<i>773</i>&nbsp;    private void lojaFlow(){
+<i>774</i>&nbsp;        int op;
+<b class="nc"><i>775</i>&nbsp;        Input input = new Input();</b>
+<b class="nc"><i>776</i>&nbsp;        clearScreen();</b>
+<b class="nc"><i>777</i>&nbsp;        this.view.headLoginLoja();</b>
+<b class="nc"><i>778</i>&nbsp;        this.view.email();</b>
+<b class="nc"><i>779</i>&nbsp;        String email = input.lerString();</b>
+<b class="nc"><i>780</i>&nbsp;        this.view.password();</b>
+<b class="nc"><i>781</i>&nbsp;        String password = input.lerString();</b>
+<i>782</i>&nbsp;        try {
+<b class="nc"><i>783</i>&nbsp;            Loja lj = bd.loginLoja(email, password).clone();</b>
+<b class="nc"><i>784</i>&nbsp;            clearScreen();</b>
+<b class="nc"><i>785</i>&nbsp;            this.view.showMenuLoja();</b>
+<b class="nc"><i>786</i>&nbsp;            System.out.print(&quot;\nInsira uma opção --&gt; &quot;);</b>
+<i>787</i>&nbsp;            do {
+<b class="nc"><i>788</i>&nbsp;                op = input.lerInt();</b>
+<b class="nc"><i>789</i>&nbsp;                switch (op) {</b>
+<i>790</i>&nbsp;                    case 0:
+<b class="nc"><i>791</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>792</i>&nbsp;                        this.view.showMenuLogin();</b>
+<b class="nc"><i>793</i>&nbsp;                        return;</b>
+<i>794</i>&nbsp;                    case 1:
+<b class="nc"><i>795</i>&nbsp;                        String notReady = this.bd.getLojas().getLojas().get(lj.getEmail()).getEncNotReady();</b>
+<b class="nc"><i>796</i>&nbsp;                        if(&quot;0&quot;.equals(notReady)){</b>
+<b class="nc"><i>797</i>&nbsp;                            System.out.println(&quot;Não existem encomendas por preparar&quot;);</b>
+<i>798</i>&nbsp;                        }
+<i>799</i>&nbsp;                        else {
+<b class="nc"><i>800</i>&nbsp;                            System.out.println(&quot;Lista de encomendas por preparar: &quot;);</b>
+<b class="nc"><i>801</i>&nbsp;                            System.out.println(notReady);</b>
+<b class="nc"><i>802</i>&nbsp;                            System.out.println(&quot;Indique o código da encomenda que está pronta a ser levantada&quot;);</b>
+<b class="nc"><i>803</i>&nbsp;                            String cod = input.lerString();</b>
+<i>804</i>&nbsp;                            try {
+<b class="nc"><i>805</i>&nbsp;                                Encomenda enc = this.bd.getLojas().getLojas().get(lj.getEmail()).getEnc(cod).clone();</b>
+<b class="nc"><i>806</i>&nbsp;                                Utilizador u = this.bd.getUtilizadores().getUsers().get(this.bd.getUtilizadores().getEmail(enc.getCodigo_user())).clone();</b>
+<b class="nc"><i>807</i>&nbsp;                                lj.updateEncomenda(enc);</b>
+<b class="nc"><i>808</i>&nbsp;                                if(this.bd.getVoluntarios().existeEnc(enc.getCodigo())) {</b>
+<b class="nc"><i>809</i>&nbsp;                                    this.bd.updateEncomendaVoluntario(enc);</b>
+<i>810</i>&nbsp;                                } else {
+<b class="nc"><i>811</i>&nbsp;                                    this.bd.updateEncomendaTransportes(enc);</b>
+<i>812</i>&nbsp;                                }
+<b class="nc"><i>813</i>&nbsp;								u.updateEncomendaPronta(enc);</b>
+<b class="nc"><i>814</i>&nbsp;								this.bd.updateUser2(u);</b>
+<b class="nc"><i>815</i>&nbsp;								this.bd.updateLoja3(lj);</b>
+<b class="nc"><i>816</i>&nbsp;                            } catch (EncomendaNotFoundException e) {</b>
+<b class="nc"><i>817</i>&nbsp;                                System.out.println(&quot;Código de encomenda inválido&quot;);</b>
+<b class="nc"><i>818</i>&nbsp;                            } catch (UserNotFoundException e){</b>
+<b class="nc"><i>819</i>&nbsp;                            }</b>
+<i>820</i>&nbsp;                        }
+<b class="nc"><i>821</i>&nbsp;                        System.out.println(&quot;Prima 4 para imprimir o menu&quot;);</b>
+<b class="nc"><i>822</i>&nbsp;                        break;</b>
+<i>823</i>&nbsp;                    case 2:
+<b class="nc"><i>824</i>&nbsp;                        if(this.bd.getLojas().getLojas().get(lj.getEmail()).getEncomendas_recebidas().isEmpty()){</b>
+<b class="nc"><i>825</i>&nbsp;                            System.out.println(&quot;Não existem encomendas por levantar&quot;);</b>
+<i>826</i>&nbsp;                        } else {
+<b class="nc"><i>827</i>&nbsp;							System.out.println(this.bd.getLojas().getLojas().get(lj.getEmail()).getEncomendas_recebidas());</b>
+<i>828</i>&nbsp;						}
+<b class="nc"><i>829</i>&nbsp;                        System.out.println(&quot;Prima 4 para imprimir o menu&quot;);</b>
+<b class="nc"><i>830</i>&nbsp;                        break;</b>
+<i>831</i>&nbsp;                    case 3:
+<b class="nc"><i>832</i>&nbsp;                        System.out.println(&quot;Insira quantas pessoas se encontram na fila&quot;);</b>
+<b class="nc"><i>833</i>&nbsp;                        int fila = input.lerInt();</b>
+<b class="nc"><i>834</i>&nbsp;                        lj.setNrPessoasEmFila(fila);</b>
+<b class="nc"><i>835</i>&nbsp;                        this.bd.updateLoja3(lj);</b>
+<b class="nc"><i>836</i>&nbsp;                        System.out.println(&quot;Prima 4 para retroceder&quot;);</b>
+<b class="nc"><i>837</i>&nbsp;                        break;</b>
+<i>838</i>&nbsp;                    case 4:
+<b class="nc"><i>839</i>&nbsp;                        clearScreen();</b>
+<b class="nc"><i>840</i>&nbsp;                        this.view.showMenuLoja();</b>
+<b class="nc"><i>841</i>&nbsp;                        System.out.print(&quot;\nInsira uma opção --&gt; &quot;);</b>
+<b class="nc"><i>842</i>&nbsp;                        break;</b>
+<i>843</i>&nbsp;                    default:
+<b class="nc"><i>844</i>&nbsp;                        System.out.println(&quot;Opção inválida&quot;);</b>
+<i>845</i>&nbsp;                        break;
+<i>846</i>&nbsp;                }
+<b class="nc"><i>847</i>&nbsp;            } while (op != 0);</b>
+<b class="nc"><i>848</i>&nbsp;        } catch (LojaNotFoundException e) {</b>
+<b class="nc"><i>849</i>&nbsp;            clearScreen();</b>
+<b class="nc"><i>850</i>&nbsp;            System.out.println(&quot;Email ou password inválidos\n\n&quot;);</b>
+<b class="nc"><i>851</i>&nbsp;            System.out.println(&quot;Selecione nova opção de login\n&quot;);</b>
+<b class="nc"><i>852</i>&nbsp;            this.view.showMenuLogin();</b>
+<b class="nc"><i>853</i>&nbsp;        }</b>
+<b class="nc"><i>854</i>&nbsp;    }</b>
+<i>855</i>&nbsp;
+<i>856</i>&nbsp;    /** Método que controla as opções de um utilizador do Utilizador doméstico. */
+<i>857</i>&nbsp;
+<i>858</i>&nbsp;    private void userFlow() throws InterruptedException{
+<i>859</i>&nbsp;        int op;
+<b class="nc"><i>860</i>&nbsp;        Input input = new Input();</b>
+<b class="nc"><i>861</i>&nbsp;        String email, password, produto = &quot;&quot;;</b>
+<i>862</i>&nbsp;
+<b class="nc"><i>863</i>&nbsp;        clearScreen();</b>
+<b class="nc"><i>864</i>&nbsp;        this.view.headLoginUser();</b>
+<b class="nc"><i>865</i>&nbsp;        this.view.email();</b>
+<b class="nc"><i>866</i>&nbsp;        email = input.lerString();</b>
+<b class="nc"><i>867</i>&nbsp;        this.view.password();</b>
+<b class="nc"><i>868</i>&nbsp;        password = input.lerString();</b>
+<i>869</i>&nbsp;        try {
+<b class="nc"><i>870</i>&nbsp;            Utilizador u = bd.loginUser(email, password).clone();</b>
+<b class="nc"><i>871</i>&nbsp;            clearScreen();</b>
+<b class="nc"><i>872</i>&nbsp;            this.view.showMenuUser();</b>
+<b class="nc"><i>873</i>&nbsp;            System.out.print(&quot;\nInsira uma opção --&gt; &quot;);</b>
+<i>874</i>&nbsp;                do {
+<b class="nc"><i>875</i>&nbsp;                    op = input.lerInt();</b>
+<b class="nc"><i>876</i>&nbsp;                    switch (op) {</b>
+<i>877</i>&nbsp;                        case 0:
+<b class="nc"><i>878</i>&nbsp;                            clearScreen();</b>
+<b class="nc"><i>879</i>&nbsp;                            this.view.showMenuLogin();</b>
+<b class="nc"><i>880</i>&nbsp;                            return;</b>
+<i>881</i>&nbsp;                        case 1:
+<b class="nc"><i>882</i>&nbsp;                            int quantidade = 0;</b>
+<b class="nc"><i>883</i>&nbsp;                            double quantidadeTot = 0.0;</b>
+<b class="nc"><i>884</i>&nbsp;                            double custoTotal = 0.0;</b>
+<b class="nc"><i>885</i>&nbsp;                            produto = &quot;&quot;;</b>
+<i>886</i>&nbsp;                            String loja;
+<b class="nc"><i>887</i>&nbsp;                            List&lt;String&gt; produtosSel = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>888</i>&nbsp;                            Map&lt;String, LinhaEncomenda&gt; produtos = new TreeMap&lt;&gt;();</b>
+<b class="nc"><i>889</i>&nbsp;                            this.view.headNovaEncomenda();</b>
+<b class="nc"><i>890</i>&nbsp;                            this.view.preenchimentoObrg();</b>
+<b class="nc"><i>891</i>&nbsp;                            System.out.println(this.bd.getLojas().listLojasUser(u));</b>
+<b class="nc"><i>892</i>&nbsp;                            System.out.println(&quot;Selecione o código de uma loja&quot;);</b>
+<b class="nc"><i>893</i>&nbsp;                            loja = input.lerString();</b>
+<i>894</i>&nbsp;                            try {
+<b class="nc"><i>895</i>&nbsp;                                String emailLoja = this.bd.getLojas().getEmail(loja);</b>
+<b class="nc"><i>896</i>&nbsp;                                System.out.println(bd.getProdutos().listProdutosNormais());</b>
+<b class="nc"><i>897</i>&nbsp;                                while (!&quot;0&quot;.equals(produto)) {</b>
+<b class="nc"><i>898</i>&nbsp;                                    System.out.println(&quot;Insira 0 para concluir a seleção de produtos&quot;);</b>
+<b class="nc"><i>899</i>&nbsp;                                    this.view.produto();</b>
+<b class="nc"><i>900</i>&nbsp;                                    produto = input.lerString();</b>
+<b class="nc"><i>901</i>&nbsp;                                    produtosSel.add(produto);</b>
+<b class="nc"><i>902</i>&nbsp;                                    System.out.println(&quot;\n&quot;);</b>
+<i>903</i>&nbsp;                                }
+<b class="nc"><i>904</i>&nbsp;                                produtosSel.remove(&quot;0&quot;);</b>
+<i>905</i>&nbsp;                                try {
+<b class="nc"><i>906</i>&nbsp;                                    for (String s : produtosSel) {</b>
+<b class="nc"><i>907</i>&nbsp;                                        this.bd.getProdutos().existeProd(s);</b>
+<b class="nc"><i>908</i>&nbsp;                                        clearScreen();</b>
+<b class="nc"><i>909</i>&nbsp;                                        System.out.println(&quot;Insira a quantidade de &quot; + s + &quot; || Preço por unidade = &quot; + bd.getProdutos().getProdutos().get(s).getPreco());</b>
+<b class="nc"><i>910</i>&nbsp;                                        quantidade = input.lerInt();</b>
+<b class="nc"><i>911</i>&nbsp;                                        LinhaEncomenda enc = new LinhaEncomenda(bd.getProdutos().getProdutos().get(s).getCodigo(), s, quantidade, bd.getProdutos().getProdutos().get(s).getPreco()).clone();</b>
+<b class="nc"><i>912</i>&nbsp;                                        produtos.put(s, enc);</b>
+<b class="nc"><i>913</i>&nbsp;                                        quantidadeTot += quantidade;</b>
+<b class="nc"><i>914</i>&nbsp;                                        custoTotal += bd.getProdutos().getProdutos().get(s).getPreco() * quantidade;</b>
+<b class="nc"><i>915</i>&nbsp;                                    }</b>
+<b class="nc"><i>916</i>&nbsp;                                    System.out.println(&quot;\nCusto total da encomenda: &quot; + custoTotal);</b>
+<b class="nc"><i>917</i>&nbsp;                                    Loja j = this.bd.getLojas().getLojas().get(emailLoja).clone();</b>
+<b class="nc"><i>918</i>&nbsp;                                    Random random = new Random();</b>
+<b class="nc"><i>919</i>&nbsp;                                    int low = 1000;</b>
+<b class="nc"><i>920</i>&nbsp;                                    int high = 9999;</b>
+<b class="nc"><i>921</i>&nbsp;                                    int result = random.nextInt(high-low) + low;</b>
+<b class="nc"><i>922</i>&nbsp;                                    String cod = &quot;e&quot; + result;</b>
+<b class="nc"><i>923</i>&nbsp;                                    while(this.bd.getEncomendasAceites().getAceites().contains(cod)){</b>
+<b class="nc"><i>924</i>&nbsp;                                        result = random.nextInt(high-low) + low;</b>
+<b class="nc"><i>925</i>&nbsp;                                        cod = &quot;e&quot; + result;</b>
+<i>926</i>&nbsp;                                    }
+<b class="nc"><i>927</i>&nbsp;                                    Encomenda novaEnc = new Encomenda(cod, u.getCodigo(), loja, quantidadeTot, u.getNome(), this.bd.getLojas().getLojas().get(emailLoja).getNome(), produtos, false, LocalDateTime.now(), false, false, false);</b>
+<b class="nc"><i>928</i>&nbsp;                                    List&lt;Voluntario&gt; disponiveis = this.bd.getVoluntarios().voluntariosDisponíveis(j, u);</b>
+<i>929</i>&nbsp;
+<b class="nc"><i>930</i>&nbsp;                                    if(disponiveis.isEmpty()){</b>
+<b class="nc"><i>931</i>&nbsp;                                        System.out.println(&quot;\nNão existem voluntários disponíveis perto da loja selecionada.&quot;);</b>
+<b class="nc"><i>932</i>&nbsp;                                        System.out.println(&quot;\nSerá necessário selecionar uma empresa transportadora, pagando pelos seus serviços.&quot;);</b>
+<b class="nc"><i>933</i>&nbsp;                                        String r = this.bd.getTransportes().printEmpresas(u, j, novaEnc.getPeso());</b>
+<b class="nc"><i>934</i>&nbsp;                                        if(&quot;0&quot;.equals(r)){</b>
+<b class="nc"><i>935</i>&nbsp;                                            System.out.println(&quot;\nNão existem empresas disponíveis...\n&quot;);</b>
+<b class="nc"><i>936</i>&nbsp;                                            System.out.println(&quot;A sua encomenda foi cancelada...\n&quot;);</b>
+<b class="nc"><i>937</i>&nbsp;                                            System.out.println(&quot;Prima 12 para voltar ao menu&quot;);</b>
+<b class="nc"><i>938</i>&nbsp;                                            r = &quot;&quot;;</b>
+<b class="nc"><i>939</i>&nbsp;                                            break;</b>
+<i>940</i>&nbsp;                                        }
+<b class="nc"><i>941</i>&nbsp;                                        System.out.println(this.bd.getTransportes().printEmpresas(u, j, novaEnc.getPeso()));</b>
+<b class="nc"><i>942</i>&nbsp;                                        System.out.println(&quot;Selecione o código de uma empresa ou 0 para cancelar a encomenda&quot;);</b>
+<b class="nc"><i>943</i>&nbsp;                                        String opEmpresa = input.lerString();</b>
+<b class="nc"><i>944</i>&nbsp;                                        if(&quot;0&quot;.equals(opEmpresa)){</b>
+<b class="nc"><i>945</i>&nbsp;                                            System.out.println(&quot;\nA sua encomenda foi cancelada&quot;);</b>
+<b class="nc"><i>946</i>&nbsp;                                            System.out.println(&quot;\nPrima 12 para voltar ao menu&quot;);</b>
+<b class="nc"><i>947</i>&nbsp;                                            break;</b>
+<i>948</i>&nbsp;                                        }
+<i>949</i>&nbsp;                                        else {
+<i>950</i>&nbsp;                                            try {
+<b class="nc"><i>951</i>&nbsp;                                                u.addEncomenda(novaEnc);</b>
+<b class="nc"><i>952</i>&nbsp;                                                String emailEmpresa = this.bd.getTransportes().getEmail(opEmpresa);</b>
+<b class="nc"><i>953</i>&nbsp;                                                EmpresaTransportes et = this.bd.getTransportes().getTransportes().get(emailEmpresa).clone();</b>
+<b class="nc"><i>954</i>&nbsp;                                                et.addEncomenda(novaEnc);</b>
+<b class="nc"><i>955</i>&nbsp;                                                this.bd.updateTransportes2(et);</b>
+<b class="nc"><i>956</i>&nbsp;                                                this.bd.updateUser2(u);</b>
+<b class="nc"><i>957</i>&nbsp;                                                this.bd.updateLoja(novaEnc, this.bd.getLojas().getLojas().get(emailLoja));</b>
+<b class="nc"><i>958</i>&nbsp;                                                this.bd.updateAceites(novaEnc.getCodigo());</b>
+<b class="nc"><i>959</i>&nbsp;                                                System.out.println(&quot;ENCOMENDA FEITA COM SUCESSO. PRIMA 12 PARA SAIR&quot;);</b>
+<b class="nc"><i>960</i>&nbsp;                                            } catch (TransporteNotFoundException e){</b>
+<b class="nc"><i>961</i>&nbsp;                                                System.out.println(&quot;Empresa transportadora inválida&quot;);</b>
+<b class="nc"><i>962</i>&nbsp;                                            }</b>
+<i>963</i>&nbsp;                                        }
+<b class="nc"><i>964</i>&nbsp;                                    } else {</b>
+<b class="nc"><i>965</i>&nbsp;										if(disponiveis.size() == 1){</b>
+<b class="nc"><i>966</i>&nbsp;										    u.addEncomenda(novaEnc);</b>
+<b class="nc"><i>967</i>&nbsp;										    Voluntario v = disponiveis.get(0).clone();</b>
+<b class="nc"><i>968</i>&nbsp;										    System.out.println(&quot;A encomenda será entregue pelo voluntário --&gt; &quot; + v.getNome() + &quot; --&gt; &quot; + v.getCodigo());</b>
+<b class="nc"><i>969</i>&nbsp;										    v.addEncomenda(novaEnc);</b>
+<b class="nc"><i>970</i>&nbsp;										    this.bd.updateVoluntario2(v);</b>
+<b class="nc"><i>971</i>&nbsp;										    this.bd.updateLoja(novaEnc, this.bd.getLojas().getLojas().get(emailLoja));</b>
+<b class="nc"><i>972</i>&nbsp;										    this.bd.updateAceites(novaEnc.getCodigo());</b>
+<b class="nc"><i>973</i>&nbsp;										    this.bd.updateUser2(u);</b>
+<b class="nc"><i>974</i>&nbsp;										}</b>
+<i>975</i>&nbsp;										else {
+<b class="nc"><i>976</i>&nbsp;										    u.addEncomenda(novaEnc);</b>
+<b class="nc"><i>977</i>&nbsp;										    int choice = random.nextInt(disponiveis.size() - 1);</b>
+<b class="nc"><i>978</i>&nbsp;										    Voluntario v = disponiveis.get(choice).clone();</b>
+<b class="nc"><i>979</i>&nbsp;										    System.out.println(&quot;A encomenda será entregue pelo voluntário --&gt; &quot; + v.getNome() + &quot; --&gt; &quot; + v.getCodigo());</b>
+<b class="nc"><i>980</i>&nbsp;										    v.addEncomenda(novaEnc);</b>
+<b class="nc"><i>981</i>&nbsp;										    this.bd.updateVoluntario2(v);</b>
+<b class="nc"><i>982</i>&nbsp;										    this.bd.updateUser2(u);</b>
+<b class="nc"><i>983</i>&nbsp;										    this.bd.updateLoja(novaEnc, this.bd.getLojas().getLojas().get(emailLoja));</b>
+<b class="nc"><i>984</i>&nbsp;										    this.bd.updateAceites(novaEnc.getCodigo());</b>
+<i>985</i>&nbsp;										}
+<b class="nc"><i>986</i>&nbsp;										System.out.println(&quot;ENCOMENDA FEITA COM SUCESSO. PRIMA 12 PARA SAIR&quot;);</b>
+<i>987</i>&nbsp;									}
+<b class="nc"><i>988</i>&nbsp;                                } catch (ProductNotFoundException e) {</b>
+<b class="nc"><i>989</i>&nbsp;                                    System.out.println(&quot;Produto não existe&quot;);</b>
+<b class="nc"><i>990</i>&nbsp;                                    System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>991</i>&nbsp;                                }</b>
+<b class="nc"><i>992</i>&nbsp;                            } catch (LojaNotFoundException e){</b>
+<b class="nc"><i>993</i>&nbsp;                                System.out.println(&quot;Loja inválida&quot;);</b>
+<b class="nc"><i>994</i>&nbsp;                                System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>995</i>&nbsp;                            }</b>
+<b class="nc"><i>996</i>&nbsp;                            break;</b>
+<i>997</i>&nbsp;
+<i>998</i>&nbsp;                        case 2:
+<b class="nc"><i>999</i>&nbsp;                            int quantidade2 = 0;</b>
+<b class="nc"><i>1000</i>&nbsp;                            double quantidadeTot2 = 0.0;</b>
+<b class="nc"><i>1001</i>&nbsp;                            double custoTotal2 = 0.0;</b>
+<i>1002</i>&nbsp;                            String loja2;
+<b class="nc"><i>1003</i>&nbsp;                            List&lt;String&gt; produtosSel2 = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>1004</i>&nbsp;                            Map&lt;String, LinhaEncomenda&gt; produtos2 = new TreeMap&lt;&gt;();</b>
+<b class="nc"><i>1005</i>&nbsp;                            String produto2 = &quot;&quot;;</b>
+<b class="nc"><i>1006</i>&nbsp;                            this.view.headNovaEncomenda();</b>
+<b class="nc"><i>1007</i>&nbsp;                            this.view.preenchimentoObrg();</b>
+<b class="nc"><i>1008</i>&nbsp;                            System.out.println(this.bd.getLojas().listLojasUser(u));</b>
+<b class="nc"><i>1009</i>&nbsp;                            System.out.println(&quot;Selecione o código de uma loja&quot;);</b>
+<b class="nc"><i>1010</i>&nbsp;                            loja2 = input.lerString();</b>
+<i>1011</i>&nbsp;                            try {
+<b class="nc"><i>1012</i>&nbsp;                                String emailLoja = this.bd.getLojas().getEmail(loja2);</b>
+<b class="nc"><i>1013</i>&nbsp;                                System.out.println(bd.getProdutos().listProdutosMedicos());</b>
+<b class="nc"><i>1014</i>&nbsp;                                while (!&quot;0&quot;.equals(produto2)) {</b>
+<b class="nc"><i>1015</i>&nbsp;                                    this.view.produto();</b>
+<b class="nc"><i>1016</i>&nbsp;                                    System.out.println(&quot;Insira 0 para concluir a seleção de produtos&quot;);</b>
+<b class="nc"><i>1017</i>&nbsp;                                    produto2 = input.lerString();</b>
+<b class="nc"><i>1018</i>&nbsp;                                    produtosSel2.add(produto2);</b>
+<b class="nc"><i>1019</i>&nbsp;                                    System.out.println(&quot;\n&quot;);</b>
+<i>1020</i>&nbsp;                                }
+<b class="nc"><i>1021</i>&nbsp;                                clearScreen();</b>
+<b class="nc"><i>1022</i>&nbsp;                                produtosSel2.remove(&quot;0&quot;);</b>
+<b class="nc"><i>1023</i>&nbsp;                                produto = &quot;&quot;;</b>
+<b class="nc"><i>1024</i>&nbsp;                                System.out.println(bd.getProdutos().listProdutosNormais());</b>
+<b class="nc"><i>1025</i>&nbsp;                                System.out.println(&quot;Pretende encomendar mais produtos não-médicos? (Prima 0 se não pretender encomendar nenhum)&quot;);</b>
+<b class="nc"><i>1026</i>&nbsp;                                while (!&quot;0&quot;.equals(produto)) {</b>
+<b class="nc"><i>1027</i>&nbsp;                                    System.out.println(&quot;Insira 0 para concluir a seleção de produtos&quot;);</b>
+<b class="nc"><i>1028</i>&nbsp;                                    this.view.produto();</b>
+<b class="nc"><i>1029</i>&nbsp;                                    produto = input.lerString();</b>
+<b class="nc"><i>1030</i>&nbsp;                                    produtosSel2.add(produto);</b>
+<b class="nc"><i>1031</i>&nbsp;                                    System.out.println(&quot;\n&quot;);</b>
+<i>1032</i>&nbsp;                                }
+<b class="nc"><i>1033</i>&nbsp;                                produtosSel2.remove(&quot;0&quot;);</b>
+<i>1034</i>&nbsp;                                try {
+<b class="nc"><i>1035</i>&nbsp;                                    for (String s : produtosSel2) {</b>
+<b class="nc"><i>1036</i>&nbsp;                                        this.bd.getProdutos().existeProd(s);</b>
+<b class="nc"><i>1037</i>&nbsp;                                        clearScreen();</b>
+<b class="nc"><i>1038</i>&nbsp;                                        System.out.println(&quot;Insira a quantidade de &quot; + s + &quot; || Preço por unidade = &quot; + bd.getProdutos().getProdutos().get(s).getPreco());</b>
+<b class="nc"><i>1039</i>&nbsp;                                        quantidade2 = input.lerInt();</b>
+<b class="nc"><i>1040</i>&nbsp;                                        LinhaEncomenda enc = new LinhaEncomenda(bd.getProdutos().getProdutos().get(s).getCodigo(), s, quantidade2, bd.getProdutos().getProdutos().get(s).getPreco());</b>
+<b class="nc"><i>1041</i>&nbsp;                                        produtos2.put(s, enc);</b>
+<b class="nc"><i>1042</i>&nbsp;                                        quantidadeTot2 += quantidade2;</b>
+<b class="nc"><i>1043</i>&nbsp;                                        custoTotal2 += bd.getProdutos().getProdutos().get(s).getPreco() * quantidade2;</b>
+<b class="nc"><i>1044</i>&nbsp;                                    }</b>
+<b class="nc"><i>1045</i>&nbsp;                                    System.out.println(&quot;\nCusto total da encomenda: &quot; + custoTotal2);</b>
+<b class="nc"><i>1046</i>&nbsp;                                    Loja j = this.bd.getLojas().getLojas().get(emailLoja).clone();</b>
+<b class="nc"><i>1047</i>&nbsp;                                    Random random = new Random();</b>
+<b class="nc"><i>1048</i>&nbsp;                                    int low = 1000;</b>
+<b class="nc"><i>1049</i>&nbsp;                                    int high = 9999;</b>
+<b class="nc"><i>1050</i>&nbsp;                                    int result = random.nextInt(high-low) + low;</b>
+<b class="nc"><i>1051</i>&nbsp;                                    String cod = &quot;e&quot; + result;</b>
+<b class="nc"><i>1052</i>&nbsp;                                    while(this.bd.getEncomendasAceites().getAceites().contains(cod)){</b>
+<b class="nc"><i>1053</i>&nbsp;                                        result = random.nextInt(high-low) + low;</b>
+<b class="nc"><i>1054</i>&nbsp;                                        cod = &quot;e&quot; + result;</b>
+<i>1055</i>&nbsp;                                    }
+<b class="nc"><i>1056</i>&nbsp;                                    Encomenda novaEnc = new Encomenda(cod, u.getCodigo(), loja2, quantidadeTot2, u.getNome(), this.bd.getLojas().getLojas().get(emailLoja).getNome(), produtos2, true, LocalDateTime.now(), false, false, false);</b>
+<b class="nc"><i>1057</i>&nbsp;                                    List&lt;Voluntario&gt; disponiveis = this.bd.getVoluntarios().voluntariosDisponíveisMed(j, u);</b>
+<i>1058</i>&nbsp;
+<b class="nc"><i>1059</i>&nbsp;                                    if(disponiveis.isEmpty()){</b>
+<b class="nc"><i>1060</i>&nbsp;                                        System.out.println(&quot;\nNão existem voluntários disponíveis perto da loja selecionada.&quot;);</b>
+<b class="nc"><i>1061</i>&nbsp;                                        System.out.println(&quot;\nSerá necessário selecionar uma empresa transportadora, pagando pelos seus serviços.&quot;);</b>
+<b class="nc"><i>1062</i>&nbsp;                                        String ret = this.bd.getTransportes().printEmpresasMed(u, j, novaEnc.getPeso());</b>
+<b class="nc"><i>1063</i>&nbsp;                                        if(&quot;0&quot;.equals(ret)){</b>
+<b class="nc"><i>1064</i>&nbsp;                                            System.out.println(&quot;\nNão existem empresas disponíveis\n&quot;);</b>
+<b class="nc"><i>1065</i>&nbsp;                                            System.out.println(&quot;A sua encomenda foi cancelada...\n&quot;);</b>
+<b class="nc"><i>1066</i>&nbsp;                                            System.out.println(&quot;Prima 12 para voltar ao menu&quot;);</b>
+<b class="nc"><i>1067</i>&nbsp;                                            ret = &quot;&quot;;</b>
+<b class="nc"><i>1068</i>&nbsp;                                            break;</b>
+<i>1069</i>&nbsp;                                        }
+<b class="nc"><i>1070</i>&nbsp;                                        System.out.println(this.bd.getTransportes().printEmpresasMed(u, j, novaEnc.getPeso()));</b>
+<b class="nc"><i>1071</i>&nbsp;                                        System.out.println(&quot;Selecione o código de uma empresa ou 0 para cancelar a encomenda&quot;);</b>
+<b class="nc"><i>1072</i>&nbsp;                                        String opEmpresa = input.lerString();</b>
+<b class="nc"><i>1073</i>&nbsp;                                        if(&quot;0&quot;.equals(opEmpresa)){</b>
+<b class="nc"><i>1074</i>&nbsp;                                            System.out.println(&quot;\nA sua encomenda foi cancelada&quot;);</b>
+<b class="nc"><i>1075</i>&nbsp;                                            System.out.println(&quot;\nPrima 12 para voltar ao menu&quot;);</b>
+<b class="nc"><i>1076</i>&nbsp;                                            break;</b>
+<i>1077</i>&nbsp;                                        }
+<i>1078</i>&nbsp;                                        else {
+<i>1079</i>&nbsp;                                            try {
+<b class="nc"><i>1080</i>&nbsp;                                                u.addEncomenda(novaEnc);</b>
+<b class="nc"><i>1081</i>&nbsp;                                                String emailEmpresa = this.bd.getTransportes().getEmail(opEmpresa);</b>
+<b class="nc"><i>1082</i>&nbsp;                                                EmpresaTransportes et = this.bd.getTransportes().getTransportes().get(emailEmpresa).clone();</b>
+<b class="nc"><i>1083</i>&nbsp;                                                et.addEncomenda(novaEnc);</b>
+<b class="nc"><i>1084</i>&nbsp;                                                this.bd.updateUser2(u);</b>
+<b class="nc"><i>1085</i>&nbsp;                                                this.bd.updateTransportes2(et);</b>
+<b class="nc"><i>1086</i>&nbsp;                                                this.bd.updateLoja(novaEnc, this.bd.getLojas().getLojas().get(emailLoja));</b>
+<b class="nc"><i>1087</i>&nbsp;                                                this.bd.updateAceites(novaEnc.getCodigo());</b>
+<b class="nc"><i>1088</i>&nbsp;                                                System.out.println(&quot;ENCOMENDA FEITA COM SUCESSO. PRIMA 12 PARA SAIR&quot;);</b>
+<b class="nc"><i>1089</i>&nbsp;                                            } catch (TransporteNotFoundException e){</b>
+<b class="nc"><i>1090</i>&nbsp;                                                System.out.println(&quot;Empresa transportadora inválida&quot;);</b>
+<b class="nc"><i>1091</i>&nbsp;                                            }</b>
+<i>1092</i>&nbsp;                                        }
+<b class="nc"><i>1093</i>&nbsp;                                    } else {</b>
+<b class="nc"><i>1094</i>&nbsp;										if(disponiveis.size() == 1){</b>
+<b class="nc"><i>1095</i>&nbsp;										    u.addEncomenda(novaEnc);</b>
+<b class="nc"><i>1096</i>&nbsp;										    Voluntario v = disponiveis.get(0).clone();</b>
+<b class="nc"><i>1097</i>&nbsp;										    System.out.println(&quot;A encomenda será entregue pelo voluntário --&gt; &quot; + v.getNome() + &quot; --&gt; &quot; + v.getCodigo());</b>
+<b class="nc"><i>1098</i>&nbsp;										    v.addEncomenda(novaEnc);</b>
+<b class="nc"><i>1099</i>&nbsp;										    this.bd.updateVoluntario2(v);</b>
+<b class="nc"><i>1100</i>&nbsp;										}</b>
+<i>1101</i>&nbsp;										else {
+<b class="nc"><i>1102</i>&nbsp;										    u.addEncomenda(novaEnc);</b>
+<b class="nc"><i>1103</i>&nbsp;										    int choice = random.nextInt(disponiveis.size() - 1);</b>
+<b class="nc"><i>1104</i>&nbsp;										    Voluntario v = disponiveis.get(choice).clone();</b>
+<b class="nc"><i>1105</i>&nbsp;										    System.out.println(&quot;A encomenda será entregue pelo voluntário --&gt; &quot; + v.getNome() + &quot; --&gt; &quot; + v.getCodigo());</b>
+<b class="nc"><i>1106</i>&nbsp;										    v.addEncomenda(novaEnc);</b>
+<b class="nc"><i>1107</i>&nbsp;										    this.bd.updateVoluntario2(v);</b>
+<i>1108</i>&nbsp;										}
+<b class="nc"><i>1109</i>&nbsp;										this.bd.updateUser2(u);</b>
+<b class="nc"><i>1110</i>&nbsp;										this.bd.updateLoja(novaEnc, this.bd.getLojas().getLojas().get(emailLoja));</b>
+<b class="nc"><i>1111</i>&nbsp;										this.bd.updateAceites(novaEnc.getCodigo());</b>
+<b class="nc"><i>1112</i>&nbsp;										System.out.println(&quot;ENCOMENDA FEITA COM SUCESSO. PRIMA 12 PARA SAIR&quot;);</b>
+<i>1113</i>&nbsp;									}
+<b class="nc"><i>1114</i>&nbsp;                                } catch (ProductNotFoundException e) {</b>
+<b class="nc"><i>1115</i>&nbsp;                                    System.out.println(&quot;Produto não existe&quot;);</b>
+<b class="nc"><i>1116</i>&nbsp;                                    System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>1117</i>&nbsp;                                }</b>
+<b class="nc"><i>1118</i>&nbsp;                            } catch (LojaNotFoundException e){</b>
+<b class="nc"><i>1119</i>&nbsp;                                System.out.println(&quot;Loja inválida&quot;);</b>
+<b class="nc"><i>1120</i>&nbsp;                                System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>1121</i>&nbsp;                            }</b>
+<b class="nc"><i>1122</i>&nbsp;                            break;</b>
+<i>1123</i>&nbsp;                        case 3:
+<b class="nc"><i>1124</i>&nbsp;                            System.out.println(u.printEncomendasRecebidas());</b>
+<b class="nc"><i>1125</i>&nbsp;                            System.out.println(&quot;Insira 12 para imprimir de novo o menu&quot;);</b>
+<b class="nc"><i>1126</i>&nbsp;                            break;</b>
+<i>1127</i>&nbsp;                        case 4:
+<b class="nc"><i>1128</i>&nbsp;                            System.out.println(u.printEncomendasPorEntregar());</b>
+<b class="nc"><i>1129</i>&nbsp;                            System.out.println(&quot;Insira 12 para imprimir de novo o menu&quot;);</b>
+<b class="nc"><i>1130</i>&nbsp;                            break;</b>
+<i>1131</i>&nbsp;                        case 5:
+<b class="nc"><i>1132</i>&nbsp;                            if(u.getEncomendas().isEmpty()){</b>
+<b class="nc"><i>1133</i>&nbsp;                                System.out.println(&quot;Não tem encomendas efetuadas&quot;);</b>
+<b class="nc"><i>1134</i>&nbsp;                                System.out.println(&quot;Insira 12 para retroceder&quot;);</b>
+<i>1135</i>&nbsp;                            }
+<i>1136</i>&nbsp;                            else {
+<b class="nc"><i>1137</i>&nbsp;                                System.out.println(u.getEncomendas());</b>
+<b class="nc"><i>1138</i>&nbsp;                                System.out.println(&quot;Insira o código da encomenda que pretende analisar&quot;);</b>
+<b class="nc"><i>1139</i>&nbsp;                                String cod1 = input.lerString();</b>
+<i>1140</i>&nbsp;                                try {
+<b class="nc"><i>1141</i>&nbsp;                                    Encomenda enc = u.devolveEncomenda(cod1);</b>
+<i>1142</i>&nbsp;                                    String one, two, three, four;
+<b class="nc"><i>1143</i>&nbsp;                                    one = &quot;NÃO&quot;;</b>
+<b class="nc"><i>1144</i>&nbsp;                                    two = &quot;NÃO&quot;;</b>
+<b class="nc"><i>1145</i>&nbsp;                                    three = &quot;NÃO&quot;;</b>
+<b class="nc"><i>1146</i>&nbsp;                                    four = &quot;NÃO&quot;;</b>
+<i>1147</i>&nbsp;
+<b class="nc"><i>1148</i>&nbsp;                                    if (enc.isEncomendaMedica()) {</b>
+<b class="nc"><i>1149</i>&nbsp;                                        one = &quot;SIM&quot;;</b>
+<i>1150</i>&nbsp;                                    }
+<i>1151</i>&nbsp;
+<b class="nc"><i>1152</i>&nbsp;                                    if (enc.isPreparada()) {</b>
+<b class="nc"><i>1153</i>&nbsp;                                        two = &quot;SIM&quot;;</b>
+<i>1154</i>&nbsp;                                    }
+<i>1155</i>&nbsp;
+<b class="nc"><i>1156</i>&nbsp;                                    if (enc.isLevantada()) {</b>
+<b class="nc"><i>1157</i>&nbsp;                                        three = &quot;SIM&quot;;</b>
+<i>1158</i>&nbsp;                                    }
+<i>1159</i>&nbsp;
+<b class="nc"><i>1160</i>&nbsp;                                    if (enc.isEntregue()) {</b>
+<b class="nc"><i>1161</i>&nbsp;                                        four = &quot;SIM&quot;;</b>
+<i>1162</i>&nbsp;                                    }
+<b class="nc"><i>1163</i>&nbsp;                                    clearScreen();</b>
+<b class="nc"><i>1164</i>&nbsp;                                    System.out.println(&quot;\n\nENCOMENDA COM O CÓDIGO &quot; + enc.getCodigo());</b>
+<b class="nc"><i>1165</i>&nbsp;                                    System.out.println(&quot;\nESTADOS DA ENCOMENDA: &quot;);</b>
+<b class="nc"><i>1166</i>&nbsp;                                    System.out.println(&quot;\nENCOMENDA MÉDICA ---&gt; &quot; + one);</b>
+<b class="nc"><i>1167</i>&nbsp;                                    System.out.println(&quot;\nENCOMENDA PRONTA A SER LEVANTADA DA LOJA ---&gt; &quot; + two);</b>
+<b class="nc"><i>1168</i>&nbsp;                                    System.out.println(&quot;\nENCOMENDA LEVANTADA E A CAMINHO ---&gt; &quot; + three);</b>
+<b class="nc"><i>1169</i>&nbsp;                                    System.out.println(&quot;\nENCOMENDA ENTREGUE ---&gt; &quot; + four);</b>
+<b class="nc"><i>1170</i>&nbsp;                                    System.out.println(&quot;\nInsira 12 para retroceder&quot;);</b>
+<b class="nc"><i>1171</i>&nbsp;                                } catch (EncomendaNotFoundException e) {</b>
+<b class="nc"><i>1172</i>&nbsp;                                    System.out.println(&quot;Código inválido&quot;);</b>
+<b class="nc"><i>1173</i>&nbsp;                                    System.out.println(&quot;Insira 12 para retroceder&quot;);</b>
+<b class="nc"><i>1174</i>&nbsp;                                }</b>
+<i>1175</i>&nbsp;                            }
+<b class="nc"><i>1176</i>&nbsp;                            break;</b>
+<i>1177</i>&nbsp;                        case 6:
+<b class="nc"><i>1178</i>&nbsp;                            System.out.println(this.bd.getVoluntarios().printVoluntario());</b>
+<b class="nc"><i>1179</i>&nbsp;                            System.out.println(&quot;Escolha o código do voluntário a avaliar&quot;);</b>
+<b class="nc"><i>1180</i>&nbsp;                            String cod = Input.lerString();</b>
+<i>1181</i>&nbsp;                            try {
+<b class="nc"><i>1182</i>&nbsp;                                String emailVol = this.bd.getVoluntarios().getEmail(cod);</b>
+<b class="nc"><i>1183</i>&nbsp;                                System.out.println(&quot;Insira a classificação de 1 a 10:&quot;);</b>
+<b class="nc"><i>1184</i>&nbsp;                                Double classificacao = Input.lerDouble();</b>
+<b class="nc"><i>1185</i>&nbsp;                                if(classificacao &gt;= 0 &amp;&amp; classificacao &lt;= 10) {</b>
+<b class="nc"><i>1186</i>&nbsp;                                    Voluntario v = this.bd.getVoluntarios().getVoluntarios().get(emailVol).clone();</b>
+<b class="nc"><i>1187</i>&nbsp;                                    this.bd.updateVoluntario(classificacao, v);</b>
+<b class="nc"><i>1188</i>&nbsp;                                    System.out.println(&quot;DONE!&quot;);</b>
+<b class="nc"><i>1189</i>&nbsp;                                    System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>1190</i>&nbsp;                                } else {</b>
+<b class="nc"><i>1191</i>&nbsp;									System.out.println(&quot;Classificação inválida!&quot;);</b>
+<i>1192</i>&nbsp;								}
+<b class="nc"><i>1193</i>&nbsp;                            } catch (VoluntarioNotFoundException e){</b>
+<b class="nc"><i>1194</i>&nbsp;                                System.out.println(&quot;Voluntário inválido&quot;);</b>
+<b class="nc"><i>1195</i>&nbsp;                                System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>1196</i>&nbsp;                            }</b>
+<b class="nc"><i>1197</i>&nbsp;                            break;</b>
+<i>1198</i>&nbsp;                        case 7:
+<b class="nc"><i>1199</i>&nbsp;                            System.out.println(this.bd.getTransportes().printTransportes());</b>
+<b class="nc"><i>1200</i>&nbsp;                            System.out.println(&quot;Escolha o código da empresa de transportes a avaliar&quot;);</b>
+<b class="nc"><i>1201</i>&nbsp;                            String cod2 = Input.lerString();</b>
+<i>1202</i>&nbsp;                            try {
+<b class="nc"><i>1203</i>&nbsp;                                String emailTrans = this.bd.getTransportes().getEmail(cod2);</b>
+<b class="nc"><i>1204</i>&nbsp;                                System.out.println(&quot;Insira a classificação de 1 a 10:&quot;);</b>
+<b class="nc"><i>1205</i>&nbsp;                                Double classificacao = Input.lerDouble();</b>
+<b class="nc"><i>1206</i>&nbsp;                                if(classificacao &gt;= 0 &amp;&amp; classificacao &lt;= 10) {</b>
+<b class="nc"><i>1207</i>&nbsp;                                    EmpresaTransportes e = this.bd.getTransportes().getTransportes().get(emailTrans).clone();</b>
+<b class="nc"><i>1208</i>&nbsp;                                    this.bd.updateTransportes(classificacao, e);</b>
+<b class="nc"><i>1209</i>&nbsp;                                    System.out.println(&quot;DONE!&quot;);</b>
+<b class="nc"><i>1210</i>&nbsp;                                    System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>1211</i>&nbsp;                                } else {</b>
+<b class="nc"><i>1212</i>&nbsp;									System.out.println(&quot;Classificação inválida!&quot;);</b>
+<i>1213</i>&nbsp;								}
+<b class="nc"><i>1214</i>&nbsp;                            } catch (TransporteNotFoundException e){</b>
+<b class="nc"><i>1215</i>&nbsp;                                System.out.println(&quot;Empresa inválida&quot;);</b>
+<b class="nc"><i>1216</i>&nbsp;                                System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>1217</i>&nbsp;                            }</b>
+<b class="nc"><i>1218</i>&nbsp;                            break;</b>
+<i>1219</i>&nbsp;                        case 8:
+<b class="nc"><i>1220</i>&nbsp;                             System.out.println(this.bd.getVoluntarios().printVoluntario());</b>
+<b class="nc"><i>1221</i>&nbsp;                             System.out.println(&quot;Insira o código do voluntário que pretende analisar&quot;);</b>
+<b class="nc"><i>1222</i>&nbsp;                             String cod7 = Input.lerString();</b>
+<i>1223</i>&nbsp;                            try {
+<b class="nc"><i>1224</i>&nbsp;                                String emailVol = this.bd.getVoluntarios().getEmail(cod7);</b>
+<b class="nc"><i>1225</i>&nbsp;                                Voluntario v = this.bd.getVoluntarios().getVoluntarios().get(emailVol).clone();</b>
+<b class="nc"><i>1226</i>&nbsp;                                System.out.println(&quot;Insira o intervalo temporal que pretende analisar (DD/MM/YYYY)&quot;);</b>
+<b class="nc"><i>1227</i>&nbsp;                                System.out.println(&quot;Inicio: &quot;);</b>
+<b class="nc"><i>1228</i>&nbsp;                                Scanner sc = new Scanner(System.in);</b>
+<b class="nc"><i>1229</i>&nbsp;                                String dataRecebida = sc.nextLine();</b>
+<b class="nc"><i>1230</i>&nbsp;                                DateFormat df = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</b>
+<b class="nc"><i>1231</i>&nbsp;                                Date dateTime1 = df.parse(dataRecebida);</b>
+<b class="nc"><i>1232</i>&nbsp;                                System.out.println(&quot;Fim: &quot;);</b>
+<b class="nc"><i>1233</i>&nbsp;                                String dataRecebida2 = sc.nextLine();</b>
+<b class="nc"><i>1234</i>&nbsp;                                Date dateTime2 = df.parse(dataRecebida2);</b>
+<b class="nc"><i>1235</i>&nbsp;                                LocalDateTime d1 = dateTime1.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();</b>
+<b class="nc"><i>1236</i>&nbsp;                                LocalDateTime d2 = dateTime2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();</b>
+<b class="nc"><i>1237</i>&nbsp;                                System.out.println(v.getInfoEncomendas(d1, d2));</b>
+<b class="nc"><i>1238</i>&nbsp;                                System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>1239</i>&nbsp;                            } catch (VoluntarioNotFoundException e){</b>
+<b class="nc"><i>1240</i>&nbsp;                                System.out.println(&quot;Código inválido&quot;);</b>
+<b class="nc"><i>1241</i>&nbsp;                                System.out.println(&quot;Insira 12 para retroceder&quot;);</b>
+<b class="nc"><i>1242</i>&nbsp;                            } catch (ParseException e) {</b>
+<b class="nc"><i>1243</i>&nbsp;                                System.out.println(&quot;Data inválida&quot;);</b>
+<b class="nc"><i>1244</i>&nbsp;                                System.out.println(&quot;Insira 12 para retroceder&quot;);</b>
+<b class="nc"><i>1245</i>&nbsp;                            }</b>
+<b class="nc"><i>1246</i>&nbsp;                            break;</b>
+<i>1247</i>&nbsp;                        case 9:
+<b class="nc"><i>1248</i>&nbsp;                            System.out.println(this.bd.getTransportes().printTransportes());</b>
+<b class="nc"><i>1249</i>&nbsp;                            System.out.println(&quot;Insira o código da empresa de transportes que pretende analisar&quot;);</b>
+<b class="nc"><i>1250</i>&nbsp;                            String cod8 = Input.lerString();</b>
+<i>1251</i>&nbsp;                            try {
+<b class="nc"><i>1252</i>&nbsp;                                String emailTrans = this.bd.getTransportes().getEmail(cod8);</b>
+<b class="nc"><i>1253</i>&nbsp;                                EmpresaTransportes et = this.bd.getTransportes().getTransportes().get(emailTrans).clone();</b>
+<b class="nc"><i>1254</i>&nbsp;                                System.out.println(&quot;Insira o intervalo temporal que pretende analisar (DD/MM/YYYY)&quot;);</b>
+<b class="nc"><i>1255</i>&nbsp;                                System.out.println(&quot;Inicio: &quot;);</b>
+<b class="nc"><i>1256</i>&nbsp;                                Scanner sc = new Scanner(System.in);</b>
+<b class="nc"><i>1257</i>&nbsp;                                String dataRecebida = sc.nextLine();</b>
+<b class="nc"><i>1258</i>&nbsp;                                DateFormat df = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</b>
+<b class="nc"><i>1259</i>&nbsp;                                Date dateTime1 = df.parse(dataRecebida);</b>
+<b class="nc"><i>1260</i>&nbsp;                                System.out.println(&quot;Fim: &quot;);</b>
+<b class="nc"><i>1261</i>&nbsp;                                String dataRecebida2 = sc.nextLine();</b>
+<b class="nc"><i>1262</i>&nbsp;                                Date dateTime2 = df.parse(dataRecebida2);</b>
+<b class="nc"><i>1263</i>&nbsp;                                LocalDateTime d1 = dateTime1.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();</b>
+<b class="nc"><i>1264</i>&nbsp;                                LocalDateTime d2 = dateTime2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();</b>
+<b class="nc"><i>1265</i>&nbsp;                                System.out.println(et.getInfoEncomendas(d1, d2));</b>
+<b class="nc"><i>1266</i>&nbsp;                                System.out.println(&quot;Prima 12 para retroceder&quot;);</b>
+<b class="nc"><i>1267</i>&nbsp;                            } catch (TransporteNotFoundException e){</b>
+<b class="nc"><i>1268</i>&nbsp;                                System.out.println(&quot;Código inválido&quot;);</b>
+<b class="nc"><i>1269</i>&nbsp;                                System.out.println(&quot;Insira 12 para retroceder&quot;);</b>
+<b class="nc"><i>1270</i>&nbsp;                            } catch (ParseException e) {</b>
+<b class="nc"><i>1271</i>&nbsp;                                System.out.println(&quot;Data inválida&quot;);</b>
+<b class="nc"><i>1272</i>&nbsp;                                System.out.println(&quot;Insira 12 para retroceder&quot;);</b>
+<b class="nc"><i>1273</i>&nbsp;                            }</b>
+<b class="nc"><i>1274</i>&nbsp;                            break;</b>
+<i>1275</i>&nbsp;                        case 10:
+<b class="nc"><i>1276</i>&nbsp;                            System.out.println(&quot;TOP10 voluntário e empresas que mais encomendas realizaram: \n&quot;);</b>
+<b class="nc"><i>1277</i>&nbsp;                            Set&lt;Pair&gt; result = this.bd.top10Encomendas();</b>
+<b class="nc"><i>1278</i>&nbsp;                            result.stream().limit(10).forEach(e -&gt; System.out.println(e + &quot; encomendas realizadas&quot;));</b>
+<b class="nc"><i>1279</i>&nbsp;                            System.out.println(&quot;\nInsira 12 para retroceder&quot;);</b>
+<b class="nc"><i>1280</i>&nbsp;                            break;</b>
+<i>1281</i>&nbsp;                        case 11:
+<b class="nc"><i>1282</i>&nbsp;                            System.out.println(&quot;TOP10 empresas que mais kms percorreram: \n&quot;);</b>
+<b class="nc"><i>1283</i>&nbsp;                            Set&lt;Pair&gt; result2 = this.bd.top10KmsPercorridos();</b>
+<b class="nc"><i>1284</i>&nbsp;                            result2.stream().limit(10).forEach(e -&gt; System.out.println(e + &quot; kms percorridos&quot;));</b>
+<b class="nc"><i>1285</i>&nbsp;                            System.out.println(&quot;\nInsira 12 para retroceder&quot;);</b>
+<b class="nc"><i>1286</i>&nbsp;                            break;</b>
+<i>1287</i>&nbsp;                        case 12:
+<b class="nc"><i>1288</i>&nbsp;                            clearScreen();</b>
+<b class="nc"><i>1289</i>&nbsp;                            this.view.showMenuUser();</b>
+<b class="nc"><i>1290</i>&nbsp;                            System.out.print(&quot;\nInsira uma opção --&gt; &quot;);</b>
+<b class="nc"><i>1291</i>&nbsp;                            break;</b>
+<i>1292</i>&nbsp;                        default:
+<b class="nc"><i>1293</i>&nbsp;                            System.out.println(&quot;Opcao inválida&quot;);</b>
+<i>1294</i>&nbsp;                            break;
+<i>1295</i>&nbsp;                    }
+<i>1296</i>&nbsp;                }
+<b class="nc"><i>1297</i>&nbsp;                while (op != 0);</b>
+<b class="nc"><i>1298</i>&nbsp;            } catch (UserNotFoundException e){</b>
+<b class="nc"><i>1299</i>&nbsp;            clearScreen();</b>
+<b class="nc"><i>1300</i>&nbsp;            System.out.println(&quot;Email ou password inválidos\n\n&quot;);</b>
+<b class="nc"><i>1301</i>&nbsp;            System.out.println(&quot;Selecione nova opção de login\n&quot;);</b>
+<b class="nc"><i>1302</i>&nbsp;            this.view.showMenuLogin();</b>
+<b class="nc"><i>1303</i>&nbsp;        }</b>
+<b class="nc"><i>1304</i>&nbsp;    }</b>
+<i>1305</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:35</div>
+</div>
+</body>
+</html>

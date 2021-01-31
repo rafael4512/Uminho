@@ -1,0 +1,327 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: mPrincipal</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: mPrincipal (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">mPrincipal</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (28/ 28)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    98.2%
+  </span>
+  <span class="absValue">
+    (109/ 111)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.util.InputMismatchException;
+<i>2</i>&nbsp;import java.util.Scanner;
+<i>3</i>&nbsp;import java.io.Serializable;
+<i>4</i>&nbsp;import java.time.LocalDateTime;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class mPrincipal implements Serializable {
+<i>7</i>&nbsp;  
+<i>8</i>&nbsp;  /* STARTING functions */
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;  private int opcao;
+<i>11</i>&nbsp;  private int ano;
+<i>12</i>&nbsp;  private int mes;
+<i>13</i>&nbsp;  private int dia;
+<i>14</i>&nbsp;  private int hora;
+<i>15</i>&nbsp;  private int minuto;
+<i>16</i>&nbsp;  private LocalDateTime dataI;
+<i>17</i>&nbsp;  private LocalDateTime dataF;
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;  public mPrincipal() {</b>
+<b class="fc"><i>20</i>&nbsp;    this.opcao = 0;</b>
+<b class="fc"><i>21</i>&nbsp;    this.ano = 0;</b>
+<b class="fc"><i>22</i>&nbsp;    this.mes = 0;</b>
+<b class="fc"><i>23</i>&nbsp;    this.dia = 0;</b>
+<b class="fc"><i>24</i>&nbsp;    this.hora = 0;</b>
+<b class="fc"><i>25</i>&nbsp;    this.minuto = 0;</b>
+<b class="fc"><i>26</i>&nbsp;    this.dataI = LocalDateTime.now();</b>
+<b class="fc"><i>27</i>&nbsp;    this.dataF = LocalDateTime.now();</b>
+<b class="fc"><i>28</i>&nbsp;  }</b>
+<i>29</i>&nbsp;
+<b class="fc"><i>30</i>&nbsp;  public mPrincipal(int opcao, int ano, int mes, int dia, int hora, int minuto, LocalDateTime dataI, LocalDateTime dataF) {</b>
+<b class="fc"><i>31</i>&nbsp;    this.opcao = opcao;</b>
+<b class="fc"><i>32</i>&nbsp;    this.ano = ano;</b>
+<b class="fc"><i>33</i>&nbsp;    this.mes = mes;</b>
+<b class="fc"><i>34</i>&nbsp;    this.dia = dia;</b>
+<b class="fc"><i>35</i>&nbsp;    this.hora = hora;</b>
+<b class="fc"><i>36</i>&nbsp;    this.minuto = minuto;</b>
+<b class="fc"><i>37</i>&nbsp;    this.dataI = dataI;</b>
+<b class="fc"><i>38</i>&nbsp;    this.dataF = dataF;</b>
+<b class="fc"><i>39</i>&nbsp;  }</b>
+<i>40</i>&nbsp;
+<b class="fc"><i>41</i>&nbsp;  public mPrincipal(mPrincipal m) {</b>
+<b class="fc"><i>42</i>&nbsp;    this.opcao = m.getOpcao();</b>
+<b class="fc"><i>43</i>&nbsp;    this.ano = m.getAno();</b>
+<b class="fc"><i>44</i>&nbsp;    this.mes = m.getMes();</b>
+<b class="fc"><i>45</i>&nbsp;    this.dia = m.getDia();</b>
+<b class="fc"><i>46</i>&nbsp;    this.hora = m.getHora();</b>
+<b class="fc"><i>47</i>&nbsp;    this.minuto = m.getMinuto();</b>
+<b class="fc"><i>48</i>&nbsp;    this.dataI = m.getDataI();</b>
+<b class="fc"><i>49</i>&nbsp;    this.dataF = m.getDataF();</b>
+<b class="fc"><i>50</i>&nbsp;  }</b>
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;  /* GET functions */
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;  public int getOpcao() {
+<b class="fc"><i>56</i>&nbsp;    return this.opcao;</b>
+<i>57</i>&nbsp;  }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;  public int getAno() {
+<b class="fc"><i>60</i>&nbsp;    return this.ano;</b>
+<i>61</i>&nbsp;  }
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;  public int getMes() {
+<b class="fc"><i>64</i>&nbsp;    return this.mes;</b>
+<i>65</i>&nbsp;  }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;  public int getDia() {
+<b class="fc"><i>68</i>&nbsp;    return this.dia;</b>
+<i>69</i>&nbsp;  }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;  public int getHora() {
+<b class="fc"><i>72</i>&nbsp;    return this.hora;</b>
+<i>73</i>&nbsp;  }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;  public int getMinuto() {
+<b class="fc"><i>76</i>&nbsp;    return this.minuto;</b>
+<i>77</i>&nbsp;  }
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;  public LocalDateTime getDataI() {
+<b class="fc"><i>80</i>&nbsp;    return this.dataI;</b>
+<i>81</i>&nbsp;  }
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;  public LocalDateTime getDataF() {
+<b class="fc"><i>84</i>&nbsp;    return this.dataF;</b>
+<i>85</i>&nbsp;  }
+<i>86</i>&nbsp;  
+<i>87</i>&nbsp;  /* SET functions */
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;  public void setOpcao(int newOpcao) {
+<b class="fc"><i>90</i>&nbsp;    this.opcao = newOpcao;</b>
+<b class="fc"><i>91</i>&nbsp;  }</b>
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;  public void setAno(int newAno) {
+<b class="fc"><i>94</i>&nbsp;    this.ano = newAno;</b>
+<b class="fc"><i>95</i>&nbsp;  }</b>
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;  public void setMes(int newMes) {
+<b class="fc"><i>98</i>&nbsp;    this.mes = newMes;</b>
+<b class="fc"><i>99</i>&nbsp;  }</b>
+<i>100</i>&nbsp;
+<i>101</i>&nbsp;  public void setDia(int newDia) {
+<b class="fc"><i>102</i>&nbsp;    this.dia = newDia;</b>
+<b class="fc"><i>103</i>&nbsp;  }</b>
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;  public void setHora(int newHora) {
+<b class="fc"><i>106</i>&nbsp;    this.hora = newHora;</b>
+<b class="fc"><i>107</i>&nbsp;  }</b>
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;  public void setMinuto(int newMinuto) {
+<b class="fc"><i>110</i>&nbsp;    this.minuto = newMinuto;</b>
+<b class="fc"><i>111</i>&nbsp;  }</b>
+<i>112</i>&nbsp;
+<i>113</i>&nbsp;  public void setDataI(LocalDateTime newDataI) {
+<b class="fc"><i>114</i>&nbsp;    this.dataI = newDataI;</b>
+<b class="fc"><i>115</i>&nbsp;  }</b>
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;  public void setDataF(LocalDateTime newDataF) {
+<b class="fc"><i>118</i>&nbsp;    this.dataF = newDataF;</b>
+<b class="fc"><i>119</i>&nbsp;  }</b>
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;  /* ASKED functions */
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;  // Método que lê uma opção
+<i>124</i>&nbsp;  public int leOpcao() {
+<b class="fc"><i>125</i>&nbsp;    Scanner in = new Scanner(System.in);</b>
+<b class="fc"><i>126</i>&nbsp;    int opcao = -1;</b>
+<i>127</i>&nbsp;
+<i>128</i>&nbsp;    try {
+<b class="fc"><i>129</i>&nbsp;      opcao = in.nextInt();</b>
+<b class="fc"><i>130</i>&nbsp;    } catch (InputMismatchException e) {</b>
+<b class="fc"><i>131</i>&nbsp;      return Integer.MAX_VALUE;</b>
+<b class="fc"><i>132</i>&nbsp;    }</b>
+<i>133</i>&nbsp;
+<b class="fc"><i>134</i>&nbsp;    return opcao;</b>
+<i>135</i>&nbsp;  }
+<i>136</i>&nbsp;
+<i>137</i>&nbsp;  // Método que lê uma string
+<i>138</i>&nbsp;  public String leString() {
+<b class="fc"><i>139</i>&nbsp;    Scanner in = new Scanner(System.in);</b>
+<b class="fc"><i>140</i>&nbsp;    String result = new String();</b>
+<i>141</i>&nbsp;
+<i>142</i>&nbsp;    try {
+<b class="fc"><i>143</i>&nbsp;      result = in.nextLine();</b>
+<b class="nc"><i>144</i>&nbsp;    } catch (InputMismatchException e) {</b>
+<b class="nc"><i>145</i>&nbsp;      System.out.println(&quot;Não foi detetado nenhum input compatível com o pedido.&quot;);</b>
+<b class="fc"><i>146</i>&nbsp;    }</b>
+<i>147</i>&nbsp;
+<b class="fc"><i>148</i>&nbsp;    return result;</b>
+<i>149</i>&nbsp;  }
+<i>150</i>&nbsp;
+<i>151</i>&nbsp;  // Método que lê um float
+<i>152</i>&nbsp;  public float leFloat() {
+<b class="fc"><i>153</i>&nbsp;    Scanner in = new Scanner(System.in);</b>
+<b class="fc"><i>154</i>&nbsp;    float result = 0;</b>
+<i>155</i>&nbsp;
+<i>156</i>&nbsp;    try {
+<b class="fc"><i>157</i>&nbsp;      result = in.nextFloat();</b>
+<b class="fc"><i>158</i>&nbsp;    } catch (InputMismatchException e) {</b>
+<b class="fc"><i>159</i>&nbsp;      return Float.POSITIVE_INFINITY;</b>
+<b class="fc"><i>160</i>&nbsp;    }</b>
+<i>161</i>&nbsp;
+<b class="fc"><i>162</i>&nbsp;    return result;</b>
+<i>163</i>&nbsp;  }
+<i>164</i>&nbsp;
+<i>165</i>&nbsp;  // Método que lê um double
+<i>166</i>&nbsp;  public double leDouble() {
+<b class="fc"><i>167</i>&nbsp;    Scanner in = new Scanner(System.in);</b>
+<b class="fc"><i>168</i>&nbsp;    double result = 0;</b>
+<i>169</i>&nbsp;
+<i>170</i>&nbsp;    try {
+<b class="fc"><i>171</i>&nbsp;      result = in.nextDouble();</b>
+<b class="fc"><i>172</i>&nbsp;    } catch (InputMismatchException e) {</b>
+<b class="fc"><i>173</i>&nbsp;      return Double.POSITIVE_INFINITY;</b>
+<b class="fc"><i>174</i>&nbsp;    }</b>
+<i>175</i>&nbsp;
+<b class="fc"><i>176</i>&nbsp;    return result;</b>
+<i>177</i>&nbsp;  }
+<i>178</i>&nbsp;
+<i>179</i>&nbsp;  // Método que lê um inteiro
+<i>180</i>&nbsp;  public int leInt() {
+<b class="fc"><i>181</i>&nbsp;    Scanner in = new Scanner(System.in);</b>
+<b class="fc"><i>182</i>&nbsp;    int result = 0;</b>
+<i>183</i>&nbsp;
+<i>184</i>&nbsp;    try {
+<b class="fc"><i>185</i>&nbsp;      result = in.nextInt();</b>
+<b class="fc"><i>186</i>&nbsp;    } catch (InputMismatchException e) {</b>
+<b class="fc"><i>187</i>&nbsp;      return Integer.MAX_VALUE;</b>
+<b class="fc"><i>188</i>&nbsp;    }</b>
+<i>189</i>&nbsp;
+<b class="fc"><i>190</i>&nbsp;    return result;</b>
+<i>191</i>&nbsp;  }
+<i>192</i>&nbsp;
+<i>193</i>&nbsp;  // Método que lê Yes ou No
+<i>194</i>&nbsp;  public String leYesOrNo() {
+<b class="fc"><i>195</i>&nbsp;    String result = leString();</b>
+<i>196</i>&nbsp;
+<b class="fc"><i>197</i>&nbsp;    if (result.equals(&quot;Yes&quot;))</b>
+<b class="fc"><i>198</i>&nbsp;      return &quot;true&quot;;</b>
+<i>199</i>&nbsp;    else
+<b class="fc"><i>200</i>&nbsp;      if (result.equals(&quot;No&quot;))</b>
+<b class="fc"><i>201</i>&nbsp;        return &quot;false&quot;;</b>
+<i>202</i>&nbsp;   
+<b class="fc"><i>203</i>&nbsp;    return &quot;null&quot;;</b>
+<i>204</i>&nbsp;  }
+<i>205</i>&nbsp;
+<i>206</i>&nbsp;  // Método que verifica se uma data é válida
+<i>207</i>&nbsp;  public boolean verificaData() {
+<b class="fc"><i>208</i>&nbsp;    if (this.mes == 1 || this.mes == 3 || this.mes == 5 || this.mes == 7 || this.mes == 8 || this.mes == 10 || this.mes == 12)</b>
+<b class="fc"><i>209</i>&nbsp;      if (this.dia &gt; 0 &amp;&amp; this.dia &lt; 32 &amp;&amp; verificaHora())</b>
+<b class="fc"><i>210</i>&nbsp;        return true;</b>
+<i>211</i>&nbsp;  
+<b class="fc"><i>212</i>&nbsp;    if (this.mes == 2 &amp;&amp; this.dia &gt; 0 &amp;&amp; this.dia &lt; 30 &amp;&amp; verificaHora())</b>
+<b class="fc"><i>213</i>&nbsp;      return true;</b>
+<i>214</i>&nbsp;    
+<b class="fc"><i>215</i>&nbsp;    if (this.mes == 4 || this.mes == 6 || this.mes == 9 || this.mes == 11)</b>
+<b class="fc"><i>216</i>&nbsp;      if (this.dia &gt; 0 &amp;&amp; this.dia &lt; 31 &amp;&amp; verificaHora())</b>
+<b class="fc"><i>217</i>&nbsp;        return true;</b>
+<i>218</i>&nbsp;
+<b class="fc"><i>219</i>&nbsp;    return false;</b>
+<i>220</i>&nbsp;  }
+<i>221</i>&nbsp;  
+<i>222</i>&nbsp;  // Método que verifica se uma hora é válida
+<i>223</i>&nbsp;  public boolean verificaHora() {
+<b class="fc"><i>224</i>&nbsp;    if (this.hora &gt;= 0 &amp;&amp; this.hora &lt;= 23)</b>
+<b class="fc"><i>225</i>&nbsp;      if (this.minuto &gt;= 0 &amp;&amp; this.minuto &lt;= 59)</b>
+<b class="fc"><i>226</i>&nbsp;        return true;</b>
+<i>227</i>&nbsp;
+<b class="fc"><i>228</i>&nbsp;    return false;</b>
+<i>229</i>&nbsp;  }
+<i>230</i>&nbsp;
+<i>231</i>&nbsp;  // Método que limpa o ecrã  (funciona no VisualStudioCode)
+<i>232</i>&nbsp;  /*
+<i>233</i>&nbsp;  public void clearScreen() {  
+<i>234</i>&nbsp;    System.out.print(&quot;\u001B[2J&quot;);
+<i>235</i>&nbsp;    System.out.flush();
+<i>236</i>&nbsp;  }
+<i>237</i>&nbsp;  */
+<i>238</i>&nbsp;
+<i>239</i>&nbsp;  // Método que limpa o ecrã  (funciona no BlueJ)
+<i>240</i>&nbsp;  public void clearScreen() {
+<b class="fc"><i>241</i>&nbsp;    System.out.print(&#39;\u000C&#39;);</b>
+<b class="fc"><i>242</i>&nbsp;    System.out.flush();</b>
+<b class="fc"><i>243</i>&nbsp;  }</b>
+<i>244</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:26</div>
+</div>
+</body>
+</html>

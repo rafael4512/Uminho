@@ -1,0 +1,498 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+Utilizadores
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: Utilizadores: 0.9174288617886179</ul>
+<ul>
+<li>15.0 fitness evaluations, 0 generations, null statements, 39 tests.
+<li>Covered null/null branches, <li>Covered null/null methods, <li>Covered 221/224 total goals
+</ul>
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content">
+<div id="post">
+<h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>utilizadores0.setPW((String) null);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;&quot;, utilizadores0.getNome());
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>Utilizadores utilizadores1 = new Utilizadores(utilizadores0);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;&quot;, utilizadores1.getEmail());
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>utilizadores0.setEmail((String) null);
+<span class="nocode"><a name="3">  3: </a></span>assertNull(utilizadores0.getEmail());
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = utilizadores0.toStringCSV();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;Utilizador:,,0.0,0.0&quot;, string0);
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores((String) null, (String) null, (String) null, &quot;Ponto&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = utilizadores0.toString();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;C\u00F3digo: null\nNome: null\nEmail: null\nGPS: (0.0, 0.0)\n&quot;, string0);
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-1718.8F), (-1718.8F));
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores(&quot;Nome: &quot;, &quot;Nome: &quot;, &quot;[QSBz~R@IcUiA&quot;, &quot;Nome: &quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>List&lt;Encomenda&gt; list0 = utilizadores0.historicoEncomenda();
+<span class="nocode"><a name="5">  5: </a></span>assertTrue(list0.isEmpty());
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores((String) null, (String) null, (String) null, &quot;Ponto&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>Encomenda encomenda0 = new Encomenda();
+<span class="nocode"><a name="5">  5: </a></span>utilizadores0.adicionarEncomenda(encomenda0);
+<span class="nocode"><a name="6">  6: </a></span>Utilizadores utilizadores1 = utilizadores0.clone();
+<span class="nocode"><a name="7">  7: </a></span>assertNull(utilizadores1.getCodigo());
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores((String) null, (String) null, (String) null, &quot;Ponto&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>utilizadores0.setCodigo(&quot;5&quot;);
+<span class="nocode"><a name="5">  5: </a></span>assertNull(utilizadores0.getEmail());
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>utilizadores0.setNome(&quot;&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;&quot;, utilizadores0.getCodigo());
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>utilizadores0.setGPS((Ponto) null);
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores((String) null, (String) null, (String) null, &quot;Ponto&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = utilizadores0.equals(ponto0);
+<span class="nocode"><a name="5">  5: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = utilizadores0.equals(utilizadores0);
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores(&quot;&quot;, &quot;&quot;, &quot;REAUOpu{A.W4?s3&quot;, &quot;&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = utilizadores0.equals((Object) null);
+<span class="nocode"><a name="5">  5: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 14</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="3">  3: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="4">  4: </a></span>Utilizadores utilizadores1 = new Utilizadores(&quot;WzDm CZ/4cJ]HF3YWDx&quot;, &quot;Y%C&quot;, (String) null, &quot;WzDm CZ/4cJ]HF3YWDx&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="5">  5: </a></span>boolean boolean0 = utilizadores1.equals(utilizadores0);
+<span class="nocode"><a name="6">  6: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 15</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = utilizadores0.getPW();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;&quot;, string0);
+</pre>
+<h3>Test case 16</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores((String) null, (String) null, (String) null, &quot;Ponto&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = utilizadores0.getNome();
+<span class="nocode"><a name="5">  5: </a></span>assertNull(string0);
+</pre>
+<h3>Test case 17</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-976.12415F), (-976.12415F));
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores((String) null, (String) null, (String) null, &quot;+K&amp;|:w7@I#|SP5vHW&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = utilizadores0.getCodigo();
+<span class="nocode"><a name="5">  5: </a></span>assertNull(string0);
+</pre>
+<h3>Test case 18</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>Map&lt;String, Encomenda&gt; map0 = utilizadores0.getEncomendasGuardadas();
+<span class="nocode"><a name="3">  3: </a></span>utilizadores0.setEncomendasGuardadas(map0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;&quot;, utilizadores0.getNome());
+</pre>
+<h3>Test case 19</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto0 = utilizadores0.getGPS();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0.0F, ponto0.getX(), 0.01F);
+</pre>
+<h3>Test case 20</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores(&quot;{2mpRz&gt;38Ukk&quot;, &quot;{2mpRz&gt;38Ukk&quot;, &quot;Nome: &quot;, &quot;Nome: &quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = utilizadores0.getEmail();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;Nome: &quot;, string0);
+</pre>
+<h3>Test case 21</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>LinhaEncomenda linhaEncomenda0 = mock(LinhaEncomenda.class, new ViolatedAssumptionAnswer());
+<span class="nocode"><a name="3">  3: </a></span>doReturn((LinhaEncomenda) null, (LinhaEncomenda) null, (LinhaEncomenda) null, (LinhaEncomenda) null, (LinhaEncomenda) null).when(linhaEncomenda0).clone();
+<span class="nocode"><a name="4">  4: </a></span>LinhaEncomenda linhaEncomenda1 = mock(LinhaEncomenda.class, new ViolatedAssumptionAnswer());
+<span class="nocode"><a name="5">  5: </a></span>doReturn((LinhaEncomenda) null, (LinhaEncomenda) null, (LinhaEncomenda) null, (LinhaEncomenda) null).when(linhaEncomenda1).clone();
+<span class="nocode"><a name="6">  6: </a></span>List&lt;LinhaEncomenda&gt; list0 = List.of(linhaEncomenda0, linhaEncomenda0, linhaEncomenda1, linhaEncomenda0, linhaEncomenda0, linhaEncomenda0, linhaEncomenda1, linhaEncomenda0, linhaEncomenda1, linhaEncomenda1);
+<span class="nocode"><a name="7">  7: </a></span>Encomenda encomenda0 = new Encomenda(&quot;Email: &quot;, &quot;I8@B2f5j4G&quot;, &quot;Email: &quot;, 1783.6F, (LocalDateTime) null, list0);
+<span class="nocode"><a name="8">  8: </a></span>utilizadores0.adicionarEncomenda(encomenda0);
+<span class="nocode"><a name="9">  9: </a></span>utilizadores0.getEncomendasGuardadas();
+</pre>
+<h3>Test case 22</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores((Utilizadores) null);
+</pre>
+<h3>Test case 23</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, (Ponto) null, (Map&lt;String, Encomenda&gt;) null);
+</pre>
+<h3>Test case 24</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>utilizadores0.adicionarEncomenda((Encomenda) null);
+</pre>
+<h3>Test case 25</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>LocalDateTime localDateTime0 = MockLocalDateTime.of(1, 1, 1, 1, 1, 1);
+<span class="nocode"><a name="3">  3: </a></span>LinhaEncomenda linhaEncomenda0 = mock(LinhaEncomenda.class, new ViolatedAssumptionAnswer());
+<span class="nocode"><a name="4">  4: </a></span>doReturn((LinhaEncomenda) null, (LinhaEncomenda) null, (LinhaEncomenda) null, (LinhaEncomenda) null).when(linhaEncomenda0).clone();
+<span class="nocode"><a name="5">  5: </a></span>List&lt;LinhaEncomenda&gt; list0 = List.of(linhaEncomenda0, linhaEncomenda0, linhaEncomenda0, linhaEncomenda0);
+<span class="nocode"><a name="6">  6: </a></span>Encomenda encomenda0 = new Encomenda(&quot;L!@ga&quot;, &quot;GPS: &quot;, &quot;GPS: &quot;, 647.0185F, localDateTime0, list0);
+<span class="nocode"><a name="7">  7: </a></span>utilizadores0.adicionarEncomenda(encomenda0);
+<span class="nocode"><a name="8">  8: </a></span>utilizadores0.clone();
+</pre>
+<h3>Test case 26</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>utilizadores0.setEncomendasGuardadas((Map&lt;String, Encomenda&gt;) null);
+</pre>
+<h3>Test case 27</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = utilizadores0.getCodigo();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;&quot;, string0);
+</pre>
+<h3>Test case 28</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores(&quot;WzDm CZ/4cJ]HF3YWDx&quot;, &quot;Y%C&quot;, (String) null, &quot;WzDm CZ/4cJ]HF3YWDx&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = utilizadores0.getCodigo();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;WzDm CZ/4cJ]HF3YWDx&quot;, string0);
+</pre>
+<h3>Test case 29</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = utilizadores0.getEmail();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;&quot;, string0);
+</pre>
+<h3>Test case 30</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores(&quot;WzDm CZ/4cJ]HF3YWDx&quot;, &quot;Y%C&quot;, (String) null, &quot;WzDm CZ/4cJ]HF3YWDx&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = utilizadores0.getEmail();
+<span class="nocode"><a name="5">  5: </a></span>assertNull(string0);
+</pre>
+<h3>Test case 31</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>Encomenda encomenda0 = new Encomenda();
+<span class="nocode"><a name="3">  3: </a></span>utilizadores0.adicionarEncomenda(encomenda0);
+<span class="nocode"><a name="4">  4: </a></span>Map&lt;String, Encomenda&gt; map0 = utilizadores0.getEncomendasGuardadas();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(1, map0.size());
+</pre>
+<h3>Test case 32</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>Ponto ponto0 = new Ponto((-1892.6697F), 3135.661F);
+<span class="nocode"><a name="3">  3: </a></span>utilizadores0.setGPS(ponto0);
+<span class="nocode"><a name="4">  4: </a></span>Ponto ponto1 = utilizadores0.getGPS();
+<span class="nocode"><a name="5">  5: </a></span>assertTrue(ponto1.equals((Object)ponto0));
+</pre>
+<h3>Test case 33</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto(1870.24F, 1870.24F);
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores(&quot;&quot;, &quot;$5!,pK&lt;dOx:kv:l@Y&quot;, &quot;&quot;, &quot;'&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>Ponto ponto1 = utilizadores0.getGPS();
+<span class="nocode"><a name="5">  5: </a></span>assertTrue(ponto1.equals((Object)ponto0));
+</pre>
+<h3>Test case 34</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-2210.696F), (-2210.696F));
+<span class="nocode"><a name="2">  2: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="3">  3: </a></span>Map&lt;String, Encomenda&gt; map0 = utilizadores0.getEncomendasGuardadas();
+<span class="nocode"><a name="4">  4: </a></span>Utilizadores utilizadores1 = new Utilizadores(&quot;GF03'7mp;m$&quot;, (String) null, &quot;GF03'7mp;m$&quot;, (String) null, ponto0, map0);
+<span class="nocode"><a name="5">  5: </a></span>Ponto ponto1 = utilizadores1.getGPS();
+<span class="nocode"><a name="6">  6: </a></span>assertNotSame(ponto1, ponto0);
+</pre>
+<h3>Test case 35</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = utilizadores0.getNome();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;&quot;, string0);
+</pre>
+<h3>Test case 36</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-1718.8F), (-1718.8F));
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores(&quot;Nome: &quot;, &quot;Nome: &quot;, &quot;[QSBz~R@IcUiA&quot;, &quot;Nome: &quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = utilizadores0.getNome();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;Nome: &quot;, string0);
+</pre>
+<h3>Test case 37</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto((-976.12415F), (-976.12415F));
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Encomenda&gt; hashMap0 = new HashMap&lt;String, Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizadores utilizadores0 = new Utilizadores((String) null, (String) null, (String) null, &quot;+K&amp;|:w7@I#|SP5vHW&quot;, ponto0, hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>String string0 = utilizadores0.getPW();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;+K&amp;|:w7@I#|SP5vHW&quot;, string0);
+</pre>
+<h3>Test case 38</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Ponto ponto0 = new Ponto();
+<span class="nocode"><a name="2">  2: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="3">  3: </a></span>Map&lt;String, Encomenda&gt; map0 = utilizadores0.getEncomendasGuardadas();
+<span class="nocode"><a name="4">  4: </a></span>Utilizadores utilizadores1 = new Utilizadores((String) null, (String) null, &quot;&quot;, (String) null, ponto0, map0);
+<span class="nocode"><a name="5">  5: </a></span>String string0 = utilizadores1.getPW();
+<span class="nocode"><a name="6">  6: </a></span>assertNull(string0);
+</pre>
+<h3>Test case 39</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Utilizadores utilizadores0 = new Utilizadores();
+<span class="nocode"><a name="2">  2: </a></span>Encomenda encomenda0 = new Encomenda();
+<span class="nocode"><a name="3">  3: </a></span>utilizadores0.adicionarEncomenda(encomenda0);
+<span class="nocode"><a name="4">  4: </a></span>List&lt;Encomenda&gt; list0 = utilizadores0.historicoEncomenda();
+<span class="nocode"><a name="5">  5: </a></span>assertFalse(list0.isEmpty());
+</pre>
+</div><div id="post">
+<h2 class=title id=source>Source Code</h2>
+<div class=source>
+<p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>import java.util.Map;
+<span class="nocode"><a name="2">  2: </a></span>import java.util.stream.Collectors;
+<span class="nocode"><a name="3">  3: </a></span>import java.io.Serializable;
+<span class="nocode"><a name="4">  4: </a></span>import java.util.HashMap;
+<span class="nocode"><a name="5">  5: </a></span>import java.util.List;
+<span class="nocode"><a name="6">  6: </a></span>
+<span class="nocode"><a name="7">  7: </a></span>public class Utilizadores implements Serializable {
+<span class="nocode"><a name="8">  8: </a></span>
+<span class="nocode"><a name="9">  9: </a></span>  /* STARTING functions */
+<span class="nocode"><a name="10"> 10: </a></span>
+<span class="nocode"><a name="11"> 11: </a></span>  private String codigo;
+<span class="nocode"><a name="12"> 12: </a></span>  private String nome;
+<span class="nocode"><a name="13"> 13: </a></span>  private String email;
+<span class="nocode"><a name="14"> 14: </a></span>  private String pw;
+<span class="nocode"><a name="15"> 15: </a></span>  private Ponto GPS;
+<span class="nocode"><a name="16"> 16: </a></span>  private Map&lt;String, Encomenda&gt; encomendasGuardadas;
+<span class="nocode"><a name="17"> 17: </a></span>
+<span class="nocode"><a name="18"> 18: </a></span>  public Utilizadores() {
+<span class="nocode"><a name="19"> 19: </a></span>    this.codigo = new String();
+<span class="nocode"><a name="20"> 20: </a></span>    this.nome = new String();
+<span class="nocode"><a name="21"> 21: </a></span>    this.email = new String();
+<span class="nocode"><a name="22"> 22: </a></span>    this.pw = new String();
+<span class="nocode"><a name="23"> 23: </a></span>    this.GPS = new Ponto();
+<span class="nocode"><a name="24"> 24: </a></span>    this.encomendasGuardadas = new HashMap&lt;&gt;();
+<span class="nocode"><a name="25"> 25: </a></span>  }
+<span class="nocode"><a name="26"> 26: </a></span>
+<span class="nocode"><a name="27"> 27: </a></span>  public Utilizadores(String codigo, String nome, String email, String pw, Ponto GPS, Map&lt;String, Encomenda&gt; encomendasGuardadas) {
+<span class="nocode"><a name="28"> 28: </a></span>    this.codigo = codigo;
+<span class="nocode"><a name="29"> 29: </a></span>    this.nome = nome;
+<span class="nocode"><a name="30"> 30: </a></span>    this.email = email;
+<span class="nocode"><a name="31"> 31: </a></span>    this.pw = pw;
+<span class="nocode"><a name="32"> 32: </a></span>    this.GPS = GPS.clone();
+<span class="nocode"><a name="33"> 33: </a></span>    setEncomendasGuardadas(encomendasGuardadas);
+<span class="nocode"><a name="34"> 34: </a></span>  }
+<span class="nocode"><a name="35"> 35: </a></span>
+<span class="nocode"><a name="36"> 36: </a></span>  public Utilizadores(Utilizadores u) {
+<span class="nocode"><a name="37"> 37: </a></span>    this.codigo = u.getCodigo();
+<span class="nocode"><a name="38"> 38: </a></span>    this.nome = u.getNome();
+<span class="nocode"><a name="39"> 39: </a></span>    this.email = u.getEmail();
+<span class="nocode"><a name="40"> 40: </a></span>    this.pw = u.getPW();
+<span class="nocode"><a name="41"> 41: </a></span>    this.GPS = u.getGPS();
+<span class="nocode"><a name="42"> 42: </a></span>    setEncomendasGuardadas(u.getEncomendasGuardadas());
+<span class="nocode"><a name="43"> 43: </a></span>  }
+<span class="nocode"><a name="44"> 44: </a></span>
+<span class="nocode"><a name="45"> 45: </a></span>
+<span class="nocode"><a name="46"> 46: </a></span>  /* GET functions */
+<span class="nocode"><a name="47"> 47: </a></span>
+<span class="nocode"><a name="48"> 48: </a></span>  public String getCodigo() {
+<span class="nocode"><a name="49"> 49: </a></span>    return this.codigo;
+<span class="nocode"><a name="50"> 50: </a></span>  }
+<span class="nocode"><a name="51"> 51: </a></span>
+<span class="nocode"><a name="52"> 52: </a></span>  public String getNome() {
+<span class="nocode"><a name="53"> 53: </a></span>    return this.nome;
+<span class="nocode"><a name="54"> 54: </a></span>  }
+<span class="nocode"><a name="55"> 55: </a></span>
+<span class="nocode"><a name="56"> 56: </a></span>  public String getEmail() {
+<span class="nocode"><a name="57"> 57: </a></span>    return this.email;
+<span class="nocode"><a name="58"> 58: </a></span>  }
+<span class="nocode"><a name="59"> 59: </a></span>
+<span class="nocode"><a name="60"> 60: </a></span>  public String getPW() {
+<span class="nocode"><a name="61"> 61: </a></span>    return this.pw;
+<span class="nocode"><a name="62"> 62: </a></span>  }
+<span class="nocode"><a name="63"> 63: </a></span>
+<span class="nocode"><a name="64"> 64: </a></span>  public Ponto getGPS() {
+<span class="nocode"><a name="65"> 65: </a></span>    return this.GPS.clone();
+<span class="nocode"><a name="66"> 66: </a></span>  }
+<span class="nocode"><a name="67"> 67: </a></span>
+<span class="nocode"><a name="68"> 68: </a></span>  public Map&lt;String, Encomenda&gt; getEncomendasGuardadas() {
+<span class="nocode"><a name="69"> 69: </a></span>    Map&lt;String, Encomenda&gt; newEncomendasGuardadas = new HashMap&lt;&gt;();
+<span class="nocode"><a name="70"> 70: </a></span>
+<span class="nocode"><a name="71"> 71: </a></span>    for (Map.Entry&lt;String, Encomenda&gt; e: this.encomendasGuardadas.entrySet())
+<span class="nocode"><a name="72"> 72: </a></span>      newEncomendasGuardadas.put(e.getKey(), e.getValue().clone());
+<span class="nocode"><a name="73"> 73: </a></span>    
+<span class="nocode"><a name="74"> 74: </a></span>    return newEncomendasGuardadas;
+<span class="nocode"><a name="75"> 75: </a></span>  }
+<span class="nocode"><a name="76"> 76: </a></span>
+<span class="nocode"><a name="77"> 77: </a></span>
+<span class="nocode"><a name="78"> 78: </a></span>  /* SET functions */
+<span class="nocode"><a name="79"> 79: </a></span>
+<span class="nocode"><a name="80"> 80: </a></span>  public void setCodigo(String newCodigo) {
+<span class="nocode"><a name="81"> 81: </a></span>    this.codigo = newCodigo;
+<span class="nocode"><a name="82"> 82: </a></span>  }
+<span class="nocode"><a name="83"> 83: </a></span>
+<span class="nocode"><a name="84"> 84: </a></span>  public void setNome(String newNome) {
+<span class="nocode"><a name="85"> 85: </a></span>    this.nome = newNome;
+<span class="nocode"><a name="86"> 86: </a></span>  }
+<span class="nocode"><a name="87"> 87: </a></span>
+<span class="nocode"><a name="88"> 88: </a></span>  public void setEmail(String newEmail) {
+<span class="nocode"><a name="89"> 89: </a></span>    this.email = newEmail;
+<span class="nocode"><a name="90"> 90: </a></span>  }
+<span class="nocode"><a name="91"> 91: </a></span>
+<span class="nocode"><a name="92"> 92: </a></span>  public void setPW(String newPW) {
+<span class="nocode"><a name="93"> 93: </a></span>    this.pw = newPW;
+<span class="nocode"><a name="94"> 94: </a></span>  }
+<span class="nocode"><a name="95"> 95: </a></span>
+<span class="nocode"><a name="96"> 96: </a></span>  public void setGPS(Ponto newGPS) {
+<span class="nocode"><a name="97"> 97: </a></span>    this.GPS = newGPS.clone();
+<span class="nocode"><a name="98"> 98: </a></span>  }
+<span class="nocode"><a name="99"> 99: </a></span>
+<span class="nocode"><a name="100">100: </a></span>  public void setEncomendasGuardadas(Map&lt;String, Encomenda&gt; newEncomendasGuardadas) {
+<span class="nocode"><a name="101">101: </a></span>    this.encomendasGuardadas = new HashMap&lt;&gt;();
+<span class="nocode"><a name="102">102: </a></span>
+<span class="nocode"><a name="103">103: </a></span>    newEncomendasGuardadas.entrySet().forEach(e -&gt; this.encomendasGuardadas.put(e.getKey(), e.getValue().clone()));
+<span class="nocode"><a name="104">104: </a></span>  }
+<span class="nocode"><a name="105">105: </a></span>
+<span class="nocode"><a name="106">106: </a></span>
+<span class="nocode"><a name="107">107: </a></span>  /* OTHER functions */
+<span class="nocode"><a name="108">108: </a></span>
+<span class="nocode"><a name="109">109: </a></span>  public Utilizadores clone() {
+<span class="nocode"><a name="110">110: </a></span>    return new Utilizadores(this);
+<span class="nocode"><a name="111">111: </a></span>  }
+<span class="nocode"><a name="112">112: </a></span>
+<span class="nocode"><a name="113">113: </a></span>  public boolean equals(Object obj) {
+<span class="nocode"><a name="114">114: </a></span>    if (obj == this)
+<span class="nocode"><a name="115">115: </a></span>      return true;
+<span class="nocode"><a name="116">116: </a></span>    if (obj == null || obj.getClass() != this.getClass())
+<span class="nocode"><a name="117">117: </a></span>      return false;
+<span class="nocode"><a name="118">118: </a></span>    
+<span class="nocode"><a name="119">119: </a></span>    Utilizadores u = (Utilizadores) obj;
+<span class="nocode"><a name="120">120: </a></span>    
+<span class="nocode"><a name="121">121: </a></span>    return super.equals(u);
+<span class="nocode"><a name="122">122: </a></span>  }
+<span class="nocode"><a name="123">123: </a></span>
+<span class="nocode"><a name="124">124: </a></span>  public String toString() {
+<span class="nocode"><a name="125">125: </a></span>    StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="126">126: </a></span>
+<span class="nocode"><a name="127">127: </a></span>    sb.append(&quot;C&oacute;digo: &quot;).append(this.codigo).append(&quot;\n&quot;);
+<span class="nocode"><a name="128">128: </a></span>    sb.append(&quot;Nome: &quot;).append(this.nome).append(&quot;\n&quot;);
+<span class="nocode"><a name="129">129: </a></span>    sb.append(&quot;Email: &quot;).append(this.email).append(&quot;\n&quot;);
+<span class="nocode"><a name="130">130: </a></span>    sb.append(&quot;GPS: &quot;).append(this.GPS).append(&quot;\n&quot;);
+<span class="nocode"><a name="131">131: </a></span>    
+<span class="nocode"><a name="132">132: </a></span>    return sb.toString();
+<span class="nocode"><a name="133">133: </a></span>  }
+<span class="nocode"><a name="134">134: </a></span>
+<span class="nocode"><a name="135">135: </a></span>  public String toStringCSV() {
+<span class="nocode"><a name="136">136: </a></span>    StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="137">137: </a></span>
+<span class="nocode"><a name="138">138: </a></span>    sb.append(&quot;Utilizador:&quot;);
+<span class="nocode"><a name="139">139: </a></span>    sb.append(this.codigo).append(&quot;,&quot;);
+<span class="nocode"><a name="140">140: </a></span>    sb.append(this.nome).append(&quot;,&quot;);
+<span class="nocode"><a name="141">141: </a></span>    sb.append(this.GPS.getX()).append(&quot;,&quot;);
+<span class="nocode"><a name="142">142: </a></span>    sb.append(this.GPS.getY());
+<span class="nocode"><a name="143">143: </a></span>
+<span class="nocode"><a name="144">144: </a></span>    return sb.toString();
+<span class="nocode"><a name="145">145: </a></span>  }
+<span class="nocode"><a name="146">146: </a></span>  
+<span class="nocode"><a name="147">147: </a></span>
+<span class="nocode"><a name="148">148: </a></span>  /* REQUIRED functions */
+<span class="nocode"><a name="149">149: </a></span>
+<span class="nocode"><a name="150">150: </a></span>  // M&eacute;todo que adiciona uma encomenda ao registo de encomendas do cliente
+<span class="nocode"><a name="151">151: </a></span>  public void adicionarEncomenda(Encomenda e) {
+<span class="nocode"><a name="152">152: </a></span>    this.encomendasGuardadas.put(e.getCodEncomenda(), e.clone());
+<span class="nocode"><a name="153">153: </a></span>  }
+<span class="nocode"><a name="154">154: </a></span>
+<span class="nocode"><a name="155">155: </a></span>  // M&eacute;todo que devolve o hist&oacute;rico de encomendas at&eacute; &agrave; data
+<span class="nocode"><a name="156">156: </a></span>  public List&lt;Encomenda&gt; historicoEncomenda() {
+<span class="nocode"><a name="157">157: </a></span>    return this.encomendasGuardadas.values().stream().map(Encomenda::clone).collect(Collectors.toList());
+<span class="nocode"><a name="158">158: </a></span>  }
+<span class="nocode"><a name="159">159: </a></span>}
+</pre>
+</p>
+</div>
+<div id="post">
+<h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>TARGET_CLASS: Utilizadores
+<li>criterion: LINE;BRANCH;EXCEPTION;WEAKMUTATION;OUTPUT;METHOD;METHODNOEXCEPTION;CBRANCH
+<li>Coverage: 0.9174288617886179
+<li>Total_Goals: 224
+<li>Covered_Goals: 221
+</ul></div>
+</div>
+<p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

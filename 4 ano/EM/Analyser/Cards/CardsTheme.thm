@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Card"/>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Black">
+   <type name="Unissued"/>
+</node>
+
+<node color="Gray">
+   <type name="Client"/>
+</node>
+
+<node color="Green">
+   <type name="Issued"/>
+</node>
+
+<node color="Red">
+   <type name="Cancelled"/>
+</node>
+
+<node showlabel="no">
+   <set name="$Exemplo_cl1" type="Client"/>
+   <set name="$Exemplo_cl2" type="Client"/>
+</node>
+
+<node showlabel="no" color="Black">
+   <set name="$c_unissued" type="Card"/>
+</node>
+
+<node showlabel="no" color="Green">
+   <set name="$c_issued" type="Card"/>
+</node>
+
+<node showlabel="no" color="Red">
+   <set name="$c_cancelled" type="Card"/>
+</node>
+
+<node visible="no">
+   <type name="Status"/>
+</node>
+
+<edge layout="no" attribute="no">
+   <relation name="cards"> <type name="Client"/> <type name="Card"/> </relation>
+</edge>
+
+<edge visible="no" layout="no" attribute="no">
+   <relation name="status"> <type name="Card"/> <type name="Status"/> </relation>
+</edge>
+
+</view>
+
+</alloy>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Cor"/>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Black">
+   <set name="$Exemplo_c" type="Camaleao"/>
+</node>
+
+<node color="Blue">
+   <type name="Azul"/>
+</node>
+
+<node color="Gray">
+   <type name="Camaleao"/>
+</node>
+
+<node color="Green">
+   <type name="Verde"/>
+</node>
+
+<node color="Yellow">
+   <type name="Amarelo"/>
+</node>
+
+<edge style="inherit">
+   <relation name="cor"> <type name="Camaleao"/> <type name="Cor"/> </relation>
+</edge>
+
+</view>
+
+</alloy>

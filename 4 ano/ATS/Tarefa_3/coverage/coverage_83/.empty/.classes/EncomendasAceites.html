@@ -1,0 +1,149 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: EncomendasAceites</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: EncomendasAceites (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EncomendasAceites</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (27/ 27)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.io.Serializable;
+<i>2</i>&nbsp;import java.util.ArrayList;
+<i>3</i>&nbsp;import java.util.List;
+<i>4</i>&nbsp;import java.util.stream.Collectors;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class EncomendasAceites implements Serializable {
+<i>7</i>&nbsp;    private List&lt;String&gt; aceites;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;    /** Construtores. */
+<b class="fc"><i>10</i>&nbsp;    public EncomendasAceites(){</b>
+<b class="fc"><i>11</i>&nbsp;        this.aceites = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>12</i>&nbsp;    }</b>
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;    public EncomendasAceites(List&lt;String&gt; encomendas){</b>
+<b class="fc"><i>15</i>&nbsp;        setAceites(encomendas);</b>
+<b class="fc"><i>16</i>&nbsp;    }</b>
+<i>17</i>&nbsp;
+<b class="fc"><i>18</i>&nbsp;    public EncomendasAceites(EncomendasAceites ea){</b>
+<b class="fc"><i>19</i>&nbsp;        setAceites(ea.getAceites());</b>
+<b class="fc"><i>20</i>&nbsp;    }</b>
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    /** Getters. */
+<i>23</i>&nbsp;    public List&lt;String&gt; getAceites(){
+<b class="fc"><i>24</i>&nbsp;        return this.aceites.stream().collect(Collectors.toList());</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    /** Setters. */
+<i>28</i>&nbsp;    public void setAceites(List&lt;String&gt; aceites){
+<b class="fc"><i>29</i>&nbsp;        this.aceites = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>30</i>&nbsp;        this.aceites.addAll(aceites);</b>
+<b class="fc"><i>31</i>&nbsp;    }</b>
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    /** Clone. */
+<i>34</i>&nbsp;    public EncomendasAceites clone(){
+<b class="fc"><i>35</i>&nbsp;      return new EncomendasAceites(this);</b>
+<i>36</i>&nbsp;    }
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    /** Equals. */
+<i>39</i>&nbsp;    public boolean equals(Object o){
+<b class="fc"><i>40</i>&nbsp;      if (o == null || getClass() != o.getClass()) {</b>
+<b class="fc"><i>41</i>&nbsp;		return false;</b>
+<i>42</i>&nbsp;	}
+<b class="fc"><i>43</i>&nbsp;      if (this == o) {</b>
+<b class="fc"><i>44</i>&nbsp;		return true;</b>
+<i>45</i>&nbsp;	}
+<b class="fc"><i>46</i>&nbsp;      EncomendasAceites ea = (EncomendasAceites) o;</b>
+<b class="fc"><i>47</i>&nbsp;      return this.aceites.equals(ea.getAceites());</b>
+<i>48</i>&nbsp;    }
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;    public String toString(){
+<b class="fc"><i>51</i>&nbsp;      StringBuilder sb = new StringBuilder();</b>
+<b class="fc"><i>52</i>&nbsp;      sb.append(&quot;Códigos de encomendas aceites: &quot; + &quot;\n&quot;);</b>
+<b class="fc"><i>53</i>&nbsp;      this.aceites.forEach(s -&gt; sb.append(s).append(&quot;\n&quot;));</b>
+<b class="fc"><i>54</i>&nbsp;      sb.append(&quot;\n&quot;);</b>
+<i>55</i>&nbsp;
+<b class="fc"><i>56</i>&nbsp;      return sb.toString();</b>
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    /**
+<i>60</i>&nbsp;     * Método que adiciona uma nova encomenda aceite.
+<i>61</i>&nbsp;     * @param cod
+<i>62</i>&nbsp;     */
+<i>63</i>&nbsp;    public void updateAceites(String cod){
+<b class="fc"><i>64</i>&nbsp;        this.aceites.add(cod);</b>
+<b class="fc"><i>65</i>&nbsp;    }</b>
+<i>66</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-01-25 10:35</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+Palavras reservadas.
+
+sig->declaração de um conjunto!
+var-> declara um conjunto como variavel! (tem varios valores ao longo dos estados possiveis.)
+fact -> uma coisa necessariamente verdade!
+
+
+Operadores Lógicos no alloy.
+not 
+and 
+or 
+implies
+all			->Quantificador
+some		->Quantificador
+
+in->contido 
+no->testa se um conjunto vazion
+some->verifica se um conjunto é nao vazio
+
++		-> junta dois conjuntos
+- 		-> faz a diferenca entre 2 conjuntos.
+
+
+
+always	->Especificar invariantes(é algo sempre verdade)
+after 	->Especificar Variante (isto é verdade no estado seguinte)
+
+' 		->O Valor no estado seguinte!!!
+
+
+
+
+a declaração dos conjuntos pode ser uma arvore?
+
+
+
+eventually= quer dizer inevitavel ---(Vai acontecer)
+
+
+
+Representação de um quadrado é igual à keyword allways 
+Representação de um lusangulo é igual à keyword eventualy(inevitavel... vai acontecer necessariamente.) 
+
+
+
+Parcido às leis de morgan
+allways f = neg(eventualy) neg(f)
+
+
+
+neg=negação
+
+
+check {pred implies inv}
+
+---------------------
+Factos
+
+
+Um facto é sempre verdade!
+
+
+os assert são consequencia de um facto.
+
+os asserts usam-se quando queremos verficar que um predicado é verdade ou queremos verificar que é falso.
+
+
+-------------------
+
+
+
+
+In vs Extends
+
+1- sig available extends Resource{}
+Ou
+2- sig available in Resource{}
+
+Em ambas a sig available está contida no conjunto Resource. Se não existir mais nenhuma sig a extender Resource a diferença é pouca, embora se usar extends pode declarar relações dentro da sig enquanto que com in não pode.
+No entanto se tivermos sigs mutáveis (declaradas com var) a diferença é mais evidente: se declararmos com in então um átomo que esteja em available num determinado estado pode noutro estado pertencer a Resource - available, enquanto que se declaramos com extends isso não pode acontecer - um átomo que esteja em available num determinado estado pode deixar de pertence a available noutro estado, mas nunca poderá pertencer a Resource - available.
+
+

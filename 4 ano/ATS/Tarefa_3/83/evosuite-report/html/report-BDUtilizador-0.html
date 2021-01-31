@@ -1,0 +1,482 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+BDUtilizador
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: BDUtilizador: 0.8916666666666667</ul>
+<ul>
+<li>24.0 fitness evaluations, 0 generations, null statements, 38 tests.
+<li>Covered null/null branches, <li>Covered null/null methods, <li>Covered 228/230 total goals
+</ul>
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content">
+<div id="post">
+<h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>BDUtilizador bDUtilizador1 = bDUtilizador0.clone();
+<span class="nocode"><a name="3">  3: </a></span>assertNotSame(bDUtilizador0, bDUtilizador1);
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, 283.62234439583, 304.7037, arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.add(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>boolean boolean0 = bDUtilizador0.existeEmail(&quot;&quot;);
+<span class="nocode"><a name="6">  6: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>Encomenda encomenda0 = new Encomenda();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador();
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.updateUser(encomenda0, utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>boolean boolean0 = bDUtilizador0.existe(utilizador0);
+<span class="nocode"><a name="6">  6: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>String string0 = bDUtilizador0.toString();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;Total de utilizadores: \n{}&quot;, string0);
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = bDUtilizador0.equals((Object) null);
+<span class="nocode"><a name="3">  3: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = bDUtilizador0.equals(bDUtilizador0);
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>BDUtilizador bDUtilizador1 = new BDUtilizador();
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = bDUtilizador0.equals(bDUtilizador1);
+<span class="nocode"><a name="4">  4: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>Utilizador utilizador0 = new Utilizador();
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = bDUtilizador0.equals(utilizador0);
+<span class="nocode"><a name="4">  4: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = bDUtilizador0.existeEmail(&quot;5sbPKq:&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador(&quot;Peso: &quot;, &quot;Peso: &quot;, &quot;Peso: &quot;, &quot;Peso: &quot;, 1.0, 0.0, arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = bDUtilizador0.existe(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = bDUtilizador0.existeCodigo(&quot;&gt;i-~)#,Ow'G8&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertFalse(boolean0);
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, 283.62234439583, 304.7037, arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.add(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>boolean boolean0 = bDUtilizador0.existeCodigo(&quot;&quot;);
+<span class="nocode"><a name="6">  6: </a></span>assertTrue(boolean0);
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>Utilizador utilizador0 = bDUtilizador0.tryLogin(&quot;Z.u}~2{7bxhTsXfR&lt;8`&quot;, &quot;Password incorreta&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertNull(utilizador0);
+</pre>
+<h3>Test case 14</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador(&quot;Peso: &quot;, &quot;Peso: &quot;, &quot;Peso: &quot;, &quot;Peso: &quot;, 1.0, 0.0, arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.updateUser2(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>Utilizador utilizador1 = bDUtilizador0.tryLogin(&quot;Peso: &quot;, &quot; 3&amp;Pu&quot;);
+<span class="nocode"><a name="6">  6: </a></span>assertNull(utilizador1);
+</pre>
+<h3>Test case 15</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador(&quot;M4DY}w&quot;, &quot;M4DY}w&quot;, &quot;&quot;, &quot;&quot;, (-13.713841602473575), 0.0, arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.updateUser2(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>Utilizador utilizador1 = bDUtilizador0.tryLogin(&quot;M4DY}w&quot;, &quot;M4DY}w&quot;);
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(&quot;&quot;, utilizador1.getCodigo());
+</pre>
+<h3>Test case 16</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>String string0 = &quot;c}0^\&quot;@._)a~7\\u~&quot;;
+<span class="nocode"><a name="4">  4: </a></span>Utilizador utilizador0 = new Utilizador(&quot;47??rv'WjM8N#go&gt;?&quot;, &quot;Q~&quot;, string0, &quot;Q~&quot;, 0.0, 1.0, arrayList0);
+<span class="nocode"><a name="5">  5: </a></span>bDUtilizador0.updateUser2(utilizador0);
+<span class="nocode"><a name="6">  6: </a></span>bDUtilizador0.getEmail((String) null);
+</pre>
+<h3>Test case 17</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>Encomenda encomenda0 = new Encomenda();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador();
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.updateUser(encomenda0, utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>String string0 = bDUtilizador0.getEmail(&quot;&quot;);
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(&quot;&quot;, string0);
+</pre>
+<h3>Test case 18</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>HashMap&lt;String, Utilizador&gt; hashMap0 = new HashMap&lt;String, Utilizador&gt;();
+<span class="nocode"><a name="3">  3: </a></span>bDUtilizador0.setUsers(hashMap0);
+<span class="nocode"><a name="4">  4: </a></span>assertTrue(hashMap0.isEmpty());
+</pre>
+<h3>Test case 19</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>BDUtilizador bDUtilizador1 = new BDUtilizador(bDUtilizador0);
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(bDUtilizador1.equals((Object)bDUtilizador0));
+</pre>
+<h3>Test case 20</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>Map&lt;String, Utilizador&gt; map0 = bDUtilizador0.getUsers();
+<span class="nocode"><a name="3">  3: </a></span>assertTrue(map0.isEmpty());
+</pre>
+<h3>Test case 21</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>Set&lt;String&gt; set0 = bDUtilizador0.getCodigos();
+<span class="nocode"><a name="3">  3: </a></span>bDUtilizador0.setCodigos(set0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(0, set0.size());
+</pre>
+<h3>Test case 22</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador((BDUtilizador) null);
+</pre>
+<h3>Test case 23</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Set&lt;String&gt; set0 = ZoneId.getAvailableZoneIds();
+<span class="nocode"><a name="2">  2: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador((Map&lt;String, Utilizador&gt;) null, set0);
+</pre>
+<h3>Test case 24</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>bDUtilizador0.add((Utilizador) null);
+</pre>
+<h3>Test case 25</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>bDUtilizador0.existe((Utilizador) null);
+</pre>
+<h3>Test case 26</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador((String) null, (String) null, (String) null, (String) null, (-2800.1214), (-2800.1214), arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.updateUser2(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>bDUtilizador0.getEmail((String) null);
+</pre>
+<h3>Test case 27</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>bDUtilizador0.setCodigos((Set&lt;String&gt;) null);
+</pre>
+<h3>Test case 28</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>bDUtilizador0.setUsers((Map&lt;String, Utilizador&gt;) null);
+</pre>
+<h3>Test case 29</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador(&quot;GcP:B:QF-}ex`Gh7b&quot;, (String) null, (String) null, &quot;GcP:B:QF-}ex`Gh7b&quot;, 2361.5, 2361.5, arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.updateUser2(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>bDUtilizador0.tryLogin(&quot;GcP:B:QF-}ex`Gh7b&quot;, (String) null);
+</pre>
+<h3>Test case 30</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>bDUtilizador0.updateUser((Encomenda) null, (Utilizador) null);
+</pre>
+<h3>Test case 31</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>bDUtilizador0.updateUser2((Utilizador) null);
+</pre>
+<h3>Test case 32</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>HashMap&lt;String, Utilizador&gt; hashMap0 = new HashMap&lt;String, Utilizador&gt;();
+<span class="nocode"><a name="2">  2: </a></span>Set&lt;String&gt; set0 = hashMap0.keySet();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador();
+<span class="nocode"><a name="4">  4: </a></span>hashMap0.put(&quot;&quot;, utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador(hashMap0, set0);
+<span class="nocode"><a name="6">  6: </a></span>Set&lt;String&gt; set1 = bDUtilizador0.getCodigos();
+<span class="nocode"><a name="7">  7: </a></span>assertTrue(set1.contains(&quot;&quot;));
+</pre>
+<h3>Test case 33</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>HashMap&lt;String, Utilizador&gt; hashMap0 = new HashMap&lt;String, Utilizador&gt;();
+<span class="nocode"><a name="2">  2: </a></span>LinkedHashSet&lt;String&gt; linkedHashSet0 = new LinkedHashSet&lt;String&gt;();
+<span class="nocode"><a name="3">  3: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="4">  4: </a></span>Utilizador utilizador0 = new Utilizador(&quot;-tb[:@e &quot;, &quot;C\u00F3digo: &quot;, &quot;-tb[:@e &quot;, &quot;C\u00F3digo: &quot;, 0.0, 0.0, arrayList0);
+<span class="nocode"><a name="5">  5: </a></span>hashMap0.put(&quot;)#=;J{NWK}HP&quot;, utilizador0);
+<span class="nocode"><a name="6">  6: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador(hashMap0, linkedHashSet0);
+<span class="nocode"><a name="7">  7: </a></span>String string0 = bDUtilizador0.getEmail(&quot;-tb[:@e &quot;);
+<span class="nocode"><a name="8">  8: </a></span>assertFalse(linkedHashSet0.contains(string0));
+</pre>
+<h3>Test case 34</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador((String) null, (String) null, &quot;eyf~aU^n63?~3&quot;, &quot;eyf~aU^n63?~3&quot;, 0.0, 0.0, arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.updateUser2(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>String string0 = bDUtilizador0.getEmail(&quot;eyf~aU^n63?~3&quot;);
+<span class="nocode"><a name="6">  6: </a></span>assertNull(string0);
+</pre>
+<h3>Test case 35</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador(&quot;C\u00F3digo de produto: &quot;, &quot;C\u00F3digo de produto: &quot;, &quot;N\u00E3o existem encomendas por entregar\n&quot;, &quot;C\u00F3digo de produto: &quot;, 976.892091941796, (-1.0), arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.updateUser2(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>Map&lt;String, Utilizador&gt; map0 = bDUtilizador0.getUsers();
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(1, map0.size());
+</pre>
+<h3>Test case 36</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>Utilizador utilizador0 = new Utilizador();
+<span class="nocode"><a name="3">  3: </a></span>bDUtilizador0.add(utilizador0);
+<span class="nocode"><a name="4">  4: </a></span>Utilizador utilizador1 = bDUtilizador0.tryLogin(&quot;&quot;, &quot;&quot;);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;&quot;, utilizador1.getTypeUser());
+</pre>
+<h3>Test case 37</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>Utilizador utilizador0 = new Utilizador(&quot;C\u00F3digo de produto: &quot;, &quot;C\u00F3digo de produto: &quot;, &quot;N\u00E3o existem encomendas por entregar\n&quot;, &quot;C\u00F3digo de produto: &quot;, 976.892091941796, (-1.0), arrayList0);
+<span class="nocode"><a name="4">  4: </a></span>bDUtilizador0.updateUser2(utilizador0);
+<span class="nocode"><a name="5">  5: </a></span>Utilizador utilizador1 = bDUtilizador0.tryLogin(&quot;C\u00F3digo de produto: &quot;, &quot;C\u00F3digo de produto: &quot;);
+<span class="nocode"><a name="6">  6: </a></span>assertEquals((-1.0), utilizador1.getLongitude(), 0.01);
+</pre>
+<h3>Test case 38</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BDUtilizador bDUtilizador0 = new BDUtilizador();
+<span class="nocode"><a name="2">  2: </a></span>ArrayList&lt;Encomenda&gt; arrayList0 = new ArrayList&lt;Encomenda&gt;();
+<span class="nocode"><a name="3">  3: </a></span>String string0 = &quot;c}0^\&quot;@._)a~7\\u~&quot;;
+<span class="nocode"><a name="4">  4: </a></span>Utilizador utilizador0 = new Utilizador(&quot;47??rv'WjM8N#go&gt;?&quot;, &quot;Q~&quot;, string0, &quot;Q~&quot;, 0.0, 1.0, arrayList0);
+<span class="nocode"><a name="5">  5: </a></span>bDUtilizador0.updateUser2(utilizador0);
+<span class="nocode"><a name="6">  6: </a></span>Utilizador utilizador1 = bDUtilizador0.tryLogin(&quot;47??rv'WjM8N#go&gt;?&quot;, &quot;Q~&quot;);
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(&quot;c}0^\&quot;@._)a~7\\u~&quot;, utilizador1.getCodigo());
+</pre>
+</div><div id="post">
+<h2 class=title id=source>Source Code</h2>
+<div class=source>
+<p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>import java.io.Serializable;
+<span class="nocode"><a name="2">  2: </a></span>import java.util.HashMap;
+<span class="nocode"><a name="3">  3: </a></span>import java.util.Map;
+<span class="nocode"><a name="4">  4: </a></span>import java.util.Set;
+<span class="nocode"><a name="5">  5: </a></span>import java.util.TreeSet;
+<span class="nocode"><a name="6">  6: </a></span>import java.util.stream.Collectors;
+<span class="nocode"><a name="7">  7: </a></span>
+<span class="nocode"><a name="8">  8: </a></span>public class BDUtilizador implements Serializable {
+<span class="nocode"><a name="9">  9: </a></span>    private Map&lt;String, Utilizador&gt; users;
+<span class="nocode"><a name="10"> 10: </a></span>    private Set&lt;String&gt; codigos;
+<span class="nocode"><a name="11"> 11: </a></span>
+<span class="nocode"><a name="12"> 12: </a></span>    public BDUtilizador() {
+<span class="nocode"><a name="13"> 13: </a></span>        this.users = new HashMap&lt;&gt;();
+<span class="nocode"><a name="14"> 14: </a></span>        this.codigos = new TreeSet&lt;&gt;();
+<span class="nocode"><a name="15"> 15: </a></span>    }
+<span class="nocode"><a name="16"> 16: </a></span>
+<span class="nocode"><a name="17"> 17: </a></span>    public BDUtilizador(Map&lt;String, Utilizador&gt; user, Set&lt;String&gt; codigos) {
+<span class="nocode"><a name="18"> 18: </a></span>        setUsers(user);
+<span class="nocode"><a name="19"> 19: </a></span>        setCodigos(codigos);
+<span class="nocode"><a name="20"> 20: </a></span>    }
+<span class="nocode"><a name="21"> 21: </a></span>
+<span class="nocode"><a name="22"> 22: </a></span>    public BDUtilizador(BDUtilizador r) {
+<span class="nocode"><a name="23"> 23: </a></span>        setUsers(r.getUsers());
+<span class="nocode"><a name="24"> 24: </a></span>        setCodigos(r.getCodigos());
+<span class="nocode"><a name="25"> 25: </a></span>    }
+<span class="nocode"><a name="26"> 26: </a></span>
+<span class="nocode"><a name="27"> 27: </a></span>    public Map&lt;String, Utilizador&gt; getUsers() {
+<span class="nocode"><a name="28"> 28: </a></span>        return this.users.entrySet().stream().collect(Collectors.toMap(r -&gt; r.getKey(), r -&gt; r.getValue().clone()));
+<span class="nocode"><a name="29"> 29: </a></span>    }
+<span class="nocode"><a name="30"> 30: </a></span>
+<span class="nocode"><a name="31"> 31: </a></span>    public Set&lt;String&gt; getCodigos() {
+<span class="nocode"><a name="32"> 32: </a></span>        return this.codigos.stream().collect(Collectors.toSet());
+<span class="nocode"><a name="33"> 33: </a></span>    }
+<span class="nocode"><a name="34"> 34: </a></span>
+<span class="nocode"><a name="35"> 35: </a></span>    public void setCodigos(Set&lt;String&gt; codigos) {
+<span class="nocode"><a name="36"> 36: </a></span>        this.codigos = new TreeSet&lt;&gt;();
+<span class="nocode"><a name="37"> 37: </a></span>        this.codigos.addAll(codigos);
+<span class="nocode"><a name="38"> 38: </a></span>    }
+<span class="nocode"><a name="39"> 39: </a></span>
+<span class="nocode"><a name="40"> 40: </a></span>    public void setUsers(Map&lt;String, Utilizador&gt; users) {
+<span class="nocode"><a name="41"> 41: </a></span>        this.users = new HashMap&lt;&gt;();
+<span class="nocode"><a name="42"> 42: </a></span>        users.entrySet().forEach(e -&gt; this.users.put(e.getKey(), e.getValue().clone()));
+<span class="nocode"><a name="43"> 43: </a></span>    }
+<span class="nocode"><a name="44"> 44: </a></span>
+<span class="nocode"><a name="45"> 45: </a></span>    public BDUtilizador clone() {
+<span class="nocode"><a name="46"> 46: </a></span>        return new BDUtilizador(this);
+<span class="nocode"><a name="47"> 47: </a></span>    }
+<span class="nocode"><a name="48"> 48: </a></span>
+<span class="nocode"><a name="49"> 49: </a></span>    public String toString() {
+<span class="nocode"><a name="50"> 50: </a></span>        StringBuilder sb = new StringBuilder();
+<span class="nocode"><a name="51"> 51: </a></span>        sb.append(&quot;Total de utilizadores: &quot; + &quot;\n&quot;);
+<span class="nocode"><a name="52"> 52: </a></span>        sb.append(this.users);
+<span class="nocode"><a name="53"> 53: </a></span>
+<span class="nocode"><a name="54"> 54: </a></span>        return sb.toString();
+<span class="nocode"><a name="55"> 55: </a></span>    }
+<span class="nocode"><a name="56"> 56: </a></span>
+<span class="nocode"><a name="57"> 57: </a></span>    public boolean equals(Object obj) {
+<span class="nocode"><a name="58"> 58: </a></span>        if (obj == this) {
+<span class="nocode"><a name="59"> 59: </a></span>			return true;
+<span class="nocode"><a name="60"> 60: </a></span>		}
+<span class="nocode"><a name="61"> 61: </a></span>        if (obj == null || obj.getClass() != getClass()) {
+<span class="nocode"><a name="62"> 62: </a></span>			return false;
+<span class="nocode"><a name="63"> 63: </a></span>		}
+<span class="nocode"><a name="64"> 64: </a></span>        BDUtilizador r = (BDUtilizador) obj;
+<span class="nocode"><a name="65"> 65: </a></span>        return this.users.equals(r.getUsers());
+<span class="nocode"><a name="66"> 66: </a></span>    }
+<span class="nocode"><a name="67"> 67: </a></span>
+<span class="nocode"><a name="68"> 68: </a></span>    /**
+<span class="nocode"><a name="69"> 69: </a></span>     * M&eacute;todo que verifica se um email j&aacute; est&aacute; registado.
+<span class="nocode"><a name="70"> 70: </a></span>     * @param email
+<span class="nocode"><a name="71"> 71: </a></span>     * @return
+<span class="nocode"><a name="72"> 72: </a></span>     */
+<span class="nocode"><a name="73"> 73: </a></span>    public boolean existeEmail(String email){
+<span class="nocode"><a name="74"> 74: </a></span>        return this.users.containsKey(email);
+<span class="nocode"><a name="75"> 75: </a></span>    }
+<span class="nocode"><a name="76"> 76: </a></span>
+<span class="nocode"><a name="77"> 77: </a></span>    /**
+<span class="nocode"><a name="78"> 78: </a></span>     * M&eacute;todo que verifica se um utiizador existe.
+<span class="nocode"><a name="79"> 79: </a></span>     * @param v
+<span class="nocode"><a name="80"> 80: </a></span>     * @return
+<span class="nocode"><a name="81"> 81: </a></span>     */
+<span class="nocode"><a name="82"> 82: </a></span>
+<span class="nocode"><a name="83"> 83: </a></span>    public boolean existe(Utilizador v){
+<span class="nocode"><a name="84"> 84: </a></span>        return this.users.containsKey(v.getEmail());
+<span class="nocode"><a name="85"> 85: </a></span>    }
+<span class="nocode"><a name="86"> 86: </a></span>
+<span class="nocode"><a name="87"> 87: </a></span>    /**
+<span class="nocode"><a name="88"> 88: </a></span>     * M&eacute;todo que adiciona um utilizador.
+<span class="nocode"><a name="89"> 89: </a></span>     * @param u
+<span class="nocode"><a name="90"> 90: </a></span>     */
+<span class="nocode"><a name="91"> 91: </a></span>    public void add(Utilizador u) {
+<span class="nocode"><a name="92"> 92: </a></span>        this.users.put(u.getEmail(), u.clone());
+<span class="nocode"><a name="93"> 93: </a></span>        this.codigos.add(u.getCodigo());
+<span class="nocode"><a name="94"> 94: </a></span>    }
+<span class="nocode"><a name="95"> 95: </a></span>
+<span class="nocode"><a name="96"> 96: </a></span>    /**
+<span class="nocode"><a name="97"> 97: </a></span>     * M&eacute;todo que verifica se um c&oacute;digo de utilizador existe.
+<span class="nocode"><a name="98"> 98: </a></span>     * @param s
+<span class="nocode"><a name="99"> 99: </a></span>     * @return
+<span class="nocode"><a name="100">100: </a></span>     */
+<span class="nocode"><a name="101">101: </a></span>    public boolean existeCodigo(String s){
+<span class="nocode"><a name="102">102: </a></span>        return this.codigos.contains(s);
+<span class="nocode"><a name="103">103: </a></span>    }
+<span class="nocode"><a name="104">104: </a></span>
+<span class="nocode"><a name="105">105: </a></span>    /**
+<span class="nocode"><a name="106">106: </a></span>     * M&eacute;todo que adiciona uma encomenda a um utilizador.
+<span class="nocode"><a name="107">107: </a></span>     * @param e
+<span class="nocode"><a name="108">108: </a></span>     * @param u
+<span class="nocode"><a name="109">109: </a></span>     */
+<span class="nocode"><a name="110">110: </a></span>    public void updateUser(Encomenda e, Utilizador u){
+<span class="nocode"><a name="111">111: </a></span>        u.addEncomenda(e);
+<span class="nocode"><a name="112">112: </a></span>        this.users.put(u.getEmail(), u);
+<span class="nocode"><a name="113">113: </a></span>    }
+<span class="nocode"><a name="114">114: </a></span>
+<span class="nocode"><a name="115">115: </a></span>    /**
+<span class="nocode"><a name="116">116: </a></span>     * M&eacute;todo que efetua o login de um utilizador.
+<span class="nocode"><a name="117">117: </a></span>     * @param email
+<span class="nocode"><a name="118">118: </a></span>     * @param password
+<span class="nocode"><a name="119">119: </a></span>     * @return
+<span class="nocode"><a name="120">120: </a></span>     */
+<span class="nocode"><a name="121">121: </a></span>    public Utilizador tryLogin(String email, String password){
+<span class="nocode"><a name="122">122: </a></span>        if(!this.users.containsKey(email)) {
+<span class="nocode"><a name="123">123: </a></span>			return null;
+<span class="nocode"><a name="124">124: </a></span>		} else{
+<span class="nocode"><a name="125">125: </a></span>            Utilizador aux = this.users.get(email).clone();
+<span class="nocode"><a name="126">126: </a></span>            if(aux.getPassword().equals(password)){
+<span class="nocode"><a name="127">127: </a></span>                System.out.println(&quot;Login feito com sucesso&quot;);
+<span class="nocode"><a name="128">128: </a></span>                return aux;
+<span class="nocode"><a name="129">129: </a></span>            }
+<span class="nocode"><a name="130">130: </a></span>            else{
+<span class="nocode"><a name="131">131: </a></span>                System.out.println(&quot;Password incorreta&quot;);
+<span class="nocode"><a name="132">132: </a></span>                return null;
+<span class="nocode"><a name="133">133: </a></span>            }
+<span class="nocode"><a name="134">134: </a></span>        }
+<span class="nocode"><a name="135">135: </a></span>    }
+<span class="nocode"><a name="136">136: </a></span>
+<span class="nocode"><a name="137">137: </a></span>    public String getEmail(String cod) throws UserNotFoundException{
+<span class="nocode"><a name="138">138: </a></span>        for(String s: this.users.keySet()){
+<span class="nocode"><a name="139">139: </a></span>            if(this.users.get(s).clone().getCodigo().equals(cod)) {
+<span class="nocode"><a name="140">140: </a></span>				return this.users.get(s).getEmail();
+<span class="nocode"><a name="141">141: </a></span>			}
+<span class="nocode"><a name="142">142: </a></span>        }
+<span class="nocode"><a name="143">143: </a></span>        throw new UserNotFoundException();
+<span class="nocode"><a name="144">144: </a></span>    }
+<span class="nocode"><a name="145">145: </a></span>
+<span class="nocode"><a name="146">146: </a></span>    /**
+<span class="nocode"><a name="147">147: </a></span>     * M&eacute;todo que atualiza um utilizador.
+<span class="nocode"><a name="148">148: </a></span>     * @param u
+<span class="nocode"><a name="149">149: </a></span>     */
+<span class="nocode"><a name="150">150: </a></span>    public void updateUser2(Utilizador u){
+<span class="nocode"><a name="151">151: </a></span>        this.users.put(u.getEmail(), u.clone());
+<span class="nocode"><a name="152">152: </a></span>    }
+<span class="nocode"><a name="153">153: </a></span>}
+</pre>
+</p>
+</div>
+<div id="post">
+<h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>TARGET_CLASS: BDUtilizador
+<li>criterion: LINE;BRANCH;EXCEPTION;WEAKMUTATION;OUTPUT;METHOD;METHODNOEXCEPTION;CBRANCH
+<li>Coverage: 0.8916666666666667
+<li>Total_Goals: 230
+<li>Covered_Goals: 228
+</ul></div>
+</div>
+<p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>
