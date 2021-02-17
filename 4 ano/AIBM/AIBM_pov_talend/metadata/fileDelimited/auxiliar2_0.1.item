@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_t6ZmoGDyEeuKnZc0h5taUw" name="auxiliar2" dataPackage="_t6ZmoWDyEeuKnZc0h5taUw" Server="Localhost 127.0.0.1" FilePath="C:/Users/bruno/Downloads/AUXILIAR2.csv" Encoding="UTF-8" FieldSeparatorValue="&quot;;&quot;" RowSeparatorType="Custom String" RowSeparatorValue="&quot;##&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_t6ZmoWDyEeuKnZc0h5taUw" name="default" dataManager="_t6ZmoGDyEeuKnZc0h5taUw">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_t6ZmomDyEeuKnZc0h5taUw" id="_n_ypYGDyEeuKnZc0h5taUw" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6Zmo2DyEeuKnZc0h5taUw" label="URG_EPISODE" length="7" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6ZmpGDyEeuKnZc0h5taUw" label="ID_PROFESSIONAL" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6ZmpWDyEeuKnZc0h5taUw" label="DT_PRESCRIPTION" length="19" talendType="id_Date" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6ZmpmDyEeuKnZc0h5taUw" label="ID_PRESCRIPTION" length="7" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6Zmp2DyEeuKnZc0h5taUw" label="DT_BEGIN" length="19" talendType="id_Date" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6ZmqGDyEeuKnZc0h5taUw" label="NOTE" length="117" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6ZmqWDyEeuKnZc0h5taUw" label="DT_CANCEL" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6ZmqmDyEeuKnZc0h5taUw" label="ID_PROFESSIONAL_CANCEL" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6Zmq2DyEeuKnZc0h5taUw" label="NOTE_CANCEL" length="20" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6ZmrGDyEeuKnZc0h5taUw" label="ID_INTERVENTION" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_t6ZmrWDyEeuKnZc0h5taUw" label="DESC_INTERVENTION" length="91" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

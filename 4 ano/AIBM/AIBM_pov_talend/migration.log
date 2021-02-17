@@ -1,0 +1,16 @@
+ ---=== Start Migration of project AIBM ===---
+ * Task [MoveHDFSAndHCatalogToHadoopFolderMigrationTask] : Applied successfully
+ * Task [ResetMavenTemplateMigrationTask] : Applied successfully
+ * Task [Fix a problem of project resources linked to items] : Nothing to do
+ * Task [PushHCatalogIntoHadoopClusterMigrationTask] : Nothing to do
+ * Task [PushHDFSIntoHadoopClusterMigrationTask] : Nothing to do
+ * Task [UnifyPasswordEncryption4NoSQLConnectionMigrationTask] : Nothing to do
+ * Task [ChangeMongoDBConnectionMinimalVersionMigrationTask] : Nothing to do
+ * Task [FixCassandraDataStaxDbtypesProblemMigrationTask] : Nothing to do
+ * Task [ChangeHadoopConfJarNameMigrationTask] : Nothing to do
+ * Task [AdaptDeprecatedHadoopVersionsMigrationTask] : Nothing to do
+ * Task [ReviseInvalidContextNamesOfHadoopPropertiesMigrationTask] : Nothing to do
+ * Task [UpdateHadoopConfsForContextualHadoopClusterMigrationTask] : Nothing to do
+ * Task [GenerateJobPomMigrationTask] : Applied successfully
+ * Task [AutoUpdateRelationsMigrationTask] : Applied successfully
+ ---=== End of migration ===---

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_rnXx4GDjEeubtMY5NQMJSQ" name="CSV_episodes" dataPackage="_rnXx4WDjEeubtMY5NQMJSQ" Server="Localhost 127.0.0.1" FilePath="C:/Users/bruno/Desktop/AIBM/urgency_episodes_new.csv" Encoding="UTF-8" FieldSeparatorValue="&quot;;&quot;" RowSeparatorType="Custom String" RowSeparatorValue="&quot;##&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_rnXx4WDjEeubtMY5NQMJSQ" name="default" dataManager="_rnXx4GDjEeubtMY5NQMJSQ">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_rnXx4mDjEeubtMY5NQMJSQ" id="_muIyEGDjEeubtMY5NQMJSQ" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx42DjEeubtMY5NQMJSQ" label="URG_EPISODE" length="7" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx5GDjEeubtMY5NQMJSQ" label="DATE_OF_BIRTH" length="19" talendType="id_Date" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx5WDjEeubtMY5NQMJSQ" label="SEX" length="1" talendType="id_Character" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx5mDjEeubtMY5NQMJSQ" label="DISTRICT" length="16" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx52DjEeubtMY5NQMJSQ" label="DT_ADMITION_URG" length="19" talendType="id_Date" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx6GDjEeubtMY5NQMJSQ" label="ID_EXT_CAUSE" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx6WDjEeubtMY5NQMJSQ" label="DESC_EXTERNAL_CAUSE" length="20" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx6mDjEeubtMY5NQMJSQ" label="ID_PROF_ADMITION" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx62DjEeubtMY5NQMJSQ" label="DT_ADMITION_TRAIGE" length="19" talendType="id_Date" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx7GDjEeubtMY5NQMJSQ" label="ID_PROF_TRIAGE" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx7WDjEeubtMY5NQMJSQ" label="PAIN_SCALE" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx7mDjEeubtMY5NQMJSQ" label="ID_COLOR" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx72DjEeubtMY5NQMJSQ" label="DESC_COLOR" length="7" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx8GDjEeubtMY5NQMJSQ" label="COD_DIAGNOSIS" length="6" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx8WDjEeubtMY5NQMJSQ" label="DIAGNOSIS" length="69" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx8mDjEeubtMY5NQMJSQ" label="DIAGNOSIS_NOTES" length="24" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx82DjEeubtMY5NQMJSQ" label="DT_DIAGNOSIS" length="19" talendType="id_Date" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx9GDjEeubtMY5NQMJSQ" label="ID_PROF_DIAGNOSIS" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx9WDjEeubtMY5NQMJSQ" label="ID_DESTINATION" length="3" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx9mDjEeubtMY5NQMJSQ" label="DESC_DESTINATION" length="32" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx92DjEeubtMY5NQMJSQ" label="ID_PROF_DISCHARGE" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx-GDjEeubtMY5NQMJSQ" label="DT_DISCHARGE" length="19" talendType="id_Date" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx-WDjEeubtMY5NQMJSQ" label="ID_REASON" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rnXx-mDjEeubtMY5NQMJSQ" label="DESC_REASON" length="34" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

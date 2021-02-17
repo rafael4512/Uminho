@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_hJn0EWD4EeuKnZc0h5taUw" name="CSV_prescription" id="_hJn0EGD4EeuKnZc0h5taUw" dataPackage="_hJn0EmD4EeuKnZc0h5taUw" Server="Localhost 127.0.0.1" FilePath="/Users/ril/Desktop/AIBM/AIBM-TP/urgency_prescriptions.csv" Encoding="UTF-8" FieldSeparatorValue="&quot;;&quot;" RowSeparatorType="Custom String" RowSeparatorValue="&quot;##&quot;" UseHeader="true" HeaderValue="1" FooterValue="0" LimitValue="" FirstLineCaption="true" EscapeChar="&quot;\&quot;&quot;" TextEnclosure="&quot;\&quot;&quot;"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_hJn0EmD4EeuKnZc0h5taUw" name="default" dataManager="_hJn0EWD4EeuKnZc0h5taUw">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_hJn0E2D4EeuKnZc0h5taUw" id="_VEspoGD4EeuKnZc0h5taUw" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0FGD4EeuKnZc0h5taUw" label="URG_EPISODE" length="7" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0FWD4EeuKnZc0h5taUw" label="COD_PRESCRIPTION" length="8" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0FmD4EeuKnZc0h5taUw" label="ID_PROF_PRESCRIPTION" length="5" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0F2D4EeuKnZc0h5taUw" label="DT_PRESCRIPTION" length="19" talendType="id_Date" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0GGD4EeuKnZc0h5taUw" label="COD_DRUG" length="9" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0GWD4EeuKnZc0h5taUw" label="QT" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0GmD4EeuKnZc0h5taUw" label="PVP" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0G2D4EeuKnZc0h5taUw" label="COMPARTICIPATION" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0HGD4EeuKnZc0h5taUw" label="POSOLOGY" length="77" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_hJn0HWD4EeuKnZc0h5taUw" label="DESC_DRUG" length="215" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_c6l4cWJkEeuhHZuhqxkb6w" name="CSV_exam" dataPackage="_c6l4cmJkEeuhHZuhqxkb6w" Server="Localhost 127.0.0.1" FilePath="/Users/ril/Desktop/AIBM/AIBM-TP/urgency_exams.csv" Encoding="UTF-8" FieldSeparatorValue="&quot;;&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_c6l4cmJkEeuhHZuhqxkb6w" name="default" dataManager="_c6l4cWJkEeuhHZuhqxkb6w">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_c6l4c2JkEeuhHZuhqxkb6w" id="_XKaCgGJkEeuhHZuhqxkb6w" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_c6l4dGJkEeuhHZuhqxkb6w" label="URG_EPISODE" length="7" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_c6l4dWJkEeuhHZuhqxkb6w" label="NUM_EXAM" length="18" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_c6l4dmJkEeuhHZuhqxkb6w" label="DESC_EXAM" length="52" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>
