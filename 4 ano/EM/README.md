@@ -1,6 +1,6 @@
 # EM - Especificação e Modelação
-
-Este projeto (localizado na diretoria TP) consiste em traduzir uma especificação feita em <b>TLA+</b> para <b>Electrum/Alloy</b>.A especificação realizada foi a um algoritmo para alocação de recursos a processos.
+Neste Repositório encontram-se vários exercícios, realizados na unidade curricular(UC), do alloy4fun e especificação e modelação de sistemas/algoritmos conhecidos.
+O projeto desta UC (localizado na diretoria  <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/EM/TP/">TP</a></li>) consiste em traduzir uma especificação feita em <b>TLA+</b> para <b>Electrum/Alloy</b>. A especificação realizada foi a um algoritmo para alocação de recursos a processos.
 <p>
 Existem várias versões da especificação do <i>allocator</i>: 
 
