@@ -13,5 +13,6 @@ Existem várias versões da especificação do <i>allocator</i>:
 </ul>
  
 <h3>Nota:</h3>
-A versão do <b>TLA+</b> pode ser encontrada no seguinte <a href="https://github.com/tlaplus/Examples/tree/master/specifications/allocator">git </a>.Para mais informações sobre o allocator, este tem um <a href=" https://github.com/tlaplus/Examples/blob/master/specifications/allocator/allocator.pdf">documento</a> que o explica detalhadamente.
+A versão do <b>TLA+</b> pode ser encontrada no seguinte <a href="https://github.com/tlaplus/Examples/tree/master/specifications/allocator">git </a>.
+<p>Para mais informações sobre o allocator, este tem um <a href="https://github.com/tlaplus/Examples/blob/master/specifications/allocator/allocator.pdf">documento</a> que o explica detalhadamente.
 
