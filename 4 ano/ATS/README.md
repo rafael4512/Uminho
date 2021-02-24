@@ -11,7 +11,7 @@ Dado isto, este pode ser  dividido em <b>4</b> fases distintas, sendo estas:
 </ul>
 <p>
 :movie_camera: Pode ver uma demonstração do projeto <a href="https://youtu.be/Dfwf9XbKtC4">aqui</a>.<p>
-:scroll: Para informação mais detalhada ver o <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/ATS/Documenta%C3%A7%C3%A3o/Relat%C3%B3rio_grupo4.pdf">relatório</a>, caso queira uma overview do projeto veja a <a href="https://docs.google.com/presentation/d/1u_4lutkfyAkt25dak6jNt5voOtRI36tzPN6lHMd1ug4/edit?usp=sharing">apresentação</a>.
+:scroll: Para informação mais detalhada, ver o <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/ATS/Documenta%C3%A7%C3%A3o/Relat%C3%B3rio_grupo4.pdf">relatório</a>, caso queira uma overview do projeto veja a <a href="https://docs.google.com/presentation/d/1u_4lutkfyAkt25dak6jNt5voOtRI36tzPN6lHMd1ug4/edit?usp=sharing">apresentação</a>.
 
 <h2>Guia de utilização </h2>
 
