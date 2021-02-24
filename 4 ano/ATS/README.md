@@ -1,5 +1,5 @@
 # ATS - Análise e Teste de Software
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 Este projeto consiste na <b> análise/melhoria </b> de 99 projetos java, utilizando <b>shell script</b> de forma a automatizar o processo.
 
 Dado isto, este pode ser  dividido em <b>4</b> fases distintas, sendo estas:
@@ -10,8 +10,8 @@ Dado isto, este pode ser  dividido em <b>4</b> fases distintas, sendo estas:
  	<li> Foi feita uma análise energética do mesmo. Esta pode ser vista com mais detalhe no relatório.</li>
 </ul>
 <p>
-<i class="fa fa-youtube-play" style="font-size:20px;color:red"></i> Pode ver uma demonstração do projeto <a href="https://youtu.be/Dfwf9XbKtC4">aqui</a>.<p>
-<i class="fa fa-file-pdf-o" style="font-size:20px"></i> Para informação mais detalhada ver o <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/ATS/Documenta%C3%A7%C3%A3o/Relat%C3%B3rio_grupo4.pdf">relatório</a>, caso queira uma overview do projeto veja a <a href="https://docs.google.com/presentation/d/1u_4lutkfyAkt25dak6jNt5voOtRI36tzPN6lHMd1ug4/edit?usp=sharing">apresentação</a>.
+:movie_camera: Pode ver uma demonstração do projeto <a href="https://youtu.be/Dfwf9XbKtC4">aqui</a>.<p>
+:scroll: Para informação mais detalhada ver o <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/ATS/Documenta%C3%A7%C3%A3o/Relat%C3%B3rio_grupo4.pdf">relatório</a>, caso queira uma overview do projeto veja a <a href="https://docs.google.com/presentation/d/1u_4lutkfyAkt25dak6jNt5voOtRI36tzPN6lHMd1ug4/edit?usp=sharing">apresentação</a>.
 
 <h2>Guia de utilização </h2>
 
