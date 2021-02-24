@@ -6,4 +6,4 @@ Este projeto consiste na abordagem de várias formas de tratamento de dados a um
  :scroll: Para informação mais detalhada sobre este projeto, ver o <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/AEC/Documenta%C3%A7%C3%A3o/report.pdf">relatório</a>.
 
 <h2>Nota:</h2>
-:scroll: Foi feito um estudo para conhecer vários modelos de inteligência artificial cada vez mais capazes e que utilizam algoritmos de aprendizagem interativos, permitindo fazer uma análise complexa de dados com alta precisão. <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/AEC/paper.pdf">relatório</a>.
+:scroll: Foi feito um estudo para conhecer vários modelos de inteligência artificial cada vez mais capazes e que utilizam algoritmos de aprendizagem interativos, permitindo fazer uma análise complexa de dados com alta precisão. Para mais informações sobre o mesmo, consultar o <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/AEC/paper.pdf">paper</a>.
