@@ -1,5 +1,5 @@
 # ATS - Análise e Teste de Software
-
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 Este projeto consiste na <b> análise/melhoria </b> de 99 projetos java, utilizando <b>shell script</b> de forma a automatizar o processo.
 
 Dado isto, este pode ser  dividido em <b>4</b> fases distintas, sendo estas:
