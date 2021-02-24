@@ -1,6 +1,6 @@
 # EM - Especificação e Modelação
 
-Este projeto consiste em traduzir uma especificação feita em <b>TLA+</b> para <b>Electrum/Alloy</b>.A especificação realizada foi a um algoritmo para alocação de recursos a processos.
+Este projeto (localizado na diretoria TP) consiste em traduzir uma especificação feita em <b>TLA+</b> para <b>Electrum/Alloy</b>.A especificação realizada foi a um algoritmo para alocação de recursos a processos.
 <p>
 Existem várias versões da especificação do <i>allocator</i>: 
 
