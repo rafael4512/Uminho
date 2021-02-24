@@ -6,5 +6,5 @@ Inicialmente foi modelado em <i> UML</i>, sendo posteriormente, implementado em 
  :scroll: Para informação mais detalhada, ver o <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/AI/Documenta%C3%A7%C3%A3o/AI_F2G11.pdf">relatório</a>.
 
 
-
-:scroll: Foi realizado um estudo da potencialidade dos sistemas multiagente, aplicado a um <b>micro-rede</b>.Para mais informações, consultar o  <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/AEC/paper.pdf">paper</a>.
+<h2>Nota:</h2>
+:scroll: Foi ainda, realizado um estudo para analisar a potencialidade dos sistemas multiagente, aplicado a uma <b>micro-rede</b> na área das energias.Para mais informações, consultar o <a href="https://github.com/rafael4512/Uminho/blob/main/4%20ano/AEC/paper.pdf">paper</a>.
