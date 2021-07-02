@@ -1,0 +1,8 @@
+<root>
+ <spec>Vm1_spec.mcrl2</spec>
+ <properties>
+  <property>no three 10ct coins in a row</property>
+  <property> no chocolate after 10 cents</property>
+  <property>an apple  choc only after10 CT e 20 CT  Respect</property>
+ </properties>
+</root>
