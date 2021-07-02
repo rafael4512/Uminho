@@ -1,0 +1,4 @@
+#Battle Properties
+#Fri Mar 12 23:36:37 GMT 2021
+robocode.battle.rules.inactivityTime=4500
+robocode.battle.selectedRobots=ourrobots.F2.Grounded*,ourrobots.F2.AlphaTeam *

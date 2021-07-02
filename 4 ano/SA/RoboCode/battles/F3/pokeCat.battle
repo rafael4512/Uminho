@@ -1,0 +1,4 @@
+#Battle Properties
+#Fri Mar 19 16:21:50 GMT 2021
+robocode.battle.numRounds=10
+robocode.battle.selectedRobots=ourrobots.F3.PokeTeam *,ourrobots.catarina.Catarina *

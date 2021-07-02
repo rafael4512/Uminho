@@ -1,0 +1,10 @@
+#Battle Properties
+#Sun Mar 21 01:35:46 GMT 2021
+robocode.battle.numRounds=1000
+robocode.battle.rules.inactivityTime=450
+robocode.battle.hideEnemyNames=false
+robocode.battle.gunCoolingRate=0.1
+robocode.battleField.height=600
+robocode.battleField.width=800
+robocode.battle.sentryBorderSize=100
+robocode.battle.selectedRobots=ourrobots.F3.MegaEvolutions.PokeTeamMegaEvolutions *,ourrobots.catarina.Catarina *
