@@ -6,5 +6,5 @@
 
 ## Our Machine (BreakoutDeterministic-v4)
 <p align="center"> 
-<img src="/Breakout/gifs/best_score_deterministic.gif">
+<img src="Breakout/gifs/best_score_deterministic.gif">
 </p>
