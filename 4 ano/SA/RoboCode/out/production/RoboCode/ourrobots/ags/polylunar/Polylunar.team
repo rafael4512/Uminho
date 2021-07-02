@@ -1,0 +1,7 @@
+#Robocode robot team
+#Sat Mar 20 17:45:15 GMT 2021
+team.description=4\u00BA
+robocode.version=1.9.3.9
+team.author.name=
+team.version=
+team.members=ourrobots.ags.polylunar.Charon*,ourrobots.ags.polylunar.Europa*,ourrobots.ags.polylunar.Io*,ourrobots.ags.polylunar.Luna*,ourrobots.ags.polylunar.Phobos*
