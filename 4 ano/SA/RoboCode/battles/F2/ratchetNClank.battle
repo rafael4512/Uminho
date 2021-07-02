@@ -1,6 +1,0 @@
-#Battle Properties
-#Sat Mar 13 23:32:10 GMT 2021
-robocode.battle.numRounds=10
-robocode.battle.rules.inactivityTime=4500
-robocode.battle.hideEnemyNames=true
-robocode.battle.selectedRobots=ourrobots.F2.RatchetNClank *,ourrobots.F2.Grounded*

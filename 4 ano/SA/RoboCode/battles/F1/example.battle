@@ -1,6 +1,0 @@
-#Battle Properties
-#Wed Mar 10 23:37:29 GMT 2021
-robocode.battle.numRounds=1000
-robocode.battleField.height=640
-robocode.battleField.width=850
-robocode.battle.selectedRobots=robots.RockQuad 1.0,robots.RockQuad 1.0,robots.RockQuad 1.0,ourrobots.F1.BeastMaster64*
