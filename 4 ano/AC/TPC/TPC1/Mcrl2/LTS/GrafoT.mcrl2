@@ -1,9 +1,0 @@
-% LTS t
-act 
- a,b;
-proc
- t=a.t1;
- t1=b.t1 + b.t2;
- t2=a.t;
-
-init t ; 

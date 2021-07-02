@@ -1,9 +1,0 @@
-
-[ true* . !(coin10 || coin20) . readyA ] false ||
-[ true* . !(coin20) . readyC ] false || 
-[ true* . !(coin10) .!(coin10) . readyC ] false 
-
-
-
-
-
