@@ -1,0 +1,73 @@
+funtor- como se aplica functions a um certo tipo de dados.
+
+pure - é um metodo.
+
+
+
+xs >>= f = concat (map f xs)
+
+
+
+
+
+
+
+
+----------------------------------------------------
+-- metodos de aplicações infix 
+-- (+2) <$> Just 5 = fmap (+2) (Just 5)
+
+
+
+
+data BTree a = Empty | Node a (BTree  a) (BTree  a)  deriving Show
+{- 
+-- como  se aplicaria uma função à estrutura?
+-- Pensar num map
+
+-------------
+Exemplo com a estrutura de Maybe:
+Serve para aplicação de funções(unwrapped) a estruturas de dados. 
+Explicação de operadores <*>:
+	(+2) <$> Just 5 	=		 fmap (+2) (Just 5)
+-}
+instance Functor BTree where 
+	fmap f (Empty)= Empty
+	fmap f (Node a l r )= Node (f a) (fmap f l) (fmap f r)
+
+
+-- Para testar: (+2) <$> tree
+{- 
+Neste caso, temos uma arvore com funções em cada nó, sendo que cada função vai ser aplicada a uma arvore de valores  criando N arvores como resultado.
+-------------
+Exemplo com a estrutura de Maybe:
+Serve para aplicação de funções(wrapped) a estruturas de dados. 
+Explicação de operadores <*>:
+	Just (+2) <*> Just 5 	=		 fmap (+2) (Just 5)
+-}
+
+instance Applicative BTree where 
+	pure a = Empty
+	Empty <*> _  = Empty
+	_ <*> Empty  = Empty
+	Node  f lf rf <*> Node v l_values r_values = Node (f v) (lf <*> l_values ) (rf <*> r_values) 
+
+
+
+-- Instance do monad 
+--Obj: Aqui queremos executar uma composição de funções a uma estrutura. 
+instance Monad BTree where
+   return x = Node x Empty Empty
+   (Node x l r) >>= f =  (f x) 
+   Empty >>= _ = Empty
+
+
+--Exemplo de uso monad
+--fução aplicada
+g x | x ==4  = Empty |otherwise = Node  (x*x) Empty Empty
+
+ 
+treev = Node 1 (Node 2 Empty Empty) (Node 3 Empty Empty) 
+treef = Node (+1) (Node (+2) Empty Empty) (Node (+4) Empty Empty) 
+
+

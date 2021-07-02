@@ -1,0 +1,1 @@
+[ true* . !(coin10) . coin10 . readyC ] false

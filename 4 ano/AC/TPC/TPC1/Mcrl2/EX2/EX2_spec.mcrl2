@@ -1,0 +1,17 @@
+act %ac(x)=4+6(x-1)
+	in1,mo1,mi1,r,mo2,out2,t,mi2,t_mo,t_mi;
+proc %p(x)=x
+	
+	B1 = in1.mo1.mi1.r .B1;
+	B2 = mo2.out2.t.mi2 .B2;
+
+	%B1 = in1.r.mo1.mi1.B1;
+	%B2 = mo2.mi2.out2.t.B2;
+
+init 
+	allow( %allow(x)=2x +2 |||| 				2*(x+1)
+		{in1,t_mi,t_mo,t,r,out2},
+		comm({ mi1|mi2 ->t_mi , mo1|mo2 ->t_mo },%comm(x)=2x-2 =  2*(x-1)
+		B1||B2))
+;
+

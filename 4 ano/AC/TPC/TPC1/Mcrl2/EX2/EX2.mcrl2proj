@@ -1,0 +1,8 @@
+<root>
+ <spec>EX2_spec.mcrl2</spec>
+ <properties>
+  <property>S_elemInf</property>
+  <property>S_INincio</property>
+  <property>Live_SQES</property>
+ </properties>
+</root>
