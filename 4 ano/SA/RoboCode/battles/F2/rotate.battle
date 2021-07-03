@@ -1,0 +1,4 @@
+#Battle Properties
+#Sun Mar 14 21:45:16 GMT 2021
+robocode.battle.rules.inactivityTime=4500
+robocode.battle.selectedRobots=ourrobots.F2.SpinningTop *,ourrobots.F2.Grounded*

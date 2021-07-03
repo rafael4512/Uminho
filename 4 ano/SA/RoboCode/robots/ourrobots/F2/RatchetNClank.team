@@ -1,0 +1,7 @@
+#Robocode robot team
+#Tue Mar 09 22:34:02 GMT 2021
+team.description= Ratchet&Clank Ping Pong Edition
+robocode.version=1.9.3.9
+team.author.name=
+team.version=
+team.members=ourrobots.F2.Clank*,ourrobots.F2.Ratchet*,ourrobots.F2.Ratchet*

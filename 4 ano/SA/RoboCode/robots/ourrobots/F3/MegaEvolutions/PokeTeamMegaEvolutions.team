@@ -1,0 +1,7 @@
+#Robocode Robot Team
+#Sun Mar 21 16:04:25 GMT 2021
+team.description=Evolutions
+robocode.version=1.9.3.9
+team.author.name=Andr\u00E9 Figueiredo, Lu\u00EDs Ferreira, Pedro Machado, Rafael Louren\u00E7o
+team.version=v3.1
+team.members=ourrobots.F3.MegaEvolutions.PokeTrainer*,ourrobots.F3.MegaEvolutions.Pokemon*,ourrobots.F3.MegaEvolutions.Pokemon*,ourrobots.F3.MegaEvolutions.Pokemon*,ourrobots.F3.MegaEvolutions.Pokemon*

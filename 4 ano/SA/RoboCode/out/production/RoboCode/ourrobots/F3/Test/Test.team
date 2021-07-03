@@ -1,0 +1,7 @@
+#Robocode robot team
+#Wed Mar 17 13:03:18 GMT 2021
+team.description=Try 1
+robocode.version=1.9.3.9
+team.author.name=
+team.version=
+team.members=ourrobots.Test.F3.RunAway*,ourrobots.TestF3.DumbFire*
