@@ -2,7 +2,7 @@
 
 ## Sistemas Autónomos ##
 - Trabalhos práticos:
-	- [x] Sistemas Autónomos
+	- [x] Robots/TeamRobot para Robocode.
 	- [x] Sensorização Ambiente
 		- Raspberry Pi a recolher dados + Drive para manter os dados
 		- Google Data Studio para representar os dados
