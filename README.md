@@ -1,2 +1,2 @@
 # Uminho
- Projects done at Master on University of Minho
+ Projects done in the Master at University of Minho
